@@ -2,30 +2,11 @@
 ---
 # Kenneth Lane Thompson
 
-<style>
-    .container {
-        display: flex;
-        align-items: center;
-    }
-    .text {
-        flex: 1;
-    }
-    .image {
-        margin-left: 20px;
-    }
-</style>
-</head>
-<body>
-
-<div class="container">
-    <p class="text">
-        Kenneth Lane Thompson è una figura leggendaria nell'ambito dell'informatica, noto principalmente come co-creatore del sistema operativo Unix insieme a Dennis Ritchie negli anni '70 presso i Bell Labs (ora parte di AT&T). Nato il 4 febbraio 1943 a New Orleans, Thompson ha avuto un impatto significativo sullo sviluppo del software e sulla cultura informatica.
-        Thompson è stato coinvolto in diversi progetti chiave oltre a Unix. Ha sviluppato il linguaggio di programmazione B, che ha poi ispirato lo sviluppo del linguaggio C da parte di Dennis Ritchie. Inoltre, Thompson ha contribuito allo sviluppo del sistema operativo Plan 9, un successore di Unix.
-    </p>
-    <img class="image" src="./img/Thompson.jpg" alt="Immagine">
-</div>
-
-</body>
+<p class="text">
+    Kenneth Lane Thompson è una figura leggendaria nell'ambito dell'informatica, noto principalmente come co-creatore del sistema operativo Unix insieme a Dennis Ritchie negli anni '70 presso i Bell Labs (ora parte di AT&T). Nato il 4 febbraio 1943 a New Orleans, Thompson ha avuto un impatto significativo sullo sviluppo del software e sulla cultura informatica.
+    Thompson è stato coinvolto in diversi progetti chiave oltre a Unix. Ha sviluppato il linguaggio di programmazione B, che ha poi ispirato lo sviluppo del linguaggio C da parte di Dennis Ritchie. Inoltre, Thompson ha contribuito allo sviluppo del sistema operativo Plan 9, un successore di Unix.
+</p>
+<img class="image" src="./img/Thompson.jpg"  alt="Immagine">
 
 ---
 # Curiosità
