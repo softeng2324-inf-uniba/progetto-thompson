@@ -178,8 +178,9 @@ Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow 
 ![Update_GitHub_badge_1](./img/Update_GitHub_badge_1.png)
 - la pagina *"All workflows"* sotto la tab *"Actions"*, riporta l'elenco delle esecuzioni (*run*) di tutti i workflow di GitHub Actions attivabili nel repository; per filtrarne il contenuto e visualizzare soltanto le esecuzioni relative al workflow `docker_build&push.yml`, fare click sulla voce corrispondente nel pannello laterale a sinistra. (**N.B.**: all'inizio del progetto, è del tutto normale che queste liste siano vuote. I workflow si attiveranno per la prima volta quando modificherete il codice nella cartella `src/` ed effettuerete Pull Request o operazioni di push/merge sul branch `main`);
 - Una volta selezionato il workflow `docker_build&push.yml` dal pannello laterale, in alto a destra nella pagina – di fianco alla text box con la scritta "Filter workflow runs" – comparirà un nuovo bottone con tre puntini `•••`. Fare click su tale bottone e poi selezionare la voce "Create status badge" nel menù a tendina.
+![Update_GitHub_badge_3](./img/Update_GitHub_badge_3.png)
 - Lasciando invariate le impostazioni di default (`branch` e `event`) nella finestra a comparsa, fare click su `Copy status badge Markdown`;
-  ![Update_GitHub_badge_3](./img/Update_GitHub_badge_3.png)
+  ![Update_GitHub_badge_4](./img/Update_GitHub_badge_4.png)
 - La modifica del file Markdown `README.md` sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 
 Il titolo del README.md dovrà apparire come nella seguente figura, con *Ataxx* al posto di *scacchi*:
@@ -199,7 +200,7 @@ Come prima attività, è necessario clonare il repository remoto sulla propria m
 - Da terminale con shell bash spostarsi attraverso il comando *cd* nella cartella scelta al passo precedente;
 - Scrivere il comando `git clone <url>` , dove l’url è quello visibile da GitHub premendo il bottone *Clone or Download*, in alto a destra nell’interfaccia. Ad esempio:
 
-![Clone button](img/guida-studente/cloneusingurl.PNG)
+![Clone button](img/cloneusingurl.PNG)
 
 Se l’operazione è andata a buon fine, sarà possibile importare il progetto nell'IDE con cui intendete lavorare.
 
@@ -311,13 +312,13 @@ Svolgere le seguenti operazioni:
 Ad esempio, se il comando precedente (copiato da GitHub dal riquadro mostrato in figura), è:
 
 ```shell
-docker pull docker.pkg.github.com/softeng2122-inf-uniba/provaprogetto2122-prova/prova:latest
+docker pull ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 
 il comando per eseguire il container sarà:
 
 ```shell
-docker run --rm -it docker.pkg.github.com/softeng2122-inf-uniba/provaprogetto2122-prova/prova:latest
+docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 
 (in altre parole, il secondo comando si ottiene dal primo sostituendo a `docker pull` le parole `docker run --rm -it`).
