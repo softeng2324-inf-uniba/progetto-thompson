@@ -199,7 +199,7 @@ Come prima attività, è necessario clonare il repository remoto sulla propria m
 - Da terminale con shell bash spostarsi attraverso il comando *cd* nella cartella scelta al passo precedente;
 - Scrivere il comando `git clone <url>` , dove l’url è quello visibile da GitHub premendo il bottone *Clone or Download*, in alto a destra nell’interfaccia. Ad esempio:
 
-![Clone button](img/guida-studente/cloneusingurl.PNG)
+![Clone button](img/cloneusingurl.PNG)
 
 Se l’operazione è andata a buon fine, sarà possibile importare il progetto nell'IDE con cui intendete lavorare.
 
@@ -311,13 +311,13 @@ Svolgere le seguenti operazioni:
 Ad esempio, se il comando precedente (copiato da GitHub dal riquadro mostrato in figura), è:
 
 ```shell
-docker pull docker.pkg.github.com/softeng2122-inf-uniba/provaprogetto2122-prova/prova:latest
+docker pull ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 
 il comando per eseguire il container sarà:
 
 ```shell
-docker run --rm -it docker.pkg.github.com/softeng2122-inf-uniba/provaprogetto2122-prova/prova:latest
+docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 
 (in altre parole, il secondo comando si ottiene dal primo sostituendo a `docker pull` le parole `docker run --rm -it`).
