@@ -1,5 +1,7 @@
 # Ataxx
 
+[![Docker Build & Push](https://github.com/softeng2324-inf-uniba/progetto-thompson/actions/workflows/docker_build&push.yml/badge.svg)](https://github.com/softeng2324-inf-uniba/progetto-thompson/actions/workflows/docker_build&push.yml)
+
 La struttura della repository si presenta nel seguente modo:
 
 ```plaintext
