@@ -25,7 +25,7 @@
 
 ## 4. Convenzioni di Nomenclatura
 **Il formato del commit sarà strutturato come di seguito**:
-`{Prefisso}(Soggetto): {Predicato}` \
+`{Prefisso}(Soggetto): {Predicato}` 
 
 > Esempio:
 > feat(img): Aggiunta immagine di Thompson
