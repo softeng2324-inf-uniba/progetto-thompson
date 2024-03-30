@@ -1,4 +1,4 @@
-<h1 style="border-bottom: 0">Codice di Condotta</h1>
+# Codice di Condotta
 
 ## 1.  Lavoro di Squadra
 
