@@ -32,7 +32,7 @@
 
 
 **Il formato dei branch sarà strutturato come di seguito**:
->{`Prefisso`} `/` {`Predicato`}
+` {Prefisso} / {Predicato}`
 - **Prefissi**: 
 
     **1. feat**: Aggiunta di una funzionalità o di file
