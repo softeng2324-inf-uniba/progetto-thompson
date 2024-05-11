@@ -23,7 +23,13 @@
 - Il codice sottoposto deve essere testato dall'implementatore 
 - Il codice sottoposto non deve essere soggetto di "warning" dagli strumenti con i quali interagisce
 
-## 4. Convenzioni di Nomenclatura
+## 4. Stile
+**Il titolo degli issue sarà strutturato come di seguito:**
+
+`{Sigla}{Numero}: (Titolo)`
+> Esempio:
+> DOC7: Aggiunta immagine...
+
 **Il formato del commit sarà strutturato come di seguito**:
 `{Prefisso}(Soggetto): {Predicato}` 
 
