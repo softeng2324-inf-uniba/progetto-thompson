@@ -47,6 +47,67 @@ la modifica delle regole del gioco determinate dalla variante scelta.
 Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
 pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
 
+# 3. Requisiti specifici
+Di seguito vengono riportati i requisiti funzionali e non funzionali del progetto con stile di descrizione di tipo user story.
+## 3.1 Requisiti funzionali 
+- **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
+
+    #### Criteri di accettazione
+
+    Al comando `/help` o invocando l'app con flag `--help` o `-h` il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
+    - gioca
+    - esci
+    - ...
+    <br></br>
+- **RF2: Come giocatore voglio iniziare una nuova partita**
+ 
+    #### Criteri di accettazione
+    
+    Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
+    <br></br>
+- **RF3: Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
+
+    #### Criteri di accettazione
+    Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (7 per lato) con le righe numerate da 1 a 7 e le colonne numerate da ‘a’ a ‘g’.
+    <br></br>
+- **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione** 
+
+    #### Criteri di accettazione
+    Al comando `/tavoliere`:
+    - se il gioco non è iniziato l'app suggerisce il comando `/gioca`;
+    - se il gioco è iniziato l'app mostra la posizione di tutte   
+      le pedine sul tavoliere. Le pedine sono mostrate in formato Unicode https://en.wikipedia.org/wiki/English_draughts#Unicode.
+    <br></br>
+- **RF5: Come giocatore voglio visualizzare le mosse possibili di una pedina** 
+
+    #### Criteri di accettazione
+    Al comando `/qualimosse`:
+    - se il gioco non è iniziato l'app suggerisce il comando gioca;
+    - se il gioco è iniziato l'app mostra quali mosse sono disponibili per il giocatore di turno, evidenziando:
+        - in giallo le caselle raggiungibili con mosse che 
+        generano una nuova pedina;
+        - in arancione le caselle raggiungibili con mosse che consentono un salto;
+        - in rosa le caselle raggiungibili con mosse di entrambi i tipi precedenti.
+        <br></br>
+- **RF6: Come giocatore voglio abbandonare la partita** 
+    
+    #### Criteri di accettazione
+    Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
+    - se la conferma è positiva, l'app comunica che il Bianco (o Nero) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
+    - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
+    <br></br>
+- **RF7: Come giocatore voglio chiudere il gioco** 
+
+    #### Criteri di accettazione
+    Al comando `/esci` l'applicazione chiede conferma:
+    - se la conferma è positiva, l'app si chiude restituendo il controllo al sistema operativo;
+    - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
+## 3.2 Requisiti non funzionali
+- **RNF1**: Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16. A seguito un elenco di terminali adeguati divisi per sistema operativo:
+    - **Linux:** terminal;
+    - **Windows:** Powershell, Git Bash; 
+    - **MacOS:** terminal (a seguito della modifica delle impostazioni di encoding).
+
 # 9 - Analisi retrospettiva
 
 ## 9.1 - Sprint 0
