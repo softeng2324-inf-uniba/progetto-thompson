@@ -36,86 +36,178 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
-![img_Modello_di_dominio](img/Modello_di_dominio.png)
+  ![img_Modello_di_dominio](img/Modello_di_dominio.png)
 
 ## Chiarimenti scelte progettuali
 - Relazioni **Mossa**  ⇄ **Pedina**
-Può sembrare intuitivo avere le relazioni che descrivono il comportamento della pedine direttamente con **Casella**, 
-tuttavia abbiamo deciso di implementare una classe **Mossa** così da tener conto dello stato del gioco e rendendo più agevole 
-la modifica delle regole del gioco determinate dalla variante scelta.
+  Può sembrare intuitivo avere le relazioni che descrivono il comportamento della pedine direttamente con **Casella**,
+  tuttavia abbiamo deciso di implementare una classe **Mossa** così da tener conto dello stato del gioco e rendendo più agevole
+  la modifica delle regole del gioco determinate dalla variante scelta.
 - Relazione **Giocatore**  ⇄ **Pedina**
-Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
-pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
+  Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
+  pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
 
-# 3. Requisiti specifici
+# 3. Requisiti Specifici
 Di seguito vengono riportati i requisiti funzionali e non funzionali del progetto con stile di descrizione di tipo user story.
-## 3.1 Requisiti funzionali 
+## 3.1 Requisiti funzionali
 - **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
 
-    #### Criteri di accettazione
+  #### Criteri di accettazione
 
-    Al comando `/help` o invocando l'app con flag `--help` o `-h` il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
+  Al comando `/help` o invocando l'app con flag `--help` o `-h` il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
     - gioca
     - esci
     - ...
-    <br></br>
+      <br></br>
 - **RF2: Come giocatore voglio iniziare una nuova partita**
- 
-    #### Criteri di accettazione
-    
-    Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
-    <br></br>
+
+  #### Criteri di accettazione
+
+  Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
+  <br></br>
 - **RF3: Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
 
-    #### Criteri di accettazione
-    Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (7 per lato) con le righe numerate da 1 a 7 e le colonne numerate da ‘a’ a ‘g’.
-    <br></br>
-- **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione** 
+  #### Criteri di accettazione
+  Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (7 per lato) con le righe numerate da 1 a 7 e le colonne numerate da ‘a’ a ‘g’.
+  <br></br>
+- **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione**
 
-    #### Criteri di accettazione
-    Al comando `/tavoliere`:
+  #### Criteri di accettazione
+  Al comando `/tavoliere`:
     - se il gioco non è iniziato l'app suggerisce il comando `/gioca`;
     - se il gioco è iniziato l'app mostra la posizione di tutte   
       le pedine sul tavoliere. Le pedine sono mostrate in formato Unicode https://en.wikipedia.org/wiki/English_draughts#Unicode.
-    <br></br>
-- **RF5: Come giocatore voglio visualizzare le mosse possibili di una pedina** 
+      <br></br>
+- **RF5: Come giocatore voglio visualizzare le mosse possibili di una pedina**
 
-    #### Criteri di accettazione
-    Al comando `/qualimosse`:
+  #### Criteri di accettazione
+  Al comando `/qualimosse`:
     - se il gioco non è iniziato l'app suggerisce il comando gioca;
     - se il gioco è iniziato l'app mostra quali mosse sono disponibili per il giocatore di turno, evidenziando:
-        - in giallo le caselle raggiungibili con mosse che 
-        generano una nuova pedina;
+        - in giallo le caselle raggiungibili con mosse che
+          generano una nuova pedina;
         - in arancione le caselle raggiungibili con mosse che consentono un salto;
         - in rosa le caselle raggiungibili con mosse di entrambi i tipi precedenti.
-        <br></br>
-- **RF6: Come giocatore voglio abbandonare la partita** 
-    
-    #### Criteri di accettazione
-    Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
+          <br></br>
+- **RF6: Come giocatore voglio abbandonare la partita**
+
+  #### Criteri di accettazione
+  Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
     - se la conferma è positiva, l'app comunica che il Bianco (o Nero) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
     - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
-    <br></br>
-- **RF7: Come giocatore voglio chiudere il gioco** 
+      <br></br>
+- **RF7: Come giocatore voglio chiudere il gioco**
 
-    #### Criteri di accettazione
-    Al comando `/esci` l'applicazione chiede conferma:
+  #### Criteri di accettazione
+  Al comando `/esci` l'applicazione chiede conferma:
     - se la conferma è positiva, l'app si chiude restituendo il controllo al sistema operativo;
     - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
 ## 3.2 Requisiti non funzionali
 - **RNF1**: Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16. A seguito un elenco di terminali adeguati divisi per sistema operativo:
     - **Linux:** terminal;
-    - **Windows:** Powershell, Git Bash; 
+    - **Windows:** Powershell, Git Bash;
     - **MacOS:** terminal (a seguito della modifica delle impostazioni di encoding).
+# 7 - Manuale Utente
 
-# 9 - Analisi retrospettiva
+## Procedura Preliminare
+Prima di poter avviare il gioco bisogna essere sicuri di trovarsi in un ambiente che permette la
+sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi preparatori:
+
+## Guida
+- Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
+- Autenticarsi con github tramite CLI come segue:
+
+<div style="display:flex; align-items:center; justify-content:space-between">
+    <p style="font-size: 20px"> Procedura per ottenere un token su GitHub</p>
+     <img src="img/Github-logo.png" height="55" >
+</div>
+Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi descritti di seguito:
+
+1. **Registrazione**: Se non hai già un account, [registrati su GitHub](https://github.com/join) per ottenere un account.
+
+2. **Accesso**: Accedi al tuo account GitHub utilizzando le tue [credenziali di accesso](https://github.com/login).
+
+3. **Generazione del token**: Una volta effettuato l'accesso, vai alle impostazioni del tuo account. Puoi accedervi cliccando sulla tua immagine del profilo e selezionando `Settings`.
+   Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu a sinistra.
+
+4. **Generazione**: Fai clic sul pulsante `Generate new token`
+
+5. **Autorizzazioni**: Seleziona le autorizzazioni necessarie per il token.
+6. **Copia il token**: Una volta generato, copia il token. GitHub mostrerà il token solo una volta, quindi assicurati di copiarlo e conservarlo in un luogo sicuro.
+
+A questo punto si è pronti per accedere a Docker tramite Github PAT
+
+<div style="display:flex; align-items:center; justify-content:space-between">
+    <p style="font-size: 20px">Docker Login ed Avvio</p>
+     <img src="img/Docker-logo.png" height="55" >
+</div>
+
+1. **Copia del token su un file `.txt`**:
+
+   Copia il token generato in precedenza in un file di testo, ad esempio, `token.txt`
+
+2. **Ottenere il percorso del file**:
+
+   Dopo aver creato il file, copia il percorso completo
+
+3. **Login a GitHub Container Registry (GHCR) tramite Docker**:
+
+   Apri il terminale come amministratore ed esegui il seguente comando, sostituendo `PATH_DEL_TOKEN` con il percorso copiato e `USERNAME` con il tuo nome utente GitHub:
+
+```bash
+cat "PATH_DEL_TOKEN/token.txt" | docker login ghcr.io -u "USERNAME" --password-stdin
+```
+4. **Scaricare l'immagine tramite Docker Pull**:
+
+   Una volta effettuato l'accesso con successo, puoi scaricare l'immagine Docker desiderata con il seguente comando:
+
+```shell
+docker pull ghcr.io/softeng2223-inf-uniba/battleship-thompson:latest
+```
+5. **Esecuzione del container Docker**:
+   Una volta eseguito l'accesso e scaricata l'immagine con successo, puoi eseguire l'immagine Docker desiderata con
+   il seguente comando:
+```shell
+docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
+```
+- Questo comando avvierà un contenitore Docker utilizzando l'immagine specificata.
+
+  Seguendo questi passaggi e comandi, dovresti essere in grado di utilizzare il token GitHub per accedere a GitHub Container Registry e eseguire un'immagine Docker.
+
+# Regole del Gioco
+Queste sono le principali regole del gioco di Ataxx: 
+- Il gioco è composto da un tavoliere di 49 caselle quadrate (7 per lato) e da 49 pedine bicolori, tuttavia il giocatore può modificare la dimensione della griglia partendo da una 4x4, con la possibilità di scegliere anche di rendere inaccessibili determinate caselle.
+- Le pedine si posizionano nelle caselle e non negli incroci.
+- Si gioca in due persone.
+- Inizia il nero e i giocatori giocano a turno.
+- Una mossa può essere di due tipi:
+- Il giocatore di turno gioca una nuova pedina sul tavoliere in una casella adiacente a un'altra in cui vi sia già una propria pedina.
+- Il giocatore di turno sposta una propria pedina "saltandola" di due caselle, a patto che  la casella di arrivo sia libera e non adiacente alla casella originaria.
+La casella saltata può anche essere occupata da una propria pedina o da una pedina avversaria.
+- Se al termine della mossa vi sono pedine avversarie adiacenti alla casella di arrivo, queste vengono catturate e cambiano colore, diventando di proprietà del giocatore che ha effettuato la mossa.
+- Non è possibile rinunciare al cambiamento di colore delle pedine catturate.
+- Vince il giocatore che ha più pedine del proprio colore al termine della partita. Nel caso di abbandono da parte di uno dei due giocatori, la vittoria verrà sempre assegnata al giocatore rimanente
+- Il punteggio di una vittoria è dato dalla differenza delle pedine.
+- Per trascrivere una partita si utilizzano le lettere per le colonne e i numeri per le righe, indicando le caselle di partenza e di arrivo delle pedine.
+  Esistono varianti che  aggiungono elementi interessanti al gioco base, offrendo diverse strategie e sfide per i giocatori:
+- **Variante A Perdere**:
+    - In questa variante, vince il giocatore che al termine della partita ha meno pedine del proprio colore, mantenendo le regole base del gioco.
+- **Variante Thomas** (o Nutsy Ataxx):
+    - In questa variante ideata da Louis K. Thomas, il posizionamento di una nuova pedina, il salto e la cattura avvengono solo in senso ortogonale. Le altre regole rimangono le stesse.
+
+- **Variante Assimilation (o Infection)**:
+    - In questa variante, la mossa di tipo b) prevede solo salti ortogonali o diagonali, escludendo i salti a "L".
+    - Le regole base del gioco restano invariate.
+
+
+# 9 - Analisi Retrospettiva
 
 ## 9.1 - Sprint 0
 
 ### Analisi retrospettiva effettuata il 20/04/2024
 
 L'analisi retrospettiva è iniziata con la creazione di una lavagna Mad-Glad-Sad per raccogliere le sensazioni e le emozioni del team
-dopo  aver chiuso lo Sprint 0. 
+dopo  aver chiuso lo Sprint 0.
 
 Di seguito riportiamo la tabella creata:
 
