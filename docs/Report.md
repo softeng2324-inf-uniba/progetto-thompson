@@ -1,20 +1,53 @@
 # Report
+
+# 1 - Introduzione
+
+## Partecipanti al progetto
+
+Il team di sviluppatori è composta da:
++ Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))
++ Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))
++ Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))
++ Nicolo' Pacucci ([Pascoooo](https://github.com/Pascoooo))
++ Fabio Zippo ([IXRyu](https://github.com/IXRyu))
+
+## Descrizione progetto
+
+Di seguito viene riportata la documentazione riguardante il progetto di "Ingegneria del Software" anno 2023/24 che implementa il gioco **Ataxx**.
+
+Il progetto consiste nella realizzazione del videogioco di strategia per cabinati  **Ataxx** interfacciabile attraverso linea di comando.
+
+<div style="text-align: center">
+    <img src="img/ataxx_game.jpeg" alt="drawing" width="450"/>
+</div>
+
+L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
+
+All'avvio, il gioco partirà impostato sulla variante _Default_ e su una griglia 7x7, tuttavia il giocatore avrà la possibilità di selezionare la variante che vuole giocare fra le seguenti:
+
+- **Default**
+- **Variante a Perdere**: Vince il giocatore che ha meno pedine del proprio colore
+- **Thomas**: Movimento ortogonale
+- **Assimilation/Infection**: Movimento ortognale e diagonale(non prevede movimenti a L)
+
+Ogni variante diversa dalla _Default_  cambia le regole o impone limitazioni sullo spostamento delle pedine.
+
+Il giocatore può modificare la dimensione della griglia partendo da una 4x4, con la possibilità di scegliere anche di rendere inaccessibili determinate caselle.
+
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
-
 ![img_Modello_di_dominio](img/Modello_di_dominio.png)
+
 ## Chiarimenti scelte progettuali
 - Relazioni **Mossa**  ⇄ **Pedina**
-
-
 Può sembrare intuitivo avere le relazioni che descrivono il comportamento della pedine direttamente con **Casella**, 
 tuttavia abbiamo deciso di implementare una classe **Mossa** così da tener conto dello stato del gioco e rendendo più agevole 
 la modifica delle regole del gioco determinate dalla variante scelta.
 - Relazione **Giocatore**  ⇄ **Pedina**
-
 Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
 pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
-# 9 - Analisi Retrospettiva
+
+# 9 - Analisi retrospettiva
 
 ## 9.1 - Sprint 0
 
