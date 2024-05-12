@@ -8,6 +8,7 @@ Il team di sviluppatori è composta da:
 + Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))
 + Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))
 + Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))
++ Nicolo' Pacucci ([Pascoooo](https://github.com/Pascoooo))
 + Fabio Zippo ([IXRyu](https://github.com/IXRyu))
 
 ## Descrizione progetto
