@@ -23,14 +23,14 @@ Il progetto consiste nella realizzazione del videogioco di strategia per cabinat
 
 L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
 
-All'avvio, il gioco partirà impostato sulla variante _Standard_ e su una griglia 7x7, tuttavia il giocatore avrà la possibilità di selezionare la variante che vuole giocare fra le seguenti:
+All'avvio, il gioco partirà impostato sulla variante _Default_ e su una griglia 7x7, tuttavia il giocatore avrà la possibilità di selezionare la variante che vuole giocare fra le seguenti:
 
-- **Standard**
+- **Default**
 - **Variante a Perdere**: Vince il giocatore che ha meno pedine del proprio colore
 - **Thomas**: Movimento ortogonale
 - **Assimilation/Infection**: Movimento ortognale e diagonale(non prevede movimenti a L)
 
-Ogni variante diversa dalla _Standard_  cambia le regole o impone limitazioni sullo spostamento delle pedine.
+Ogni variante diversa dalla _Default_  cambia le regole o impone limitazioni sullo spostamento delle pedine.
 
 Il giocatore può modificare la dimensione della griglia partendo da una 4x4, con la possibilità di scegliere anche di rendere inaccessibili determinate caselle.
 
