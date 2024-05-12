@@ -16,6 +16,10 @@ Di seguito viene riportata la documentazione riguardante il progetto di "Ingegne
 
 Il progetto consiste nella realizzazione del videogioco di strategia per cabinati  **Ataxx** interfacciabile attraverso linea di comando.
 
+<div style="text-align: center">
+    <img src="img/ataxx_game.jpeg" alt="drawing" width="400"/>
+</div>
+
 L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
 
 All'avvio, il gioco partirà impostato sulla variante _Standard_ e su una griglia 7x7, tuttavia il giocatore avrà la possibilità di selezionare la variante che vuole giocare fra le seguenti:
