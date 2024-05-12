@@ -12,9 +12,9 @@ Il team di sviluppatori è composta da:
 
 ## Descrizione progetto
 
-Di seguito viene riportata la documentazione riguardante il progetto di "Ingegneria del Software" anno 2024/25 che implementa il gioco **Ataxx**.
+Di seguito viene riportata la documentazione riguardante il progetto di "Ingegneria del Software" anno 2023/24 che implementa il gioco **Ataxx**.
 
-Il progetto consiste nella realizzazione del gioco da tavolo **Ataxx** interfacciabile attraverso linea di comando.
+Il progetto consiste nella realizzazione del videogioco di strategia per cabinati  **Ataxx** interfacciabile attraverso linea di comando.
 
 L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
 
