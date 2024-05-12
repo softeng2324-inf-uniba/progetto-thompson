@@ -1,5 +1,34 @@
 # Report
 
+# 1 - Introduzione
+
+## Partecipanti al progetto
+
+Il team di sviluppatori è composta da:
++ Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))
++ Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))
++ Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))
++ Fabio Zippo ([IXRyu](https://github.com/IXRyu))
+
+## Descrizione progetto
+
+Di seguito viene riportata la documentazione riguardante il progetto di "Ingegneria del Software" anno 2024/25 che implementa il gioco **Ataxx**.
+
+Il progetto consiste nella realizzazione del gioco da tavolo **Ataxx** interfacciabile attraverso linea di comando.
+
+L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
+
+All'avvio, il gioco partirà impostato sulla variante _Standard_ e su una griglia 7x7, tuttavia il giocatore avrà la possibilità di selezionare la variante che vuole giocare fra le seguenti:
+
+- **Standard**
+- **Variante a Perdere**: Vince il giocatore che ha meno pedine del proprio colore
+- **Thomas**: Movimento ortogonale
+- **Assimilation/Infection**: Movimento ortognale e diagonale(non prevede movimenti a L)
+
+Ogni variante diversa dalla _Standard_  cambia le regole o impone limitazioni sullo spostamento delle pedine.
+
+Il giocatore può modificare la dimensione della griglia partendo da una 4x4, con la possibilità di scegliere anche di rendere inaccessibili determinate caselle.
+
 # 9 - Analisi retrospettiva
 
 ## 9.1 - Sprint 0
