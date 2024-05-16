@@ -1,4 +1,4 @@
-package it.uniba.app.Thompson.game.util;
+package main.java.it.uniba.app.Thompson.game.util;
 
 /**
  * << Util >>
