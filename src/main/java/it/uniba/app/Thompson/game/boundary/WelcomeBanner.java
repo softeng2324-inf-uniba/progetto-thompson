@@ -7,7 +7,7 @@ public final class WelcomeBanner {
     /**
      * Banner to print.
      */
-    private static String[] banner = new String[]{
+    private static final String[] banner = new String[]{
         "    // | |  /__  ___/ // | |  \\ \\/ /   \\ \\/ / ",
         "   //__| |    / /    //__| |   \\/ /     \\/ /    ",
         "  // __| |   / /    / ___  |   / /\\     / /\\    ",
