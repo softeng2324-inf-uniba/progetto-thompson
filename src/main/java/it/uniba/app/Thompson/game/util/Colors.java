@@ -1,18 +1,36 @@
 package it.uniba.app.Thompson.game.util;
+
 /**
- * Util
+ * << Util >>
  * Class for color constants.
  */
 public final class Colors {
     /**
-     * Constants for color management.
-     */
-    public static final String YELLOW = "\u001B[33m";
-    public static final String ORANGE = "\u001B[38;5;208m";
-    public static final String PINK = "\u001B[38;5;206m";
-    public static final String GREY = "\u001B[90m";
-    /**
      * Color constructor.
      */
     private Colors() { }
+
+    /**
+     * @param color
+     * @return Returns unicode of color parameter
+     */
+    public static String getUnicodeFromColor(final Color color) {
+        switch (color) {
+            case GREY -> {
+                return "\u001B[90m";
+            }
+            case PINK -> {
+                return "\u001B[38;5;206m";
+            }
+            case ORANGE -> {
+                return "\u001B[38;5;208m";
+            }
+            case YELLOW -> {
+                return "\u001B[33m";
+            }
+            default -> {
+                return "";
+            }
+        }
+    }
 }
