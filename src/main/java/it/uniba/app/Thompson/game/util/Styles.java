@@ -1,5 +1,4 @@
-package it.uniba.app.Thompson.game.util;
-
+package main.java.it.uniba.app.Thompson.game.util;
 /**
  * << Util >>
  * Class for font constants.
@@ -9,9 +8,7 @@ public final class Styles {
      * Style constructor.
      */
     private Styles() { }
-
     /**
-     *
      * @param style
      * @return Return unicode style based off style parameter
      */
