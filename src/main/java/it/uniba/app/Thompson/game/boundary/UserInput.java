@@ -11,7 +11,7 @@ public final class UserInput {
     private UserInput() { }
     /**
      * Get input.
-     * @return the input from the user.
+     * @return The input from the user.
      */
     public static String getInput() {
         Scanner scanner = new Scanner(System.in);
