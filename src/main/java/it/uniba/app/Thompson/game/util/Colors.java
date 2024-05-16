@@ -1,5 +1,4 @@
 package main.java.it.uniba.app.Thompson.game.util;
-
 /**
  * << Util >>
  * Class for color constants.
@@ -9,9 +8,8 @@ public final class Colors {
      * Color constructor.
      */
     private Colors() { }
-
     /**
-     * @param color
+     * @param color Color of the returning string
      * @return Returns unicode of color parameter
      */
     public static String getUnicodeFromColor(final Color color) {
