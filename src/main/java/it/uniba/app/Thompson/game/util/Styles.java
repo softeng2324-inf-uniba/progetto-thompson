@@ -9,7 +9,7 @@ public final class Styles {
      */
     private Styles() { }
     /**
-     * @param style
+     * @param style Style of the returning string
      * @return Return unicode style based off style parameter
      */
     public static String getStyleUnicode(final Style style) {
