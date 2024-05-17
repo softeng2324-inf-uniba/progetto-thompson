@@ -10,6 +10,7 @@ public final class HelpCommandControl extends CommandControl {
      * Attributes initialization and instance.
      */
     private final String command = "/help";
+    private final String description = "Mostra tutti i comandi disponibili";
     private static HelpCommandControl instance = new HelpCommandControl();
 
     /**
@@ -20,7 +21,7 @@ public final class HelpCommandControl extends CommandControl {
     /**
      * @return The instance of the HelpCommandControl.
      */
-    static HelpCommandControl getInstance() {
+    public static HelpCommandControl getInstance() {
         return instance;
     }
 
@@ -31,6 +32,15 @@ public final class HelpCommandControl extends CommandControl {
     @Override
     public String getCommand() {
         return command;
+    }
+
+    /**
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return The command string.
+     */
+    @Override
+    public String getDescription() {
+        return description;
     }
 
     /**
