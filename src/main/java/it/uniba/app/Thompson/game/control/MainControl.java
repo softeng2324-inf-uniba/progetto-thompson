@@ -26,7 +26,8 @@ public final class MainControl {
      */
     public static void startMainControl() {
         CommandStatus status = CommandStatus.SUCCESSFUL;
-        WelcomeBannerBoundary.printBanner();
+        WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
+        banner.printBanner();
         HashMap<String, CommandControl> commands = initCommands();
 
         while (status != CommandStatus.FAILED || status != CommandStatus.SHUTDOWN) {
@@ -34,9 +35,11 @@ public final class MainControl {
             if (commands.containsKey(input)) {
                 status = commands.get(input).executeCommand();
             } else {
-                //TODO: create a constant for this;
-                //TODO: create a method in CommunicateErrors to print this message;
-                System.out.println("Command not found");
+                /* TODO:
+                 * create a constant for this create a method
+                 * in CommunicateErrors to print this message;
+                 */
+                System.out.println(input + " is not a valid command.");
             }
         }
     }
