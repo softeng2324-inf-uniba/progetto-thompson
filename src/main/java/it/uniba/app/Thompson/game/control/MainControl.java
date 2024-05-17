@@ -24,6 +24,26 @@ public final class MainControl {
 
         return commands;
     }
+
+    private static HashMap<String, CommandControl> initArgumentCommands() {
+
+        HashMap<String, CommandControl> commands = new HashMap<>();
+
+        commands.putAll(addAliasesCommands(HelpCommandControl.getInstance()));
+
+        return commands;
+    }
+
+    private static HashMap<String, CommandControl> addAliasesCommands(final CommandControl commandControl) {
+        HashMap<String, CommandControl> commands =  new HashMap<>();
+
+        for (String a: commandControl.getAliases()) {
+            commands.put(a, commandControl);
+        }
+
+        return commands;
+    }
+
     /**
      * Start main control.
      * Start the main control loop.
