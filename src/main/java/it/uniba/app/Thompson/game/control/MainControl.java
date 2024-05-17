@@ -15,7 +15,7 @@ public final class MainControl {
     private MainControl() { }
     /**
      * Initialize commands.
-     * @return the commands.
+     * @return The available commands.
      */
     private static HashMap<String, CommandControl> initCommands() {
         HashMap<String, CommandControl> commands =  new HashMap<>();
@@ -25,6 +25,10 @@ public final class MainControl {
         return commands;
     }
 
+    /**
+     * Initialize valid arguments.
+     * @return The valid arguments.
+     */
     private static HashMap<String, CommandControl> initArgumentCommands() {
         HashMap<String, CommandControl> commands = new HashMap<>();
         commands.putAll(addAliasesCommands(HelpCommandControl.getInstance()));
@@ -32,6 +36,11 @@ public final class MainControl {
         return commands;
     }
 
+    /**
+     * Initialize all aliases for a valid argument.
+     * @param commandControl Command linked to the argument.
+     * @return A map of the aliases of the argument.
+     */
     private static HashMap<String, CommandControl> addAliasesCommands(final CommandControl commandControl) {
         HashMap<String, CommandControl> commands =  new HashMap<>();
 
@@ -42,14 +51,26 @@ public final class MainControl {
         return commands;
     }
 
-    private static CommandStatus findAndExecuteCommand(String command, HashMap<String, CommandControl> availableCommands) {
-        if(availableCommands.containsKey(command)) {
+    /**
+     * Finds command in the map availableCommands and executes it.
+     * @param command Command to find and execute.
+     * @param availableCommands Map of the available commands.
+     * @return The status of the system after the execution of the command.
+     */
+    private static CommandStatus findAndExecuteCommand(final String command,
+                                                       final HashMap<String, CommandControl> availableCommands) {
+        if (availableCommands.containsKey(command)) {
             return availableCommands.get(command).executeCommand();
         }
         throw new Error();
     }
 
-    private static void executeArgumentsCommands(String[] args, HashMap<String, CommandControl> commands) {
+    /**
+     * Executes all the arguments in the args array.
+     * @param args Array of all the arguments.
+     * @param commands Map of all the valid arguments.
+     */
+    private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
         for (String a : args) {
             try {
                 findAndExecuteCommand(a, commands);
@@ -68,7 +89,7 @@ public final class MainControl {
      * Start main control.
      * Start the main control loop.
      */
-    public static void startMainControl(String[] args) {
+    public static void startMainControl(final String[] args) {
         CommandStatus status = CommandStatus.SUCCESSFUL;
         HashMap<String, CommandControl> availableCommands = initCommands();
 
