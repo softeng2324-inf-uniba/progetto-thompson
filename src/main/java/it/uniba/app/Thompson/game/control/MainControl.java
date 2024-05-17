@@ -30,7 +30,7 @@ public final class MainControl {
         banner.printBanner();
         HashMap<String, CommandControl> commands = initCommands();
 
-        while (status != CommandStatus.FAILED || status != CommandStatus.SHUTDOWN) {
+        while (status != CommandStatus.SHUTDOWN) {
             String input = UserInputBoundary.getInput();
             if (commands.containsKey(input)) {
                 status = commands.get(input).executeCommand();
