@@ -6,6 +6,7 @@ import java.util.Scanner;
  * Class to get user input.
  */
 public final class UserInputBoundary {
+    private static final Scanner SCANNER = new Scanner(System.in);
     /**
      * Constructor for UserInput.
      */
@@ -15,7 +16,12 @@ public final class UserInputBoundary {
      * @return The input from the user.
      */
     public static String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return SCANNER.nextLine();
+    }
+    /**
+     * Close the SCANNER.
+     */
+    public static void closeScanner() {
+        SCANNER.close();
     }
 }
