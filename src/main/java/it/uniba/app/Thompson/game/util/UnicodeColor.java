@@ -27,6 +27,12 @@ public final class UnicodeColor {
             case YELLOW -> {
                 return "\u001B[33m";
             }
+            case BLUE -> {
+                return "\u001B[34m";
+            }
+            case RED -> {
+                return "\u001B[31m";
+            }
             default -> {
                 return "";
             }
