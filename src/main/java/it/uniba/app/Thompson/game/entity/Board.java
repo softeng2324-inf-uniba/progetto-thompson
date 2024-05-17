@@ -53,7 +53,7 @@ public final class Board {
      * Creates the board.
      */
     public void initBoard() {
-        Tile[] tiles= new Tile[size ^ 2];
+        Tile[] tiles = new Tile[size ^ 2];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 tiles[i * size + j] = new Tile(i, j);
