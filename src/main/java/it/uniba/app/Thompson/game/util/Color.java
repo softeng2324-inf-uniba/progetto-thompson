@@ -5,6 +5,8 @@ package it.uniba.app.Thompson.game.util;
  * Enum for implemented colors.
  */
 public enum Color {
+    RED,
+    BLUE,
     YELLOW,
     ORANGE,
     PINK,
