@@ -1,5 +1,6 @@
-package main.java.it.uniba.app.Thompson.game.boundary;
+package it.uniba.app.Thompson.game.boundary;
 import java.util.Scanner;
+
 /**
  * << Boundary >>
  * Class to get user input.

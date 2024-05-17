@@ -1,8 +1,9 @@
-package main.java.it.uniba.app.Thompson.game.control;
-import main.java.it.uniba.app.Thompson.game.util.Color;
-import main.java.it.uniba.app.Thompson.game.util.Colors;
-import main.java.it.uniba.app.Thompson.game.util.Style;
-import main.java.it.uniba.app.Thompson.game.util.Styles;
+package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.util.Color;
+import it.uniba.app.Thompson.game.util.Colors;
+import it.uniba.app.Thompson.game.util.Style;
+import it.uniba.app.Thompson.game.util.Styles;
+
 /**
  * << Control >>
  * Text formatter for colored and styled string.

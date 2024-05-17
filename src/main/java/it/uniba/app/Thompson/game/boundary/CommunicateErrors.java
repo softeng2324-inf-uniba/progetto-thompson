@@ -1,5 +1,6 @@
-package main.java.it.uniba.app.Thompson.game.boundary;
-import main.java.it.uniba.app.Thompson.game.util.ErrorMessages;
+package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.util.ErrorMessages;
+
 /**
  * << Boundary >>
  * Class to communicate errors.

@@ -1,5 +1,6 @@
-package main.java.it.uniba.app.Thompson.game.control;
-import main.java.it.uniba.app.Thompson.game.util.CommandStatus;
+package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.util.CommandStatus;
+
 /**
  * << Control >>
  * Controls for command constants.

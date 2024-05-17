@@ -1,4 +1,5 @@
-package main.java.it.uniba.app.Thompson.game.boundary;
+package it.uniba.app.Thompson.game.boundary;
+
 /**
  * << Boundary >>
  * Class to print the welcome banner.

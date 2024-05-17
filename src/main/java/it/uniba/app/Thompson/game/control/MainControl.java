@@ -1,8 +1,9 @@
-package main.java.it.uniba.app.Thompson.game.control;
-import main.java.it.uniba.app.Thompson.game.util.CommandStatus;
-import main.java.it.uniba.app.Thompson.game.boundary.UserInput;
-import main.java.it.uniba.app.Thompson.game.boundary.WelcomeBanner;
+package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.UserInput;
+import it.uniba.app.Thompson.game.boundary.WelcomeBanner;
+import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
+
 /**
  * << Control >>
  * Main control class for the game.
