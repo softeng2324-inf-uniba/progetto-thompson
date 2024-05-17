@@ -18,7 +18,11 @@ public final class MainControl {
      * @return the commands.
      */
     private static HashMap<String, CommandControl> initCommands() {
-        return new HashMap<String, CommandControl>();
+        HashMap<String, CommandControl> commands =  new HashMap<>();
+
+        commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
+
+        return commands;
     }
     /**
      * Start main control.
