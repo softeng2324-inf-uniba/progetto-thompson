@@ -7,6 +7,8 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  */
 public abstract class CommandControl {
     private String command;
+    private String description;
+
     /**
      * Method that returns command.
      * @return Name of the command.
@@ -14,6 +16,15 @@ public abstract class CommandControl {
     String getCommand() {
         return command;
     }
+
+    /**
+     * Return description of command.
+     * @return Description
+     */
+    String getDescription() {
+        return description;
+    }
+
     /**
      * Method that executes some instructions and return a CommandStatus.
      * @return Instance of CommandStatus.
