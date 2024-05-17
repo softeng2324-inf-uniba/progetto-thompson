@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.util.Color;
-import it.uniba.app.Thompson.game.util.Colors;
+import it.uniba.app.Thompson.game.util.UnicodeColor;
 import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.Styles;
 
@@ -16,7 +16,7 @@ public final class FormatterControl {
      * @return Formatted text
      */
    public String formatText(final String text, final Color color) {
-        return Colors.getUnicodeFromColor(color) + text + RESET;
+        return UnicodeColor.getUnicodeFromColor(color) + text + RESET;
    }
     /**
      * @param text Text that will be formatted
@@ -33,6 +33,6 @@ public final class FormatterControl {
      * @return Formatted text
      */
     public String formatText(final String text, final Color color, final Style style) {
-        return Styles.getStyleUnicode(style) + Colors.getUnicodeFromColor(color) + text + RESET;
+        return Styles.getStyleUnicode(style) + UnicodeColor.getUnicodeFromColor(color) + text + RESET;
     }
 }

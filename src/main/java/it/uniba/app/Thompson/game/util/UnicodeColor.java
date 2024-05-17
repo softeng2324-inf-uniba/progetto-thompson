@@ -4,11 +4,11 @@ package it.uniba.app.Thompson.game.util;
  * << Util >>
  * Class for color constants.
  */
-public final class Colors {
+public final class UnicodeColor {
     /**
      * Color constructor.
      */
-    private Colors() { }
+    private UnicodeColor() { }
     /**
      * @param color Color of the returning string
      * @return Returns unicode of color parameter
