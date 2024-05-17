@@ -7,6 +7,7 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  */
 public abstract class CommandControl {
     private String command;
+    private String[] aliases;
     private String description;
 
     /**
@@ -23,6 +24,14 @@ public abstract class CommandControl {
      */
     String getDescription() {
         return description;
+    }
+
+    /**
+     * Return aliases of command.
+     * @return Description
+     */
+    String[] getAliases() {
+        return aliases;
     }
 
     /**
