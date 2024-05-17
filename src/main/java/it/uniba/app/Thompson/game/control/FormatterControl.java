@@ -24,7 +24,7 @@ public final class FormatterControl {
      * @return Formatted text
      */
     public String formatText(final String text, final Style style) {
-        return Styles.getStyleUnicode(style) + Styles.getStyleUnicode(style) + RESET;
+        return Styles.getStyleUnicode(style) + text + RESET;
     }
     /**
      * @param text Text that will be formatted
