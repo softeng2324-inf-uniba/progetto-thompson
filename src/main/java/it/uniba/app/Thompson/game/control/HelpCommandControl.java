@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.HelpBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -49,6 +50,8 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
+        HelpBoundary.printCommands();
+
         return CommandStatus.SUCCESSFUL;
     }
 }
