@@ -4,11 +4,11 @@ package it.uniba.app.Thompson.game.util;
  * << Util >>
  * Class for font constants.
  */
-public final class Styles {
+public final class UnicodeStyle {
     /**
      * Style constructor.
      */
-    private Styles() { }
+    private UnicodeStyle() { }
     /**
      * @param style Style of the returning string
      * @return Return unicode style based off style parameter
