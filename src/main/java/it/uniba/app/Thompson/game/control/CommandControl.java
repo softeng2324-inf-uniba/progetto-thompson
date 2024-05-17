@@ -5,7 +5,7 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  * << Control >>
  * Controls for command constants.
  */
-public abstract class Command {
+public abstract class CommandControl {
     private String command;
     /**
      * Method that returns command.

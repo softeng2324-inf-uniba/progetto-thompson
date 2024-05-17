@@ -17,8 +17,8 @@ public final class MainControl {
      * Initialize commands.
      * @return the commands.
      */
-    private static HashMap<String, Command> initCommands() {
-        return new HashMap<String, Command>();
+    private static HashMap<String, CommandControl> initCommands() {
+        return new HashMap<String, CommandControl>();
     }
     /**
      * Start main control.
@@ -27,7 +27,7 @@ public final class MainControl {
     public static void startMainControl() {
         CommandStatus status = CommandStatus.SUCCESSFUL;
         WelcomeBannerBoundary.printBanner();
-        HashMap<String, Command> commands = initCommands();
+        HashMap<String, CommandControl> commands = initCommands();
 
         while (status != CommandStatus.FAILED || status != CommandStatus.SHUTDOWN) {
             String input = UserInputBoundary.getInput();
