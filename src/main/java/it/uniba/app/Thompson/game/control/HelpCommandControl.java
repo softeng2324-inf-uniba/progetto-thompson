@@ -11,6 +11,7 @@ public final class HelpCommandControl extends CommandControl {
      * Attributes initialization and instance.
      */
     private final String command = "/help";
+    private final String[] aliases = {"--help", "-h"};
     private final String description = "Mostra tutti i comandi disponibili";
     private static HelpCommandControl instance = new HelpCommandControl();
 
@@ -33,6 +34,15 @@ public final class HelpCommandControl extends CommandControl {
     @Override
     public String getCommand() {
         return command;
+    }
+
+    /**
+     * Override of the getAliases method of the abstract class CommandControl.
+     * @return The command string.
+     */
+    @Override
+    public String[] getAliases() {
+        return aliases;
     }
 
     /**
