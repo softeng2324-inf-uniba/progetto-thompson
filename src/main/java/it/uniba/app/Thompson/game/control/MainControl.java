@@ -26,9 +26,7 @@ public final class MainControl {
     }
 
     private static HashMap<String, CommandControl> initArgumentCommands() {
-
         HashMap<String, CommandControl> commands = new HashMap<>();
-
         commands.putAll(addAliasesCommands(HelpCommandControl.getInstance()));
 
         return commands;
@@ -44,26 +42,51 @@ public final class MainControl {
         return commands;
     }
 
+    private static CommandStatus findAndExecuteCommand(String command, HashMap<String, CommandControl> availableCommands) {
+        if(availableCommands.containsKey(command)) {
+            return availableCommands.get(command).executeCommand();
+        }
+        throw new Error();
+    }
+
+    private static void executeArgumentsCommands(String[] args, HashMap<String, CommandControl> commands) {
+        for (String a : args) {
+            try {
+                findAndExecuteCommand(a, commands);
+            } catch (Error e) {
+                /* TODO:
+                 * create a constant for this
+                 * create a method in CommunicateErrors to print this message;
+                 */
+                System.out.println(a + " is not a valid argument.");
+            }
+        }
+
+    }
+
     /**
      * Start main control.
      * Start the main control loop.
      */
-    public static void startMainControl() {
+    public static void startMainControl(String[] args) {
         CommandStatus status = CommandStatus.SUCCESSFUL;
+        HashMap<String, CommandControl> availableCommands = initCommands();
+
         WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
         banner.printBanner();
-        HashMap<String, CommandControl> commands = initCommands();
+
+        executeArgumentsCommands(args, initArgumentCommands());
 
         while (status != CommandStatus.SHUTDOWN) {
-            String input = UserInputBoundary.getInput();
-            if (commands.containsKey(input)) {
-                status = commands.get(input).executeCommand();
-            } else {
+            String command = UserInputBoundary.getInput();
+            try {
+                status = findAndExecuteCommand(command, availableCommands);
+            } catch (Error e) {
                 /* TODO:
-                 * create a constant for this create a method
-                 * in CommunicateErrors to print this message;
+                 * create a constant for this
+                 * create a method in CommunicateErrors to print this message;
                  */
-                System.out.println(input + " is not a valid command.");
+                System.out.println(command + " is not a valid command.");
             }
         }
     }
