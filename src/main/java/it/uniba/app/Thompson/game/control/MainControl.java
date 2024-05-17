@@ -18,8 +18,7 @@ public final class MainControl {
      * @return the commands.
      */
     private static HashMap<String, Command> initCommands() {
-        HashMap<String, Command> commands = new HashMap<>();
-        return commands;
+        return new HashMap<String, Command>();
     }
     /**
      * Start main control.
