@@ -10,10 +10,10 @@ public final class HelpCommandControl extends CommandControl {
     /**
      * Attributes initialization and instance.
      */
-    private final String command = "/help";
-    private final String[] aliases = {"--help", "-h"};
-    private final String description = "Mostra tutti i comandi disponibili";
-    private static HelpCommandControl instance = new HelpCommandControl();
+    private static final String COMMAND = "/help";
+    private static final String DESCRIPTION = "Mostra tutti i comandi disponibili";
+    private static final HelpCommandControl INSTANCE = new HelpCommandControl();
+    private static final String[] ALIASES = {"--help", "-h"};
 
     /**
      * Constructor for HelpCommandControl.
@@ -24,7 +24,7 @@ public final class HelpCommandControl extends CommandControl {
      * @return The instance of the HelpCommandControl.
      */
     public static HelpCommandControl getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     /**
@@ -33,7 +33,7 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     public String getCommand() {
-        return command;
+        return COMMAND;
     }
 
     /**
@@ -42,7 +42,7 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     public String[] getAliases() {
-        return aliases;
+        return ALIASES.clone();
     }
 
     /**
@@ -51,7 +51,7 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     public String getDescription() {
-        return description;
+        return DESCRIPTION;
     }
 
     /**
