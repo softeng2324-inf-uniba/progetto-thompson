@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.UserInput;
-import it.uniba.app.Thompson.game.boundary.WelcomeBanner;
+import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
+import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
@@ -26,11 +26,11 @@ public final class MainControl {
      */
     public static void startMainControl() {
         CommandStatus status = CommandStatus.SUCCESSFUL;
-        WelcomeBanner.printBanner();
+        WelcomeBannerBoundary.printBanner();
         HashMap<String, Command> commands = initCommands();
 
         while (status != CommandStatus.FAILED || status != CommandStatus.SHUTDOWN) {
-            String input = UserInput.getInput();
+            String input = UserInputBoundary.getInput();
             if (commands.containsKey(input)) {
                 status = commands.get(input).executeCommand();
             } else {

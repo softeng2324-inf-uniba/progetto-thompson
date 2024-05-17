@@ -5,11 +5,11 @@ import it.uniba.app.Thompson.game.util.ErrorMessages;
  * << Boundary >>
  * Class to communicate errors.
  */
-public final class CommunicateErrors {
+public final class CommunicateErrorsBoundary {
     /**
      * Constructor for CommunicateErrors.
      */
-    private CommunicateErrors() { }
+    private CommunicateErrorsBoundary() { }
     /**
      * Print invalid command.
      * Print to stdout the invalid command message.

@@ -5,11 +5,11 @@ import java.util.Scanner;
  * << Boundary >>
  * Class to get user input.
  */
-public final class UserInput {
+public final class UserInputBoundary {
     /**
      * Constructor for UserInput.
      */
-    private UserInput() { }
+    private UserInputBoundary() { }
     /**
      * Get input.
      * @return The input from the user.

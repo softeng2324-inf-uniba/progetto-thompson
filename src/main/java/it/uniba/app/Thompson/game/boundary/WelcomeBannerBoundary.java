@@ -4,7 +4,7 @@ package it.uniba.app.Thompson.game.boundary;
  * << Boundary >>
  * Class to print the welcome banner.
  */
-public final class WelcomeBanner {
+public final class WelcomeBannerBoundary {
     /**
      * Banner to print.
      */
@@ -18,7 +18,7 @@ public final class WelcomeBanner {
     /**
      * Constructor for WelcomeBanner.
      */
-    private WelcomeBanner() { }
+    private WelcomeBannerBoundary() { }
     /**
      * Print banner.
      * Print the banner to stdout.
