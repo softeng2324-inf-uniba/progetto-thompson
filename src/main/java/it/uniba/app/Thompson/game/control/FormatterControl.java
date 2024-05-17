@@ -9,6 +9,9 @@ import it.uniba.app.Thompson.game.util.UnicodeStyle;
  * Text formatter for colored and styled string.
  */
 public final class FormatterControl {
+    /**
+     * Constant for resetting the color and the style.
+     */
     private static final String RESET = "\u001B[0m";
     /**
      * @param text Text that will be formatted
