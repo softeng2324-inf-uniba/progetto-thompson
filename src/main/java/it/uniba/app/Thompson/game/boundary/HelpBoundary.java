@@ -22,7 +22,7 @@ public final class HelpBoundary {
                     + ExitCommandControl.getInstance().getDescription() + "\n"
             + " - " + PlayCommandControl.getInstance().getCommand() + " : "
                     + PlayCommandControl.getInstance().getDescription() + "\n"
-            + " - " + BoardCommandControl.getInstance().getCommand() + "\t: "
+            + " - " + BoardCommandControl.getInstance().getCommand() + " : "
                     + BoardCommandControl.getInstance().getDescription() + "\n"
         );
 
