@@ -53,6 +53,18 @@ public class Tile {
         pawn = null;
     }
 
+    public Pawn getPawn() {
+        return pawn;
+    }
+
+    /**
+     * Method isOccupied.
+     * @return pawn Return true if tile is occupied by pawn.
+     */
+    public boolean isOccupied() {
+        return pawn != null;
+    }
+
     /**
      * Method isInvalid.
      * @return invalid boolean
