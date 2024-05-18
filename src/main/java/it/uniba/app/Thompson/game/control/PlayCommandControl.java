@@ -58,6 +58,7 @@ public final class PlayCommandControl extends CommandControl {
         } else {
             CommunicateErrorsBoundary.printMatchNotNull();
         }
+
         return CommandStatus.SUCCESSFUL;
     }
 }

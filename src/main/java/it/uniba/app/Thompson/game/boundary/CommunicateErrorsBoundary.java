@@ -35,4 +35,12 @@ public final class CommunicateErrorsBoundary {
     public static void printMatchNotNull() {
         System.out.println(ErrorMessages.MATCH_NOT_NULL);
     }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout the suggest match init message.
+     */
+    public static void printSuggestMatchInit() {
+        System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
+    }
 }

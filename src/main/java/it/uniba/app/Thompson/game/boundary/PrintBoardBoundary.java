@@ -3,10 +3,18 @@ import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.UnicodePawn;
 
+/**
+ * << Boundary >>
+ * Class for printing the board.
+ */
 public final class PrintBoardBoundary {
     private PrintBoardBoundary() { }
 
-    public static void printBoard(Board board) {
+    /**
+     * Prints the board.
+     * @param board Board to print
+     */
+    public static void printBoard(final Board board) {
         int size = board.getSize();
         StringBuilder lol = new StringBuilder();
 
