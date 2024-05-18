@@ -41,11 +41,13 @@ public final class CommunicateInteractionMessagesBoundary {
      * Print the winner of the game.
      * Print to stdout the winner of the game.
      */
-    public static void printWinner(final PawnFigure winner, final int winnerPawns, final int loserPawns) {
-        System.out.println("Ha vinto il "
-                + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
-                + winnerPawns
-                + " a "
-                + loserPawns);
+    public static void printWinner(final PawnFigure winner, final int winnerPawnCount, final int loserPawnCount) {
+        System.out.println(
+            "Ha vinto il "
+            + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
+            + winnerPawnCount
+            + " a "
+            + loserPawnCount
+        );
     }
 }
