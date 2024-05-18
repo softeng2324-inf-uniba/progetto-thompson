@@ -1,38 +1,36 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.util.Coordinate;
 
 /**
- * <<Entity>>
+ * << Entity >>
  *  Class Board.
  */
-
 public final class Board {
 
     /**
      * Attributes of Board.
      */
-    private int size;
-    private Tile[] caselle;
+    private final int size;
+    private Tile[] tiles;
     private static final int DEFAULT_SIZE = 7;
 
     /**
-     * Costructor for Board.
+     * Default Constructor for the class Board.
      */
     private Board() {
-        this.size = DEFAULT_SIZE;
+        size = DEFAULT_SIZE;
     }
 
     /**
-     * Costructor for Board.
-     *
-     * @param newsize size
+     * Constructor for the class Board with a parameter characterizing the size of the board.
+     * @param newSize size.
      */
-    private Board(final int newsize) {
-        this.size = newsize;
+    private Board(final int newSize) {
+        size = newSize;
     }
 
     /**
      * Method getSize.
-     *
      * @return size.
      */
     public int getSize() {
@@ -40,20 +38,11 @@ public final class Board {
     }
 
     /**
-     * Method setSize.
-     * TODO:
-     * Discutere dell'utilità di questo avendo già il costruttore.
-     */
-    public void setSize(final int newsize) {
-        this.size = newsize;
-    }
-
-    /**
-     * Method initBoard.
+     * Method initBoard
      * Creates the board.
      */
-    public void initBoard() {
-        Tile[] tiles = new Tile[size ^ 2];
+    private void initBoard() {
+        tiles = new Tile[size ^ 2];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 tiles[i * size + j] = new Tile(i, j);
@@ -63,12 +52,10 @@ public final class Board {
 
     /**
      * Method getTile.
-     *
-     * @param x x.
-     * @param y y.
-     * @return caselle[x * size + y].
+     * @param coordinate the coordinate.
+     * @return the tile.
      */
-    public Tile getTile(final int x, final int y) {
-        return caselle[x * size + y];
+    public Tile getTile(final Coordinate coordinate) {
+        return tiles[coordinate.getX() * size + coordinate.getY()];
     }
 }
