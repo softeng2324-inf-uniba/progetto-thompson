@@ -5,11 +5,11 @@
 ## Partecipanti al progetto
 
 Il team di sviluppatori è composta da:
-+ Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))
-+ Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))
-+ Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))
-+ Nicolo' Pacucci ([Pascoooo](https://github.com/Pascoooo))
-+ Fabio Zippo ([IXRyu](https://github.com/IXRyu))
++ **Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))**
++ **Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))**
++ **Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))**
++ **Nicolo' Pacucci ([Pascoooo](https://github.com/Pascoooo))**
++ **Fabio Zippo ([IXRyu](https://github.com/IXRyu))**
 
 ## Descrizione progetto
 
@@ -17,9 +17,7 @@ Di seguito viene riportata la documentazione riguardante il progetto di "Ingegne
 
 Il progetto consiste nella realizzazione del videogioco di strategia per cabinati  **Ataxx** interfacciabile attraverso linea di comando.
 
-<div style="text-align: center">
-    <img src="img/ataxx_game.jpeg" alt="drawing" width="450"/>
-</div>
+<p align="center "><img src="img/ataxx_game.jpeg" alt="drawing" width="450"  /></p>
 
 L'implementazione offre solo la possibilità di effettuare una partita, assieme ad un altro giocatore, in multiplayer.
 
@@ -39,11 +37,13 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 ![img_Modello_di_dominio](img/Modello_di_dominio.png)
 
 ## Chiarimenti scelte progettuali
-- Relazioni **Mossa**  ⇄ **Pedina**
+- Relazioni **Mossa**  ⇄ **Pedina:**
+
 Può sembrare intuitivo avere le relazioni che descrivono il comportamento della pedine direttamente con **Casella**, 
 tuttavia abbiamo deciso di implementare una classe **Mossa** così da tener conto dello stato del gioco e rendendo più agevole 
 la modifica delle regole del gioco determinate dalla variante scelta.
-- Relazione **Giocatore**  ⇄ **Pedina**
+- Relazione **Giocatore**  ⇄ **Pedina:**
+
 Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
 pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
 
@@ -116,14 +116,12 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 ## Guida
 - Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
 - Autenticarsi con github tramite CLI come segue:
-<div>
-    <p>
-        <h2><img src="img/Github-logo.png" height="60" > Creazione Token per il Docker login</h2>
-    </p>
-</div>
-- Verificare di utilizzare uno dei terminali supportati riportati in 
 
-    [Requisiti non funzionali](#32-requisiti-non-funzionali)
+<h2><img src="img/Github-logo.png" alt="Github logo" height="60"> Creazione Token per il Docker login</h2>
+
+Verificare di utilizzare uno dei terminali supportati riportati in 
+
+- [Requisiti non funzionali](#32-requisiti-non-funzionali)
 
 Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi descritti di seguito:
 
@@ -131,29 +129,32 @@ Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi des
 
 2. **Accesso**: Accedi al tuo account GitHub utilizzando le tue [credenziali di accesso](https://github.com/login).
 
+
 3. **Generazione del token**: Una volta effettuato l'accesso, vai alle impostazioni del tuo account. Puoi accedervi cliccando sulla tua immagine del profilo e selezionando `Settings`.
 Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu a sinistra.
 
+
 4. **Generazione**: Fai clic sul pulsante `Generate new token`
 
+
 5. **Autorizzazioni**: Seleziona le autorizzazioni necessarie per il token.
+
+
 6. **Copia il token**: Una volta generato, copia il token. GitHub mostrerà il token solo una volta, quindi assicurati di copiarlo e conservarlo in un luogo sicuro.
 
 A questo punto si è pronti per accedere a Docker tramite Github PAT
 
-<div>
-    <p>
-        <h2> <img src="img/Docker-logo.png" height="55" > Autenticazione Docker ed Avvio </h2>
-    </p>
-</div>
+<h2> <img src="img/Docker-logo.png" alt="Docker logo" height="55" > Autenticazione Docker ed Avvio </h2>
 
 1. **Copia del token su un file `.txt`**:
 
     Copia il token generato in precedenza in un file di testo, ad esempio, `token.txt`
 
+
 2. **Ottenere il percorso del file**:
 
-   Dopo aver creato il file, copia il percorso completo
+    Dopo aver creato il file, copia il percorso completo
+
 
 3. **Login a GitHub Container Registry (GHCR) tramite Docker**:
 
@@ -202,34 +203,45 @@ Esistono inoltre varianti che modificano elementi del gioco base, offrendo diver
   - Le regole base del gioco restano invariate.
 
 ## Guida All'Utilizzo
+
 - ### **All'avvio:**
-Visualizzazione banner di benvenuto
-
-![Game_Banner](img/Game_Banner.png)
-
-- ### **Avvio con parametri `-h` o `--help`:**
-Visualizzazione banner con i comandi disponibili in attesa di input.
-
-- ### **Al Comando `/help`:**
-Mostra l'elenco dei comandi disponibili.
+    <details open>Visualizzazione banner di benvenuto <p align="center"><img src="img/Game_Banner.png" alt="Game_Banner" width="500"/></p>
+    <summary>Visualizza Dettagli</summary>
+    </details>
+  
+- ### **All'avvio con Parametri `-h` o `--help`:**
+    <details open> Visualizzazione banner con i comandi disponibili in attesa di input.
+        <summary>Visualizza Dettagli</summary>
+    </details>
 
 - ### **Al Comando `/gioca`:**
-Mostra il tavoliere con le pedine in posizione iniziale.
-
+    <details open>Mostra il tavoliere con le pedine in posizione iniziale
+        <summary>Visualizza Dettagli</summary>
+    </details>
+  
 - ### **Al comando `/vuoto`:**
-Mostra il tavoliere vuoto enumerato.
-
+    <details open>Mostra il tavoliere vuoto enumerato.
+        <summary>Visualizza Dettagli</summary>
+    </details>
 - ### **Al comando `/tavoliere`:**
-Mostra il tavoliere con pedine e numerazione, 
-se non si è iniziata una partita suggerisce il comando `/gioca`.
+    <details open>Mostra il tavoliere con pedine e numerazione, se non si è iniziata una partita suggerisce il comando <code>/gioca</code>.
+        <summary>Visualizza Dettagli</summary>
+    </details>
 
 - ### **Al comando `/qualimosse`:**
-Mostra le mosse possibili con colori diversi in base al tipo di mossa.
-
+    <details open>Mostra le mosse possibili colorando le caselle diversamente in base al tipo di mossa disponibile in essa.
+        <summary>Visualizza Dettagli</summary>
+    </details>
+  
 - ### **Al comando `/abbandona`:**
-Richiesta di quale giocatore deve abbandonare e conferma.
+    <details open>Chiede conferma per l'abbandono della partita, se confermato dichiara il vincitore per x a 0 dove x è il numero di pedine rimaste dell'avversario.
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
 - ### **Al comando `/esci`:**
-Richiesta di conferma per l'uscita dal gioco.
+    <details open>Chiude il gioco e restituisce il controllo al sistema operativo.
+        <summary>Visualizza Dettagli</summary>
+    </details>
 
 # 9 - Analisi Retrospettiva
 
@@ -267,12 +279,12 @@ Dalla tabella si evince che:
     </li>
 </ul>
 
-#### Miglioramenti proposti
+### Miglioramenti proposti
 
 Dopo aver analizzato le problematiche il team ha sancito i seguenti suggerimenti:
 - Riguardo alla fretta nelle revisioni, i membri convengono nel porre più attenzione nel controllare il lavoro svolto
 - Riguardo al mancato rispetto dello stile dei commit, ognuno si assume la responsabilità di eventuali errori commessi e si impegna a controllare il codice di condotta se incerto
 - Riguardo alla scrittura degli issue il team decide di stabilire uno stile per la scrittura degli stessi
 
-#### Conclusioni
+### Conclusioni
 In generale conveniamo nell'avere una responsabilità individuale oltre a quella di team, ognuno si impegnerà a svolgere correttamente il proprio lavoro evitando errori dovuti a distrazione o fretta.
