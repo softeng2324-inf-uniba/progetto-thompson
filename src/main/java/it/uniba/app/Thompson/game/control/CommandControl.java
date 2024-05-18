@@ -6,14 +6,34 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  * Controls for command constants.
  */
 public abstract class CommandControl {
-    private String command;
+    private static final String COMMAND = "";
+    private static final String[] ALIASES = {};
+    private static final String DESCRIPTION = "";
+
     /**
      * Method that returns command.
      * @return Name of the command.
      */
     String getCommand() {
-        return command;
+        return COMMAND;
     }
+
+    /**
+     * Return description of command.
+     * @return Description
+     */
+    String getDescription() {
+        return DESCRIPTION;
+    }
+
+    /**
+     * Return aliases of command.
+     * @return Description
+     */
+    String[] getAliases() {
+        return ALIASES;
+    }
+
     /**
      * Method that executes some instructions and return a CommandStatus.
      * @return Instance of CommandStatus.
