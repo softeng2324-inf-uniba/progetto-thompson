@@ -38,7 +38,7 @@ public final class Board {
      */
     public void setInitialPawns() {
         tiles[0].placePawn(PawnFigure.BLACK_PAWN);
-        tiles[size ^ 2 - 1].placePawn(PawnFigure.BLACK_PAWN);
+        tiles[(int) (Math.pow(size, 2)) - 1].placePawn(PawnFigure.BLACK_PAWN);
         tiles[size - 1].placePawn(PawnFigure.WHITE_PAWN);
         tiles[size * (size - 1)].placePawn(PawnFigure.WHITE_PAWN);
     }
@@ -56,7 +56,7 @@ public final class Board {
      * Creates the board.
      */
     private void initBoard(final boolean isGameBoard) {
-        tiles = new Tile[size ^ 2];
+        tiles = new Tile[(int) (Math.pow(size, 2))];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 tiles[i * size + j] = new Tile(i, j);
