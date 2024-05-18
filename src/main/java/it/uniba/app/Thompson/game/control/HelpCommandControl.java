@@ -7,9 +7,10 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  * Implementation of the help command.
  */
 public final class HelpCommandControl extends CommandControl {
+
     /**
      * Attributes initialization and instance.
-     */
+     * */
     private static final String COMMAND = "/help";
     private static final String DESCRIPTION = "Mostra tutti i comandi disponibili";
     private static final HelpCommandControl INSTANCE = new HelpCommandControl();
