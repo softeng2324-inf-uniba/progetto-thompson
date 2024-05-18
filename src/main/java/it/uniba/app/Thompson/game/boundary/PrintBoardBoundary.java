@@ -10,19 +10,18 @@ public final class PrintBoardBoundary {
         int size = board.getSize();
         StringBuilder lol = new StringBuilder();
 
-        System.out.println("   A  B  C  D  E  F  G");
+        System.out.println("\t A\t B\t C\t D\t E\t F\t G");
         for (int i = 0; i < size; i++) {
             lol.setLength(0);
             lol.append(i + 1);
-            lol.append(String.format("%3s", "|"));
-            System.out.println("___________________________________");
+            lol.append("\t|");
             for (int j = 0; j < size; j++) {
                 if (board.getTile(new Coordinate(i, j)).isOccupied()) {
                     lol.append(UnicodePawn.getPawnUnicode(board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
                 } else {
-                    lol.append(String.format("%3s", " "));
+                    lol.append(" ");
                 }
-                lol.append(String.format("%3s", "|"));
+                lol.append("\t|");
             }
             System.out.println(lol.toString());
         }
