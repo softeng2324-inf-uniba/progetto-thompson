@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.entity;
 import java.util.Stack;
 
 /**
- * <<Entity>>
+ * << Entity >>
  * Class Match.
  */
 public class Match {
@@ -10,36 +10,28 @@ public class Match {
     /**
      * Attributes of Match.
      */
-    private boolean onGoing = false;
     private final Stack<Move> moves = new Stack<>();
 
     /**
-     * Method to get the Ongoing state of the match.
-     * @return boolean
+     * Constructor for the class Match.
      */
-    public boolean getOnGoing() {
-        return this.onGoing;
-    }
-    /**
-     *Method to set the match.
-     *@param state the match
-     */
-    public void setOnGoing(final boolean state) {
-        this.onGoing = state;
+    public Match() {
+
     }
 
     /**
      * Method to set the move.
-     * @param mossa the move
+     * @param move the move
      */
-    public void setMove(final Move mossa) {
-        this.moves.push(mossa);
+    public void setMove(final Move move) {
+        this.moves.push(move);
     }
+
     /**
      * Method to get the moves.
      * @return the moves stack
      */
-    public Stack<Move> getMosse() {
+    public Stack<Move> getMoves() {
         return this.moves;
     }
 }
