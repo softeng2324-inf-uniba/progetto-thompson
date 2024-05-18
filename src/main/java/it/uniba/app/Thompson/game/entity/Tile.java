@@ -1,6 +1,8 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.util.Coordinate;
+
 /**
- * <<Entity>>
+ * << Entity >>
  *  Class Tile.
  */
 public class Tile {
@@ -8,17 +10,23 @@ public class Tile {
     /**
      * Attributes of Tile.
      */
-    private final int x;
-    private final int y;
-    private boolean invalid = false;
+    private final Coordinate coordinate;
     private boolean occupied = false;
+    private boolean invalid = false;
+
+    /**
+     * Constructor Tile.
+     */
+    public Tile(final int coordX, final int coordY) {
+        coordinate = new Coordinate(coordX, coordY);
+    }
 
     /**
      * Method getX.
      * @return x int
      */
     public int getX() {
-        return x;
+        return coordinate.getX();
     }
 
     /**
@@ -26,7 +34,7 @@ public class Tile {
      * @return y int
      */
     public int getY() {
-        return y;
+        return coordinate.getY();
     }
 
     /**
@@ -41,23 +49,23 @@ public class Tile {
      * Method setInvalid.
      * @param state boolean
      */
-    public void setInvalid(boolean state) {
-        this.invalid = state;
+    public void setInvalid(final boolean state) {
+        invalid = state;
     }
 
     /**
      * Method isOccupied.
      * @return occupied boolean
      */
-    public void isOccupied(boolean occupied) {
-        this.occupied = occupied;
+    public boolean isOccupied() {
+        return occupied;
     }
 
     /**
-     * Costructor Tile.
+     * Method isOccupied.
+     * @param state boolean
      */
-    public Tile(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public void setOccupied(final boolean state) {
+        occupied = state;
     }
 }
