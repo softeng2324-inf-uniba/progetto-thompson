@@ -30,7 +30,7 @@ public final class ExitCommandControl extends CommandControl {
     /**
      * @return The instance of the ExitCommandControl.
      */
-    static ExitCommandControl getInstance() {
+    public static ExitCommandControl getInstance() {
         return INSTANCE;
     }
 
