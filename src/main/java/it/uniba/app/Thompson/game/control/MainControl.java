@@ -31,6 +31,7 @@ public final class MainControl {
         commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
         commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
         commands.put(PlayCommandControl.getInstance().getCommand(), PlayCommandControl.getInstance());
+        commands.put(QuitCommandControl.getInstance().getCommand(), QuitCommandControl.getInstance());
         commands.put(VoidCommandControl.getInstance().getCommand(), VoidCommandControl.getInstance());
         commands.put(BoardCommandControl.getInstance().getCommand(), BoardCommandControl.getInstance());
 
@@ -76,6 +77,14 @@ public final class MainControl {
      */
     public static Match getMatch() {
         return match;
+    }
+
+    /**
+     * Method removeMatch.
+     * Sets the current match to null, terminating it.
+     */
+    public static void removeMatch() {
+        match = null;
     }
 
     /**

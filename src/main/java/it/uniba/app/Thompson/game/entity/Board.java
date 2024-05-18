@@ -75,4 +75,20 @@ public final class Board {
     public Tile getTile(final Coordinate coordinate) {
         return tiles[coordinate.getX() * size + coordinate.getY()];
     }
+
+    /**
+     * Method countPawns.
+     * @param pawn The color of the pawns to count.
+     * @return count The number of pawns of color pawn.
+     */
+    public int countPawns(final PawnFigure pawn) {
+        int count = 0;
+        for (Tile tile : tiles) {
+            if (tile.isOccupied() && tile.getPawn().getFigure() == pawn) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }

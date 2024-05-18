@@ -37,6 +37,30 @@ public final class CommunicateErrorsBoundary {
     }
 
     /**
+     * Print match null.
+     * Print to stdout the match null message.
+     */
+    public static void printMatchNull() {
+        System.out.println(ErrorMessages.MATCH_NULL);
+    }
+
+    /**
+     * Print invalid player.
+     * Print to stdout the invalid player message.
+     */
+    public static void printInvalidPlayer() {
+        System.out.println(ErrorMessages.INVALID_PLAYER);
+    }
+
+    /**
+     * Print invalid choice.
+     * Print to stdout the invalid choice message.
+     */
+    public static void printInvalidChoice() {
+        System.out.println(ErrorMessages.INVALID_CHOICE);
+    }
+     
+    /**
      * Print suggest match init.
      * Print to stdout the suggest match init message.
      */
