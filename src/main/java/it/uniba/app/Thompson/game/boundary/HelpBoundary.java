@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.control.ExitCommandControl;
 import it.uniba.app.Thompson.game.control.HelpCommandControl;
 
 /**
@@ -15,7 +16,10 @@ public final class HelpBoundary {
             "COMANDI DISPONIBILI \n"
             + " - " + HelpCommandControl.getInstance().getCommand() + " : "
                     + HelpCommandControl.getInstance().getDescription() + "\n"
+            + " - " + ExitCommandControl.getInstance().getCommand() + " : "
+                    + ExitCommandControl.getInstance().getDescription() + "\n"
         );
+
     }
 
     private HelpBoundary() { }

@@ -21,7 +21,7 @@ public final class MainControl {
         HashMap<String, CommandControl> commands =  new HashMap<>();
 
         commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
-
+        commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
         return commands;
     }
 
