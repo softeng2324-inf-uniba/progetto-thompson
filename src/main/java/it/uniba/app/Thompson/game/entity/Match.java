@@ -32,6 +32,8 @@ public class Match {
      * @return the moves stack
      */
     public Stack<Move> getMoves() {
-        return this.moves;
+        Stack<Move> clonedMoves = new Stack<>();
+        clonedMoves.addAll(this.moves);
+        return clonedMoves;
     }
 }
