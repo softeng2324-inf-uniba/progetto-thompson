@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -50,6 +51,11 @@ public final class PlayCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
+        if (MainControl.getMatch() == null) {
+            MainControl.initMatch();
+        } else {
+            CommunicateErrorsBoundary.printMatchNotNull();
+        }
         return CommandStatus.SUCCESSFUL;
     }
 }
