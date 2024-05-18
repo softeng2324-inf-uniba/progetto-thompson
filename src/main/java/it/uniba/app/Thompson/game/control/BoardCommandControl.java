@@ -1,5 +1,7 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 /**
  * << Control >>
  * Implementation of the board command.
@@ -49,8 +51,11 @@ public final class BoardCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
-        System.out.println("Tavoliere");
-
+        if (MainControl.getMatch() == null) {
+            CommunicateErrorsBoundary.printSuggestMatchInit();
+        } else {
+            PrintBoardBoundary.printBoard(MainControl.getMatch().getBoard());
+        }
         return CommandStatus.SUCCESSFUL;
     }
 }
