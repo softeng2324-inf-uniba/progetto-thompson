@@ -47,7 +47,7 @@ public class Tile {
 
     /**
      * Method isOccupied.
-     * @param occupied boolean
+     * @return occupied boolean
      */
     public void isOccupied(boolean occupied) {
         this.occupied = occupied;
