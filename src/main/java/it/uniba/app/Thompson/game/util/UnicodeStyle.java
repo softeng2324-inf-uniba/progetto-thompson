@@ -23,6 +23,9 @@ public final class UnicodeStyle {
             case ITALIC -> {
                return "\u001B[3m";
             }
+            case UNDERLINE_CHAR -> {
+                return "—";
+            }
             default -> {
                 return "\u001B[0m";
             }
