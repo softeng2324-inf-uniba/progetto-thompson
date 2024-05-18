@@ -30,6 +30,14 @@ public class Match {
     }
 
     /**
+     * Method to get the board.
+     * @return board The board.
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
      * Method to get the moves.
      * @return The moves stack.
      */
