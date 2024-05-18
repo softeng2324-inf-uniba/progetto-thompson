@@ -32,6 +32,8 @@ public final class MainControl {
         commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
         commands.put(PlayCommandControl.getInstance().getCommand(), PlayCommandControl.getInstance());
         commands.put(QuitCommandControl.getInstance().getCommand(), QuitCommandControl.getInstance());
+        commands.put(VoidCommandControl.getInstance().getCommand(), VoidCommandControl.getInstance());
+        commands.put(BoardCommandControl.getInstance().getCommand(), BoardCommandControl.getInstance());
 
         return commands;
     }
