@@ -53,6 +53,10 @@ public class Tile {
         pawn = null;
     }
 
+    /**
+     * Method getPawn.
+     * @return pawn Pawn
+     */
     public Pawn getPawn() {
         return pawn;
     }
