@@ -5,6 +5,8 @@ import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 
+import java.util.Arrays;
+
 /**
  * << Control >>
  * Command to quit the current match.
@@ -57,38 +59,51 @@ public final class QuitCommandControl extends CommandControl {
             if (MainControl.getMatch() == null) {
                 CommunicateErrorsBoundary.printMatchNull();
             } else {
-                CommunicateInteractionMessagesBoundary.printQuittingPlayer();
-                String whichPlayer = UserInputBoundary.getInput();
-
-                whichPlayer = whichPlayer.trim().toLowerCase();
-
-                if (whichPlayer.equals("n") || whichPlayer.equals("b")) {
-                    CommunicateInteractionMessagesBoundary.printSureToQuit();
-                    String assurance = UserInputBoundary.getInput();
-
-                    assurance = assurance.trim().toLowerCase();
-
-                    if (assurance.equals("s")) {
-                        if (whichPlayer.equals("b")) {
-                            CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.BLACK_PAWN,
-                                    MainControl.getMatch().getBoard().countPawns(PawnFigure.BLACK_PAWN),
-                                    0);
-                        } else {
-                            CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.WHITE_PAWN,
-                                    MainControl.getMatch().getBoard().countPawns(PawnFigure.WHITE_PAWN),
-                                    0);
-                        }
-                        MainControl.removeMatch();
-                    } else if (assurance.equals("n")) {
-                        CommunicateInteractionMessagesBoundary.printAbortedQuit();
-                    } else {
-                        CommunicateErrorsBoundary.printInvalidChoice();
-                    }
-                } else {
-                    CommunicateErrorsBoundary.printInvalidPlayer();
-                }
+                this.askToQuitGame();
             }
 
             return CommandStatus.SUCCESSFUL;
+        }
+
+        private void askToQuitGame() {
+            CommunicateInteractionMessagesBoundary.printQuittingPlayer();
+            String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
+            String[] acceptableResponse = new String[] { "n", "s" };
+
+            if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
+                CommunicateErrorsBoundary.printInvalidPlayer();
+
+                return;
+            }
+
+            this.askConfirmation(whichPlayer);
+        }
+
+        private void askConfirmation(String player) {
+            CommunicateInteractionMessagesBoundary.printSureToQuit();
+            String confirmation = UserInputBoundary.getInput().trim().toLowerCase();
+            String[] acceptableResponse = new String[] { "n", "s" };
+
+            if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
+                CommunicateErrorsBoundary.printInvalidChoice();
+
+                return;
+            }
+
+            if (confirmation.equals("s")) {
+                this.quitGame(player.equals("b") ? PawnFigure.BLACK_PAWN : PawnFigure.WHITE_PAWN);
+            } else {
+                CommunicateInteractionMessagesBoundary.printAbortedQuit();
+            }
+        }
+
+        private void quitGame(PawnFigure winnerPawn) {
+            CommunicateInteractionMessagesBoundary.printWinner(
+                    winnerPawn,
+                    MainControl.getMatch().getBoard().countPawns(winnerPawn),
+                    0
+            );
+
+            MainControl.removeMatch();
         }
 }
