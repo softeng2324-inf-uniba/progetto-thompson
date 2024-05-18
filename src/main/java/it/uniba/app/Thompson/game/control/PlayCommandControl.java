@@ -1,30 +1,30 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.HelpBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
  * << Control >>
- * Implementation of the help command.
+ * Implementation of the play command.
  */
-public final class HelpCommandControl extends CommandControl {
+public final class PlayCommandControl extends CommandControl {
 
     /**
      * Attributes initialization and instance.
-     * */
-    private static final String COMMAND = "/help";
-    private static final String DESCRIPTION = "Mostra tutti i comandi disponibili";
-    private static final HelpCommandControl INSTANCE = new HelpCommandControl();
-    private static final String[] ALIASES = {"--help", "-h"};
+     */
+    private static final String COMMAND = "/gioca";
+    private static final String DESCRIPTION = "Inizia una nuova partita";
+    private static final PlayCommandControl INSTANCE = new PlayCommandControl();
 
     /**
-     * Constructor for HelpCommandControl.
+     * Constructor for PlayCommandControl.
      */
-    private HelpCommandControl() { }
+    private PlayCommandControl() { }
 
     /**
-     * @return The instance of the HelpCommandControl.
+     * @return The instance of the PlayCommandControl.
      */
-    public static HelpCommandControl getInstance() {
+    public static PlayCommandControl getInstance() {
         return INSTANCE;
     }
 
@@ -35,15 +35,6 @@ public final class HelpCommandControl extends CommandControl {
     @Override
     public String getCommand() {
         return COMMAND;
-    }
-
-    /**
-     * Override of the getAliases method of the abstract class CommandControl.
-     * @return The command string.
-     */
-    @Override
-    public String[] getAliases() {
-        return ALIASES.clone();
     }
 
     /**
@@ -61,8 +52,12 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
-        HelpBoundary.printCommands();
-
+        if (MainControl.getMatch() == null) {
+            MainControl.initMatch();
+            PrintBoardBoundary.printBoard(MainControl.getMatch().getBoard());
+        } else {
+            CommunicateErrorsBoundary.printMatchNotNull();
+        }
         return CommandStatus.SUCCESSFUL;
     }
 }

@@ -1,6 +1,7 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
+import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
@@ -9,10 +10,17 @@ import java.util.HashMap;
  * Main control class for the game.
  */
 public final class MainControl {
+
+    /**
+     * Attributes of MainControl.
+     */
+    private static Match match;
+
     /**
      * Constructor for MainControl.
      */
     private MainControl() { }
+
     /**
      * Initialize commands.
      * @return The available commands.
@@ -22,6 +30,8 @@ public final class MainControl {
 
         commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
         commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
+        commands.put(PlayCommandControl.getInstance().getCommand(), PlayCommandControl.getInstance());
+
         return commands;
     }
 
@@ -49,6 +59,21 @@ public final class MainControl {
         }
 
         return commands;
+    }
+
+    /**
+     * Method initMatch.
+     */
+    public static void initMatch() {
+        match = new Match();
+    }
+
+    /**
+     * Method getMatch.
+     * @return The current match.
+     */
+    public static Match getMatch() {
+        return match;
     }
 
     /**
@@ -90,8 +115,8 @@ public final class MainControl {
      * Start the main control loop.
      */
     public static void startMainControl(final String[] args) {
-        CommandStatus status = CommandStatus.SUCCESSFUL;
         HashMap<String, CommandControl> availableCommands = initCommands();
+        CommandStatus status = CommandStatus.SUCCESSFUL;
 
         WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
         banner.printBanner();

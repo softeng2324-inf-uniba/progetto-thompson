@@ -6,11 +6,17 @@ import java.util.Scanner;
  * Class to get user input.
  */
 public final class UserInputBoundary {
+
+    /**
+     * Scanner for input.
+     */
     private static final Scanner SCANNER = new Scanner(System.in, "UTF-8");
+
     /**
      * Constructor for UserInput.
      */
     private UserInputBoundary() { }
+
     /**
      * Get input.
      * @return The input from the user.
@@ -18,8 +24,9 @@ public final class UserInputBoundary {
     public static String getInput() {
         return SCANNER.nextLine();
     }
+
     /**
-     * Close the SCANNER.
+     * Closes the SCANNER.
      */
     public static void closeScanner() {
         SCANNER.close();

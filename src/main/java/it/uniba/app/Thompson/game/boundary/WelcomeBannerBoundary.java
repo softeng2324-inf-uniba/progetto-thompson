@@ -9,6 +9,7 @@ import it.uniba.app.Thompson.game.util.Style;
  * Class to print the welcome banner.
  */
 public final class WelcomeBannerBoundary {
+
     /**
      * Banner to print.
      */

@@ -1,5 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 
 /**
  * << Entity >>
@@ -11,8 +12,8 @@ public class Tile {
      * Attributes of Tile.
      */
     private final Coordinate coordinate;
-    private boolean occupied = false;
     private boolean invalid = false;
+    private Pawn pawn;
 
     /**
      * Constructor Tile.
@@ -38,6 +39,33 @@ public class Tile {
     }
 
     /**
+     * Method placePawn.
+     * @param pawnFigure Figure of the pawn to be placed.
+     */
+    public void placePawn(final PawnFigure pawnFigure) {
+        pawn = new Pawn(pawnFigure);
+    }
+
+    /**
+     * Method removePawn to displace a pawn from a tile.
+     */
+    public void removePawn() {
+        pawn = null;
+    }
+
+    public Pawn getPawn() {
+        return pawn;
+    }
+
+    /**
+     * Method isOccupied.
+     * @return pawn Return true if tile is occupied by pawn.
+     */
+    public boolean isOccupied() {
+        return pawn != null;
+    }
+
+    /**
      * Method isInvalid.
      * @return invalid boolean
      */
@@ -51,21 +79,5 @@ public class Tile {
      */
     public void setInvalid(final boolean state) {
         invalid = state;
-    }
-
-    /**
-     * Method isOccupied.
-     * @return occupied boolean
-     */
-    public boolean isOccupied() {
-        return occupied;
-    }
-
-    /**
-     * Method isOccupied.
-     * @param state boolean
-     */
-    public void setOccupied(final boolean state) {
-        occupied = state;
     }
 }
