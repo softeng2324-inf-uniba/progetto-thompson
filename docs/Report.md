@@ -116,12 +116,11 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 ## Guida
 - Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
 - Autenticarsi con github tramite CLI come segue:
-
-<div style="display:flex; align-items:center; justify-content:space-between">
-    <p style="font-size: 20px"> Procedura per ottenere un token su GitHub</p>
-     <img src="img/Github-logo.png" height="55" >
+<div>
+    <p>
+        <h2><img src="img/Github-logo.png" height="60" > Creazione Token per il Docker login</h2>
+    </p>
 </div>
-
 - Verificare di utilizzare uno dei terminali supportati riportati in 
 
     [Requisiti non funzionali](#32-requisiti-non-funzionali)
@@ -142,9 +141,10 @@ Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu 
 
 A questo punto si è pronti per accedere a Docker tramite Github PAT
 
-<div style="display:flex; align-items:center; justify-content:space-between">
-    <p style="font-size: 20px">Docker Login ed Avvio</p>
-     <img src="img/Docker-logo.png" height="55" >
+<div>
+    <p>
+        <h2> <img src="img/Docker-logo.png" height="55" > Autenticazione Docker ed Avvio </h2>
+    </p>
 </div>
 
 1. **Copia del token su un file `.txt`**:
@@ -200,6 +200,37 @@ Esistono inoltre varianti che modificano elementi del gioco base, offrendo diver
 - **Variante Assimilation (o Infection)**:
   - In questa variante, gli spostamenti possono essere effettuati solo in maniera ortogonale o diagonale, escludendo i salti a "L".
   - Le regole base del gioco restano invariate.
+
+## Guida All'Utilizzo
+- ### **All'avvio:**
+Visualizzazione banner di benvenuto
+
+![Game_Banner](img/Game_Banner.png)
+
+- ### **Avvio con parametri `-h` o `--help`:**
+Visualizzazione banner con i comandi disponibili in attesa di input.
+
+- ### **Al Comando `/help`:**
+Mostra l'elenco dei comandi disponibili.
+
+- ### **Al Comando `/gioca`:**
+Mostra il tavoliere con le pedine in posizione iniziale.
+
+- ### **Al comando `/vuoto`:**
+Mostra il tavoliere vuoto enumerato.
+
+- ### **Al comando `/tavoliere`:**
+Mostra il tavoliere con pedine e numerazione, 
+se non si è iniziata una partita suggerisce il comando `/gioca`.
+
+- ### **Al comando `/qualimosse`:**
+Mostra le mosse possibili con colori diversi in base al tipo di mossa.
+
+- ### **Al comando `/abbandona`:**
+Richiesta di quale giocatore deve abbandonare e conferma.
+- ### **Al comando `/esci`:**
+Richiesta di conferma per l'uscita dal gioco.
+
 # 9 - Analisi Retrospettiva
 
 ## 9.1 - Sprint 0
