@@ -21,7 +21,7 @@ public final class Player {
 
     /**
      * Method to get the color of the pawns.
-     * @return the color of the pawns
+     * @return The color of the pawns
      */
     public Color getColor() {
         return pawnColor;
@@ -29,7 +29,7 @@ public final class Player {
 
     /**
      * Method to invalidate a cell.
-     * @param tile the cell to invalidate
+     * @param tile The cell to invalidate
      */
     public void invalidateTile(final Tile tile) {
         tile.setInvalid(true);
@@ -38,7 +38,7 @@ public final class Player {
     /*
     /**
      * Method to get the number of pawns.
-     * @return the number of pawns
+     * @return The number of pawns
      * /
     public int getPawnNumber() {
         return ;
