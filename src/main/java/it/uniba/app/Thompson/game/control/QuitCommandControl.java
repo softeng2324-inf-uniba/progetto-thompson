@@ -68,7 +68,7 @@ public final class QuitCommandControl extends CommandControl {
         private void askToQuitGame() {
             CommunicateInteractionMessagesBoundary.printQuittingPlayer();
             String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
-            String[] acceptableResponse = new String[] { "n", "s" };
+            String[] acceptableResponse = new String[] { "n", "b" };
 
             if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
                 CommunicateErrorsBoundary.printInvalidPlayer();
