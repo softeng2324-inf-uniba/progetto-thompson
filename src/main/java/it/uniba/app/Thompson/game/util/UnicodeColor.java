@@ -5,10 +5,12 @@ package it.uniba.app.Thompson.game.util;
  * Class for color constants.
  */
 public final class UnicodeColor {
+
     /**
      * Color constructor.
      */
     private UnicodeColor() { }
+
     /**
      * @param color Color of the returning string
      * @return Returns unicode of color parameter
@@ -34,7 +36,7 @@ public final class UnicodeColor {
                 return "\u001B[31m";
             }
             default -> {
-                return "";
+                return "\u001B[0m";
             }
         }
     }
