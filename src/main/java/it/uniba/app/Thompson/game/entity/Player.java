@@ -10,16 +10,8 @@ public final class Player {
     /**
      * Attributes of Player.
      */
-    private int numeroPedine;
-    private static final Color COLOREPEDINE = Color.RED;
+    private final Color pawnColor;
 
-    /**
-     * Method to get the number of pawns.
-     * @return the number of pawns
-     */
-    public int getNumeroPedine() {
-        return numeroPedine;
-    }
     /**
      * Method to set the number of pawns.
      * @param numPedine number of pawns
