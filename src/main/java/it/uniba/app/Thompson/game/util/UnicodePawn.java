@@ -15,13 +15,13 @@ public final class UnicodePawn {
      * @param pawn Visualization of the pawn
      * @return Return unicode pawn figure based off pawn parameter
      */
-    public static String getStyleUnicode(final PawnFigure pawn) {
+    public static String getPawnUnicode(final PawnFigure pawn) {
         switch (pawn) {
             case WHITE_PAWN -> {
-                return "\u26C0";
+                return "⛀";
             }
             case BLACK_PAWN -> {
-                return "\u26C2";
+                return "⛂";
             }
             default -> {
                 return "\u001B[0m";
