@@ -15,8 +15,8 @@ public final class Move {
 
     /**
      * Constructor for the class Move.
-     * @param start the start coordinate
-     * @param end the end coordinate
+     * @param start The start coordinate
+     * @param end The end coordinate
      */
     private Move(final Coordinate start, final Coordinate end) {
         from = start;
@@ -25,7 +25,7 @@ public final class Move {
 
     /**
      * Method to get the starting position of the move.
-     * @return the starting position
+     * @return The starting position
      */
     public Coordinate getFrom() {
         return  from;
@@ -33,7 +33,7 @@ public final class Move {
 
     /**
      * Method to get the arrival position of the move.
-     * @return the arrival position
+     * @return The arrival position
      */
     public Coordinate getTo() {
         return  to;
