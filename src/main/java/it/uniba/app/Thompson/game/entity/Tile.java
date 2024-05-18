@@ -1,6 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.util.Coordinate;
-import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 
 /**
