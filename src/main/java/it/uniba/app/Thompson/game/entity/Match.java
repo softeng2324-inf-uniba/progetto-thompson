@@ -12,13 +12,13 @@ public class Match {
      */
     private final Stack<Move> moves = new Stack<>();
     private final Board board;
-    private boolean fillBoard = true;
+    private final boolean isGameBoard = true;
 
     /**
      * Constructor for the class Match.
      */
     public Match() {
-        board = new Board(fillBoard);
+        board = new Board(isGameBoard);
     }
 
     /**
