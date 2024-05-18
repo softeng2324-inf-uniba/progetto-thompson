@@ -77,6 +77,14 @@ public final class MainControl {
     }
 
     /**
+     * Method removeMatch.
+     * Sets the current match to null, terminating it.
+     */
+    public static void removeMatch() {
+        match = null;
+    }
+
+    /**
      * Finds command in the map availableCommands and executes it.
      * @param command Command to find and execute.
      * @param availableCommands Map of the available commands.
