@@ -2,13 +2,15 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * << Util >>
- * Class for font constants.
+ * Class for style constants.
  */
 public final class UnicodeStyle {
+
     /**
      * Style constructor.
      */
     private UnicodeStyle() { }
+
     /**
      * @param style Style of the returning string
      * @return Return unicode style based off style parameter
