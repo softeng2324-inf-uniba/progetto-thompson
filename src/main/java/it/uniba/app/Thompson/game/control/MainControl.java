@@ -1,8 +1,10 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
+import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
@@ -95,12 +97,14 @@ public final class MainControl {
      * @param availableCommands Map of the available commands
      * @return Returns the status of the system after the execution of the command.
      */
-    private static CommandStatus findAndExecuteCommand(final String command,
-                                                       final HashMap<String, CommandControl> availableCommands) {
+    private static CommandStatus findAndExecuteCommand(
+        final String command,
+        final HashMap<String, CommandControl> availableCommands
+    ) throws CommandNotFoundError {
         if (availableCommands.containsKey(command)) {
             return availableCommands.get(command).executeCommand();
         }
-        throw new Error();
+        throw new CommandNotFoundError();
     }
 
     /**
@@ -109,14 +113,16 @@ public final class MainControl {
      * @param commands Map of all the valid arguments
      */
     private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
-        for (String a : args) {
+        for (String arg : args) {
             try {
-                findAndExecuteCommand(a, commands);
+                findAndExecuteCommand(arg, commands);
+                CommunicateInteractionMessagesBoundary.printNewLine();
+            } catch (CommandNotFoundError e) {
+                CommunicateErrorsBoundary.printArgumentNotFound(arg);
             } catch (Error e) {
-                CommunicateErrorsBoundary.printInvalidArgument();
+                CommunicateErrorsBoundary.printGenericError();
             }
         }
-
     }
 
     /**
@@ -134,11 +140,17 @@ public final class MainControl {
 
         while (status != CommandStatus.SHUTDOWN) {
             String command = UserInputBoundary.getInput();
+
+            CommunicateInteractionMessagesBoundary.printNewLine();
             try {
                 status = findAndExecuteCommand(command, availableCommands);
+            } catch (CommandNotFoundError e) {
+                CommunicateErrorsBoundary.printCommandNotFound();
             } catch (Error e) {
-                CommunicateErrorsBoundary.printInvalidCommand();
+                CommunicateErrorsBoundary.printGenericError();
             }
         }
+
+        CommunicateInteractionMessagesBoundary.printGoodbye();
     }
 }

@@ -60,4 +60,28 @@ public final class CommunicateErrorsBoundary {
     public static void printSuggestMatchInit() {
         System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
     }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout command not found message
+     */
+    public static void printCommandNotFound() {
+        System.out.println(ErrorMessages.COMMAND_NOT_FOUND);
+    }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout a generic error message
+     */
+    public static void printArgumentNotFound(String parameter) {
+        System.out.println(parameter + "\t\t " + ErrorMessages.ARGUMENT_NOT_FOUND);
+    }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout a generic error message
+     */
+    public static void printGenericError() {
+        System.out.println(ErrorMessages.GENERIC_ERROR);
+    }
 }

@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
@@ -59,6 +60,8 @@ public final class BoardCommandControl extends CommandControl {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
         } else {
+            CommunicateInteractionMessagesBoundary.printTitle("TAVOLIERE ATTUALE");
+
             PrintBoardBoundary.printBoard(MainControl.getMatch().getBoard());
         }
         return CommandStatus.SUCCESSFUL;

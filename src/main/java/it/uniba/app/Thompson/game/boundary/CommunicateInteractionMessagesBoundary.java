@@ -1,5 +1,8 @@
 package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.control.FormatterControl;
+import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
+import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UserInteractionMessages;
 
 /**
@@ -7,6 +10,11 @@ import it.uniba.app.Thompson.game.util.UserInteractionMessages;
  * Class to communicate interaction messages.
  */
 public final class CommunicateInteractionMessagesBoundary {
+
+    /**
+     * Attributes of the class CommunicateInteractionMessagesBoundary
+     */
+    private final static FormatterControl formatterControl = new FormatterControl();
 
     /**
      * Constructor for the class CommunicateInteractionMessages.
@@ -41,12 +49,35 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param loserPawnCount The number of pawns of the loser
      */
     public static void printWinner(final PawnFigure winner, final int winnerPawnCount, final int loserPawnCount) {
-        System.out.println(
-            "Ha vinto il "
+        String scoreText = "Ha vinto il "
             + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
             + winnerPawnCount
             + " a "
-            + loserPawnCount
-        );
+            + loserPawnCount;
+
+        System.out.println(formatterControl.formatText(scoreText, Color.BLUE, Style.ITALIC));
     }
+
+    /**
+     * Print a title with a prefix
+     * @param title Titolo da stampare
+     */
+    public static void printTitle(String title) {
+        System.out.println(">>>> " + formatterControl.formatText(title, Style.BOLD) + "\n");
+    }
+
+    /**
+     * Print a goodbye message
+     */
+    public static void printGoodbye() {
+        System.out.println(UserInteractionMessages.GOODBYE);
+    }
+
+    /**
+     * Print a new line
+     */
+    public static void printNewLine() {
+        System.out.println();
+    }
+
 }

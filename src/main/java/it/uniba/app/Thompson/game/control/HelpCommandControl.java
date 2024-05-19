@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.HelpBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
@@ -66,7 +67,17 @@ public final class HelpCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
-        HelpBoundary.printCommands();
+        CommunicateInteractionMessagesBoundary.printTitle("COMANDI DISPONIBILI");
+
+        //inserire tutti i comandi disponibili
+        HelpBoundary.printCommands(new CommandControl[]{
+            HelpCommandControl.getInstance(),
+            VoidCommandControl.getInstance(),
+            PlayCommandControl.getInstance(),
+            BoardCommandControl.getInstance(),
+            QuitCommandControl.getInstance(),
+            ExitCommandControl.getInstance()
+        });
 
         return CommandStatus.SUCCESSFUL;
     }
