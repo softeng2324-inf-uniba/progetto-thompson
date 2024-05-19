@@ -57,7 +57,7 @@ public final class QuitCommandControl extends CommandControl {
         @Override
         public CommandStatus executeCommand() {
             if (MainControl.getMatch() == null) {
-                CommunicateErrorsBoundary.printMatchNull();
+                CommunicateErrorsBoundary.printSuggestMatchInit();
             } else {
                 this.askToQuitGame();
             }
