@@ -63,7 +63,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param title Titolo da stampare
      */
     public static void printTitle(String title) {
-        System.out.println("\n>>>> " + formatterControl.formatText(title, Style.BOLD) + " >>>> \n");
+        System.out.println("\n>>>> " + formatterControl.formatText(title, Style.BOLD) + "\n");
     }
 
     /**
