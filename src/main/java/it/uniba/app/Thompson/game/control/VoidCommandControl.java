@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.CommandStatus;
@@ -49,6 +50,8 @@ public final class VoidCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
+        CommunicateInteractionMessagesBoundary.printTitle("TAVOLIERE VUOTO");
+
         Board board = new Board(false);
         PrintBoardBoundary.printBoard(board);
         return CommandStatus.SUCCESSFUL;
