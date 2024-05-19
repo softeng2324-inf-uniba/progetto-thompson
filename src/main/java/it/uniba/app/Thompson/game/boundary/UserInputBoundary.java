@@ -23,7 +23,7 @@ public final class UserInputBoundary {
      */
     public static String getInput() {
         System.out.print("\n->");
-        return SCANNER.nextLine();
+        return SCANNER.nextLine().trim().toLowerCase();
     }
 
     /**
