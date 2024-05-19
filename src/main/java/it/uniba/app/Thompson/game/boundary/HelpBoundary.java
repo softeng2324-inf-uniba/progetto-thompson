@@ -16,7 +16,7 @@ public final class HelpBoundary {
      * Method printCommands, prints to stdout the available commands.
      * @param commands The array of commands that will be printed
      */
-    public static void printCommands(final CommandControl[] commands) {
+    public static void printCommands(CommandControl[] commands) {
         for (CommandControl command : commands) {
             System.out.print(
                 " - " + command.getCommand() + " : " + command.getDescription() + "\n"
