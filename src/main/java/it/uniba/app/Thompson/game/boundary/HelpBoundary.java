@@ -16,7 +16,7 @@ public final class HelpBoundary {
      * Method printCommands, prints to stdout the available commands.
      */
     public static void printCommands() {
-        System.out.println(
+        System.out.print(
             "COMANDI DISPONIBILI \n"
             + " - " + HelpCommandControl.getInstance().getCommand() + " : "
                     + HelpCommandControl.getInstance().getDescription() + "\n"

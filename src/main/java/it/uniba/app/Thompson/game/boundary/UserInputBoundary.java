@@ -23,7 +23,7 @@ public final class UserInputBoundary {
      * @return Returns the input from the user.
      */
     public static String getInput() {
-        System.out.print("> ");
+        System.out.print("\n> ");
         return SCANNER.nextLine();
     }
 
