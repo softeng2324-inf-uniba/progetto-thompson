@@ -1,11 +1,14 @@
 package it.uniba.app.Thompson.game.util;
 
+import it.uniba.app.Thompson.game.control.FormatterControl;
+
 /**
  * << Util >>
  * Class for color constants.
  */
 public final class ErrorMessages {
 
+    private static final FormatterControl formatter = new FormatterControl();
     /**
      * Constants for error messages.
      */
@@ -17,6 +20,8 @@ public final class ErrorMessages {
     public static final String INVALID_CHOICE = "Scelta non valida, comando annullato";
     public static final String SUGGEST_MATCH_INIT = MATCH_NULL
             + ", utilizza '/gioca' per iniziarne una.";
+    public static final String COMMAND_NOT_FOUND = formatter.formatText("(•ᴖ•｡) Comando non valido, con il comando '/help' puoi " +
+            "trovare i comandi disponibili ", Color.RED);
 
     /**
      * Constructor for ErrorMessages.
