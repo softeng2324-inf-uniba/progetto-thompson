@@ -14,7 +14,7 @@ public final class UnicodeColor {
     /**
      * Method getColorUnicode.
      * @param color Color of the returning unicode
-     * @return Return unicode color based of color parameter
+     * @return Returns unicode color based off color parameter
      */
     public static String getColorUnicode(final Color color) {
         switch (color) {
