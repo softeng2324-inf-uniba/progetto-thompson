@@ -5,17 +5,14 @@ import it.uniba.app.Thompson.game.control.MainControl;
  * Main class of the application.
  */
 public final class App {
+
     /**
-     * Get a greeting sentence.
-     *
-     * @return the "Hello World!" string.
+     * Private constructor to hide the implicit public one.
      */
-    public String getGreeting() {
-        return "Hello World!!!";
-    }
+    private App() { }
+
     /**
      * Entrypoint of the application.
-     *
      * @param args command line arguments
      */
     public static void main(final String[] args) {
