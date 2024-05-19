@@ -1,26 +1,19 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+
 /**
- * << Control >>
- * Implementation of the exit command.
+ * {@literal << Control >>}
+ * Class to manage the command exit.
  */
 public final class ExitCommandControl extends CommandControl {
 
     /**
-     * Attributes initialization and instance.
+     * Attributes of the class ExitCommandControl.
      */
     private static final String COMMAND = "/esci";
-    private static final ExitCommandControl INSTANCE = new ExitCommandControl();
     private static final String DESCRIPTION = "Termina il programma";
-
-    /**
-     * Override of the getDescription method of the abstract class CommandControl.
-     * @return The command string.
-     */
-    @Override
-    public String getDescription() {
-        return DESCRIPTION;
-    }
+    private static final ExitCommandControl INSTANCE = new ExitCommandControl();
 
     /**
      * Constructor for ExitCommandControl.
@@ -28,15 +21,9 @@ public final class ExitCommandControl extends CommandControl {
     private ExitCommandControl() { }
 
     /**
-     * @return The instance of the ExitCommandControl.
-     */
-    public static ExitCommandControl getInstance() {
-        return INSTANCE;
-    }
-
-    /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -44,11 +31,31 @@ public final class ExitCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return DESCRIPTION The command description
+     */
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    /**
+     * Method getInstance.
+     * @return INSTANCE The instance of ExitCommandControl
+     */
+    public static ExitCommandControl getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return The status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {
+        UserInputBoundary.closeScanner();
         return CommandStatus.SHUTDOWN;
     }
 }

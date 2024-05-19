@@ -4,34 +4,28 @@ import it.uniba.app.Thompson.game.boundary.HelpBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
- * << Control >>
- * Implementation of the help command.
+ * {@literal << Control >>}
+ * Class to manage the command help.
  */
 public final class HelpCommandControl extends CommandControl {
 
     /**
-     * Attributes initialization and instance.
-     * */
+     * Attributes of the class HelpCommandControl.
+     **/
     private static final String COMMAND = "/help";
+    private static final String[] ALIASES = {"--help", "-h"};
     private static final String DESCRIPTION = "Mostra tutti i comandi disponibili";
     private static final HelpCommandControl INSTANCE = new HelpCommandControl();
-    private static final String[] ALIASES = {"--help", "-h"};
 
     /**
-     * Constructor for HelpCommandControl.
+     * Constructor for the class HelpCommandControl.
      */
     private HelpCommandControl() { }
 
     /**
-     * @return The instance of the HelpCommandControl.
-     */
-    public static HelpCommandControl getInstance() {
-        return INSTANCE;
-    }
-
-    /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -39,8 +33,9 @@ public final class HelpCommandControl extends CommandControl {
     }
 
     /**
+     * Method getAliases.
      * Override of the getAliases method of the abstract class CommandControl.
-     * @return The command string.
+     * @return Returns the clone of the command aliases
      */
     @Override
     public String[] getAliases() {
@@ -48,8 +43,9 @@ public final class HelpCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
      * Override of the getDescription method of the abstract class CommandControl.
-     * @return The command string.
+     * @return DESCRIPTION The command description
      */
     @Override
     public String getDescription() {
@@ -57,8 +53,17 @@ public final class HelpCommandControl extends CommandControl {
     }
 
     /**
+     * Method getInstance.
+     * @return INSTANCE The instance of HelpCommandControl
+     */
+    public static HelpCommandControl getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return The status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {

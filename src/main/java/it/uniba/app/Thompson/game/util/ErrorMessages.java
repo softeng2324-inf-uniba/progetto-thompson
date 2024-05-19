@@ -1,18 +1,19 @@
 package it.uniba.app.Thompson.game.util;
-
 import it.uniba.app.Thompson.game.control.FormatterControl;
 
 /**
- * << Util >>
- * Class for color constants.
+ * {@literal << Util >>}
+ * Class for error messages.
  */
 public final class ErrorMessages {
+
     /**
-     * Formatter
+     * Attributes of the class ErrorMessages
      */
     private static final FormatterControl formatter = new FormatterControl();
+  
     /**
-     * Constants for error messages.
+     * Constants of the class ErrorMessages.
      */
     public static final String MATCH_NOT_NULL = formatter.formatText("C'è già una partita in corso.", Color.ORANGE);
     public static final String INVALID_PLAYER = formatter.formatText("Il giocatore inserito non è valido," +
@@ -25,9 +26,8 @@ public final class ErrorMessages {
     public static final String ARGUMENT_NOT_FOUND = formatter.formatText("(•ᴖ•｡) Parametro non valido", Color.RED);
     public static final String GENERIC_ERROR = formatter.formatText("( · ❛ ֊ ❛) E' avvenuto un errore durante l'esecuzione del comdando", Color.RED);
 
-
     /**
-     * Constructor for ErrorMessages.
+     * Constructor for the class ErrorMessages.
      */
     private ErrorMessages() { }
 }

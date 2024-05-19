@@ -1,14 +1,20 @@
 package it.uniba.app.Thompson.game.boundary;
-import it.uniba.app.Thompson.game.control.*;
+import it.uniba.app.Thompson.game.control.CommandControl;
 
 /**
- * << Boundary >>
- * Class used to print available commands.
+ * {@literal << Boundary >>}
+ * Class to communicate available commands.
  */
 public final class HelpBoundary {
 
     /**
-     * Print available commands.
+     * Constructor for the class HelpBoundary.
+     */
+    private HelpBoundary() { }
+
+    /**
+     * Method printCommands, prints to stdout the available commands.
+     * @param commands The array of commands that will be printed
      */
     public static void printCommands(CommandControl[] commands) {
         for (CommandControl command : commands) {
@@ -17,6 +23,4 @@ public final class HelpBoundary {
             );
         }
     }
-
-    private HelpBoundary() { }
 }

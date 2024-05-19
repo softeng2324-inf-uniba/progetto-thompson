@@ -1,19 +1,20 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Class for the management of the visualization of the pawns in unicode.
+ * {@literal << Util >>}
+ * Class for the management of the pawns in unicode.
  */
 public final class UnicodePawn {
 
     /**
-     * Pawn constructor.
+     * Constructor for the class UnicodePawn.
      */
     private UnicodePawn() { }
 
     /**
-     * @param pawn Visualization of the pawn
-     * @return Return unicode pawn figure based off pawn parameter
+     * Method getPawnUnicode.
+     * @param pawn Pawn figure of the returning unicode
+     * @return Returns unicode pawn figure based off pawn parameter
      */
     public static String getPawnUnicode(final PawnFigure pawn) {
         switch (pawn) {

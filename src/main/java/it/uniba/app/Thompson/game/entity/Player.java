@@ -2,13 +2,13 @@ package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.util.Color;
 
 /**
- * << Entity >>
- * Class Player.
+ * {@literal << Entity >>}
+ * Class representing the player entity.
  */
 public final class Player {
 
     /**
-     * Attributes of Player.
+     * Attributes of the class Player.
      */
     private final Color pawnColor;
 
@@ -20,35 +20,18 @@ public final class Player {
     }
 
     /**
-     * Method to get the color of the pawns.
-     * @return The color of the pawns
+     * Method getColor.
+     * @return pawnColor The color of the pawn
      */
     public Color getColor() {
         return pawnColor;
     }
 
     /**
-     * Method to invalidate a cell.
-     * @param tile The cell to invalidate
+     * Method invalidateTile.
+     * @param tile The tile to invalidate
      */
     public void invalidateTile(final Tile tile) {
-        tile.setInvalid(true);
+        tile.setInvalid();
     }
-
-    /*
-    /**
-     * Method to get the number of pawns.
-     * @return The number of pawns
-     * /
-    public int getPawnNumber() {
-        return ;
-    }
-    /**
-     * Method to set the number of pawns.
-     * @param numPedine number of pawns
-     * /
-    private void setPawnNumber(final int numPedine) {
-        this.numeroPedine = numPedine;
-    }
-    */
 }

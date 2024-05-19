@@ -9,24 +9,24 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
 /**
- * << Control >>
- * Main control class for the game.
+ * {@literal << Control >>}
+ * Class to manage the flow of the program.
  */
 public final class MainControl {
 
     /**
-     * Attributes of MainControl.
+     * Attributes of the class MainControl.
      */
     private static Match match;
 
     /**
-     * Constructor for MainControl.
+     * Constructor for the class MainControl.
      */
     private MainControl() { }
 
     /**
-     * Initialize commands.
-     * @return The available commands.
+     * Method initCommands.
+     * @return commands The map of the available commands
      */
     private static HashMap<String, CommandControl> initCommands() {
         HashMap<String, CommandControl> commands =  new HashMap<>();
@@ -37,13 +37,15 @@ public final class MainControl {
         commands.put(QuitCommandControl.getInstance().getCommand(), QuitCommandControl.getInstance());
         commands.put(VoidCommandControl.getInstance().getCommand(), VoidCommandControl.getInstance());
         commands.put(BoardCommandControl.getInstance().getCommand(), BoardCommandControl.getInstance());
+        commands.put(AvailableMovesCommandControl.getInstance().getCommand(),
+                     AvailableMovesCommandControl.getInstance());
 
         return commands;
     }
 
     /**
-     * Initialize valid arguments.
-     * @return The valid arguments.
+     * Method initArgumentCommands.
+     * @return commands The map of the valid arguments
      */
     private static HashMap<String, CommandControl> initArgumentCommands() {
         HashMap<String, CommandControl> commands = new HashMap<>();
@@ -53,9 +55,9 @@ public final class MainControl {
     }
 
     /**
-     * Initialize all aliases for a valid argument.
-     * @param commandControl Command linked to the argument.
-     * @return A map of the aliases of the argument.
+     * Method addAliasesCommands.
+     * @param commandControl Command linked to the argument
+     * @return commands The map of the aliases of the argument
      */
     private static HashMap<String, CommandControl> addAliasesCommands(final CommandControl commandControl) {
         HashMap<String, CommandControl> commands =  new HashMap<>();
@@ -76,25 +78,24 @@ public final class MainControl {
 
     /**
      * Method getMatch.
-     * @return The current match.
+     * @return match The current match.
      */
     public static Match getMatch() {
         return match;
     }
 
     /**
-     * Method removeMatch.
-     * Sets the current match to null, terminating it.
+     * Method removeMatch, sets the current match to null, terminating it.
      */
     public static void removeMatch() {
         match = null;
     }
 
     /**
-     * Finds command in the map availableCommands and executes it.
-     * @param command Command to find and execute.
-     * @param availableCommands Map of the available commands.
-     * @return The status of the system after the execution of the command.
+     * Method findAndExecuteCommand, finds command in the map availableCommands and executes it.
+     * @param command Command to find and execute
+     * @param availableCommands Map of the available commands
+     * @return Returns the status of the system after the execution of the command.
      */
     private static CommandStatus findAndExecuteCommand(
         final String command,
@@ -107,9 +108,9 @@ public final class MainControl {
     }
 
     /**
-     * Executes all the arguments in the args array.
-     * @param args Array of all the arguments.
-     * @param commands Map of all the valid arguments.
+     * Method executeArgumentsCommands, executes all the arguments in the args array.
+     * @param args Array of all the arguments
+     * @param commands Map of all the valid arguments
      */
     private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
         for (String arg : args) {
@@ -125,8 +126,8 @@ public final class MainControl {
     }
 
     /**
-     * Start main control.
-     * Start the main control loop.
+     * Method startMainControl, starts main control, starts the main control loop.
+     * @param args Array of all the arguments
      */
     public static void startMainControl(final String[] args) {
         HashMap<String, CommandControl> availableCommands = initCommands();

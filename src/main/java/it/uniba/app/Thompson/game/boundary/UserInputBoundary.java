@@ -1,33 +1,34 @@
 package it.uniba.app.Thompson.game.boundary;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
- * << Boundary >>
+ * {@literal << Boundary >>}
  * Class to get user input.
  */
 public final class UserInputBoundary {
 
     /**
-     * Scanner for input.
+     * Attributes of the class UserInputBoundary.
      */
-    private static final Scanner SCANNER = new Scanner(System.in, "UTF-8");
+    private static final Scanner SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
 
     /**
-     * Constructor for UserInput.
+     * Constructor for the class UserInputBoundary.
      */
     private UserInputBoundary() { }
 
     /**
-     * Get input.
-     * @return The input from the user.
+     * Method getInput.
+     * @return Returns the input from the user.
      */
     public static String getInput() {
-        System.out.print("\n->");
+        System.out.print("\n>");
         return SCANNER.nextLine().trim().toLowerCase();
     }
 
     /**
-     * Closes the SCANNER.
+     * Method closeScanner.
      */
     public static void closeScanner() {
         SCANNER.close();

@@ -5,39 +5,27 @@ import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
- * << Control >>
- * Implementation of the play command.
+ * {@literal << Control >>}
+ * Class to manage the command void.
  */
 public final class VoidCommandControl extends CommandControl {
 
+    /**
+     * Attributes of the class VoidCommandControl.
+     */
     private static final String COMMAND = "/vuoto";
     private static final String DESCRIPTION = "Stampa del tavoliere vuoto.";
     private static final VoidCommandControl INSTANCE = new VoidCommandControl();
 
     /**
-     * Constructor for VoidCommandControl.
+     * Constructor for the class VoidCommandControl.
      */
     private VoidCommandControl() { }
 
     /**
-     * @return The instance of the VoidCommandControl.
-     */
-    public static VoidCommandControl getInstance() {
-        return INSTANCE;
-    }
-
-    /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
-     */
-    @Override
-    public String getDescription() {
-        return DESCRIPTION;
-    }
-
-    /**
-     * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -45,8 +33,27 @@ public final class VoidCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return DESCRIPTION The command description
+     */
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    /**
+     * Method getInstance.
+     * @return INSTANCE The instance of VoidCommandControl.
+     */
+    public static VoidCommandControl getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return The status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {
