@@ -1,5 +1,7 @@
 package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.util.PawnFigure;
+import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UserInteractionMessages;
 
 /**
@@ -7,6 +9,11 @@ import it.uniba.app.Thompson.game.util.UserInteractionMessages;
  * Class to communicate interaction messages.
  */
 public final class CommunicateInteractionMessagesBoundary {
+
+    /**
+     * Formatter
+     */
+    private final static FormatterControl formatterControl = new FormatterControl();
 
     /**
      * Constructor for CommunicateInteractionMessages.
@@ -56,7 +63,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param title Titolo da stampare
      */
     public static void printTitle(String title) {
-        System.out.println("\n>>>> " + title + " >>>> \n");
+        System.out.println("\n>>>> " + formatterControl.formatText(title, Style.BOLD) + " >>>> \n");
     }
 
     /**
