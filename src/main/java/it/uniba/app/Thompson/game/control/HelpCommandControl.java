@@ -63,7 +63,15 @@ public final class HelpCommandControl extends CommandControl {
     @Override
     CommandStatus executeCommand() {
         CommunicateInteractionMessagesBoundary.printTitle("COMANDI DISPONIBILI");
-        HelpBoundary.printCommands();
+
+        //inserire tutti i comandi disponibili
+        HelpBoundary.printCommands(new CommandControl[]{
+            HelpCommandControl.getInstance(),
+            VoidCommandControl.getInstance(),
+            PlayCommandControl.getInstance(),
+            BoardCommandControl.getInstance(),
+            ExitCommandControl.getInstance()
+        });
 
         return CommandStatus.SUCCESSFUL;
     }
