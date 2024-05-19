@@ -4,33 +4,27 @@ import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
- * << Control >>
- * Implementation of the play command.
+ * {@literal << Control >>}
+ * Class to manage the command play.
  */
 public final class PlayCommandControl extends CommandControl {
 
     /**
-     * Attributes initialization and instance.
+     * Attributes of the class PlayCommandControl.
      */
     private static final String COMMAND = "/gioca";
     private static final String DESCRIPTION = "Inizia una nuova partita";
     private static final PlayCommandControl INSTANCE = new PlayCommandControl();
 
     /**
-     * Constructor for PlayCommandControl.
+     * Constructor for the class PlayCommandControl.
      */
     private PlayCommandControl() { }
 
     /**
-     * @return The instance of the PlayCommandControl.
-     */
-    public static PlayCommandControl getInstance() {
-        return INSTANCE;
-    }
-
-    /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -38,8 +32,9 @@ public final class PlayCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
      * Override of the getDescription method of the abstract class CommandControl.
-     * @return The command string.
+     * @return DESCRIPTION The command description
      */
     @Override
     public String getDescription() {
@@ -47,8 +42,17 @@ public final class PlayCommandControl extends CommandControl {
     }
 
     /**
+     * Method getInstance.
+     * @return INSTANCE The instance of PlayCommandControl
+     */
+    public static PlayCommandControl getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return The status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {

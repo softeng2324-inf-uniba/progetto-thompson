@@ -5,41 +5,44 @@ import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UnicodeStyle;
 
 /**
- * << Control >>
- * Text formatter for colored and styled string.
+ * {@literal << Control >>}
+ * Class to format the text.
  */
 public final class FormatterControl {
 
     /**
-     * Constant for resetting the color and the style.
+     * Constants of the class FormatterControl.
      */
     private static final String RESET = "\u001B[0m";
 
     /**
+     * Method formatText.
      * @param text Text that will be formatted
      * @param color Color of the returned string
-     * @return Formatted text
+     * @return Returns the formatted text
      */
    public String formatText(final String text, final Color color) {
-        return UnicodeColor.getUnicodeFromColor(color) + text + RESET;
+        return UnicodeColor.getColorUnicode(color) + text + RESET;
    }
 
     /**
+     * Method formatText.
      * @param text Text that will be formatted
      * @param style Style of the returned string
-     * @return Formatted text
+     * @return Returns the formatted text
      */
     public String formatText(final String text, final Style style) {
         return UnicodeStyle.getStyleUnicode(style) + text + RESET;
     }
 
     /**
+     * Method formatText.
      * @param text Text that will be formatted
      * @param color Color of the returned string
      * @param style Style of the returned string
-     * @return Formatted text
+     * @return Returns the formatted text
      */
     public String formatText(final String text, final Color color, final Style style) {
-        return UnicodeStyle.getStyleUnicode(style) + UnicodeColor.getUnicodeFromColor(color) + text + RESET;
+        return UnicodeStyle.getStyleUnicode(style) + UnicodeColor.getColorUnicode(color) + text + RESET;
     }
 }

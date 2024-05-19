@@ -2,43 +2,29 @@ package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+
 /**
- * << Control >>
- * Implementation of the board command.
+ * {@literal << Control >>}
+ * Class to manage the command board.
  */
 public final class BoardCommandControl extends CommandControl {
 
     /**
-     * Attributes initialization and instance.
+     * Attributes of the class BoardCommandControl.
      */
     private static final String COMMAND = "/tavoliere";
+    private static final String DESCRIPTION = "Mostra il tavoliere di gioco.";
     private static final BoardCommandControl INSTANCE = new BoardCommandControl();
-    private static final String DESCRIPTION = "Stampa il tavoliere";
 
     /**
-     * Override of the getDescription method of the abstract class CommandControl.
-     * @return The command string.
-     */
-    @Override
-    public String getDescription() {
-        return DESCRIPTION;
-    }
-
-    /**
-     * Constructor for ExitCommandControl.
+     * Constructor for the class BoardCommandControl.
      */
     private BoardCommandControl() { }
 
     /**
-     * @return The instance of the ExitCommandControl.
-     */
-    public static BoardCommandControl getInstance() {
-        return INSTANCE;
-    }
-
-    /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -46,8 +32,27 @@ public final class BoardCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return DESCRIPTION The description of the command
+     */
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    /**
+     * Method getInstance.
+     * @return INSTANCE The instance of BoardCommandControl
+     */
+    public static BoardCommandControl getInstance() {
+        return INSTANCE;
+    }
+
+    /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return The status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {
