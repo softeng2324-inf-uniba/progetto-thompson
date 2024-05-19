@@ -14,7 +14,7 @@ public abstract class CommandControl {
      * Method that returns command.
      * @return Name of the command.
      */
-    String getCommand() {
+    public String getCommand() {
         return COMMAND;
     }
 
@@ -22,7 +22,7 @@ public abstract class CommandControl {
      * Return description of command.
      * @return Description
      */
-    String getDescription() {
+    public String getDescription() {
         return DESCRIPTION;
     }
 
