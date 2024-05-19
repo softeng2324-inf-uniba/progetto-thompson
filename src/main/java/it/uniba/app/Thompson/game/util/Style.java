@@ -7,6 +7,5 @@ package it.uniba.app.Thompson.game.util;
 public enum Style {
     BOLD,
     ITALIC,
-    NORMAL,
-    UNDERLINE_CHAR
+    NORMAL
 }
