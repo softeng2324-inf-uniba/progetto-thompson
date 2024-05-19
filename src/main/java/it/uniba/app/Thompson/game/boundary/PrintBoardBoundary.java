@@ -1,5 +1,4 @@
 package it.uniba.app.Thompson.game.boundary;
-import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Tile;
 import it.uniba.app.Thompson.game.util.Coordinate;

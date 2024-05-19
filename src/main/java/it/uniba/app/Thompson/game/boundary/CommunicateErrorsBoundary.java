@@ -59,7 +59,7 @@ public final class CommunicateErrorsBoundary {
      * Print suggest match init.
      * Print to stdout a generic error message
      */
-    public static void printArgumentNotFound(String parameter) {
+    public static void printArgumentNotFound(final String parameter) {
         System.out.println(parameter + "\t\t " + ErrorMessages.ARGUMENT_NOT_FOUND);
     }
 
