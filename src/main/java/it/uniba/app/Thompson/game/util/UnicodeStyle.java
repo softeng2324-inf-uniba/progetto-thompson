@@ -1,19 +1,20 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Class for style constants.
+ * {@literal << Util >>}
+ * Class for the management of the style constants in unicode.
  */
 public final class UnicodeStyle {
 
     /**
-     * Style constructor.
+     * Constructor for the class UnicodeStyle.
      */
     private UnicodeStyle() { }
 
     /**
-     * @param style Style of the returning string
-     * @return Return unicode style based off style parameter
+     * Method getStyleUnicode.
+     * @param style Style of the returning unicode
+     * @return Returns unicode style based off style parameter
      */
     public static String getStyleUnicode(final Style style) {
         switch (style) {
@@ -22,9 +23,6 @@ public final class UnicodeStyle {
             }
             case ITALIC -> {
                return "\u001B[3m";
-            }
-            case UNDERLINE_CHAR -> {
-                return "—";
             }
             default -> {
                 return "\u001B[0m";

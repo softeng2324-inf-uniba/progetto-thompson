@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * << Entity >>
- *  Class Board.
+ * {@literal << Entity >>}
+ *  Class representing the board entity.
  */
 public final class Board {
 
     /**
-     * Attributes of Board.
+     * Attributes of the class Board.
      */
     private final int size;
     private Tile[] tiles;
@@ -20,6 +20,7 @@ public final class Board {
 
     /**
      * Default Constructor for the class Board.
+     * @param isGameBoard The boolean determining if the pawns must be placed or not
      */
     public Board(final boolean isGameBoard) {
         size = DEFAULT_SIZE;
@@ -27,8 +28,9 @@ public final class Board {
     }
 
     /**
-     * Constructor for the class Board with a parameter characterizing the size of the board.
-     * @param newSize size.
+     * Size parameterized Constructor for the class Board.
+     * @param isGameBoard The boolean determining if the pawns must be placed or not
+     * @param newSize The board size
      */
     public Board(final boolean isGameBoard, final int newSize) {
         size = newSize;
@@ -37,7 +39,6 @@ public final class Board {
 
     /**
      * Method setInitialPawns.
-     * Places the initial pawns on the board.
      */
     public void setInitialPawns() {
         tiles[0].placePawn(PawnFigure.BLACK_PAWN);
@@ -48,15 +49,15 @@ public final class Board {
 
     /**
      * Method getSize.
-     * @return size The size of the board.
+     * @return size The board size.
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * Method initBoard
-     * Creates the board.
+     * Method initBoard.
+     * @param isGameBoard The boolean determining if the pawns must be placed or not
      */
     private void initBoard(final boolean isGameBoard) {
         tiles = new Tile[(int) (Math.pow(size, 2))];
@@ -72,8 +73,8 @@ public final class Board {
 
     /**
      * Method getTile.
-     * @param coordinate The coordinate.
-     * @return The tile.
+     * @param coordinate The coordinates of the tile
+     * @return Returns the tile
      */
     public Tile getTile(final Coordinate coordinate) {
         return tiles[coordinate.getX() * size + coordinate.getY()];
@@ -81,8 +82,8 @@ public final class Board {
 
     /**
      * Method countPawns.
-     * @param pawn The color of the pawns to count.
-     * @return count The number of pawns of color pawn.
+     * @param pawn The figure of the pawns to count
+     * @return count The number of pawns of the given pawn figure.
      */
     public int countPawns(final PawnFigure pawn) {
         int count = 0;

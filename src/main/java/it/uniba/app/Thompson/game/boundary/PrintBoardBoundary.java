@@ -8,34 +8,39 @@ import it.uniba.app.Thompson.game.util.MoveTypes;
 
 
 /**
- * << Boundary >>
- * Class for printing the board.
+ * {@literal << Boundary >>}
+ * Class to print the board.
  */
 public final class PrintBoardBoundary {
+
+    /**
+     * Constructor for the class PrintBoardBoundary.
+     */
     private PrintBoardBoundary() { }
 
     /**
-     * Prints the board.
+     * Method printBoard.
      * @param board Board to print
      */
     public static void printBoard(final Board board) {
         int size = board.getSize();
-        StringBuilder lol = new StringBuilder();
+        StringBuilder boardRow = new StringBuilder();
 
         System.out.println("\t A\t B\t C\t D\t E\t F\t G");
         for (int i = 0; i < size; i++) {
-            lol.setLength(0);
-            lol.append(i + 1);
-            lol.append("\t|");
+            boardRow.setLength(0);
+            boardRow.append(i + 1);
+            boardRow.append("\t|");
             for (int j = 0; j < size; j++) {
                 if (board.getTile(new Coordinate(i, j)).isOccupied()) {
-                    lol.append(UnicodePawn.getPawnUnicode(board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
+                    boardRow.append(UnicodePawn.getPawnUnicode(
+                                    board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
                 } else {
-                    lol.append(" ");
+                    boardRow.append(" ");
                 }
-                lol.append("\t|");
+                boardRow.append("\t|");
             }
-            System.out.println(lol.toString());
+            System.out.println(boardRow);
         }
     }
 
