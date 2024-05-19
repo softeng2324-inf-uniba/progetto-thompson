@@ -20,6 +20,8 @@ public final class ErrorMessages {
             + ", utilizza '/gioca' per iniziarne una.";
     public static final String COMMAND_NOT_FOUND = formatter.formatText("(•ᴖ•｡) Comando non valido, con il comando '/help' puoi " +
             "trovare i comandi disponibili ", Color.RED);
+    public static final String GENERIC_ERROR = formatter.formatText("( · ❛ ֊ ❛) E' avvenuto un errore durante l'esecuzione del comdando", Color.RED);
+
 
     /**
      * Constructor for ErrorMessages.

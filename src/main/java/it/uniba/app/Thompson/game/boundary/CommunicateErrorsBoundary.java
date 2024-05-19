@@ -59,4 +59,12 @@ public final class CommunicateErrorsBoundary {
     public static void printCommandNotFound() {
         System.out.println("\n" + ErrorMessages.COMMAND_NOT_FOUND);
     }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout a generic error message
+     */
+    public static void printGenericError() {
+        System.out.println("\n" + ErrorMessages.GENERIC_ERROR);
+    }
 }
