@@ -70,6 +70,8 @@ public final class QuitCommandControl extends CommandControl {
             String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
             String[] acceptableResponse = new String[] { "n", "b" };
 
+            CommunicateInteractionMessagesBoundary.printNewLine();
+
             if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
                 CommunicateErrorsBoundary.printInvalidPlayer();
 
@@ -83,6 +85,8 @@ public final class QuitCommandControl extends CommandControl {
             CommunicateInteractionMessagesBoundary.printSureToQuit();
             String confirmation = UserInputBoundary.getInput().trim().toLowerCase();
             String[] acceptableResponse = new String[] { "n", "s" };
+
+            CommunicateInteractionMessagesBoundary.printNewLine();
 
             if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
                 CommunicateErrorsBoundary.printInvalidChoice();

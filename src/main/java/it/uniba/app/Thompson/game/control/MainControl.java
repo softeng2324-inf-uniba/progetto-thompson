@@ -6,7 +6,6 @@ import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-import it.uniba.app.Thompson.game.util.UserInteractionMessages;
 
 import java.util.HashMap;
 
@@ -140,6 +139,8 @@ public final class MainControl {
 
         while (status != CommandStatus.SHUTDOWN) {
             String command = UserInputBoundary.getInput();
+
+            CommunicateInteractionMessagesBoundary.printNewLine();
             try {
                 status = findAndExecuteCommand(command, availableCommands);
             } catch (CommandNotFoundError e) {

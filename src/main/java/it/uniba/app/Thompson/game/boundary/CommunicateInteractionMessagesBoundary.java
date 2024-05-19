@@ -26,7 +26,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * Print to stdout the quitting player message.
      */
     public static void printQuittingPlayer() {
-        System.out.println("\n" + UserInteractionMessages.QUITTING_PLAYER);
+        System.out.println(UserInteractionMessages.QUITTING_PLAYER);
     }
 
     /**
@@ -34,7 +34,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * Print to stdout the sure to quit message.
      */
     public static void printSureToQuit() {
-        System.out.println("\n" + UserInteractionMessages.SURE_TO_QUIT);
+        System.out.println(UserInteractionMessages.SURE_TO_QUIT);
     }
 
     /**
@@ -42,7 +42,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * Print to stdout the aborted quit message.
      */
     public static void printAbortedQuit() {
-        System.out.println("\n" + UserInteractionMessages.ABORTED_QUIT);
+        System.out.println(UserInteractionMessages.ABORTED_QUIT);
     }
 
     /**
@@ -50,7 +50,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * Print to stdout the winner of the game.
      */
     public static void printWinner(final PawnFigure winner, final int winnerPawnCount, final int loserPawnCount) {
-        String scoreText = "\nHa vinto il "
+        String scoreText = "Ha vinto il "
             + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
             + winnerPawnCount
             + " a "
@@ -64,14 +64,21 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param title Titolo da stampare
      */
     public static void printTitle(String title) {
-        System.out.println("\n>>>> " + formatterControl.formatText(title, Style.BOLD) + "\n");
+        System.out.println(">>>> " + formatterControl.formatText(title, Style.BOLD) + "\n");
     }
 
     /**
      * Print a goodbye message
      */
     public static void printGoodbye() {
-        System.out.println("\n" + UserInteractionMessages.GOODBYE);
+        System.out.println(UserInteractionMessages.GOODBYE);
+    }
+
+    /**
+     * Print a new line
+     */
+    public static void printNewLine() {
+        System.out.println();
     }
 
 }

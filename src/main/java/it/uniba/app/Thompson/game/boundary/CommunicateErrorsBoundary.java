@@ -17,7 +17,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the match not null message.
      */
     public static void printMatchNotNull() {
-        System.out.println("\n" + ErrorMessages.MATCH_NOT_NULL);
+        System.out.println(ErrorMessages.MATCH_NOT_NULL);
     }
 
     /**
@@ -25,7 +25,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the invalid player message.
      */
     public static void printInvalidPlayer() {
-        System.out.println("\n" + ErrorMessages.INVALID_PLAYER);
+        System.out.println(ErrorMessages.INVALID_PLAYER);
     }
 
     /**
@@ -33,7 +33,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the invalid choice message.
      */
     public static void printInvalidChoice() {
-        System.out.println("\n" + ErrorMessages.INVALID_CHOICE);
+        System.out.println(ErrorMessages.INVALID_CHOICE);
     }
      
     /**
@@ -41,7 +41,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the suggest match init message.
      */
     public static void printSuggestMatchInit() {
-        System.out.println("\n" + ErrorMessages.SUGGEST_MATCH_INIT);
+        System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
     }
 
     /**
@@ -49,7 +49,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout command not found message
      */
     public static void printCommandNotFound() {
-        System.out.println("\n" + ErrorMessages.COMMAND_NOT_FOUND);
+        System.out.println(ErrorMessages.COMMAND_NOT_FOUND);
     }
 
     /**
@@ -57,7 +57,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout a generic error message
      */
     public static void printArgumentNotFound(String parameter) {
-        System.out.println("\n" + parameter + "\t\t " + ErrorMessages.ARGUMENT_NOT_FOUND);
+        System.out.println(parameter + "\t\t " + ErrorMessages.ARGUMENT_NOT_FOUND);
     }
 
     /**
@@ -65,6 +65,6 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout a generic error message
      */
     public static void printGenericError() {
-        System.out.println("\n" + ErrorMessages.GENERIC_ERROR);
+        System.out.println(ErrorMessages.GENERIC_ERROR);
     }
 }
