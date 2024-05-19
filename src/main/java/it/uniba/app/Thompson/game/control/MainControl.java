@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
@@ -139,11 +140,7 @@ public final class MainControl {
             try {
                 status = findAndExecuteCommand(command, availableCommands);
             } catch (Error e) {
-                /* TODO:
-                 * create a constant for this
-                 * create a method in CommunicateErrors to print this message;
-                 */
-                System.out.println(command + " is not a valid command.");
+                CommunicateErrorsBoundary.printCommandNotFound();
             }
         }
     }
