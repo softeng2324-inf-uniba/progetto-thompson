@@ -1,10 +1,13 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import it.uniba.app.Thompson.game.util.UserInteractionMessages;
+
 import java.util.HashMap;
 
 /**
@@ -145,5 +148,7 @@ public final class MainControl {
                 CommunicateErrorsBoundary.printGenericError();
             }
         }
+
+        CommunicateInteractionMessagesBoundary.printGoodbye();
     }
 }
