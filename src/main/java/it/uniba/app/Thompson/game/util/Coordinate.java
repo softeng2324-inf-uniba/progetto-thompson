@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * << Util >>
- * Store x and y position.
+ * Stores x and y position.
  */
 public final class Coordinate {
 
@@ -14,8 +14,8 @@ public final class Coordinate {
 
     /**
      * Constructor for the class Coordinate.
-     * @param initX the x coordinate
-     * @param initY the y coordinate
+     * @param initX The x coordinate
+     * @param initY The y coordinate
      */
     public Coordinate(final int initX, final int initY) {
         x = initX;
@@ -24,7 +24,7 @@ public final class Coordinate {
 
     /**
      * Method to get the y coordinate.
-     * @return y int
+     * @return y The y coordinate
      */
     public int getY() {
         return y;
@@ -32,7 +32,7 @@ public final class Coordinate {
 
     /**
      * Method to get the x coordinate.
-     * @return x int
+     * @return x The x coordinate
      */
     public int getX() {
         return x;
