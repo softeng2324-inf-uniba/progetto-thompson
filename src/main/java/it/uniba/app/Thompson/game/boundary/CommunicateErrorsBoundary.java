@@ -13,22 +13,6 @@ public final class CommunicateErrorsBoundary {
     private CommunicateErrorsBoundary() { }
 
     /**
-     * Print invalid command.
-     * Print to stdout the invalid command message.
-     */
-    public void printInvalidCommand() {
-        System.out.println(ErrorMessages.INVALID_COMMAND);
-    }
-
-    /**
-     * Print invalid input.
-     * Print to stdout the invalid input message.
-     */
-    public void printInvalidInput() {
-        System.out.println(ErrorMessages.INVALID_INPUT);
-    }
-
-    /**
      * Print match not null.
      * Print to stdout the match not null message.
      */
