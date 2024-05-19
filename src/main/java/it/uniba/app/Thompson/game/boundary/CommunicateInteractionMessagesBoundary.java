@@ -59,4 +59,11 @@ public final class CommunicateInteractionMessagesBoundary {
         System.out.println("\n>>>> " + title + " >>>> \n");
     }
 
+    /**
+     * Print a goodbye message
+     */
+    public static void printGoodbye() {
+        System.out.println("\n" + UserInteractionMessages.GOODBYE);
+    }
+
 }
