@@ -21,14 +21,6 @@ public final class CommunicateErrorsBoundary {
     }
 
     /**
-     * Print match null.
-     * Print to stdout the match null message.
-     */
-    public static void printMatchNull() {
-        System.out.println(ErrorMessages.MATCH_NULL);
-    }
-
-    /**
      * Print invalid player.
      * Print to stdout the invalid player message.
      */
