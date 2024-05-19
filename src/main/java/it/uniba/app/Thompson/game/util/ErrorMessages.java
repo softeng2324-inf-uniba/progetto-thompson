@@ -10,7 +10,7 @@ public final class ErrorMessages {
      * Constants of the class ErrorMessages.
      */
     public static final String INVALID_COMMAND = "Comando non valido, riprova.";
-    public static final String INVALID_INPUT = "Input non valido, riprova.";
+    public static final String INVALID_ARGUMENT = "Argomento non valido.";
     public static final String MATCH_NOT_NULL = "C'è già una partita in corso.";
     public static final String MATCH_NULL = "Non c'è nessuna partita in corso.";
     public static final String INVALID_PLAYER = "Il giocatore inserito non è valido, comando annullato.";

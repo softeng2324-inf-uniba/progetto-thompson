@@ -15,15 +15,15 @@ public final class CommunicateErrorsBoundary {
     /**
      * Method printInvalidCommand, prints to stdout the invalid command message.
      */
-    public void printInvalidCommand() {
+    public static void printInvalidCommand() {
         System.out.println(ErrorMessages.INVALID_COMMAND);
     }
 
     /**
-     * Method printInvalidInput, prints to stdout the invalid input message.
+     * Method printInvalidArgument, prints to stdout the invalid argument message.
      */
-    public void printInvalidInput() {
-        System.out.println(ErrorMessages.INVALID_INPUT);
+    public  static void printInvalidArgument() {
+        System.out.println(ErrorMessages.INVALID_ARGUMENT);
     }
 
     /**
