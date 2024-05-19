@@ -2,13 +2,13 @@ package it.uniba.app.Thompson.game.entity;
 import java.util.Stack;
 
 /**
- * << Entity >>
- * Class Match.
+ * {@literal << Entity >>}
+ * Class representing the match entity.
  */
 public class Match {
 
     /**
-     * Attributes of Match.
+     * Attributes of the class Match.
      */
     private final Stack<Move> moves = new Stack<>();
     private final Board board;
@@ -22,24 +22,24 @@ public class Match {
     }
 
     /**
-     * Method to set the move.
-     * @param move The move.
+     * Method setMove.
+     * @param move The move
      */
     public void setMove(final Move move) {
         this.moves.push(move);
     }
 
     /**
-     * Method to get the board.
-     * @return board The board.
+     * Method getBoard.
+     * @return board The board
      */
     public Board getBoard() {
         return board;
     }
 
     /**
-     * Method to get the moves.
-     * @return The moves stack.
+     * Method getMoves.
+     * @return clonedMoves The clone of the moves stack
      */
     public Stack<Move> getMoves() {
         Stack<Move> clonedMoves = new Stack<>();

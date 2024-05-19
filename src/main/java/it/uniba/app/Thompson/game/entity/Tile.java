@@ -3,20 +3,22 @@ import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 
 /**
- * << Entity >>
- *  Class Tile.
+ * {@literal << Entity >>}
+ * Class representing the tile entity.
  */
 public class Tile {
 
     /**
-     * Attributes of Tile.
+     * Attributes of the class Tile.
      */
     private final Coordinate coordinate;
     private boolean invalid = false;
     private Pawn pawn;
 
     /**
-     * Constructor Tile.
+     * Constructor for the class Tile.
+     * @param coordX The x coordinate of the tile
+     * @param coordY The y coordinate of the tile
      */
     public Tile(final int coordX, final int coordY) {
         coordinate = new Coordinate(coordX, coordY);
@@ -24,7 +26,7 @@ public class Tile {
 
     /**
      * Method getX.
-     * @return x int
+     * @return x The x coordinate of the tile
      */
     public int getX() {
         return coordinate.getX();
@@ -32,7 +34,7 @@ public class Tile {
 
     /**
      * Method getY.
-     * @return y int
+     * @return y The y coordinate of the tile
      */
     public int getY() {
         return coordinate.getY();
@@ -40,14 +42,14 @@ public class Tile {
 
     /**
      * Method placePawn.
-     * @param pawnFigure Figure of the pawn to be placed.
+     * @param pawnFigure The figure of the pawn to be placed
      */
     public void placePawn(final PawnFigure pawnFigure) {
         pawn = new Pawn(pawnFigure);
     }
 
     /**
-     * Method removePawn to displace a pawn from a tile.
+     * Method removePawn.
      */
     public void removePawn() {
         pawn = null;
@@ -55,7 +57,7 @@ public class Tile {
 
     /**
      * Method getPawn.
-     * @return pawn Pawn on the tile.
+     * @return pawn The pawn on the tile
      */
     public Pawn getPawn() {
         return pawn;
@@ -63,7 +65,7 @@ public class Tile {
 
     /**
      * Method isOccupied.
-     * @return pawn Return true if tile is occupied by pawn.
+     * @return pawn Returns true if tile is occupied by a pawn
      */
     public boolean isOccupied() {
         return pawn != null;
@@ -71,7 +73,7 @@ public class Tile {
 
     /**
      * Method isInvalid.
-     * @return invalid boolean
+     * @return invalid Returns true if tile is invalid
      */
     public boolean isInvalid() {
         return invalid;
@@ -79,9 +81,8 @@ public class Tile {
 
     /**
      * Method setInvalid.
-     * @param state boolean
      */
-    public void setInvalid(final boolean state) {
-        invalid = state;
+    public void setInvalid() {
+        invalid = true;
     }
 }
