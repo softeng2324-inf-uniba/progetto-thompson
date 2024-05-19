@@ -9,6 +9,9 @@ import it.uniba.app.Thompson.game.util.CommandStatus;
  */
 public final class VoidCommandControl extends CommandControl {
 
+    /**
+     * Attributes initialization and instance.
+     */
     private static final String COMMAND = "/vuoto";
     private static final String DESCRIPTION = "Stampa del tavoliere vuoto.";
     private static final VoidCommandControl INSTANCE = new VoidCommandControl();
