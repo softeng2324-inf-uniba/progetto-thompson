@@ -1,7 +1,11 @@
 package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.UnicodePawn;
+import it.uniba.app.Thompson.game.util.MoveTypes;
+
+
 
 /**
  * << Boundary >>
@@ -28,6 +32,46 @@ public final class PrintBoardBoundary {
                     lol.append(UnicodePawn.getPawnUnicode(board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
                 } else {
                     lol.append(" ");
+                }
+                lol.append("\t|");
+            }
+            System.out.println(lol.toString());
+        }
+    }
+
+    /**
+     * Prints the colored board.
+     * @param board Board to print
+     */
+    public static void printBoard(final Board board, final int[][] mask) {
+        int size = board.getSize();
+        StringBuilder lol = new StringBuilder();
+        FormatterControl formatter = new FormatterControl();
+
+        System.out.println("\t A\t B\t C\t D\t E\t F\t G");
+        for (int i = 0; i < size; i++) {
+            lol.setLength(0);
+            lol.append(i + 1);
+            lol.append("\t|");
+            for (int j = 0; j < size; j++) {
+                if (board.getTile(new Coordinate(i, j)).isOccupied()) {
+                    lol.append(UnicodePawn.getPawnUnicode(board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
+                } else {
+                    MoveTypes moveType = MoveTypes.values()[mask[i][j]];
+                    switch (moveType) {
+                        case GENERATE:
+                            lol.append("🟨");
+                            break;
+                        case JUMP:
+                            lol.append("🟧");
+                            break;
+                        case BOTH:
+                            lol.append("🟪");
+                            break;
+                        default:
+                            lol.append(" ");
+                            break;
+                    }
                 }
                 lol.append("\t|");
             }
