@@ -59,7 +59,7 @@ public final class CommunicateErrorsBoundary {
     public static void printInvalidChoice() {
         System.out.println(ErrorMessages.INVALID_CHOICE);
     }
-     
+
     /**
      * Print suggest match init.
      * Print to stdout the suggest match init message.

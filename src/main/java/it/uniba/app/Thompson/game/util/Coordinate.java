@@ -1,8 +1,8 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Store x and y position.
+ *  << Util >>
+ *  Store x and y position.
  */
 public final class Coordinate {
 
@@ -20,6 +20,16 @@ public final class Coordinate {
     public Coordinate(final int initX, final int initY) {
         x = initX;
         y = initY;
+    }
+
+    /**
+     * Method to get the sum of two coordinates.
+     * @param x int
+     * @param y int
+     * @return Coordinate the sum of the two coordinates.
+     */
+    public static Coordinate plus(final Coordinate x, final Coordinate y) {
+        return new Coordinate(x.getX() + y.getX(), x.getY() + y.getY());
     }
 
     /**
