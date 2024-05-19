@@ -68,9 +68,9 @@ public final class QuitCommandControl extends CommandControl {
         private void askToQuitGame() {
             CommunicateInteractionMessagesBoundary.printQuittingPlayer();
             String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
-            String[] acceptableResponse = new String[] { "n", "b" };
+            String[] acceptableResponse = new String[] {"n", "b" };
 
-            if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
+            if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
                 CommunicateErrorsBoundary.printInvalidPlayer();
 
                 return;
@@ -79,12 +79,12 @@ public final class QuitCommandControl extends CommandControl {
             this.askConfirmation(whichPlayer);
         }
 
-        private void askConfirmation(String player) {
+        private void askConfirmation(final String player) {
             CommunicateInteractionMessagesBoundary.printSureToQuit();
             String confirmation = UserInputBoundary.getInput().trim().toLowerCase();
-            String[] acceptableResponse = new String[] { "n", "s" };
+            String[] acceptableResponse = new String[]{"n", "s" };
 
-            if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
+            if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
                 CommunicateErrorsBoundary.printInvalidChoice();
 
                 return;
@@ -97,7 +97,7 @@ public final class QuitCommandControl extends CommandControl {
             }
         }
 
-        private void quitGame(PawnFigure winnerPawn) {
+        private void quitGame(final PawnFigure winnerPawn) {
             CommunicateInteractionMessagesBoundary.printWinner(
                     winnerPawn,
                     MainControl.getMatch().getBoard().countPawns(winnerPawn),
