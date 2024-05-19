@@ -30,7 +30,7 @@ public final class WelcomeBannerBoundary {
         for (String i : banner) {
             System.out.println(i);
         }
-        System.out.println("Benvenuti, questo è il gioco del gruppo Thompson!!");
+        System.out.println("Benvenuti in Ataxx, sviluppato dal gruppo Thompson");
     }
 
     /**
