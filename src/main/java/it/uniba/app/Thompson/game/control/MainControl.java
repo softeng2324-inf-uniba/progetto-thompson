@@ -3,6 +3,7 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
+import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
@@ -94,12 +95,14 @@ public final class MainControl {
      * @param availableCommands Map of the available commands.
      * @return The status of the system after the execution of the command.
      */
-    private static CommandStatus findAndExecuteCommand(final String command,
-                                                       final HashMap<String, CommandControl> availableCommands) {
+    private static CommandStatus findAndExecuteCommand(
+        final String command,
+        final HashMap<String, CommandControl> availableCommands
+    ) throws CommandNotFoundError {
         if (availableCommands.containsKey(command)) {
             return availableCommands.get(command).executeCommand();
         }
-        throw new Error();
+        throw new CommandNotFoundError();
     }
 
     /**
@@ -119,7 +122,6 @@ public final class MainControl {
                 System.out.println(a + " is not a valid argument.");
             }
         }
-
     }
 
     /**
