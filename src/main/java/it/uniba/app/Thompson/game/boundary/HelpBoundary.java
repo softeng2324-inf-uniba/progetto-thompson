@@ -16,8 +16,7 @@ public final class HelpBoundary {
      */
     public static void printCommands() {
         System.out.println(
-            "COMANDI DISPONIBILI \n"
-            + " - " + HelpCommandControl.getInstance().getCommand() + " : "
+            " - " + HelpCommandControl.getInstance().getCommand() + " : "
                     + HelpCommandControl.getInstance().getDescription() + "\n"
             + " - " + ExitCommandControl.getInstance().getCommand() + " : "
                     + ExitCommandControl.getInstance().getDescription() + "\n"
@@ -26,7 +25,7 @@ public final class HelpBoundary {
             + " - " + VoidCommandControl.getInstance().getCommand() + " : "
                     + VoidCommandControl.getInstance().getDescription() + "\n"
             + " - " + BoardCommandControl.getInstance().getCommand() + " : "
-                    + BoardCommandControl.getInstance().getDescription() + "\n"
+                    + BoardCommandControl.getInstance().getDescription()
         );
 
     }
