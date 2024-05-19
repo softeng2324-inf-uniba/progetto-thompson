@@ -50,4 +50,13 @@ public final class CommunicateInteractionMessagesBoundary {
             + loserPawnCount
         );
     }
+
+    /**
+     * Print a title with a prefix
+     * @param title Titolo da stampare
+     */
+    public static void printTitle(String title) {
+        System.out.println("\n>>>> " + title + " >>>> \n");
+    }
+
 }
