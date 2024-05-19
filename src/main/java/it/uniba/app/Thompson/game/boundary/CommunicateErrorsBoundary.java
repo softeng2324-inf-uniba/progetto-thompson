@@ -67,4 +67,12 @@ public final class CommunicateErrorsBoundary {
     public static void printSuggestMatchInit() {
         System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
     }
+
+    /**
+     * Print suggest match init.
+     * Print to stdout command not found message
+     */
+    public static void printCommandNotFound() {
+        System.out.println("\n" + ErrorMessages.COMMAND_NOT_FOUND);
+    }
 }
