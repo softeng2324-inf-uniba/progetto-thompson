@@ -29,7 +29,8 @@ public final class PrintBoardBoundary {
             boardRow.append("\t|");
             for (int j = 0; j < size; j++) {
                 if (board.getTile(new Coordinate(i, j)).isOccupied()) {
-                    boardRow.append(UnicodePawn.getPawnUnicode(board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
+                    boardRow.append(UnicodePawn.getPawnUnicode(
+                                    board.getTile(new Coordinate(i, j)).getPawn().getFigure()));
                 } else {
                     boardRow.append(" ");
                 }

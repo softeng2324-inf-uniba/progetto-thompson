@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -54,6 +55,7 @@ public final class ExitCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand() {
+        UserInputBoundary.closeScanner();
         return CommandStatus.SHUTDOWN;
     }
 }

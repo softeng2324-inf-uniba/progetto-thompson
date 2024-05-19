@@ -7,7 +7,7 @@ package it.uniba.app.Thompson.game.util;
 public final class UnicodePawn {
 
     /**
-     * Constructor for the class UnicodePawn
+     * Constructor for the class UnicodePawn.
      */
     private UnicodePawn() { }
 

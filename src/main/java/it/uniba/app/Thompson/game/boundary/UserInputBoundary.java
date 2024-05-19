@@ -9,7 +9,7 @@ import java.util.Scanner;
 public final class UserInputBoundary {
 
     /**
-     * Attributes of the class UserInputBoundary
+     * Attributes of the class UserInputBoundary.
      */
     private static final Scanner SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
 
