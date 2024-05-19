@@ -1,6 +1,7 @@
 package it.uniba.app.Thompson.game.control;
 
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
@@ -70,7 +71,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
 
             int[][] mask = new int[dimension][dimension];
             Queue<Coordinate> pawnsPositions = currentBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
-            Coordinate[][] availableMoves = VariantMove.STANDARD;
+            Coordinate[][] availableMoves = VariantMove.getStandard();
 
             while (!pawnsPositions.isEmpty()) {
                 Coordinate pawnCoordinate = pawnsPositions.peek();
@@ -93,6 +94,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
 
                 pawnsPositions.remove();
             }
+            CommunicateInteractionMessagesBoundary.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
             PrintBoardBoundary.printBoard(currentBoard, mask);
         }
         return CommandStatus.SUCCESSFUL;

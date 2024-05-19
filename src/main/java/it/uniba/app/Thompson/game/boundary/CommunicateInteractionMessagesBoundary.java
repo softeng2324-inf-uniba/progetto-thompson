@@ -12,9 +12,9 @@ import it.uniba.app.Thompson.game.util.UserInteractionMessages;
 public final class CommunicateInteractionMessagesBoundary {
 
     /**
-     * Attributes of the class CommunicateInteractionMessagesBoundary
+     * Attributes of the class CommunicateInteractionMessagesBoundary.
      */
-    private final static FormatterControl formatterControl = new FormatterControl();
+    private static final FormatterControl FORMATTER_CONTROL = new FormatterControl();
 
     /**
      * Constructor for the class CommunicateInteractionMessages.
@@ -55,26 +55,26 @@ public final class CommunicateInteractionMessagesBoundary {
             + " a "
             + loserPawnCount;
 
-        System.out.println(formatterControl.formatText(scoreText, Color.BLUE, Style.ITALIC));
+        System.out.println(FORMATTER_CONTROL.formatText(scoreText, Color.BLUE, Style.ITALIC));
     }
 
     /**
-     * Print a title with a prefix
-     * @param title Titolo da stampare
+     * Method printTitle, prints to stdout the title.
+     * @param title The title to print
      */
-    public static void printTitle(String title) {
-        System.out.println(">>>> " + formatterControl.formatText(title, Style.BOLD) + "\n");
+    public static void printTitle(final String title) {
+        System.out.println(">>>> " + FORMATTER_CONTROL.formatText(title, Style.BOLD) + "\n");
     }
 
     /**
-     * Print a goodbye message
+     * Method printGoodbye.
      */
     public static void printGoodbye() {
         System.out.println(UserInteractionMessages.GOODBYE);
     }
 
     /**
-     * Print a new line
+     * Method printNewLine.
      */
     public static void printNewLine() {
         System.out.println();

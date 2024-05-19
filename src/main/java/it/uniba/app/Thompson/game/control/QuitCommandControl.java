@@ -72,29 +72,29 @@ public final class QuitCommandControl extends CommandControl {
         CommunicateInteractionMessagesBoundary.printQuittingPlayer();
         String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
         String[] acceptableResponse = new String[] {"n", "b"};
-      
+
         CommunicateInteractionMessagesBoundary.printNewLine();
-      
+
         if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
             CommunicateErrorsBoundary.printInvalidPlayer();
             return;
         }
-      
-         this.askConfirmation(whichPlayer);
+
+        this.askConfirmation(whichPlayer);
     }
 
     /**
      * Method askConfirmation, asks for confirmation to quit the game.
      * @param player The player who wants to quit the game
-    */
-    private void askConfirmation(String player) {
+     */
+    private void askConfirmation(final String player) {
         CommunicateInteractionMessagesBoundary.printSureToQuit();
         String confirmation = UserInputBoundary.getInput().trim().toLowerCase();
-        String[] acceptableResponse = new String[] { "n", "s" };
+        String[] acceptableResponse = new String[] {"n", "s" };
 
         CommunicateInteractionMessagesBoundary.printNewLine();
 
-        if(Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
+        if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
             CommunicateErrorsBoundary.printInvalidChoice();
 
             return;

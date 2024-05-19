@@ -74,9 +74,10 @@ public final class HelpCommandControl extends CommandControl {
             HelpCommandControl.getInstance(),
             VoidCommandControl.getInstance(),
             PlayCommandControl.getInstance(),
+            AvailableMovesCommandControl.getInstance(),
             BoardCommandControl.getInstance(),
             QuitCommandControl.getInstance(),
-            ExitCommandControl.getInstance()
+            ExitCommandControl.getInstance(),
         });
 
         return CommandStatus.SUCCESSFUL;

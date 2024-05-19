@@ -13,20 +13,6 @@ public final class CommunicateErrorsBoundary {
     private CommunicateErrorsBoundary() { }
 
     /**
-     * Method printInvalidCommand, prints to stdout the invalid command message.
-     */
-    public static void printInvalidCommand() {
-        System.out.println(ErrorMessages.INVALID_COMMAND);
-    }
-
-    /**
-     * Method printInvalidArgument, prints to stdout the invalid argument message.
-     */
-    public  static void printInvalidArgument() {
-        System.out.println(ErrorMessages.INVALID_ARGUMENT);
-    }
-
-    /**
      * Method printMatchNotNull, prints to stdout the match not null message.
      */
     public static void printMatchNotNull() {
@@ -37,7 +23,7 @@ public final class CommunicateErrorsBoundary {
      * Method printMatchNull, prints to stdout the match null message.
      */
     public static void printMatchNull() {
-        System.out.println(ErrorMessages.MATCH_NULL);
+        System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
     }
 
     /**
@@ -73,7 +59,7 @@ public final class CommunicateErrorsBoundary {
      * Print suggest match init.
      * Print to stdout a generic error message
      */
-    public static void printArgumentNotFound(String parameter) {
+    public static void printArgumentNotFound(final String parameter) {
         System.out.println(parameter + "\t\t " + ErrorMessages.ARGUMENT_NOT_FOUND);
     }
 
