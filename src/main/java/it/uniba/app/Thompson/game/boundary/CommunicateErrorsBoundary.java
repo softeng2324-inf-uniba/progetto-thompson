@@ -25,7 +25,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the invalid player message.
      */
     public static void printInvalidPlayer() {
-        System.out.println(ErrorMessages.INVALID_PLAYER);
+        System.out.println("\n" + ErrorMessages.INVALID_PLAYER);
     }
 
     /**
@@ -33,7 +33,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the invalid choice message.
      */
     public static void printInvalidChoice() {
-        System.out.println(ErrorMessages.INVALID_CHOICE);
+        System.out.println("\n" + ErrorMessages.INVALID_CHOICE);
     }
      
     /**

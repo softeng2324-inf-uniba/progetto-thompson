@@ -15,8 +15,9 @@ public final class ErrorMessages {
      * Constants for error messages.
      */
     public static final String MATCH_NOT_NULL = formatter.formatText("C'è già una partita in corso.", Color.ORANGE);
-    public static final String INVALID_PLAYER = "Il giocatore inserito non è valido, comando annullato.";
-    public static final String INVALID_CHOICE = "Scelta non valida, comando annullato";
+    public static final String INVALID_PLAYER = formatter.formatText("Il giocatore inserito non è valido," +
+            " comando annullato.", Color.ORANGE);
+    public static final String INVALID_CHOICE = formatter.formatText("Scelta non valida, comando annullato", Color.ORANGE);
     public static final String SUGGEST_MATCH_INIT = formatter.formatText("Non c'è nessuna partita in corso," +
             " utilizza '/gioca' per iniziarne una.", Color.ORANGE);
     public static final String COMMAND_NOT_FOUND = formatter.formatText("(•ᴖ•｡) Comando non valido, con il comando '/help' puoi " +
