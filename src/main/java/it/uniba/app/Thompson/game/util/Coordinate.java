@@ -23,9 +23,19 @@ public final class Coordinate {
     }
 
     /**
+     * Method plus, elaborates the new coordinates.
+     * @param x The first set of coordinates
+     * @param y The second set of coordinates
+     * @return Returns the sum of the two sets of coordinates.
+     */
+    public static Coordinate plus(final Coordinate x, final Coordinate y) {
+        return new Coordinate(x.getX() + y.getX(), x.getY() + y.getY());
+    }
+
+   /**
      * Method getX.
      * @return x The x coordinate
-     */
+    */
     public int getX() {
         return x;
     }

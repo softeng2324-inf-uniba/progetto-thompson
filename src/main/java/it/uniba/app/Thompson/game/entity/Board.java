@@ -2,6 +2,9 @@ package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * {@literal << Entity >>}
  *  Class representing the board entity.
@@ -91,5 +94,55 @@ public final class Board {
         }
 
         return count;
+    }
+
+    /**
+     * Method getCoordsOfPawns.
+     *
+     * @param turn The color of the pawns to get the coordinates.
+     * @return coordinatesOfPawns The coordinates of the pawns of color turn.
+     */
+    public Queue<Coordinate> getCoordsOfPawns(final PawnFigure turn) {
+        Queue<Coordinate> coordinatesOfPawns = new LinkedList<>();
+
+        for (Tile tile : tiles) {
+            if (tile.isOccupied() && tile.getPawn().getFigure() == turn) {
+                coordinatesOfPawns.add(tile.getCoordinate());
+            }
+        }
+
+        return coordinatesOfPawns;
+    }
+
+    /**
+     * Method isJumpable.
+     *
+     * @param coordinate The coordinate.
+     * @param board The board.
+     * @return 2 if the tile is not occupied and is in the board, 0 otherwise.
+     */
+    public static int isJumpable(final Coordinate coordinate, final Board board) {
+        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()  ? 2 : 0;
+    }
+
+    /**
+     * Method isGenerable.
+     *
+     * @param coordinate The coordinate.
+     * @param board The board.
+     * @return 1 if the tile is not occupied and is in the board, 0 otherwise.
+     */
+    public static int isGenerable(final Coordinate coordinate, final Board board) {
+        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()  ? 1 : 0;
+    }
+
+    /**
+     * Method isInBoard.
+     *
+     * @param coordinate The coordinate.
+     * @return true if the coordinate is in the board, false otherwise.
+     */
+    public Boolean isInBoard(final Coordinate coordinate) {
+        return coordinate.getX() >= 0 && coordinate.getX() < size && coordinate.getY() >= 0 && coordinate.getY() < size;
     }
 }

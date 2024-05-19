@@ -62,7 +62,6 @@ public final class QuitCommandControl extends CommandControl {
         } else {
             this.askToQuitGame();
         }
-
         return CommandStatus.SUCCESSFUL;
     }
 
@@ -73,10 +72,8 @@ public final class QuitCommandControl extends CommandControl {
         CommunicateInteractionMessagesBoundary.printQuittingPlayer();
         String whichPlayer = UserInputBoundary.getInput().trim().toLowerCase();
         String[] acceptableResponse = new String[] {"n", "b"};
-
         if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
             CommunicateErrorsBoundary.printInvalidPlayer();
-
             return;
         }
 
@@ -91,13 +88,10 @@ public final class QuitCommandControl extends CommandControl {
         CommunicateInteractionMessagesBoundary.printSureToQuit();
         String confirmation = UserInputBoundary.getInput().trim().toLowerCase();
         String[] acceptableResponse = new String[] {"n", "s"};
-
         if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
             CommunicateErrorsBoundary.printInvalidChoice();
-
             return;
         }
-
         if (confirmation.equals("s")) {
             this.quitMatch(player.equals("b") ? PawnFigure.BLACK_PAWN : PawnFigure.WHITE_PAWN);
         } else {
@@ -115,7 +109,6 @@ public final class QuitCommandControl extends CommandControl {
                 MainControl.getMatch().getBoard().countPawns(winnerPawn),
                 0
         );
-
         MainControl.removeMatch();
     }
 }

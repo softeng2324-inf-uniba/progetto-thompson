@@ -41,6 +41,14 @@ public class Tile {
     }
 
     /**
+     * Method getCoordinate.
+     * @return coordinate of the tile.
+     */
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    /**
      * Method placePawn.
      * @param pawnFigure The figure of the pawn to be placed
      */
