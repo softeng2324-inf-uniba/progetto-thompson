@@ -115,6 +115,7 @@ public final class MainControl {
     private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
         for (String arg : args) {
             try {
+                CommunicateInteractionMessagesBoundary.printNewLine();
                 findAndExecuteCommand(arg, commands);
                 CommunicateInteractionMessagesBoundary.printNewLine();
             } catch (CommandNotFoundError e) {
