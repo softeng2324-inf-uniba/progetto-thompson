@@ -1,4 +1,27 @@
 # Report
+# Indice
+- ### [**1 - Introduzione**](#1---introduzione)
+  -  [**1.1 - Sviluppatori**](#partecipanti-al-progetto)
+  -  [**1.2 - Descrizione Progetto**](#descrizione-progetto)
+- ### [**2 - Modello di Dominio**](#2---modello-di-dominio)
+    - [**2.1 - Chiarimenti scelte progettuali**](#chiarimenti-scelte-progettuali)
+- ### [**3 - Requisiti Specifici**](#3---requisiti-specifici)
+  -  [**3.1 - Requisiti Funzionali**](#31--requisiti-funzionali-)
+  - [**3.2 - Requisiti Non Funzionali**](#32---requisiti-non-funzionali)
+- ### [**7 - Manuale Utente**](#7---manuale-utente)
+  - [**7.1 - Procedura Preliminare**](#procedura-preliminare)
+
+    <ul>
+    <li><h4><a href="#github"> 7.1.1 - Creazione Token Github </a></h4></li>
+    
+    <li><h4><a href="#docker"> 7.1.2 - Autenticazione Docker </a></h4></li>
+    </ul>
+  
+  - [**7.2 - Regole di Gioco**](#regole-di-gioco)
+    - [**7.2.1 - Varianti**](#varianti)
+  - [**7.3 - Guida All'Utilizzo**](#guida-allutilizzo)
+- ### [**9 - Analisi Retrospettiva**](#9---analisi-retrospettiva)
+    - [**9.1 - Sprint 0**](#91---sprint-0)
 
 # 1 - Introduzione
 
@@ -32,6 +55,8 @@ Ogni variante diversa dalla _Default_  cambia le regole o impone limitazioni sul
 
 Il giocatore può modificare la dimensione della griglia partendo da una 4x4, con la possibilità di scegliere anche di rendere inaccessibili determinate caselle.
 
+#### [Ritorna all'Indice](#indice)
+
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
 ![img_Modello_di_dominio](img/Modello_di_dominio.png)
@@ -46,6 +71,8 @@ la modifica delle regole del gioco determinate dalla variante scelta.
 
 Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
 pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
+
+#### [Ritorna all'Indice](#indice)
 
 # 3 - Requisiti Specifici
 Di seguito vengono riportati i requisiti funzionali e non funzionali del progetto con stile di descrizione di tipo user story.
@@ -107,21 +134,23 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     - **Linux:** terminal;
     - **Windows:** Powershell, Git Bash; 
     - **MacOS:** terminal (a seguito della modifica delle impostazioni di encoding).
+
+#### [Ritorna all'Indice](#indice)
+
 # 7 - Manuale Utente 
 
 ## Procedura Preliminare
 Prima di poter avviare il gioco bisogna essere sicuri di trovarsi in un ambiente che permette la
 sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi preparatori:
 
-## Guida
 - Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
-- Autenticarsi con github tramite CLI come segue:
+- Autenticarsi su Docker con github access token tramite CLI come segue:
 
-<h2><img src="img/Github-logo.png" alt="Github logo" height="60"> Creazione Token per il Docker login</h2>
+<h2 id="github"> <img src="img/Github-logo.png" alt="github logo" height="60"> Creazione Token per il Docker login</h2>
 
 Verificare di utilizzare uno dei terminali supportati riportati in 
 
-- [Requisiti non funzionali](#32-requisiti-non-funzionali)
+- [Requisiti non funzionali](#32---requisiti-non-funzionali)
 
 Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi descritti di seguito:
 
@@ -144,7 +173,7 @@ Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu 
 
 A questo punto si è pronti per accedere a Docker tramite Github PAT
 
-<h2> <img src="img/Docker-logo.png" alt="Docker logo" height="55" > Autenticazione Docker ed Avvio </h2>
+<h2 id="docker"> <img src="img/Docker-logo.png" alt="Docker logo" height="55" > Autenticazione Docker ed Avvio </h2>
 
 1. **Copia del token su un file `.txt`**:
 
@@ -178,6 +207,8 @@ docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 Questo comando avvierà il gioco Ataxx
 
+#### [Ritorna all'Indice](#indice)
+
 ## Regole di Gioco
 #### **Regole Base(Default)**
 - Il gioco è composto da un tavoliere di 49 caselle quadrat e da 49 pedine bicolori
@@ -192,7 +223,8 @@ Questo comando avvierà il gioco Ataxx
 - Vince il giocatore che ha più pedine del proprio colore al termine della partita
 - Il punteggio di una vittoria è dato dalla differenza delle pedine
 - Per trascrivere una partita si utilizzano le lettere per le colonne e i numeri per le righe, indicando le caselle di partenza e di arrivo delle pedine.
-Esistono inoltre varianti che modificano elementi del gioco base, offrendo diverse strategie e novità ai giocatori:
+## **Varianti**
+- Esistono inoltre varianti che modificano elementi del gioco base, offrendo diverse strategie e novità ai giocatori:
 #### **Variante A Perdere**:
   - In questa variante, vince il giocatore che al termine della partita ha meno pedine del proprio colore, mantenendo le regole base del gioco.
 #### **Variante Thomas (o Nutsy Ataxx)**:
@@ -201,50 +233,95 @@ Esistono inoltre varianti che modificano elementi del gioco base, offrendo diver
 - **Variante Assimilation (o Infection)**:
   - In questa variante, gli spostamenti possono essere effettuati solo in maniera ortogonale o diagonale, escludendo i salti a "L".
   - Le regole base del gioco restano invariate.
+  - 
+#### [Ritorna all'Indice](#indice)
 
 ## Guida All'Utilizzo
 
-- ### **All'avvio:**
-    <details open>Visualizzazione banner di benvenuto <p align="center"><img src="img/Game_Banner.png" alt="Game_Banner" width="500"/></p>
+- ### All'avvio:
+    <details open>Visualizzazione banner di benvenuto 
+        <p align="center"><img src="img/Game_Banner.png" alt="Game_Banner"/></p>
+      <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### All'avvio con Parametri `-h` o `--help`:
+    <details open> Visualizzazione banner con i comandi disponibili.
+        <p align="center"><img src="img/Parameterized_Run.png" alt="Parameterized" width="450"/></p>
+        <h5>Nell'immagine è riportato anche il caso in cui viene passato un parametro non valido.</h5>
+      <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al Comando `/help`:
+    <details open>Mostra la lista di comandi disponibili.
+        <p align="center"><img src="img/Help.png" alt="help"/></p>
+      <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al Comando `/gioca`:
+    <details open>Mostra il tavoliere con le pedine in posizione iniziale
+        <p align="center"><img src="img/Gioca_Tavoliere.png" alt="gioca" height="380"/></p>
+      <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al comando `/vuoto`:
+    <details open>Mostra il tavoliere vuoto enumerato. 
+        <p align="center"><img src="img/Vuoto.png" alt="vuoto" height="380"/></p>
+      <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al comando `/tavoliere`:
+    <details open>
+        <h4>Scenario 1:</h4> Corretta chiama del comando, mostra il tavoliere con pedine ed enumerazione
+        <p align="center"><img src="img/Tavoliere_Attuale.png" alt="tavoliereiniziale" height="380"/></p>
+    <h4>Scenario 2:</h4>
+        Nel caso si provi a mostrare il tavoliere senza una partita avviata, suggerirà il comando <code>/gioca</code>.
+        <p align="center"><img src="img/Tavoliere_Error.png" alt="tavoliere"/></p>
     <summary>Visualizza Dettagli</summary>
     </details>
-  
-- ### **All'avvio con Parametri `-h` o `--help`:**
-    <details open> Visualizzazione banner con i comandi disponibili in attesa di input.
-        <summary>Visualizza Dettagli</summary>
-    </details>
 
-- ### **Al Comando `/gioca`:**
-    <details open>Mostra il tavoliere con le pedine in posizione iniziale
-        <summary>Visualizza Dettagli</summary>
-    </details>
-  
-- ### **Al comando `/vuoto`:**
-    <details open>Mostra il tavoliere vuoto enumerato.
-        <summary>Visualizza Dettagli</summary>
-    </details>
-- ### **Al comando `/tavoliere`:**
-    <details open>Mostra il tavoliere con pedine e numerazione, se non si è iniziata una partita suggerisce il comando <code>/gioca</code>.
-        <summary>Visualizza Dettagli</summary>
-    </details>
-
-- ### **Al comando `/qualimosse`:**
-    <details open>Mostra le mosse possibili colorando le caselle diversamente in base al tipo di mossa disponibile in essa.
-        <summary>Visualizza Dettagli</summary>
+- ### Al comando `/qualimosse`:
+    <details open> Mostra le mosse possibili colorando le caselle diversamente in base al tipo di mossa disponibile in essa.
+      <h4>Scenario 1:</h4>Il giocatore può effettuare mosse di tipo 1 e 2:
+          <p align="center"><img src="img/Tavoliere_QualiMosse.png" alt="qualimosse" height="380"/></p>
+      <h4>Scenario 2:</h4>
+          Nel caso in cui non ci sia nessuna partita in atto, suggerirà il comando <code>/gioca</code>.
+          <p align="center"><img src="img/QualiMosse_Error.png" alt="qualimosse"/></p>
+      <summary>Visualizza Dettagli</summary>
     </details>
   
-- ### **Al comando `/abbandona`:**
-    <details open>Chiede conferma per l'abbandono della partita, se confermato dichiara il vincitore per x a 0 dove x è il numero di pedine rimaste dell'avversario.
-        <summary>Visualizza Dettagli</summary>
+- ### Al comando `/abbandona`:
+    <details open> Chiede conferma per l'abbandono della partita, se confermato dichiara il vincitore per x a 0 dove x è il numero di pedine rimaste dell'avversario.
+      <h4>Scenario 1:</h4>
+        Esempio di corretta esecuzione del comando:
+        <p align="center"><img src="img/Abbandona_Si.png" alt="abbandona"/></p>
+      <h4>Scenario 2:</h4>
+        Esempio di esecuzione del comando con conferma negativa:
+        <p align="center"><img src="img/Abbandona_No.png" alt="abbandona"/></p>
+      <h4>Scenario 3:</h4>
+        Esempio di esecuzione con partita non in corso:
+        <p align="center"><img src="img/Abbandona_Error.png" alt="abbandona"/></p>
+      <h4>Scenario 4:</h4> 
+        Esempio di errore nell'input del giocatore che abbandona:
+        <p align="center"><img src="img/Abbandona_Player_Non_Valido.png" alt="abbandona"/></p>
+      <h4>Scenario 5:</h4>
+        Esempio di scelta non valida:
+        <p align="center"><img src="img/Abbandona_Scelta_Non_Valida.png" alt="abbandona"/></p>
+      <summary>Visualizza Dettagli</summary>
     </details>
 
-- ### **Al comando `/esci`:**
-    <details open>Chiude il gioco e restituisce il controllo al sistema operativo.
-        <summary>Visualizza Dettagli</summary>
+- ### Al comando `/esci`:
+    <details open>Chiude il gioco e restituisce il controllo al sistema operativo.<p align="center"><img src="img/Esci.png" alt="esci"/></p>
+      <h5>In output un messaggio di arrivederci.</h5>
+      <summary>Visualizza Dettagli</summary>
     </details>
+
+#### [Ritorna all'Indice](#indice)
 
 # 9 - Analisi Retrospettiva
-
+- In questa sezione andremo ad analizzare i nostri comportamenti durante lo sviluppo del software
+ed il rispetto delle regole di sviluppo imposte dal team, dal codice di condotta e dal manifesto dello sviluppo agile.
+Si riporteranno i punti forza e debolezza emersi durante lo sviluppo del progetto tramite tabelle ed infine 
+verranno suggeriti i miglioramenti proposti per evitare errori simili in futuro.
 ## 9.1 - Sprint 0
 
 ### Analisi retrospettiva effettuata il 20/04/2024
@@ -279,12 +356,14 @@ Dalla tabella si evince che:
     </li>
 </ul>
 
-### Miglioramenti proposti
+## Miglioramenti proposti
 
 Dopo aver analizzato le problematiche il team ha sancito i seguenti suggerimenti:
 - Riguardo alla fretta nelle revisioni, i membri convengono nel porre più attenzione nel controllare il lavoro svolto
 - Riguardo al mancato rispetto dello stile dei commit, ognuno si assume la responsabilità di eventuali errori commessi e si impegna a controllare il codice di condotta se incerto
 - Riguardo alla scrittura degli issue il team decide di stabilire uno stile per la scrittura degli stessi
 
-### Conclusioni
+## Conclusioni
 In generale conveniamo nell'avere una responsabilità individuale oltre a quella di team, ognuno si impegnerà a svolgere correttamente il proprio lavoro evitando errori dovuti a distrazione o fretta.
+
+#### [Ritorna all'Indice](#indice)
