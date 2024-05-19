@@ -49,7 +49,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the suggest match init message.
      */
     public static void printSuggestMatchInit() {
-        System.out.println(ErrorMessages.SUGGEST_MATCH_INIT);
+        System.out.println("\n" + ErrorMessages.SUGGEST_MATCH_INIT);
     }
 
     /**
