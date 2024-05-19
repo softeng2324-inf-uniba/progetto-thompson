@@ -1,8 +1,8 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Enum with implemented text styles.
+ * {@literal << Util >>}
+ * Enum representing implemented text styles.
  */
 public enum Style {
     BOLD,

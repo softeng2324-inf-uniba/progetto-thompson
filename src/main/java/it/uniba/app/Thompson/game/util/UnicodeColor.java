@@ -1,21 +1,22 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Class for color constants.
+ * {@literal << Util >>}
+ * Class for the management of the color constants in unicode.
  */
 public final class UnicodeColor {
 
     /**
-     * Color constructor.
+     * Constructor for the class UnicodeColor.
      */
     private UnicodeColor() { }
 
     /**
-     * @param color Color of the returning string
-     * @return Returns unicode of color parameter
+     * Method getColorUnicode.
+     * @param color Color of the returning unicode
+     * @return Return unicode color based of color parameter
      */
-    public static String getUnicodeFromColor(final Color color) {
+    public static String getColorUnicode(final Color color) {
         switch (color) {
             case GREY -> {
                 return "\u001B[90m";

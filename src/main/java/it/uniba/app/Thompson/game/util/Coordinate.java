@@ -1,13 +1,13 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Stores x and y position.
+ * {@literal << Util >>}
+ * Class for the management of the coordinates.
  */
 public final class Coordinate {
 
     /**
-     * Attributes of Coordinate.
+     * Attributes of the class Coordinate.
      */
     private final int x;
     private final int y;
@@ -23,18 +23,18 @@ public final class Coordinate {
     }
 
     /**
-     * Method to get the y coordinate.
-     * @return y The y coordinate
-     */
-    public int getY() {
-        return y;
-    }
-
-    /**
-     * Method to get the x coordinate.
+     * Method getX.
      * @return x The x coordinate
      */
     public int getX() {
         return x;
+    }
+
+    /**
+     * Method getY.
+     * @return y The y coordinate
+     */
+    public int getY() {
+        return y;
     }
 }

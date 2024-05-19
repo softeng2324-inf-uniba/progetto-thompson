@@ -1,8 +1,8 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Enums for Command Status.
+ * {@literal << Util >>}
+ * Enum representing the implemented Command Status.
  */
 public enum CommandStatus {
     SUCCESSFUL,

@@ -1,8 +1,8 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
- * Enum for implemented colors.
+ * {@literal << Util >>}
+ * Enum representing implemented colors.
  */
 public enum Color {
     RED,

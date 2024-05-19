@@ -1,13 +1,13 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- * << Util >>
+ * {@literal << Util >>}
  * Class for error messages.
  */
 public final class ErrorMessages {
 
     /**
-     * Constants for error messages.
+     * Constants of the class ErrorMessages.
      */
     public static final String INVALID_COMMAND = "Comando non valido, riprova.";
     public static final String INVALID_INPUT = "Input non valido, riprova.";
@@ -19,7 +19,7 @@ public final class ErrorMessages {
                                                   + "utilizza '/gioca' per iniziarne una.";
 
     /**
-     * Constructor for ErrorMessages.
+     * Constructor for the class ErrorMessages.
      */
     private ErrorMessages() { }
 }
