@@ -17,7 +17,7 @@ public final class CommunicateErrorsBoundary {
      * Print to stdout the match not null message.
      */
     public static void printMatchNotNull() {
-        System.out.println(ErrorMessages.MATCH_NOT_NULL);
+        System.out.println("\n" + ErrorMessages.MATCH_NOT_NULL);
     }
 
     /**
