@@ -111,15 +111,13 @@ public final class MainControl {
      * @param commands Map of all the valid arguments.
      */
     private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
-        for (String a : args) {
+        for (String arg : args) {
             try {
-                findAndExecuteCommand(a, commands);
+                findAndExecuteCommand(arg, commands);
+            } catch (CommandNotFoundError e) {
+                CommunicateErrorsBoundary.printArgumentNotFound(arg);
             } catch (Error e) {
-                /* TODO:
-                 * create a constant for this
-                 * create a method in CommunicateErrors to print this message;
-                 */
-                System.out.println(a + " is not a valid argument.");
+                CommunicateErrorsBoundary.printGenericError();
             }
         }
     }
@@ -141,8 +139,10 @@ public final class MainControl {
             String command = UserInputBoundary.getInput();
             try {
                 status = findAndExecuteCommand(command, availableCommands);
-            } catch (Error e) {
+            } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
+            } catch (Error e) {
+                CommunicateErrorsBoundary.printGenericError();
             }
         }
     }
