@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.boundary;
+
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Tile;
 import it.uniba.app.Thompson.game.util.Coordinate;
@@ -6,14 +7,19 @@ import it.uniba.app.Thompson.game.util.UnicodePawn;
 import it.uniba.app.Thompson.game.util.MoveTypes;
 
 /**
- * << Boundary >>
- * Class for printing the board.
+ * {@literal << Boundary >>}
+ * Class to print the board.
  */
 public final class PrintBoardBoundary {
+
+    /**
+     * Constructor for the class PrintBoardBoundary.
+     */
     private PrintBoardBoundary() {
     }
+
     /**
-     * Prints the board.
+     * Method printBoard.
      * @param board Board to print
      */
     public static void printBoard(final Board board) {
@@ -46,8 +52,9 @@ public final class PrintBoardBoundary {
     }
 
     /**
-     * Prints the colored board.
+     * Method overloaded printBoard.
      * @param board Board to print
+     * @param mask auxiliary matrix to keep track of the possible moves
      */
     public static void printBoard(final Board board, final int[][] mask) {
         int size = board.getSize();
@@ -91,6 +98,3 @@ public final class PrintBoardBoundary {
         System.out.println();
     }
 }
-
-
-

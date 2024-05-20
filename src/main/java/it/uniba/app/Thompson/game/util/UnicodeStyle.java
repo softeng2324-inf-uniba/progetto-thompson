@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * {@literal << Util >>}
- * Class for the management of the style constants in unicode.
+ * Class to manage of the style constants in unicode.
  */
 public final class UnicodeStyle {
 

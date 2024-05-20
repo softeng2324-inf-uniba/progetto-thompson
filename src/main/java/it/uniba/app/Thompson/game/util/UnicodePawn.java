@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * {@literal << Util >>}
- * Class for the management of the pawns in unicode.
+ * Class to manage the pawns figure in unicode.
  */
 public final class UnicodePawn {
 

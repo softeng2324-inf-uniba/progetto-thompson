@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * {@literal << Util >>}
- * Class for the management of the color constants in unicode.
+ * Class to manage of the color constants in unicode.
  */
 public final class UnicodeColor {
 

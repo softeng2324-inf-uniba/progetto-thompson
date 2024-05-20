@@ -4,10 +4,13 @@ import it.uniba.app.Thompson.game.control.FormatterControl;
 
 /**
  * {@literal << Util >>}
- * Class for user interaction messages.
+ * Class to manage user interaction messages.
  */
 public final class UserInteractionMessages {
 
+    /**
+     * Attributes of the class UserInteractionMessages.
+     */
     private static final FormatterControl FORMATTER_CONTROL = new FormatterControl();
 
     /**
@@ -15,10 +18,22 @@ public final class UserInteractionMessages {
      */
     public static final String QUITTING_PLAYER = FORMATTER_CONTROL.formatText("Quale giocatore "
             + "vuole abbandonare la partita? (N/B)", Style.BOLD);
+
+    /**
+     * Constant containing the SURE_TO_QUIT message.
+     */
     public static final String SURE_TO_QUIT = FORMATTER_CONTROL.formatText("Sei sicuro "
             + "di voler abbandonare la partita? (S/N)", Style.BOLD);
+
+    /**
+     * Constant containing the ABORTED_QUIT message.
+     */
     public static final String ABORTED_QUIT = FORMATTER_CONTROL.formatText("La partita continuerà normalmente.",
             Color.BLUE, Style.BOLD);
+
+    /**
+     * Constant containing the GOODBYE message.
+     */
     public static final String GOODBYE = FORMATTER_CONTROL.formatText("Arrivederci! Grazie per aver giocato!",
             Color.BLUE, Style.ITALIC);
 
