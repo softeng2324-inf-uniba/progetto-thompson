@@ -28,7 +28,7 @@ public final class UnicodeColor {
                 return "\u001B[38;5;208m";
             }
             case YELLOW -> {
-                return "\u001B[33m";
+                return "\u001B[38;5;226m";
             }
             case BLUE -> {
                 return "\u001B[34m";
