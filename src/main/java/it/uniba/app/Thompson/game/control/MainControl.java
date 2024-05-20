@@ -81,7 +81,11 @@ public final class MainControl {
      * @return match The current match.
      */
     public static Match getMatch() {
-        return match;
+        Match defensiveCopy = match;
+        if (defensiveCopy != null) {
+            defensiveCopy = new Match(match.getBoard(), match.getMoves());
+        }
+        return defensiveCopy;
     }
 
     /**
@@ -92,10 +96,11 @@ public final class MainControl {
     }
 
     /**
-     * Method findAndExecuteCommand, finds command in the map availableCommands and executes it.
-     * @param command Command to find and execute
-     * @param availableCommands Map of the available commands
-     * @return Returns the status of the system after the execution of the command.
+     * Method findAndExecuteCommand, finds and executes the command.
+     * @param command The command to be executed
+     * @param availableCommands The map of the available commands
+     * @return Returns The status of the command
+     * @throws CommandNotFoundError If the command is not found
      */
     private static CommandStatus findAndExecuteCommand(
         final String command,
