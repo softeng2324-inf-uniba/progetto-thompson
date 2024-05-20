@@ -28,7 +28,7 @@ public final class UserInteractionMessages {
     /**
      * Constant containing the ABORTED_QUIT message.
      */
-    public static final String ABORTED_QUIT = FORMATTER_CONTROL.formatText("La partita continuerà normalmente.",
+    public static final String ABORTED_QUIT = FORMATTER_CONTROL.formatText("La partita continuera' normalmente.",
             Color.BLUE, Style.BOLD);
 
     /**
