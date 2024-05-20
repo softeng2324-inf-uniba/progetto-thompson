@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * {@literal << Util >>}
- * Class for the management of the coordinates.
+ * Class to manage of the coordinates.
  */
 public final class Coordinate {
 

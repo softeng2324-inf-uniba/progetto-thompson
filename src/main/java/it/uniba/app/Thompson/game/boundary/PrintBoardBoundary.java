@@ -1,19 +1,27 @@
 package it.uniba.app.Thompson.game.boundary;
+
+import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Tile;
+import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.UnicodePawn;
 import it.uniba.app.Thompson.game.util.MoveTypes;
 
 /**
- * << Boundary >>
- * Class for printing the board.
+ * {@literal << Boundary >>}
+ * Class to print the board.
  */
 public final class PrintBoardBoundary {
+
+    /**
+     * Constructor for the class PrintBoardBoundary.
+     */
     private PrintBoardBoundary() {
     }
+
     /**
-     * Prints the board.
+     * Method printBoard.
      * @param board Board to print
      */
     public static void printBoard(final Board board) {
@@ -46,11 +54,14 @@ public final class PrintBoardBoundary {
     }
 
     /**
-     * Prints the colored board.
+     * Method overloaded printBoard.
      * @param board Board to print
+     * @param mask auxiliary matrix to keep track of the possible moves
      */
     public static void printBoard(final Board board, final int[][] mask) {
         int size = board.getSize();
+        FormatterControl formatter = new FormatterControl();
+
         System.out.println("     A   B   C   D   E   F   G");
         for (int i = 0; i < size; i++) {
             System.out.print("   +");
@@ -67,13 +78,13 @@ public final class PrintBoardBoundary {
                     MoveTypes moveType = MoveTypes.values()[mask[i][j]];
                     switch (moveType) {
                         case GENERATE:
-                            System.out.print(" 🟨");  // Add explanation for clarity
+                            System.out.print(" " + formatter.formatText("\u2B1B", Color.YELLOW));
                             break;
                         case JUMP:
-                            System.out.print(" 🟧");    // Add explanation for clarity
+                            System.out.print(" " + formatter.formatText("\u2B1B", Color.ORANGE));
                             break;
                         case BOTH:
-                            System.out.print(" 🟪");    // Add explanation for clarity
+                            System.out.print(" " + formatter.formatText("\u2B1B", Color.PINK));
                             break;
                         default:
                             System.out.print("   ");
@@ -91,6 +102,3 @@ public final class PrintBoardBoundary {
         System.out.println();
     }
 }
-
-
-

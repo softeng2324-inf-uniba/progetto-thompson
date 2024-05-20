@@ -3,11 +3,14 @@ package it.uniba.app.Thompson.game.util;
 import java.util.Arrays;
 
 /**
- * <<Util>>
- * Enum for the variant moves for game types.
+ * {@literal << Util >>}
+ * Class to manage the variant moves for game types.
  */
 public final class VariantMove {
 
+    /**
+     * Attributes of the class VariantMove.
+     */
     private static final Coordinate[][] STANDARD = {
             {
                     new Coordinate(-1, -1), new Coordinate(-1, 0), new Coordinate(-1, 1),

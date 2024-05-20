@@ -5,7 +5,19 @@ package it.uniba.app.Thompson.game.util;
  * Enum representing implemented text styles.
  */
 public enum Style {
+
+    /**
+     * Bold text style.
+     */
     BOLD,
+
+    /**
+     * Italic text style.
+     */
     ITALIC,
+
+    /**
+     * Normal text style.
+     */
     NORMAL
 }

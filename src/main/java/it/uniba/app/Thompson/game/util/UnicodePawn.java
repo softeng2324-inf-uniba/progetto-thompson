@@ -2,7 +2,7 @@ package it.uniba.app.Thompson.game.util;
 
 /**
  * {@literal << Util >>}
- * Class for the management of the pawns in unicode.
+ * Class to manage the pawns figure in unicode.
  */
 public final class UnicodePawn {
 
@@ -19,10 +19,10 @@ public final class UnicodePawn {
     public static String getPawnUnicode(final PawnFigure pawn) {
         switch (pawn) {
             case WHITE_PAWN -> {
-                return "⛀";
+                return "\u26C0";
             }
             case BLACK_PAWN -> {
-                return "⛂";
+                return "\u26C2";
             }
             default -> {
                 return "\u001B[0m";

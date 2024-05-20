@@ -1,12 +1,28 @@
 package it.uniba.app.Thompson.game.util;
 
 /**
- *  << Util >>
- *  Enum for the game type.
+ *  {@literal << Util >>}
+ *  Enum representing the game type.
  */
 public enum  GameType {
+
+    /**
+     * DEFAULT The default game type.
+     */
     DEFAULT,
+
+    /**
+     * THOMAS The Thomas game type.
+     */
     THOMAS,
+
+    /**
+     * INFECTION The Infection game type.
+     */
     INFECTION,
-    A_PERDERE
+
+    /**
+     * MISÈRE The Misere game type.
+     */
+    MISERE
 }

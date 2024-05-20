@@ -22,6 +22,16 @@ public class Match {
     }
 
     /**
+     * Defensive copy Constructor for the class Match.
+     * @param newBoard The original board
+     * @param newMoves The original moves
+     */
+    public Match(final Board newBoard, final Stack<Move> newMoves) {
+        board = new Board(newBoard);
+        moves.addAll(newMoves);
+    }
+
+    /**
      * Method setMove.
      * @param move The move
      */
@@ -34,7 +44,7 @@ public class Match {
      * @return board The board
      */
     public Board getBoard() {
-        return board;
+        return new Board(board);
     }
 
     /**

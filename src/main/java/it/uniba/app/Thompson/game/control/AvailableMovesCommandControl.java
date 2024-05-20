@@ -13,33 +13,35 @@ import it.uniba.app.Thompson.game.util.VariantMove;
 import java.util.Queue;
 
 /**
- * << Control >>
- * Implementation of the play command.
+ * {@literal << Control >>}
+ * Class to manage the command available moves.
  */
 public final class AvailableMovesCommandControl extends CommandControl {
 
     /**
-     * Attributes initialization and instance.
+     * Attributes of the class AvailableMovesCommandControl.
      */
     private static final String COMMAND = "/qualimosse";
     private static final String DESCRIPTION = "Stampa le mosse disponibili del giocatore corrente per ogni pedina.";
     private static final AvailableMovesCommandControl INSTANCE = new AvailableMovesCommandControl();
 
     /**
-     * Constructor for AvailableMovesCommandControl.
+     * Constructor for the class AvailableMovesCommandControl.
      */
     private AvailableMovesCommandControl() { }
 
     /**
-     * @return The instance of the AvailableMovesCommandControl.
+     * Method getInstance.
+     * @return INSTANCE The instance of the AvailableMovesCommandControl.
      */
     public static AvailableMovesCommandControl getInstance() {
         return INSTANCE;
     }
 
     /**
-     * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * Method getDescription.
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return DESCRIPTION The command description.
      */
     @Override
     public String getDescription() {
@@ -47,8 +49,9 @@ public final class AvailableMovesCommandControl extends CommandControl {
     }
 
     /**
+     * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return The command string.
+     * @return COMMAND The command.
      */
     @Override
     public String getCommand() {
@@ -56,8 +59,9 @@ public final class AvailableMovesCommandControl extends CommandControl {
     }
 
     /**
+     * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return Print the available moves with colors on the board basing on the move type.
+     * @return Returns the status of the command.
      */
     @Override
     CommandStatus executeCommand() {
