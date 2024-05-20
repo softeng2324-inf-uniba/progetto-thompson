@@ -38,6 +38,33 @@ public final class Board {
     }
 
     /**
+     * Defensive copy Constructor for the class Board.
+     * @param defensiveCopy The copied board
+     */
+    public Board(final Board defensiveCopy) {
+        size = defensiveCopy.getSize();
+        tiles = defensiveCopy.getTiles();
+    }
+
+    /**
+     * Method getTiles.
+     * @return newTiles The clone of the tiles array.
+     */
+    public Tile[] getTiles() {
+        Tile[] newTiles = null;
+        if (tiles != null) {
+            newTiles = new Tile[tiles.length];
+            for (int i = 0; i < tiles.length; i++) {
+                newTiles[i] = new Tile(tiles[i].getX(), tiles[i].getY());
+                if (tiles[i].isOccupied()) {
+                    newTiles[i].placePawn(tiles[i].getPawn().getFigure());
+                }
+            }
+        }
+        return newTiles;
+    }
+
+    /**
      * Method setInitialPawns.
      */
     public void setInitialPawns() {
@@ -98,7 +125,6 @@ public final class Board {
 
     /**
      * Method getCoordsOfPawns.
-     *
      * @param turn The color of the pawns to get the coordinates.
      * @return coordinatesOfPawns The coordinates of the pawns of color turn.
      */
@@ -116,7 +142,6 @@ public final class Board {
 
     /**
      * Method isJumpable.
-     *
      * @param coordinate The coordinate.
      * @param board The board.
      * @return 2 if the tile is not occupied and is in the board, 0 otherwise.
@@ -127,7 +152,6 @@ public final class Board {
 
     /**
      * Method isGenerable.
-     *
      * @param coordinate The coordinate.
      * @param board The board.
      * @return 1 if the tile is not occupied and is in the board, 0 otherwise.
@@ -138,7 +162,6 @@ public final class Board {
 
     /**
      * Method isInBoard.
-     *
      * @param coordinate The coordinate.
      * @return true if the coordinate is in the board, false otherwise.
      */

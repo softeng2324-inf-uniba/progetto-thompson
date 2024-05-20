@@ -68,7 +68,7 @@ public class Tile {
      * @return pawn The pawn on the tile
      */
     public Pawn getPawn() {
-        return pawn;
+        return new Pawn(pawn.getFigure());
     }
 
     /**
