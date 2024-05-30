@@ -22,6 +22,7 @@
   - [**7.3 - Guida All'Utilizzo**](#guida-allutilizzo)
 - ### [**9 - Analisi Retrospettiva**](#9---analisi-retrospettiva)
     - [**9.1 - Sprint 0**](#91---sprint-0)
+    - [**9.2 - Sprint 1**](#92---sprint-1)
 
 # 1 - Introduzione
 
@@ -365,5 +366,61 @@ Dopo aver analizzato le problematiche il team ha sancito i seguenti suggerimenti
 
 ## Conclusioni
 In generale conveniamo nell'avere una responsabilità individuale oltre a quella di team, ognuno si impegnerà a svolgere correttamente il proprio lavoro evitando errori dovuti a distrazione o fretta.
+
+#### [Ritorna all'Indice](#indice)
+
+## 9.2 - Sprint 1
+
+### Analisi retrospettiva effettuata il 30/05/2024
+
+L'analisi retrospettiva è partita discutendo insieme del lavoro svolto nello sprint 1 riflettendo su punti di forza e 
+debolezza davanti ad una tabella Mad-Sad-Glad
+
+Di seguito riportiamo la tabella creata:
+
+![img_retrospective](img/Retrospettiva_sprint_1.png)
+
+Dalla tabella si evince che:
+<ul>
+    <li>Il team è contento di:
+        <ul>
+            <li>Aver mantenuto un alto grado di organizzazione come nel precedente sprint</li>
+            <li>Aver minimizzato i conflitti nei merge avendo usato un IDE che permette di programmare in contemporanea sullo stesso file</li>
+            <li>Aver risolto le discussioni sulla progettazione concettuale in maniera adulta e arrivando alla miglior soluzione possibile</li>
+            <li>Non aver mai fatto pesare gli errori ai membri, aiutandosi quando ce n'è stato bisogno</li>
+            <li>Essere rimasti saldi davanti ad un carico di lavoro elevato senza esser presi dal panico</li>
+            <li>Essere stati pronti ad apprendere nuove cose di fronte ad argomenti mai affrontati prima</li>
+        </ul>
+    </li>
+    <li>Il team è triste per:
+        <ul>
+            <li>Aver effettuato pause che hanno ritardato di molto il lavoro e rovinato il flusso</li>
+            <li>Non aver avuto un livello di parallelizzazione sufficientemente alto</li>
+            <li>Esser stati indecisi di fronte alla realizzazione della user interface in CLI</li>
+            <li>Non aver stabilito un orario fisso per i daily scrum, nonostante siano stati eseguiti efficacemente</li>
+</ul>
+    </li>
+    <li>Il team è arrabbiato per:
+        <ul>
+            <li>La mancata definizione per tempo di uno standard per la stesura della Javadoc, il che ha portato a frequenti modifiche ad essa</li>
+            <li>Eccessive revisioni dovute ad incertezze ed ambiguità che sarebbero state risolte se definite una unica volta</li>
+            <li>Non aver testato l'eseguibile remoto abbastanza frequentemente, affidandoci troppo all'esecuzione in locale</li>
+        </ul>
+    </li>
+</ul>
+
+## Miglioramenti proposti
+
+Dopo aver analizzato i punti riportati nella tabella, il team ha deciso di:
+- Stabilire uno standard per ogni evenienza della Javadoc(effettuato a fine sprint1), che ci si impegna ora a riportare nel code of conduct
+- Deciso di programmare i meeting con più anticipo in modo da tener conto di tutte le necessità
+- Testare l'eseguibile remoto più spesso, soprattutto dopo modifiche importanti o aggiunta di funzionalità
+- Stabilire il contenuto di una revisione ed effettuarlo in maniera efficiente oltre che efficace
+- Non interrompere il flusso di lavoro in modo forzato e problematico
+- Parallelizzare di più il lavoro, pur continuando a revisionare il lavoro a vicenda
+
+## Conclusioni
+Il team conviene nel dire che il lavoro è stato svolto in maniera corretta ma che ci sia sempre un margine di miglioramento, 
+infatti, per esempio, sicuramente programmando prima dell'esecuzione e parallelizzando di più il lavoro si può svolgere il tutto in maniera molto più efficiente.
 
 #### [Ritorna all'Indice](#indice)
