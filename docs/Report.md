@@ -4,7 +4,6 @@
   -  [**1.1 - Sviluppatori**](#partecipanti-al-progetto)
   -  [**1.2 - Descrizione Progetto**](#descrizione-progetto)
 - ### [**2 - Modello di Dominio**](#2---modello-di-dominio)
-    - [**2.1 - Chiarimenti scelte progettuali**](#chiarimenti-scelte-progettuali)
 - ### [**3 - Requisiti Specifici**](#3---requisiti-specifici)
   -  [**3.1 - Requisiti Funzionali**](#31--requisiti-funzionali-)
   - [**3.2 - Requisiti Non Funzionali**](#32---requisiti-non-funzionali)
@@ -60,17 +59,6 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
 ![img_Modello_di_dominio](img/Modello_di_dominio.png)
-
-## Chiarimenti scelte progettuali
-- Relazioni **Mossa**  ⇄ **Pedina:**
-
-Può sembrare intuitivo avere le relazioni che descrivono il comportamento della pedine direttamente con **Casella**, 
-tuttavia abbiamo deciso di implementare una classe **Mossa** così da tener conto dello stato del gioco e rendendo più agevole 
-la modifica delle regole del gioco determinate dalla variante scelta.
-- Relazione **Giocatore**  ⇄ **Pedina:**
-
-Abbiamo deciso di assegnare l'attributo "colorePedine" alla classe **Giocatore** e omettere un eventuale attributo colore sulla classe **Pedina** dal momento che una
-pedina è sempre associata ad un giocatore da cui la pedina risale al colore evitando ridondanze.
 
 #### [Ritorna all'Indice](#indice)
 
