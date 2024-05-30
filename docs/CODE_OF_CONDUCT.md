@@ -24,20 +24,20 @@
 - Il codice sottoposto non deve essere soggetto di "warning" dagli strumenti con i quali interagisce
 
 ## 4. Stile
-**Il titolo degli issue sarà strutturato come di seguito:**
+### Formato Issues:
 
 `{Sigla}{Numero}: (Titolo)`
 > Esempio:
 > DOC7: Aggiunta immagine...
 
-**Il formato del commit sarà strutturato come di seguito**:
+###  Formato commit:
 `{Prefisso}(Soggetto): {Predicato}` 
 
 > Esempio:
 > feat(img): Aggiunta immagine di Thompson
 
 
-**Il formato dei branch sarà strutturato come di seguito**:
+### Formato Branch:
 ` {Prefisso} / {Predicato}`
 - **Prefissi**: 
 
@@ -49,3 +49,34 @@
 
 - **Soggetto**: specifica il file o cartella di lavoro 
 - **Predicato**: specifica l'azione commessa con breve descrizione
+
+### Formato Javadoc:
+#### Descrizione Classi: 
+
+><< ECB Type >>
+> 
+> Se classe entity: **Class** representing the "class_name" entity. 
+> 
+> Se classe Boundary: **Class** to "funzionalità"
+> 
+> Se classe Control: **Class** to manage "funzionalità"
+> 
+> **Attributes** of the class "class_name"
+> 
+> **Constants* of the class "class_name"
+> **Constructor** for the class "class_name"
+#### Metodi:
+
+> Method "method_name" 
+> 
+> Se override: Override of the "method_name" of the "class_type" "class_name"
+> 
+> @param: "param_name" (descrizione) Per ogni parametro
+> 
+> @return "attribute_name" (descrizione)
+
+#### Enumerativi:
+
+>  Enum representing "soggetto"
+> 
+> "enum_name" (descrizione)
