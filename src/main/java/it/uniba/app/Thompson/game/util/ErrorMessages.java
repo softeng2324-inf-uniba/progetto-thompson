@@ -48,7 +48,7 @@ public final class ErrorMessages {
      * Constant containing the ARGUMENT_NOT_FOUND message.
      */
     public static final String ARGUMENT_NOT_FOUND = FORMATTER_CONTROL.formatText("(\u2022\u1D16\u2022\uFF61)"
-            + "Parametro non valido",
+                    + "Parametro non valido",
             Color.RED);
 
     /**
@@ -57,6 +57,12 @@ public final class ErrorMessages {
     public static final String GENERIC_ERROR = FORMATTER_CONTROL.formatText("( \u00B7 \u275B \u058A \u275B) "
             + "E' avvenuto un errore durante l'esecuzione del comdando", Color.RED);
 
+    /**
+     * Constant containing the INVALID_ARGUMENTS message.
+     */
+    public static final String INVALID_ARGUMENTS = FORMATTER_CONTROL.formatText(
+                                                                                "Il numero di argomenti non e' valido",
+                                                                                       Color.RED);
     /**
      * Constructor for the class ErrorMessages.
      */
