@@ -68,4 +68,11 @@ public final class CommunicateErrorsBoundary {
     public static void printGenericError() {
         System.out.println(ErrorMessages.GENERIC_ERROR);
     }
+
+    /**
+     * Method printInvalidArguments, prints to stdout the invalid arguments message.
+     */
+    public static void printInvalidArguments() {
+        System.out.println(ErrorMessages.INVALID_ARGUMENTS);
+    }
 }
