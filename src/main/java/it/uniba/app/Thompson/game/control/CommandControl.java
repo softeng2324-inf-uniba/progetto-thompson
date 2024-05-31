@@ -13,6 +13,7 @@ public abstract class CommandControl {
     private static final String COMMAND = "";
     private static final String[] ALIASES = {};
     private static final String DESCRIPTION = "";
+    private static final int ARGUMENT_COUNT = 0;
 
     /**
      * Method getCommand.
@@ -39,10 +40,18 @@ public abstract class CommandControl {
     }
 
     /**
+     * Method getArgumentCount.
+     * @return ARGUMENT_COUNT The number of arguments of the command
+     */
+    int getArgumentCount() {
+        return ARGUMENT_COUNT;
+    }
+
+    /**
      * Method executeCommand.
      * @return Returns the status of the command
      */
-    CommandStatus executeCommand() {
+    CommandStatus executeCommand(String... args) {
         return CommandStatus.SUCCESSFUL;
     }
 }
