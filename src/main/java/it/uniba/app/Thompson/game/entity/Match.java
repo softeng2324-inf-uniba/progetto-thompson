@@ -14,7 +14,7 @@ public class Match {
     private final Stack<Move> moves = new Stack<>();
     private final Board board;
     private static final boolean IS_GAME_BOARD = true;
-    private static String startTime;
+    private static long startTime = setStartTime();
     private static String elapsedTime;
     private static final int SECONDS = 60;
     private static final int MILLIS = 1000;
@@ -24,7 +24,6 @@ public class Match {
      */
     public Match() {
         board = new Board(IS_GAME_BOARD);
-        startTime = String.valueOf(System.currentTimeMillis());
     }
 
     /**
@@ -37,6 +36,14 @@ public class Match {
         moves.addAll(newMoves);
     }
 
+    /**
+     * Method setStartTime.
+     * @return startTime The start time
+     */
+    public static long setStartTime() {
+        startTime = System.currentTimeMillis();
+        return startTime;
+    }
     /**
      * Method setMove.
      * @param move The move
@@ -68,7 +75,7 @@ public class Match {
      * @return elapsedTime The formatted time
      */
     public static String getFormattedTime() {
-        elapsedTime = formatMillis(System.currentTimeMillis() - Long.parseLong(startTime));
+        elapsedTime = formatMillis(System.currentTimeMillis() - startTime);
         return elapsedTime;
     }
 
