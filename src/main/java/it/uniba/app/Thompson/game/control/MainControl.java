@@ -150,18 +150,13 @@ public final class MainControl {
 
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                if(matcher.ControlInputBlock(command) && MainControl.getMatch() != null){
-
-                }else{
-                    status = findAndExecuteCommand(command, availableCommands);
-                }
+                status = findAndExecuteCommand(command, availableCommands);
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }
         }
-
         CommunicateInteractionMessagesBoundary.printGoodbye();
     }
 }
