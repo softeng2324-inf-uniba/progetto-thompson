@@ -87,14 +87,14 @@ public final class CommunicateInteractionMessagesBoundary {
      * Method printMoves, print a queue of moves.
      * @param moves The queue containing all the moves of the game
      */
-    public static void printMoves(Queue<Move> moves) {
+    public static void printMoves(final Queue<Move> moves) {
         Iterator<Move> movesIterator = moves.iterator();
         int moveCount = 1;
 
         // Iterating Queue
         while (movesIterator.hasNext()) {
             Move move = movesIterator.next();
-            String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount%2 == 0 ? "(B)" : "(N)");
+            String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount % 2 == 0 ? "(B)" : "(N)");
 
             System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
 
