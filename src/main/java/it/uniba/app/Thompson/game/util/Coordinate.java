@@ -70,6 +70,17 @@ public final class Coordinate {
     }
 
     /**
+     * Method toString, stringify a coordinate.
+     * @return Returns coordinate to string
+     */
+    public String toString() {
+        final int asciiCharValue = 64;
+        char xChar = (char) (x + asciiCharValue);
+
+        return Character.toLowerCase(xChar) + "" + y;
+    }
+
+    /*
      * Method equals.
      * Override of the equals method of the Object class.
      * @param obj The object to compare
