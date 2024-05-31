@@ -54,7 +54,7 @@ public class Match {
 
     /**
      * Method getMoves.
-     * @return clonedMoves The clone of the moves stack
+     * @return clonedMoves The clone of the moves queue
      */
     public Queue<Move> getMoves() {
         Queue<Move> clonedMoves = new LinkedList<>();
@@ -63,10 +63,17 @@ public class Match {
     }
 
     /**
-     * Get current turn
+     * Method getCurrentTurn.
      * @return Get the match current turn
      */
     public PawnFigure getCurrentTurn() {
         return turn;
+    }
+
+    /**
+     * Method switchTurn, if turn is white it will be changed to black, the same goes with the opposite ones.
+     */
+    public void switchTurn() {
+       this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
     }
 }
