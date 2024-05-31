@@ -88,17 +88,25 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param moves The queue containing all the moves of the game
      */
     public static void printMoves(final Queue<Move> moves) {
-        Iterator<Move> movesIterator = moves.iterator();
-        int moveCount = 1;
+        if (moves.isEmpty()) {
+            System.out.println(FORMATTER_CONTROL.formatText(
+                    "Non sono state ancora effettuate delle mosse",
+                    Color.ORANGE)
+            );
+        } else {
 
-        // Iterating Queue
-        while (movesIterator.hasNext()) {
-            Move move = movesIterator.next();
-            String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount % 2 == 0 ? "(B)" : "(N)");
+            Iterator<Move> movesIterator = moves.iterator();
+            int moveCount = 1;
 
-            System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
+            // Iterating Queue
+            while (movesIterator.hasNext()) {
+                Move move = movesIterator.next();
+                String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount % 2 == 0 ? "(B)" : "(N)");
 
-            moveCount++;
+                System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
+
+                moveCount++;
+            }
         }
     }
 
