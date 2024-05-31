@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
@@ -167,5 +168,16 @@ public final class Board {
      */
     public Boolean isInBoard(final Coordinate coordinate) {
         return coordinate.getX() >= 0 && coordinate.getX() < size && coordinate.getY() >= 0 && coordinate.getY() < size;
+    }
+
+    public void MovePawn(final Coordinate from, final Coordinate to) {
+        //TODO: Manca la conversione da stringa a Coordinate
+        if(VerifyMovesControl.verifyMovesSinglePawn(this, from, to)){
+            boolean type = VerifyMovesControl.MoveType(from, to);
+            Tile fromTile = getTile(from);
+            Tile toTile = getTile(to);
+            toTile.placePawn(fromTile.getPawn().getFigure());
+            fromTile.removePawn();
+        }
     }
 }
