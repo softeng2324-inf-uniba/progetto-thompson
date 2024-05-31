@@ -99,17 +99,18 @@ public final class MainControl {
 
     /**
      * Method findAndExecuteCommand, finds and executes the command.
-     * @param command The command to be executed
+     * @param commandStrings Array that contains command and other arguments
      * @param availableCommands The map of the available commands
      * @return Returns The status of the command
      * @throws CommandNotFoundError If the command is not found
      */
     private static CommandStatus findAndExecuteCommand(
-        final String command,
+        final String[] commandStrings,
         final HashMap<String, CommandControl> availableCommands
     ) throws CommandNotFoundError {
-        if (availableCommands.containsKey(command)) {
-            return availableCommands.get(command).executeCommand();
+        //First element of commandsStrings must be recognized command
+        if (availableCommands.containsKey(commandStrings[0])) {
+            return availableCommands.get(commandStrings[0]).executeCommand();
         }
         throw new CommandNotFoundError();
     }
@@ -123,7 +124,7 @@ public final class MainControl {
         for (String arg : args) {
             try {
                 CommunicateInteractionMessagesBoundary.printNewLine();
-                findAndExecuteCommand(arg, commands);
+                findAndExecuteCommand(new String[]{ arg }, commands);
                 CommunicateInteractionMessagesBoundary.printNewLine();
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printArgumentNotFound(arg);
@@ -147,11 +148,11 @@ public final class MainControl {
         executeArgumentsCommands(args, initArgumentCommands());
 
         while (status != CommandStatus.SHUTDOWN) {
-            String command = UserInputBoundary.getInput();
+            String[] commandStrings = UserInputBoundary.getCommandAndArguments();
 
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                status = findAndExecuteCommand(command, availableCommands);
+                status = findAndExecuteCommand(commandStrings, availableCommands);
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (Error e) {
