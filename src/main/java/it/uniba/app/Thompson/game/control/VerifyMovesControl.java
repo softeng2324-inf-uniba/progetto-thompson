@@ -85,7 +85,7 @@ public final class VerifyMovesControl {
      * Method MoveType.
      * @param from The starting coordinate
      * @param to The ending coordinate
-     * @return type The type of the move.
+     * @return type The type of the move
      */
     public static boolean moveType(final Coordinate from, final Coordinate to) {
         boolean type = false;

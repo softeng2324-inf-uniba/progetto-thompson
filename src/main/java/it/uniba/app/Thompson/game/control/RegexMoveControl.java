@@ -19,7 +19,7 @@ public class RegexMoveControl {
     /**
      * Method controlInputMovement.
      * @param input The input of the movement
-     * @return matcher The boolean value of the movement
+     * @return Returns the boolean value of the control on the movement
      */
     public boolean controlInputMovement(final String input) {
         Pattern pattern = Pattern.compile(MOVEMENT);
@@ -30,7 +30,7 @@ public class RegexMoveControl {
     /**
      * Method controlInputBlock.
      * @param input The input of the block
-     * @return matcher The boolean value of the block
+     * @return Returns the boolean value of the control on the block
      */
     public boolean controlInputBlock(final String input) {
         Pattern pattern = Pattern.compile(BLOCK);
