@@ -1,4 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -10,7 +12,7 @@ public class Match {
     /**
      * Attributes of the class Match.
      */
-    private final Stack<Move> moves = new Stack<>();
+    private final Queue<Move> moves = new LinkedList<>();
     private final Board board;
     private static final boolean IS_GAME_BOARD = true;
 
@@ -32,11 +34,11 @@ public class Match {
     }
 
     /**
-     * Method setMove.
-     * @param move The move
+     * Method pushMove.
+     * @param move The move that will be pushed at the end of the queue
      */
-    public void setMove(final Move move) {
-        this.moves.push(move);
+    public void pushMove(final Move move) {
+        this.moves.add(move);
     }
 
     /**
