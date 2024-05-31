@@ -1,7 +1,6 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
-import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -62,7 +61,7 @@ public final class TimeCommandControl extends CommandControl {
             return CommandStatus.SUCCESSFUL;
         }
         CommunicateInteractionMessagesBoundary.printTitle("TEMPO TRASCORSO");
-        CommunicateInteractionMessagesBoundary.printMessage(Match.getFormattedTime());
+        CommunicateInteractionMessagesBoundary.printMessage(MainControl.getMatch().getFormattedTime());
         return CommandStatus.SUCCESSFUL;
     }
 }
