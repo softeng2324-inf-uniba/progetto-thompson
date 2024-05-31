@@ -1,7 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * {@literal << Entity >>}
@@ -28,7 +27,7 @@ public class Match {
      * @param newBoard The original board
      * @param newMoves The original moves
      */
-    public Match(final Board newBoard, final Stack<Move> newMoves) {
+    public Match(final Board newBoard, final Queue<Move> newMoves) {
         board = new Board(newBoard);
         moves.addAll(newMoves);
     }
@@ -53,8 +52,8 @@ public class Match {
      * Method getMoves.
      * @return clonedMoves The clone of the moves stack
      */
-    public Stack<Move> getMoves() {
-        Stack<Move> clonedMoves = new Stack<>();
+    public Queue<Move> getMoves() {
+        Queue<Move> clonedMoves = new LinkedList<>();
         clonedMoves.addAll(this.moves);
         return clonedMoves;
     }
