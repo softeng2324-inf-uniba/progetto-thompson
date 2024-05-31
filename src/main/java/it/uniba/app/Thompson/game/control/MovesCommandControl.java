@@ -15,6 +15,7 @@ public final class MovesCommandControl extends CommandControl {
      */
     private static final String COMMAND = "/mosse";
     private static final String DESCRIPTION = "Stampa le mosse effettuate nella partita";
+    private static final int ARGUMENT_COUNT = 0;
     private static final MovesCommandControl INSTANCE = new MovesCommandControl();
 
     /**
@@ -43,6 +44,16 @@ public final class MovesCommandControl extends CommandControl {
     }
 
     /**
+     * Method getArgumentCount.
+     * Override of the getArgumentCount method of the abstract class CommandControl.
+     * @return ARGUMENT_COUNT The number of arguments of the command
+     */
+    @Override
+    public int getArgumentCount() {
+        return ARGUMENT_COUNT;
+    }
+
+    /**
      * Method getInstance.
      * @return INSTANCE The instance of MovesCommandControl
      */
@@ -56,7 +67,7 @@ public final class MovesCommandControl extends CommandControl {
      * @return Returns the status of the command.
      */
     @Override
-    CommandStatus executeCommand() {
+    CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
         } else {

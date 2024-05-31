@@ -5,6 +5,7 @@ import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
+import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import java.util.HashMap;
 
@@ -41,7 +42,6 @@ public final class MainControl {
                      AvailableMovesCommandControl.getInstance());
         commands.put(MovesCommandControl.getInstance().getCommand(), MovesCommandControl.getInstance());
         commands.put(TimeCommandControl.getInstance().getCommand(), TimeCommandControl.getInstance());
-      
         return commands;
     }
 
@@ -99,17 +99,25 @@ public final class MainControl {
 
     /**
      * Method findAndExecuteCommand, finds and executes the command.
-     * @param command The command to be executed
+     * @param commandStrings Array that contains command and other arguments
      * @param availableCommands The map of the available commands
      * @return Returns The status of the command
      * @throws CommandNotFoundError If the command is not found
+     * @throws InvalidArgumentsError The command is followed by invalid number of arguments
      */
     private static CommandStatus findAndExecuteCommand(
-        final String command,
+        final String[] commandStrings,
         final HashMap<String, CommandControl> availableCommands
-    ) throws CommandNotFoundError {
-        if (availableCommands.containsKey(command)) {
-            return availableCommands.get(command).executeCommand();
+    ) throws CommandNotFoundError, InvalidArgumentsError {
+        //First element of commandsStrings must be recognized command
+        if (availableCommands.containsKey(commandStrings[0])) {
+            CommandControl commandControl = availableCommands.get(commandStrings[0]);
+
+            if (commandControl.getArgumentCount() != commandStrings.length - 1) {
+                throw new InvalidArgumentsError();
+            }
+
+            return availableCommands.get(commandStrings[0]).executeCommand();
         }
         throw new CommandNotFoundError();
     }
@@ -123,10 +131,12 @@ public final class MainControl {
         for (String arg : args) {
             try {
                 CommunicateInteractionMessagesBoundary.printNewLine();
-                findAndExecuteCommand(arg, commands);
+                findAndExecuteCommand(new String[]{arg}, commands);
                 CommunicateInteractionMessagesBoundary.printNewLine();
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printArgumentNotFound(arg);
+            } catch (InvalidArgumentsError e) {
+                CommunicateErrorsBoundary.printInvalidArguments();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }
@@ -147,13 +157,15 @@ public final class MainControl {
         executeArgumentsCommands(args, initArgumentCommands());
 
         while (status != CommandStatus.SHUTDOWN) {
-            String command = UserInputBoundary.getInput();
+            String[] commandStrings = UserInputBoundary.getCommandAndArguments();
 
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                status = findAndExecuteCommand(command, availableCommands);
+                status = findAndExecuteCommand(commandStrings, availableCommands);
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
+            } catch (InvalidArgumentsError e) {
+                CommunicateErrorsBoundary.printInvalidArguments();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }

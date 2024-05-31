@@ -13,6 +13,7 @@ public final class ExitCommandControl extends CommandControl {
      */
     private static final String COMMAND = "/esci";
     private static final String DESCRIPTION = "Termina il programma";
+    private static final int ARGUMENT_COUNT = 0;
     private static final ExitCommandControl INSTANCE = new ExitCommandControl();
 
     /**
@@ -41,6 +42,16 @@ public final class ExitCommandControl extends CommandControl {
     }
 
     /**
+     * Method getArgumentCount.
+     * Override of the getArgumentCount method of the abstract class CommandControl.
+     * @return ARGUMENT_COUNT The number of arguments of the command
+     */
+    @Override
+    public int getArgumentCount() {
+        return ARGUMENT_COUNT;
+    }
+
+    /**
      * Method getInstance.
      * @return INSTANCE The instance of ExitCommandControl
      */
@@ -54,7 +65,7 @@ public final class ExitCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand() {
+    CommandStatus executeCommand(final String... args) {
         UserInputBoundary.closeScanner();
         return CommandStatus.SHUTDOWN;
     }

@@ -1,5 +1,6 @@
 package it.uniba.app.Thompson.game.boundary;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,11 +21,24 @@ public final class UserInputBoundary {
 
     /**
      * Method getInput.
-     * @return Returns the input from the user.
+     * @return Returns the input from the user
      */
     public static String getInput() {
         System.out.print("\n>");
         return SCANNER.nextLine().trim().toLowerCase();
+    }
+
+    /**
+     * Method getCommandAndArguments.
+     * @return Returns array of string from user input split by blank space
+     */
+    public static String[] getCommandAndArguments() {
+        System.out.print("\n>");
+
+        return Arrays.stream(SCANNER.nextLine().toLowerCase().split(" "))
+                .filter(s -> !s.isEmpty())
+                .toList()
+                .toArray(new String[0]);
     }
 
     /**

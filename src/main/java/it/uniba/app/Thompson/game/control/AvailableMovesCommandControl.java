@@ -18,6 +18,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
      */
     private static final String COMMAND = "/qualimosse";
     private static final String DESCRIPTION = "Stampa le mosse disponibili del giocatore corrente per ogni pedina.";
+    private static final int ARGUMENT_COUNT = 0;
     private static final AvailableMovesCommandControl INSTANCE = new AvailableMovesCommandControl();
 
     /**
@@ -54,12 +55,22 @@ public final class AvailableMovesCommandControl extends CommandControl {
     }
 
     /**
+     * Method getArgumentCount.
+     * Override of the getArgumentCount method of the abstract class CommandControl.
+     * @return ARGUMENT_COUNT The number of arguments of the command
+     */
+    @Override
+    public int getArgumentCount() {
+        return ARGUMENT_COUNT;
+    }
+
+    /**
      * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
      * @return Returns the status of the command execution
      */
     @Override
-    CommandStatus executeCommand() {
+    CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
         } else {
