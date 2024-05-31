@@ -14,6 +14,7 @@ public final class TimeCommandControl extends CommandControl {
      */
     private static final String COMMAND = "/tempo";
     private static final String DESCRIPTION = "Mostra il tempo trascorso dalla partenza della partita.";
+    private static final int ARGUMENT_COUNT = 0;
     private static final TimeCommandControl INSTANCE = new TimeCommandControl();
 
     /**
@@ -42,6 +43,16 @@ public final class TimeCommandControl extends CommandControl {
     }
 
     /**
+     * Method getArgumentCount.
+     * Override of the getArgumentCount method of the abstract class CommandControl.
+     * @return ARGUMENT_COUNT The number of arguments of the command
+     */
+    @Override
+    public int getArgumentCount() {
+        return ARGUMENT_COUNT;
+    }
+
+    /**
      * Method getInstance.
      * @return INSTANCE The instance of VoidCommandControl.
      */
@@ -55,7 +66,7 @@ public final class TimeCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand() {
+    CommandStatus executeCommand(String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
             return CommandStatus.SUCCESSFUL;
