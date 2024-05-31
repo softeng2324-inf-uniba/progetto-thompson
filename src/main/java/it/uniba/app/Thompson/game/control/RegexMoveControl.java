@@ -7,8 +7,8 @@ import java.util.regex.Matcher;
  * Class to manage the regular expressions for the movement control.
  */
 public class RegexMoveControl {
-    private static final String movement = "[a-g|A-G][1-7]-[a-g|A-G][1-7]";
-    private static final String block    = "[a-g|A-G][1-7]";
+    private static final String MOVEMENT = "[a-g|A-G][1-7]-[a-g|A-G][1-7]";
+    private static final String BLOCK = "[a-g|A-G][1-7]";
 
     /**
      * Constructor for the class RegexMoveControl.
@@ -22,7 +22,7 @@ public class RegexMoveControl {
      * @return matcher The boolean value of the movement
      */
     public boolean controlInputMovement(final String input) {
-        Pattern pattern = Pattern.compile(movement);
+        Pattern pattern = Pattern.compile(MOVEMENT);
         Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
@@ -33,7 +33,7 @@ public class RegexMoveControl {
      * @return matcher The boolean value of the block
      */
     public boolean controlInputBlock(final String input) {
-        Pattern pattern = Pattern.compile(block);
+        Pattern pattern = Pattern.compile(BLOCK);
         Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
