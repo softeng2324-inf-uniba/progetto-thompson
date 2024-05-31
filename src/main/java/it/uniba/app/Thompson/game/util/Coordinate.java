@@ -53,8 +53,8 @@ public final class Coordinate {
      * @return Returns coordinate to string
      */
     public String toString() {
-        char xChar = (char) x;
+        char xChar = (char) (x + 64);
 
-        return xChar + "" + y;
+        return Character.toLowerCase(xChar) + "" + y;
     }
 }
