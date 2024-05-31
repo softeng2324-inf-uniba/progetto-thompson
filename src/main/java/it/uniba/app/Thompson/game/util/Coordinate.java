@@ -47,4 +47,14 @@ public final class Coordinate {
     public int getY() {
         return y;
     }
+
+    /**
+     * Method toString, stringify a coordinate.
+     * @return Returns coordinate to string
+     */
+    public String toString() {
+        char xChar = (char) x;
+
+        return xChar + "" + y;
+    }
 }
