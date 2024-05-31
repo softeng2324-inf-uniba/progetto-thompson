@@ -26,7 +26,7 @@ public final class Coordinate {
      * Method plus, elaborates the new coordinates.
      * @param x The first set of coordinates
      * @param y The second set of coordinates
-     * @return Returns the sum of the two sets of coordinates.
+     * @return Returns the sum of the two sets of coordinates
      */
     public static Coordinate plus(final Coordinate x, final Coordinate y) {
         return new Coordinate(x.getX() + y.getX(), x.getY() + y.getY());
@@ -36,7 +36,7 @@ public final class Coordinate {
      * Method abs, elaborates the new coordinates.
      * @param x The first set of coordinates
      * @param y The second set of coordinates
-     * @return  the absolute value of the sum of the two sets of coordinates.
+     * @return Returns the absolute value of the sum of the two sets of coordinates
      */
     public static Coordinate abs(final Coordinate x, final Coordinate y) {
         return new Coordinate(Math.abs(x.getX() - y.getX()), Math.abs(x.getY() - y.getY()));
@@ -60,8 +60,9 @@ public final class Coordinate {
 
     /**
      * Method equals.
+     * Override of the equals method of the Object class.
      * @param obj The object to compare
-     * @return Returns true if the coordinates are equal, false otherwise.
+     * @return Returns true if the coordinates are equal, false otherwise
      */
     @Override
     public boolean equals(final Object obj) {
@@ -76,7 +77,8 @@ public final class Coordinate {
 
     /**
      * Method hashCode.
-     * @return Returns the hash code of the coordinates.
+     * Override of the hashCode method of the Object class.
+     * @return Returns the hash code of the coordinates
      */
     @Override
     public int hashCode() {
