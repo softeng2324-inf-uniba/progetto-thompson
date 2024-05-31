@@ -1,5 +1,6 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
@@ -61,7 +62,7 @@ public final class MovesCommandControl extends CommandControl {
         } else {
             Match match = MainControl.getMatch();
 
-            //call print method and pass: match.getMoves();
+            CommunicateInteractionMessagesBoundary.printMoves(match.getMoves());
         }
 
         return CommandStatus.SUCCESSFUL;
