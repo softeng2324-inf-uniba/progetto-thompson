@@ -36,7 +36,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
     /**
      * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return COMMAND The command.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -46,7 +46,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
     /**
      * Method getDescription.
      * Override of the getDescription method of the abstract class CommandControl.
-     * @return DESCRIPTION The command description.
+     * @return DESCRIPTION The command description
      */
     @Override
     public String getDescription() {
@@ -56,7 +56,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
     /**
      * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return Returns the status of the command.
+     * @return Returns the status of the command
      */
     @Override
     CommandStatus executeCommand() {
