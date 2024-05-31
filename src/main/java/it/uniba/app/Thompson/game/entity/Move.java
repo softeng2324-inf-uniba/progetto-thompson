@@ -18,7 +18,7 @@ public final class Move {
      * @param start The start coordinate
      * @param end The end coordinate
      */
-    private Move(final Coordinate start, final Coordinate end) {
+    public Move(final Coordinate start, final Coordinate end) {
         from = start;
         to = end;
     }
@@ -37,5 +37,13 @@ public final class Move {
      */
     public Coordinate getTo() {
         return  to;
+    }
+
+    /**
+     * Method toString, stringify a move.
+     * @return Returns move to string
+     */
+    public String toString() {
+        return from.toString() + "-" + to.toString();
     }
 }

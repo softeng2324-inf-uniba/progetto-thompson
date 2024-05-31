@@ -1,5 +1,7 @@
 package it.uniba.app.Thompson.game.entity;
-
+import it.uniba.app.Thompson.game.util.PawnFigure;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -11,7 +13,8 @@ public class Match {
     /**
      * Attributes of the class Match.
      */
-    private final Stack<Move> moves = new Stack<>();
+    private PawnFigure turn;
+    private final Queue<Move> moves = new LinkedList<>();
     private final Board board;
     private static final boolean IS_GAME_BOARD = true;
     private static long startTime = setStartTime();
@@ -31,7 +34,8 @@ public class Match {
      * @param newBoard The original board
      * @param newMoves The original moves
      */
-    public Match(final Board newBoard, final Stack<Move> newMoves) {
+    public Match(final Board newBoard, final Queue<Move> newMoves) {
+        turn = PawnFigure.BLACK_PAWN;
         board = new Board(newBoard);
         moves.addAll(newMoves);
     }
@@ -44,12 +48,13 @@ public class Match {
         startTime = System.currentTimeMillis();
         return startTime;
     }
+  
     /**
-     * Method setMove.
-     * @param move The move
+     * Method pushMove.
+     * @param move The move that will be pushed at the end of the queue
      */
-    public void setMove(final Move move) {
-        this.moves.push(move);
+    public void pushMove(final Move move) {
+        this.moves.add(move);
     }
 
     /**
@@ -62,15 +67,30 @@ public class Match {
 
     /**
      * Method getMoves.
-     * @return clonedMoves The clone of the moves stack
+     * @return clonedMoves The clone of the moves queue
      */
-    public Stack<Move> getMoves() {
-        Stack<Move> clonedMoves = new Stack<>();
+    public Queue<Move> getMoves() {
+        Queue<Move> clonedMoves = new LinkedList<>();
         clonedMoves.addAll(this.moves);
         return clonedMoves;
     }
 
     /**
+     * Method getCurrentTurn.
+     * @return Get the match current turn
+     */
+    public PawnFigure getCurrentTurn() {
+        return turn;
+    }
+
+    /**
+     * Method switchTurn, if turn is white it will be changed to black, the same goes with the opposite ones.
+     */
+    public void switchTurn() {
+       this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
+    }
+      
+     /*
      * Method getFormattedTime.
      * @return elapsedTime The formatted time
      */

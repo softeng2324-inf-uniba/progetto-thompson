@@ -1,10 +1,13 @@
 package it.uniba.app.Thompson.game.boundary;
 import it.uniba.app.Thompson.game.control.FormatterControl;
+import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UserInteractionMessages;
+import java.util.Iterator;
+import java.util.Queue;
 
 /**
  * {@literal << Boundary >>}
@@ -79,6 +82,33 @@ public final class CommunicateInteractionMessagesBoundary {
      */
     public static void printNewLine() {
         System.out.println();
+    }
+
+    /**
+     * Method printMoves, print a queue of moves.
+     * @param moves The queue containing all the moves of the game
+     */
+    public static void printMoves(final Queue<Move> moves) {
+        if (moves.isEmpty()) {
+            System.out.println(FORMATTER_CONTROL.formatText(
+                    "Non sono state ancora effettuate delle mosse",
+                    Color.ORANGE)
+            );
+        } else {
+
+            Iterator<Move> movesIterator = moves.iterator();
+            int moveCount = 1;
+
+            // Iterating Queue
+            while (movesIterator.hasNext()) {
+                Move move = movesIterator.next();
+                String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount % 2 == 0 ? "(B)" : "(N)");
+
+                System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
+
+                moveCount++;
+            }
+        }
     }
 
     /**
