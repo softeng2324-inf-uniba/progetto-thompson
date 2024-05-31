@@ -20,11 +20,20 @@ public final class UserInputBoundary {
 
     /**
      * Method getInput.
-     * @return Returns the input from the user.
+     * @return Returns the input from the user
      */
     public static String getInput() {
         System.out.print("\n>");
         return SCANNER.nextLine().trim().toLowerCase();
+    }
+
+    /**
+     * Method getCommandAndArguments.
+     * @return Returns array of string from user input split by blank space
+     */
+    public static String[] getCommandAndArguments() {
+        System.out.print("\n>");
+        return SCANNER.nextLine().toLowerCase().split(" ");
     }
 
     /**
