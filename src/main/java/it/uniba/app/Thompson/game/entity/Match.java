@@ -2,7 +2,6 @@ package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * {@literal << Entity >>}
@@ -48,7 +47,7 @@ public class Match {
         startTime = System.currentTimeMillis();
         return startTime;
     }
-  
+
     /**
      * Method pushMove.
      * @param move The move that will be pushed at the end of the queue
@@ -89,11 +88,11 @@ public class Match {
     public void switchTurn() {
        this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
     }
-      
-     /*
+
+    /**
      * Method getFormattedTime.
      * @return elapsedTime The formatted time
-     */
+    */
     public static String getFormattedTime() {
         elapsedTime = formatMillis(System.currentTimeMillis() - startTime);
         return elapsedTime;

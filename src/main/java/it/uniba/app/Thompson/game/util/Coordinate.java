@@ -67,7 +67,9 @@ public final class Coordinate {
         char xChar = (char) (x + asciiCharValue);
 
         return Character.toLowerCase(xChar) + "" + y;
+    }
 
+    /*
      * Method equals.
      * Override of the equals method of the Object class.
      * @param obj The object to compare

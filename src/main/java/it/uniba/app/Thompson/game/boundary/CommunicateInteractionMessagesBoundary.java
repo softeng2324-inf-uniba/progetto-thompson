@@ -115,7 +115,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * Method printMessage, prints to stdout the message.
      * @param time The message to print
      */
-    public static void printMessage(final String time) {
+    public static void printGameTime(final String time) {
         System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita è: "
                 + MainControl.getMatch().getFormattedTime(), Color.BLUE));
 

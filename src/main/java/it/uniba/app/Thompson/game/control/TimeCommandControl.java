@@ -61,7 +61,7 @@ public final class TimeCommandControl extends CommandControl {
             return CommandStatus.SUCCESSFUL;
         }
         CommunicateInteractionMessagesBoundary.printTitle("TEMPO TRASCORSO");
-        CommunicateInteractionMessagesBoundary.printMessage(MainControl.getMatch().getFormattedTime());
+        CommunicateInteractionMessagesBoundary.printGameTime(MainControl.getMatch().getFormattedTime());
         return CommandStatus.SUCCESSFUL;
     }
 }
