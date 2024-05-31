@@ -1,5 +1,6 @@
 package it.uniba.app.Thompson.game.boundary;
 import it.uniba.app.Thompson.game.control.FormatterControl;
+import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Style;
@@ -50,10 +51,10 @@ public final class CommunicateInteractionMessagesBoundary {
      */
     public static void printWinner(final PawnFigure winner, final int winnerPawnCount, final int loserPawnCount) {
         String scoreText = "Ha vinto il "
-            + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
-            + winnerPawnCount
-            + " a "
-            + loserPawnCount;
+                + (winner == PawnFigure.BLACK_PAWN ? "nero " : "bianco ")
+                + winnerPawnCount
+                + " a "
+                + loserPawnCount;
 
         System.out.println(FORMATTER_CONTROL.formatText(scoreText, Color.BLUE, Style.ITALIC));
     }
@@ -80,4 +81,13 @@ public final class CommunicateInteractionMessagesBoundary {
         System.out.println();
     }
 
+    /**
+     * Method printMessage, prints to stdout the message.
+     * @param time The message to print
+     */
+    public static void printMessage(final String time) {
+        System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita è: "
+                + MainControl.getMatch().getFormattedTime(), Color.BLUE));
+
+    }
 }
