@@ -38,4 +38,12 @@ public final class Move {
     public Coordinate getTo() {
         return  to;
     }
+
+    /**
+     * Method toString, stringify a move.
+     * @return Returns move to string
+     */
+    public String toString() {
+        return from.toString() + "-" + to.toString();
+    }
 }
