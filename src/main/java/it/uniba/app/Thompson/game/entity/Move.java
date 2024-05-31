@@ -18,7 +18,7 @@ public final class Move {
      * @param start The start coordinate
      * @param end The end coordinate
      */
-    private Move(final Coordinate start, final Coordinate end) {
+    public Move(final Coordinate start, final Coordinate end) {
         from = start;
         to = end;
     }
