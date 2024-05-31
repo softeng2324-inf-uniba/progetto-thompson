@@ -1,16 +1,11 @@
 package it.uniba.app.Thompson.game.control;
-
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
-import it.uniba.app.Thompson.game.util.VariantMove;
-
-import java.util.Queue;
 
 /**
  * {@literal << Control >>}
@@ -39,19 +34,9 @@ public final class AvailableMovesCommandControl extends CommandControl {
     }
 
     /**
-     * Method getDescription.
-     * Override of the getDescription method of the abstract class CommandControl.
-     * @return DESCRIPTION The command description.
-     */
-    @Override
-    public String getDescription() {
-        return DESCRIPTION;
-    }
-
-    /**
      * Method getCommand.
      * Override of the getCommand method of the abstract class CommandControl.
-     * @return COMMAND The command.
+     * @return COMMAND The command
      */
     @Override
     public String getCommand() {
@@ -59,9 +44,19 @@ public final class AvailableMovesCommandControl extends CommandControl {
     }
 
     /**
+     * Method getDescription.
+     * Override of the getDescription method of the abstract class CommandControl.
+     * @return DESCRIPTION The command description
+     */
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+    }
+
+    /**
      * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return Returns the status of the command.
+     * @return Returns the status of the command execution
      */
     @Override
     CommandStatus executeCommand() {
@@ -70,34 +65,8 @@ public final class AvailableMovesCommandControl extends CommandControl {
         } else {
             Match match = MainControl.getMatch();
             Board currentBoard = match.getBoard();
-            final int dimension = currentBoard.getSize();
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(currentBoard, PawnFigure.WHITE_PAWN);
 
-
-            int[][] mask = new int[dimension][dimension];
-            Queue<Coordinate> pawnsPositions = currentBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
-            Coordinate[][] availableMoves = VariantMove.getStandard();
-
-            while (!pawnsPositions.isEmpty()) {
-                Coordinate pawnCoordinate = pawnsPositions.peek();
-
-                for (int i = 0; i < availableMoves[0].length; i++) {
-                    Coordinate newCoordinate = Coordinate.plus(pawnCoordinate, availableMoves[0][i]);
-                    int valid = Board.isGenerable(newCoordinate, currentBoard);
-                    if (valid != 0) {
-                        mask[newCoordinate.getX()][newCoordinate.getY()] |= valid;
-                    }
-                }
-
-                for (int j = 0; j < availableMoves[1].length; j++) {
-                    Coordinate newCoordinate = Coordinate.plus(pawnCoordinate, availableMoves[1][j]);
-                    int valid = Board.isJumpable(newCoordinate, currentBoard);
-                    if (valid != 0) {
-                        mask[newCoordinate.getX()][newCoordinate.getY()] |= valid;
-                    }
-                }
-
-                pawnsPositions.remove();
-            }
             CommunicateInteractionMessagesBoundary.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
             PrintBoardBoundary.printBoard(currentBoard, mask);
         }
