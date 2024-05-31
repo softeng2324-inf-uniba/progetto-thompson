@@ -67,7 +67,7 @@ public final class BoardCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
         } else {

@@ -66,7 +66,7 @@ public final class TimeCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
             return CommandStatus.SUCCESSFUL;

@@ -77,7 +77,7 @@ public final class HelpCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         CommunicateInteractionMessagesBoundary.printTitle("COMANDI DISPONIBILI");
 
         //inserire tutti i comandi disponibili

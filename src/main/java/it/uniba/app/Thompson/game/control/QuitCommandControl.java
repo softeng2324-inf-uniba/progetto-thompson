@@ -67,7 +67,7 @@ public final class QuitCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    public CommandStatus executeCommand(String... args) {
+    public CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printMatchNull();
         } else {

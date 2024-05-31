@@ -70,7 +70,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
      * @return Returns the status of the command execution
      */
     @Override
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsBoundary.printSuggestMatchInit();
         } else {

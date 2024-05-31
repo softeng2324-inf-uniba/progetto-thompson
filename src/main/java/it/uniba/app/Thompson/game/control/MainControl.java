@@ -42,7 +42,6 @@ public final class MainControl {
                      AvailableMovesCommandControl.getInstance());
         commands.put(MovesCommandControl.getInstance().getCommand(), MovesCommandControl.getInstance());
         commands.put(TimeCommandControl.getInstance().getCommand(), TimeCommandControl.getInstance());
-      
         return commands;
     }
 
@@ -132,12 +131,12 @@ public final class MainControl {
         for (String arg : args) {
             try {
                 CommunicateInteractionMessagesBoundary.printNewLine();
-                findAndExecuteCommand(new String[]{ arg }, commands);
+                findAndExecuteCommand(new String[]{arg}, commands);
                 CommunicateInteractionMessagesBoundary.printNewLine();
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printArgumentNotFound(arg);
             } catch (InvalidArgumentsError e) {
-                System.out.println("Errore argomenti");
+                CommunicateErrorsBoundary.printInvalidArguments();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }
@@ -166,7 +165,7 @@ public final class MainControl {
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (InvalidArgumentsError e) {
-                System.out.println("Errore argomenti");
+                CommunicateErrorsBoundary.printInvalidArguments();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }

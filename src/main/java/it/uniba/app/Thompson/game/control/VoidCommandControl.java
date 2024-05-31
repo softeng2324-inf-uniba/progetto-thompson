@@ -67,7 +67,7 @@ public final class VoidCommandControl extends CommandControl {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         CommunicateInteractionMessagesBoundary.printTitle("TAVOLIERE VUOTO");
 
         Board board = new Board(false);

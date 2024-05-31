@@ -51,7 +51,7 @@ public abstract class CommandControl {
      * Method executeCommand.
      * @return Returns the status of the command
      */
-    CommandStatus executeCommand(String... args) {
+    CommandStatus executeCommand(final String... args) {
         return CommandStatus.SUCCESSFUL;
     }
 }
