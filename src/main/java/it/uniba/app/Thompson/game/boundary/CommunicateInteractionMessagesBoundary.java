@@ -5,7 +5,6 @@ import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UserInteractionMessages;
-
 import java.util.Iterator;
 import java.util.Queue;
 
@@ -95,8 +94,9 @@ public final class CommunicateInteractionMessagesBoundary {
         // Iterating Queue
         while (movesIterator.hasNext()) {
             Move move = movesIterator.next();
+            String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount%2 == 0 ? "(B)" : "(N)");
 
-            System.out.println(FORMATTER_CONTROL.formatText(moveCount + " " + move.toString(), Color.BLUE));
+            System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
 
             moveCount++;
         }
