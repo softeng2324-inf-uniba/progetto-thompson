@@ -29,7 +29,7 @@ public final class MainControl {
      * @return commands The map of the available commands
      */
     private static HashMap<String, CommandControl> initCommands() {
-        HashMap<String, CommandControl> commands =  new HashMap<>();
+        HashMap<String, CommandControl> commands = new HashMap<>();
 
         commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
         commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
@@ -39,7 +39,9 @@ public final class MainControl {
         commands.put(BoardCommandControl.getInstance().getCommand(), BoardCommandControl.getInstance());
         commands.put(AvailableMovesCommandControl.getInstance().getCommand(),
                      AvailableMovesCommandControl.getInstance());
-
+        commands.put(MovesCommandControl.getInstance().getCommand(), MovesCommandControl.getInstance());
+        commands.put(TimeCommandControl.getInstance().getCommand(), TimeCommandControl.getInstance());
+      
         return commands;
     }
 
