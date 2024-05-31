@@ -80,4 +80,18 @@ public final class VerifyMovesControl {
         }
         return mask;
     }
+
+    public static boolean MoveType(Coordinate from, Coordinate to) {
+        boolean type = false;
+        Coordinate diff = Coordinate.abs(from, to);
+        boolean exists = false;
+
+        if(Arrays.asList(AVAILABLE_MOVES[0]).contains(diff)){
+            type = true;
+        }
+        if(Arrays.asList(AVAILABLE_MOVES[1]).contains(diff)){
+            type = false;
+        }
+        return type;
+    }
 }
