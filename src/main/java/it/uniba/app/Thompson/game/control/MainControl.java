@@ -138,6 +138,7 @@ public final class MainControl {
     public static void startMainControl(final String[] args) {
         HashMap<String, CommandControl> availableCommands = initCommands();
         CommandStatus status = CommandStatus.SUCCESSFUL;
+        RegexMoveControl matcher = new RegexMoveControl();
 
         WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
         banner.printBanner();
@@ -149,7 +150,11 @@ public final class MainControl {
 
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                status = findAndExecuteCommand(command, availableCommands);
+                if(matcher.ControlInputBlock(command) && MainControl.getMatch() != null){
+
+                }else{
+                    status = findAndExecuteCommand(command, availableCommands);
+                }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (Error e) {
