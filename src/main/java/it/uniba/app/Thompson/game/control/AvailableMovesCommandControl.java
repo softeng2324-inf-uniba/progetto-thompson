@@ -56,7 +56,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
     /**
      * Method executeCommand.
      * Override of the executeCommand method of the abstract class CommandControl.
-     * @return Returns the status of the command
+     * @return Returns the status of the command execution
      */
     @Override
     CommandStatus executeCommand() {
