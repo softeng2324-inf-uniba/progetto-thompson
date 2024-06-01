@@ -80,7 +80,8 @@ public final class BlockCommandControl extends CommandControl {
 
         Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
 
-        System.out.println(blockedCoordinate.getX() + " "  + blockedCoordinate.getY());
+        MainControl.getBoard().blockTile(blockedCoordinate);
+        CommunicateInteractionMessagesBoundary.printBlockedTile(blockedCoordinate);
 
         return CommandStatus.SUCCESSFUL;
     }
