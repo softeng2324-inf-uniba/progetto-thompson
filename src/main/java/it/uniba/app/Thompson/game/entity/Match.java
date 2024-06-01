@@ -65,6 +65,14 @@ public class Match {
     }
 
     /**
+     * Method setBoard.
+     * @param newBoard The board to be set
+     */
+    public void setBoard(final Board newBoard) {
+        board.setTiles(new Board(newBoard).getTiles());
+    }
+
+    /**
      * Method getMoves.
      * @return clonedMoves The clone of the moves queue
      */
