@@ -3,6 +3,7 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
+import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
@@ -21,6 +22,7 @@ public final class MainControl {
      * Attributes of the class MainControl.
      */
     private static Match match;
+    private static Board board = new Board(true);
 
     /**
      * Constructor for the class MainControl.
@@ -98,6 +100,26 @@ public final class MainControl {
      */
     public static void removeMatch() {
         match = null;
+    }
+
+    /**
+     * Method getBoard.
+     * @return board The board of the match
+     */
+    public static Board getBoard() {
+        Board defensiveCopy = board;
+        if (defensiveCopy != null) {
+            defensiveCopy = new Board(true);
+        }
+        return defensiveCopy;
+    }
+
+    /**
+     * Method setBoard.
+     * @param newBoard The new board of the match
+     */
+    public static void setBoard(final Board newBoard) {
+        board = newBoard;
     }
 
     /**
