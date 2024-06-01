@@ -95,6 +95,22 @@ public final class VerifyMovesControl {
     }
 
     /**
+     * Method isMaskEmpty.
+     * @param mask The mask of the moves
+     * @return Returns true if the mask is empty, false otherwise
+     */
+    public static boolean isMaskEmpty(final int[][] mask) {
+        for (int[] row : mask) {
+            for (int cell : row) {
+                if (cell != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * Method MoveType.
      * @param from The starting coordinate
      * @param to The ending coordinate
