@@ -1,5 +1,8 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.util.PawnFigure;
+import it.uniba.app.Thompson.game.util.UserInteractionMessages;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -95,7 +98,10 @@ public class Match {
      * Method switchTurn, if turn is white it will be changed to black, the same goes with the opposite ones.
      */
     public void switchTurn() {
-        this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
+        PawnFigure newTurn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
+        CommunicateInteractionMessagesBoundary.printTitle("ORA TOCCA AL "
+                + (newTurn == PawnFigure.BLACK_PAWN ? "NERO" : "BIANCO"));
+        this.turn = newTurn;
     }
 
     /**
