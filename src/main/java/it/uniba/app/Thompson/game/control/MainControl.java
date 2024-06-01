@@ -221,7 +221,7 @@ public final class MainControl {
                     } else {
                         CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.BLACK_PAWN, bp, wp);
                     }
-                    break;
+                    removeMatch();
                 }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
