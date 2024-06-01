@@ -1,7 +1,6 @@
 package it.uniba.app.Thompson.game.boundary;
 import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.entity.Move;
-import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Style;
