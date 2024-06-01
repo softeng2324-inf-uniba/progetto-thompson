@@ -1,11 +1,20 @@
 package it.uniba.app.Thompson.game.boundary;
+import it.uniba.app.Thompson.game.control.FormatterControl;
+import it.uniba.app.Thompson.game.util.Color;
 import it.uniba.app.Thompson.game.util.ErrorMessages;
+import it.uniba.app.Thompson.game.util.PawnFigure;
+
 
 /**
  * {@literal << Boundary >>}
  * Class to communicate errors.
  */
 public final class CommunicateErrorsBoundary {
+
+    /**
+     * Attributes of the class CommunicateErrorsBoundary.
+     */
+    private static final FormatterControl FORMATTER_CONTROL = new FormatterControl();
 
     /**
      * Constructor for the class CommunicateErrors.
@@ -93,11 +102,12 @@ public final class CommunicateErrorsBoundary {
     /**
      * Method printInvalidBlock, prints to stdout the wrong player message.
      */
-    public static void printWrongPlayer() {
-        System.out.println(ErrorMessages.WRONG_PLAYER);
+    public static void printWrongPlayer(final PawnFigure player) {
+        System.out.println(FORMATTER_CONTROL.formatText(ErrorMessages.WRONG_PLAYER
+                + (player == PawnFigure.BLACK_PAWN ? "nero" : "bianco"), Color.ORANGE));
     }
 
-     /**
+    /**
      * Method printTooManyInvalidTiles, prints to stdout the too many invalid tiles message.
      */
     public static void printTooManyInvalidTiles() {
@@ -109,5 +119,12 @@ public final class CommunicateErrorsBoundary {
      */
     public static void printInvalidTileToBlock() {
         System.out.println(ErrorMessages.INVALID_TILE_TO_BLOCK);
+    }
+
+    /**
+     * Method printImpossibleBlock, prints to stdout the impossible block message.
+     */
+    public static void printImpossibleBlock() {
+        System.out.println(ErrorMessages.IMPOSSIBLE_BLOCK);
     }
 }
