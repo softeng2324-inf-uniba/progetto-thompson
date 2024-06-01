@@ -185,6 +185,41 @@ public final class MainControl {
     }
 
     /**
+     * Method manageMove.
+     * @param from Coordinate from of the move
+     * @param to Coordinate to of the move
+     */
+    private static void manageMove(final Coordinate from, final Coordinate to) {
+        Board b = match.getBoard();
+        b.movePawn(from, to);
+        match.setBoard(b);
+
+        PrintBoardBoundary.printBoard(b);
+    }
+
+    /**
+     * Method endMatch.
+     */
+    private static void endMatch() {
+        Board b = match.getBoard();
+        int whitePawnCount = b.countPawns(PawnFigure.WHITE_PAWN);
+        int blackPawnCount = b.countPawns(PawnFigure.BLACK_PAWN);
+
+        if (whitePawnCount == blackPawnCount) {
+            CommunicateInteractionMessagesBoundary.printDraw(blackPawnCount, whitePawnCount);
+        } else {
+            CommunicateInteractionMessagesBoundary.printWinner(
+                whitePawnCount > blackPawnCount ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN,
+                Math.max(whitePawnCount, blackPawnCount),
+                Math.min(whitePawnCount, blackPawnCount)
+            );
+        }
+
+        removeMatch();
+        setBoard(new Board(true));
+    }
+
+    /**
      * Method startMainControl, starts main control, starts the main control loop.
      * @param args Array of all the arguments
      */
@@ -204,24 +239,14 @@ public final class MainControl {
             try {
                 if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
                     String[] toConvert = commandStrings[0].split("-");
-                    Coordinate from = Coordinate.toCoordinate(toConvert[0]);
-                    Coordinate to = Coordinate.toCoordinate(toConvert[1]);
-                    board.movePawn(from, to);
-                    PrintBoardBoundary.printBoard(board);
+
+                    manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
-                if (board.isBoardFull()) {
-                    int wp = board.countPawns(PawnFigure.WHITE_PAWN);
-                    int bp = board.countPawns(PawnFigure.BLACK_PAWN);
-                    if (wp == bp) {
-                        CommunicateInteractionMessagesBoundary.printDraw(bp, wp);
-                    } else if (wp > bp) {
-                        CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.WHITE_PAWN, wp, bp);
-                    } else {
-                        CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.BLACK_PAWN, bp, wp);
-                    }
-                    removeMatch();
+
+                if (match.getBoard().isBoardFull()) {
+                    endMatch();
                 }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
