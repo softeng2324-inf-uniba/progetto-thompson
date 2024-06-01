@@ -1,14 +1,12 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
-import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
-import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
+import it.uniba.app.Thompson.game.boundary.*;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 
 import java.util.HashMap;
 
@@ -60,6 +58,13 @@ public final class MainControl {
     }
 
     /**
+     * Method switchTurn.
+     */
+    public static void switchTurn() {
+        match.switchTurn();
+    }
+
+    /**
      * Method addAliasesCommands.
      * @param commandControl Command linked to the argument
      * @return commands The map of the aliases of the argument
@@ -88,7 +93,7 @@ public final class MainControl {
     public static Match getMatch() {
         Match defensiveCopy = match;
         if (defensiveCopy != null) {
-            defensiveCopy = new Match(match.getBoard(), match.getMoves());
+            defensiveCopy = new Match(match.getBoard(), match.getMoves(),match.getCurrentTurn());
         }
         return defensiveCopy;
     }
@@ -179,6 +184,7 @@ public final class MainControl {
                     Board board = MainControl.getMatch().getBoard();
                     board.movePawn(from, to);
                     match.setBoard(board);
+                    PrintBoardBoundary.printBoard(board);
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
