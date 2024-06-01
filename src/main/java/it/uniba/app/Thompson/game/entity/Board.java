@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTileError;
@@ -252,6 +253,13 @@ public final class Board {
             }
             this.setTile(from, fromTile);
             this.setTile(to, toTile);
+            MainControl.switchTurn();
+        }
+        int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
+                MainControl.getMatch().getCurrentTurn());
+        if (VerifyMovesControl.isMaskEmpty(mask)) {
+
+            CommunicateInteractionMessagesBoundary.printSkipTurn(MainControl.getMatch().getCurrentTurn());
             MainControl.switchTurn();
         }
     }
