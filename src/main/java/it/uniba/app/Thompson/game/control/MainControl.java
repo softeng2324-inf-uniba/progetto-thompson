@@ -8,7 +8,6 @@ import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -109,7 +108,7 @@ public final class MainControl {
     public static Board getBoard() {
         Board defensiveCopy = board;
         if (defensiveCopy != null) {
-            defensiveCopy = new Board(true);
+            defensiveCopy = new Board(board);
         }
         return defensiveCopy;
     }
@@ -119,7 +118,7 @@ public final class MainControl {
      * @param newBoard The new board of the match
      */
     public static void setBoard(final Board newBoard) {
-        board = newBoard;
+        board = new Board(newBoard);
     }
 
     /**
