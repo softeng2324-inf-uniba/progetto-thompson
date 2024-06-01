@@ -271,15 +271,15 @@ public final class Board {
     }
 
     /**
-     * Method attack, attacks the pawn in the given coordinate
+     * Method attack, attacks the pawn in the given coordinate.
      * @param pawn The pawn to attack
      */
     private void attack(final Coordinate pawn) {
 
         Coordinate[][] moves = VariantMove.getStandard();
-        for(int i=0; i<moves[0].length; i++){
+        for (int i = 0; i < moves[0].length; i++) {
             Coordinate enemyPawn = Coordinate.plus(pawn, moves[0][i]);
-            if(isInBoard(enemyPawn) && getTile(Coordinate.plus(pawn, moves[0][i])).isOccupied()){
+            if (isInBoard(enemyPawn) && getTile(Coordinate.plus(pawn, moves[0][i])).isOccupied()) {
                 if (getTile(enemyPawn).getPawn().getFigure() != MainControl.getMatch().getCurrentTurn()) {
                     getTile(enemyPawn).setFigure(MainControl.getMatch().getCurrentTurn());
                 }
