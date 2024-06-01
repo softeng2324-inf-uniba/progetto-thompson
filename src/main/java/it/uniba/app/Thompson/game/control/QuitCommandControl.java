@@ -2,6 +2,7 @@ package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
+import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 
@@ -128,6 +129,8 @@ public final class QuitCommandControl extends CommandControl {
                 MainControl.getMatch().getBoard().countPawns(winnerPawn),
                 0
         );
+
         MainControl.removeMatch();
+        MainControl.setBoard(new Board(true));
     }
 }
