@@ -187,7 +187,7 @@ public final class MainControl {
     /**
      * Method manageMove.
      * @param from Coordinate from of the move
-     * @param to Coordinate from to the move
+     * @param to Coordinate to of the move
      */
     private static void manageMove(final Coordinate from, final Coordinate to) {
         Board b = match.getBoard();
