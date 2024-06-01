@@ -36,15 +36,16 @@ public final class VerifyMovesControl {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
-        if (board.getTile(from).isOccupied()) {
+        if (board.getTile(to).isInvalid()) {
+            CommunicateErrorsBoundary.printImpossibleMove();
+        } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
             exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
             exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
             if ((turn != colorFrom)) {
                 exists = false;
-                System.out.println("Ciao");
-                CommunicateErrorsBoundary.printWrongPlayer();
+                CommunicateErrorsBoundary.printWrongPlayer(colorFrom);
             } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
                 CommunicateErrorsBoundary.printInvalidMove();
                 exists = false;
@@ -52,6 +53,7 @@ public final class VerifyMovesControl {
         } else {
             CommunicateErrorsBoundary.printInvalidStart();
         }
+
         return exists;
     }
 

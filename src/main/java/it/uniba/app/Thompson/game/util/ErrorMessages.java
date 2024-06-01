@@ -76,7 +76,7 @@ public final class ErrorMessages {
     /**
      * Constant containing the WRONG_PLAYER message.
      */
-    public static final String WRONG_PLAYER = FORMATTER_CONTROL.formatText("Non e' il tuo turno", Color.ORANGE);
+    public static final String WRONG_PLAYER = "Non e' il tuo turno, ora tocca al ";
 
     /**
      * Constant containing the TOO_MANY_INVALID_TILES message.
@@ -91,6 +91,17 @@ public final class ErrorMessages {
             "Non puoi bloccare una casella che in partenza contiene una pedina e nemmeno le adiacenti ad essa",
             Color.RED);
 
+    /**
+     * Constant containing the IMPOSSIBLE_MOVE message.
+     */
+    public static final String IMPOSSIBLE_MOVE = FORMATTER_CONTROL.formatText(
+            "La casella su cui vuoi spostare la pedina e' bloccata, riprova", Color.ORANGE);
+
+    /**
+     * Constant containing the IMPOSSIBLE_BLOCK message.
+     */
+    public static final String IMPOSSIBLE_BLOCK = FORMATTER_CONTROL.formatText(
+            "Impossibile bloccare la casella selezionata, riprova", Color.RED);
     /**
      * Constructor for the class ErrorMessages.
      */

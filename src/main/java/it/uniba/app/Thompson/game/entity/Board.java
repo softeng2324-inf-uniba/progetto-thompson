@@ -21,7 +21,7 @@ public final class Board {
     private Tile[] tiles;
     private static final int DEFAULT_SIZE = 7;
     private static final int MAX_LOCKABLE_TILES = 9;
-    private static final int CONSIDERED_ADJACENT = 3;
+    private static final int CONSIDERED_ADJACENT = 2;
 
     /**
      * Default Constructor for the class Board.

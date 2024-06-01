@@ -66,7 +66,7 @@ public final class Coordinate {
     public static Coordinate toCoordinate(final String stringCoordinate) {
         int letter = stringCoordinate.charAt(0) - 'a';
         int number = Character.getNumericValue(stringCoordinate.charAt(1)) - 1;
-        return new Coordinate(number, letter);
+        return new Coordinate(letter, number);
     }
 
     /**
@@ -74,10 +74,10 @@ public final class Coordinate {
      * @return Returns coordinate to string
      */
     public String toString() {
-        final int asciiCharValue = 64;
+        final int asciiCharValue = 65;
         char xChar = (char) (x + asciiCharValue);
 
-        return Character.toLowerCase(xChar) + "" + y;
+        return Character.toLowerCase(xChar) + "" + (y + 1);
     }
 
     /*
