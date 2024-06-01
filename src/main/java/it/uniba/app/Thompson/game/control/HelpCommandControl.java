@@ -84,6 +84,7 @@ public final class HelpCommandControl extends CommandControl {
         HelpBoundary.printCommands(new CommandControl[]{
             HelpCommandControl.getInstance(),
             VoidCommandControl.getInstance(),
+            BlockCommandControl.getInstance(),
             PlayCommandControl.getInstance(),
             AvailableMovesCommandControl.getInstance(),
             BoardCommandControl.getInstance(),

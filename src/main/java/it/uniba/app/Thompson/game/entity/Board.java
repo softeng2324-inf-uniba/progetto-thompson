@@ -1,8 +1,9 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
+import it.uniba.app.Thompson.game.error.ExcessBlockedTileError;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
-
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -18,6 +19,8 @@ public final class Board {
     private final int size;
     private Tile[] tiles;
     private static final int DEFAULT_SIZE = 7;
+    private static final int MAX_LOCKABLE_TILES = 9;
+    private static final int CONSIDERED_ADJACENT = 3;
 
     /**
      * Default Constructor for the class Board.
@@ -56,7 +59,7 @@ public final class Board {
         if (tiles != null) {
             newTiles = new Tile[tiles.length];
             for (int i = 0; i < tiles.length; i++) {
-                newTiles[i] = new Tile(tiles[i].getX(), tiles[i].getY());
+                newTiles[i] = new Tile(tiles[i].getX(), tiles[i].getY(), tiles[i].isInvalid());
                 if (tiles[i].isOccupied()) {
                     newTiles[i].placePawn(tiles[i].getPawn().getFigure());
                 }
@@ -171,6 +174,44 @@ public final class Board {
     }
 
     /**
+     * Method countBlockedTiles.
+     * @return count The number of blocked tiles.
+     */
+    private int countBlockedTiles() {
+        int count = 0;
+        for (Tile tile : tiles) {
+            if (tile.isInvalid()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Method blockTile.
+     * @param blockedCoordinate The coordinate of the tile to block
+     */
+    public void blockTile(final Coordinate blockedCoordinate) throws ExcessBlockedTileError {
+        if (countBlockedTiles() >= MAX_LOCKABLE_TILES) {
+            throw new ExcessBlockedTileError();
+        }
+
+        Coordinate[] invalidCoordinates = {
+            new Coordinate(1, 1),
+            new Coordinate(1, size),
+            new Coordinate(size, 1),
+            new Coordinate(size, size),
+        };
+
+        if (Arrays.stream(invalidCoordinates).anyMatch(invalidCoordinate -> isAdjacent(invalidCoordinate,
+                blockedCoordinate))) {
+            throw new Error("Adiacente");
+        }
+
+        getTile(blockedCoordinate).setInvalid();
+    }
+
+    /**
      * Method movePawn.
      * @param from The starting coordinate
      * @param to The ending coordinate
@@ -185,5 +226,17 @@ public final class Board {
                 fromTile.removePawn();
             }
         }
+    }
+
+    /**
+     * Method isAdjacent.
+     * Check if coordinate b is adjacent a or is equal to it (max 2 tiles)
+     * @param a Fixed coordinate
+     * @param b Coordinate to test
+     * @return true if b is adjacent a, false otherwise
+     */
+    private boolean isAdjacent(final Coordinate a, final Coordinate b) {
+        return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
+                && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
     }
 }

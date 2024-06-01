@@ -75,4 +75,18 @@ public final class CommunicateErrorsBoundary {
     public static void printInvalidArguments() {
         System.out.println(ErrorMessages.INVALID_ARGUMENTS);
     }
+
+    /**
+     * Method printTooManyInvalidTiles, prints to stdout the too many invalid tiles message.
+     */
+    public static void printTooManyInvalidTiles() {
+        System.out.println(ErrorMessages.TOO_MANY_INVALID_TILES);
+    }
+
+    /**
+     * Method printInvalidTileToBlock, prints to stdout the invalid tile to block message.
+     */
+    public static void printInvalidTileToBlock() {
+        System.out.println(ErrorMessages.INVALID_TILE_TO_BLOCK);
+    }
 }

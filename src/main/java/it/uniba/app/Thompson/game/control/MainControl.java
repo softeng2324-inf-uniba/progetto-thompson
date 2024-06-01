@@ -3,10 +3,12 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
+import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -19,6 +21,7 @@ public final class MainControl {
      * Attributes of the class MainControl.
      */
     private static Match match;
+    private static Board board = new Board(true);
 
     /**
      * Constructor for the class MainControl.
@@ -41,6 +44,7 @@ public final class MainControl {
         commands.put(AvailableMovesCommandControl.getInstance().getCommand(),
                      AvailableMovesCommandControl.getInstance());
         commands.put(MovesCommandControl.getInstance().getCommand(), MovesCommandControl.getInstance());
+        commands.put(BlockCommandControl.getInstance().getCommand(), BlockCommandControl.getInstance());
         commands.put(TimeCommandControl.getInstance().getCommand(), TimeCommandControl.getInstance());
         return commands;
     }
@@ -98,6 +102,26 @@ public final class MainControl {
     }
 
     /**
+     * Method getBoard.
+     * @return board The board of the match
+     */
+    public static Board getBoard() {
+        Board defensiveCopy = board;
+        if (defensiveCopy != null) {
+            defensiveCopy = new Board(board);
+        }
+        return defensiveCopy;
+    }
+
+    /**
+     * Method setBoard.
+     * @param newBoard The new board of the match
+     */
+    public static void setBoard(final Board newBoard) {
+        board = new Board(newBoard);
+    }
+
+    /**
      * Method findAndExecuteCommand, finds and executes the command.
      * @param commandStrings Array that contains command and other arguments
      * @param availableCommands The map of the available commands
@@ -117,7 +141,7 @@ public final class MainControl {
                 throw new InvalidArgumentsError();
             }
 
-            return availableCommands.get(commandStrings[0]).executeCommand();
+            return commandControl.executeCommand(Arrays.copyOfRange(commandStrings, 1, commandStrings.length));
         }
         throw new CommandNotFoundError();
     }
