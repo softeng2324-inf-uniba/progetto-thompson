@@ -95,6 +95,7 @@ public final class CommunicateErrorsBoundary {
      */
     public static void printWrongPlayer() {
         System.out.println(ErrorMessages.WRONG_PLAYER);
+    }
 
      /**
      * Method printTooManyInvalidTiles, prints to stdout the too many invalid tiles message.
