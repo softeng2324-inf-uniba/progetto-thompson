@@ -151,5 +151,4 @@ public final class CommunicateInteractionMessagesBoundary {
                 + " salta il turno. Ora tocca al"
                 + (player == PawnFigure.BLACK_PAWN ? "bianco" : "nero"), Color.ORANGE));
     }
-
 }

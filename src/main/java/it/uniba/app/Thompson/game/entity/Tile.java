@@ -82,6 +82,14 @@ public class Tile {
     }
 
     /**
+     * Method setFigure, sets the figure of the pawn on the tile.
+     * @param pawnFigure The figure of the pawn
+     */
+    public void setFigure(final PawnFigure pawnFigure) {
+        pawn.setFigure(pawnFigure);
+    }
+
+    /**
      * Method isOccupied.
      * @return pawn Returns true if tile is occupied by a pawn
      */
