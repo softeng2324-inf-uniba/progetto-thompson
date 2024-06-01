@@ -1,10 +1,13 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
+import static it.uniba.app.Thompson.game.boundary.PrintBoardBoundary.printBoard;
 
 /**
  * {@literal << Entity >>}
@@ -109,11 +112,27 @@ public final class Board {
     }
 
     /**
+     * Method setTile.
+     * @param coordinate The coordinates of the tile
+     * @param tile The tile to be set
+     */
+    public void setTile(final Coordinate coordinate, final Tile tile) {
+        tiles[coordinate.getX() * size + coordinate.getY()] = tile;
+    }
+
+    /**
      * Method setTiles.
      * @param newTiles The new tiles array
      */
     public void setTiles(final Tile[] newTiles) {
-        tiles = newTiles;
+        Tile[] DefensiveCopy = new Tile[newTiles.length];
+        for (int i = 0; i < newTiles.length; i++) {
+            DefensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
+            if (newTiles[i].isOccupied()) {
+                DefensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
+            }
+        }
+        tiles = DefensiveCopy;
     }
 
     /**
@@ -192,6 +211,9 @@ public final class Board {
             if (!type) {
                 fromTile.removePawn();
             }
+            this.setTile(from, fromTile);
+            this.setTile(to, toTile);
+            MainControl.switchTurn();
         }
     }
 }
