@@ -74,10 +74,10 @@ public final class Coordinate {
      * @return Returns coordinate to string
      */
     public String toString() {
-        final int asciiCharValue = 64;
+        final int asciiCharValue = 65;
         char xChar = (char) (x + asciiCharValue);
 
-        return Character.toLowerCase(xChar) + "" + y;
+        return Character.toLowerCase(xChar) + "" + (y + 1);
     }
 
     /*
