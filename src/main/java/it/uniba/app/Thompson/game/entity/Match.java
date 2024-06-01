@@ -95,8 +95,7 @@ public class Match {
      * Method switchTurn, if turn is white it will be changed to black, the same goes with the opposite ones.
      */
     public void switchTurn() {
-        System.out.println("Switching turn");
-       this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
+        this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
     }
 
     /**
