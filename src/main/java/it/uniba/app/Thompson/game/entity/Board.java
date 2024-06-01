@@ -109,6 +109,14 @@ public final class Board {
     }
 
     /**
+     * Method setTiles.
+     * @param newTiles The new tiles array
+     */
+    public void setTiles(final Tile[] newTiles) {
+        tiles = newTiles;
+    }
+
+    /**
      * Method countPawns.
      * @param pawn The figure of the pawns to count
      * @return count The number of pawns of the given pawn figure.
@@ -181,7 +189,7 @@ public final class Board {
             Tile fromTile = getTile(from);
             Tile toTile = getTile(to);
             toTile.placePawn(fromTile.getPawn().getFigure());
-            if(!type){
+            if (!type) {
                 fromTile.removePawn();
             }
         }
