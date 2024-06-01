@@ -34,7 +34,7 @@ public class Match {
      * @param newBoard The original board
      * @param newMoves The original moves
      */
-    public Match(final Board newBoard, final Queue<Move> newMoves, final PawnFigure newTurn){
+    public Match(final Board newBoard, final Queue<Move> newMoves, final PawnFigure newTurn) {
         turn = newTurn;
         board = new Board(newBoard);
         moves.addAll(newMoves);
