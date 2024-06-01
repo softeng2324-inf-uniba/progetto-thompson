@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -40,10 +41,16 @@ public final class VerifyMovesControl {
 
             exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
             exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
-            if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2) || (turn != colorFrom)) {
-                // TODO: quella pedina è dell'avversio!!!!!!!!
+            if ((turn != colorFrom)) {
+                exists = false;
+                System.out.println("Ciao");
+                CommunicateErrorsBoundary.printWrongPlayer();
+            } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
+                CommunicateErrorsBoundary.printInvalidMove();
                 exists = false;
             }
+        } else {
+            CommunicateErrorsBoundary.printInvalidStart();
         }
         return exists;
     }
