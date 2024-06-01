@@ -1,8 +1,9 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
+import it.uniba.app.Thompson.game.error.ExcessBlockedTileError;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
-
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -188,7 +189,7 @@ public final class Board {
 
     /**
      * Method blockTile.
-     * @param coordinate The coordinate of the tile to block
+     * @param blockedCoordinate The coordinate of the tile to block
      */
     public void blockTile(final Coordinate blockedCoordinate) throws ExcessBlockedTileError {
         if (countBlockedTiles() >= MAX_LOCKABLE_TILES) {
@@ -223,5 +224,17 @@ public final class Board {
             toTile.placePawn(fromTile.getPawn().getFigure());
             fromTile.removePawn();
         }
+    }
+
+    /**
+     * Method isAdjacent.
+     * Check if coordinate b is adjacent a or is equal to it (max 2 tiles)
+     * @param a Fixed coordinate
+     * @param b Coordinate to test
+     * @return true if b is adjacent a, false otherwise
+     */
+    private boolean isAdjacent(final Coordinate a, final Coordinate b) {
+        return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
+                && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
     }
 }
