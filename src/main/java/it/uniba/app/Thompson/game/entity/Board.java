@@ -56,7 +56,7 @@ public final class Board {
         if (tiles != null) {
             newTiles = new Tile[tiles.length];
             for (int i = 0; i < tiles.length; i++) {
-                newTiles[i] = new Tile(tiles[i].getX(), tiles[i].getY());
+                newTiles[i] = new Tile(tiles[i].getX(), tiles[i].getY(), tiles[i].isInvalid());
                 if (tiles[i].isOccupied()) {
                     newTiles[i].placePawn(tiles[i].getPawn().getFigure());
                 }
