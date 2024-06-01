@@ -15,7 +15,8 @@ public final class BlockCommandControl extends CommandControl {
      * Attributes of the class BlockCommandControl.
      **/
     private static final String COMMAND = "/blocca";
-    private static final String DESCRIPTION = "Prima di iniziare permette di bloccare una casella del tavoliere (max 9)";
+    private static final String DESCRIPTION = "Prima di iniziare permette di bloccare una casella del tavoliere"
+        + "(max 9)";
     private static final int ARGUMENT_COUNT = 1;
     private static final BlockCommandControl INSTANCE = new BlockCommandControl();
 
@@ -69,12 +70,12 @@ public final class BlockCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand(final String... args) {
-        if(MainControl.getMatch() != null) {
+        if (MainControl.getMatch() != null) {
             CommunicateErrorsBoundary.printMatchNotNull();
             return CommandStatus.FAILED;
         }
 
-        if(args.length != 1) {
+        if (args.length != 1) {
             CommunicateErrorsBoundary.printInvalidArguments();
             return CommandStatus.FAILED;
         }
