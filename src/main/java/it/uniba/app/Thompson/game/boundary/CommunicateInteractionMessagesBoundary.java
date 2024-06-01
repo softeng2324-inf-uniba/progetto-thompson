@@ -118,7 +118,7 @@ public final class CommunicateInteractionMessagesBoundary {
      */
     public static void printGameTime(final String time) {
         System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita è: "
-                + MainControl.getMatch().getFormattedTime(), Color.BLUE));
+                + time, Color.BLUE));
 
     }
 
