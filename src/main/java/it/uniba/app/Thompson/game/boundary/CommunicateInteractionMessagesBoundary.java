@@ -130,4 +130,16 @@ public final class CommunicateInteractionMessagesBoundary {
                 + blockedTile.toString()
                 + " e' stata bloccata", Color.BLUE));
     }
+
+    /**
+     * Method printSkippingTurn, prints to stdout the message of skipping turn.
+     * @param player The player who skips the turn
+     */
+    public static void printSkippingTurn(final PawnFigure player) {
+        System.out.println(FORMATTER_CONTROL.formatText("Il giocatore "
+                + (player == PawnFigure.BLACK_PAWN ? "nero" : "bianco")
+                + " salta il turno. Ora tocca al"
+                + (player == PawnFigure.BLACK_PAWN ? "bianco" : "nero"), Color.ORANGE));
+    }
+
 }

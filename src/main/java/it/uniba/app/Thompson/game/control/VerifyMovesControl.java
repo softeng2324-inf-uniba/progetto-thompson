@@ -90,7 +90,6 @@ public final class VerifyMovesControl {
     public static boolean moveType(final Coordinate from, final Coordinate to) {
         boolean type = false;
         Coordinate diff = Coordinate.abs(from, to);
-        boolean exists = false;
 
         if (Arrays.asList(AVAILABLE_MOVES[0]).contains(diff)) {
             type = true;

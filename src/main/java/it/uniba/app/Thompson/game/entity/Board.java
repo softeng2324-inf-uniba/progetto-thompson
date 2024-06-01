@@ -222,7 +222,9 @@ public final class Board {
             Tile fromTile = getTile(from);
             Tile toTile = getTile(to);
             toTile.placePawn(fromTile.getPawn().getFigure());
-            fromTile.removePawn();
+            if(!type){
+                fromTile.removePawn();
+            }
         }
     }
 
