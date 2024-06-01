@@ -43,8 +43,7 @@ public final class VerifyMovesControl {
             exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
             if ((turn != colorFrom)) {
                 exists = false;
-                System.out.println("Ciao");
-                CommunicateErrorsBoundary.printWrongPlayer();
+                CommunicateErrorsBoundary.printWrongPlayer(colorFrom);
             } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
                 CommunicateErrorsBoundary.printInvalidMove();
                 exists = false;
