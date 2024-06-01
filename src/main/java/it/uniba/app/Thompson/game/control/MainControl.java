@@ -189,7 +189,7 @@ public final class MainControl {
         b.movePawn(from, to);
         match.setBoard(b);
 
-        PrintBoardBoundary.printBoard(board);
+        PrintBoardBoundary.printBoard(b);
     }
 
     private static void endMatch() {
