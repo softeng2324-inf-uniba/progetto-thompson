@@ -24,8 +24,8 @@ public class Match {
     /**
      * Constructor for the class Match.
      */
-    public Match() {
-        board = new Board(IS_GAME_BOARD);
+    public Match(final Board blockBoard) {
+        board = new Board(blockBoard);
         turn = PawnFigure.BLACK_PAWN;
     }
 
