@@ -65,18 +65,31 @@ public final class ErrorMessages {
     /**
      * Constant containing the INVALID_MOVE message.
      */
-    public static final String INVALID_MOVE = FORMATTER_CONTROL.formatText("Mossa non valida", Color.ORANGE);
+    public static final String INVALID_MOVE = FORMATTER_CONTROL.formatText("Mossa non valida, riprova", Color.ORANGE);
 
     /**
      * Constant containing the INVALID_START message.
      */
-    public static final String INVALID_START = FORMATTER_CONTROL.formatText("La casella di partenza non e' occupata",
-                                                                                    Color.ORANGE);
+    public static final String INVALID_START = FORMATTER_CONTROL.formatText(
+              "Non c'e' nessuna pedina nella casella di partenza", Color.ORANGE);
 
     /**
      * Constant containing the WRONG_PLAYER message.
      */
     public static final String WRONG_PLAYER = FORMATTER_CONTROL.formatText("Non e' il tuo turno", Color.ORANGE);
+
+    /**
+     * Constant containing the TOO_MANY_INVALID_TILES message.
+     */
+    public static final String TOO_MANY_INVALID_TILES = FORMATTER_CONTROL.formatText(
+            "Hai bloccato troppe caselle, ricorda che puoi bloccarne al massimo 9", Color.RED);
+
+    /**
+     * Constant containing the INVALID_TILE_TO_BLOCK message.
+     */
+    public static final String INVALID_TILE_TO_BLOCK = FORMATTER_CONTROL.formatText(
+            "Non puoi bloccare una casella che in partenza contiene una pedina e nemmeno le adiacenti ad essa",
+            Color.RED);
 
     /**
      * Constructor for the class ErrorMessages.
