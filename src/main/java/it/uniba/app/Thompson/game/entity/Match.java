@@ -26,6 +26,7 @@ public class Match {
      */
     public Match() {
         board = new Board(IS_GAME_BOARD);
+        turn = PawnFigure.BLACK_PAWN;
     }
 
     /**
@@ -33,8 +34,8 @@ public class Match {
      * @param newBoard The original board
      * @param newMoves The original moves
      */
-    public Match(final Board newBoard, final Queue<Move> newMoves) {
-        turn = PawnFigure.BLACK_PAWN;
+    public Match(final Board newBoard, final Queue<Move> newMoves, final PawnFigure newTurn){
+        turn = newTurn;
         board = new Board(newBoard);
         moves.addAll(newMoves);
     }
@@ -87,13 +88,14 @@ public class Match {
      * @return Get the match current turn
      */
     public PawnFigure getCurrentTurn() {
-        return turn;
+        return this.turn;
     }
 
     /**
      * Method switchTurn, if turn is white it will be changed to black, the same goes with the opposite ones.
      */
     public void switchTurn() {
+        System.out.println("Switching turn");
        this.turn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
     }
 
