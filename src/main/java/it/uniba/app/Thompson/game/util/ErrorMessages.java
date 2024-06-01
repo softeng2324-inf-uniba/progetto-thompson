@@ -48,8 +48,7 @@ public final class ErrorMessages {
      * Constant containing the ARGUMENT_NOT_FOUND message.
      */
     public static final String ARGUMENT_NOT_FOUND = FORMATTER_CONTROL.formatText("(\u2022\u1D16\u2022\uFF61)"
-                    + "Parametro non valido",
-            Color.RED);
+                    + "Parametro non valido", Color.RED);
 
     /**
      * Constant containing the GENERIC_ERROR message.
@@ -61,8 +60,24 @@ public final class ErrorMessages {
      * Constant containing the INVALID_ARGUMENTS message.
      */
     public static final String INVALID_ARGUMENTS = FORMATTER_CONTROL.formatText(
-                                                                                "Il numero di argomenti non e' valido",
-                                                                                       Color.RED);
+            "Il numero di argomenti non e' valido", Color.RED);
+
+    /**
+     * Constant containing the INVALID_MOVE message.
+     */
+    public static final String INVALID_MOVE = FORMATTER_CONTROL.formatText("Mossa non valida", Color.ORANGE);
+
+    /**
+     * Constant containing the INVALID_START message.
+     */
+    public static final String INVALID_START = FORMATTER_CONTROL.formatText("La casella di partenza non e' occupata",
+                                                                                    Color.ORANGE);
+
+    /**
+     * Constant containing the WRONG_PLAYER message.
+     */
+    public static final String WRONG_PLAYER = FORMATTER_CONTROL.formatText("Non e' il tuo turno", Color.ORANGE);
+
     /**
      * Constructor for the class ErrorMessages.
      */
