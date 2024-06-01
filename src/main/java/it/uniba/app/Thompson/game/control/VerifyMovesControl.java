@@ -35,13 +35,13 @@ public final class VerifyMovesControl {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
-
         if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
             exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
             exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
-            if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2) && turn == colorFrom) {
+            if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2) || (turn != colorFrom)) {
+                // TODO: quella pedina è dell'avversio!!!!!!!!
                 exists = false;
             }
         }
