@@ -184,6 +184,11 @@ public final class MainControl {
         }
     }
 
+    /**
+     * Method manageMove.
+     * @param from Coordinate from of the move
+     * @param to Coordinate from to the move
+     */
     private static void manageMove(final Coordinate from, final Coordinate to) {
         Board b = match.getBoard();
         b.movePawn(from, to);
@@ -192,6 +197,9 @@ public final class MainControl {
         PrintBoardBoundary.printBoard(b);
     }
 
+    /**
+     * Method endMatch.
+     */
     private static void endMatch() {
         Board b = match.getBoard();
         int whitePawnCount = b.countPawns(PawnFigure.WHITE_PAWN);
