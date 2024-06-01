@@ -65,8 +65,8 @@ public final class Coordinate {
      */
     public static Coordinate toCoordinate(final String stringCoordinate) {
         int letter = stringCoordinate.charAt(0) - 'a';
-        int number = Character.getNumericValue(stringCoordinate.charAt(1));
-        return new Coordinate(letter, number);
+        int number = Character.getNumericValue(stringCoordinate.charAt(1))-1;
+        return new Coordinate(number, letter);
     }
 
     /**
