@@ -1,5 +1,8 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import it.uniba.app.Thompson.game.util.Coordinate;
 
 /**
  * {@literal << Control >>}
@@ -65,6 +68,20 @@ public final class BlockCommandControl extends CommandControl {
      */
     @Override
     CommandStatus executeCommand(final String... args) {
+        if(MainControl.getMatch() != null) {
+            CommunicateErrorsBoundary.printMatchNotNull();
+            return CommandStatus.FAILED;
+        }
+
+        if(args.length != 1) {
+            CommunicateErrorsBoundary.printInvalidArguments();
+            return CommandStatus.FAILED;
+        }
+
+        Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
+
+        System.out.println(blockedCoordinate.getX() + " "  + blockedCoordinate.getY());
+
         return CommandStatus.SUCCESSFUL;
     }
 }
