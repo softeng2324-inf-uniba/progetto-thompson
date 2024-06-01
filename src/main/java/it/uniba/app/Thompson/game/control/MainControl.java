@@ -184,6 +184,14 @@ public final class MainControl {
         }
     }
 
+    private static void manageMove(Coordinate from, Coordinate to) {
+        Board b = match.getBoard();
+        b.movePawn(from, to);
+        match.setBoard(b);
+
+        PrintBoardBoundary.printBoard(board);
+    }
+
     /**
      * Method startMainControl, starts main control, starts the main control loop.
      * @param args Array of all the arguments
@@ -204,10 +212,8 @@ public final class MainControl {
             try {
                 if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
                     String[] toConvert = commandStrings[0].split("-");
-                    Coordinate from = Coordinate.toCoordinate(toConvert[0]);
-                    Coordinate to = Coordinate.toCoordinate(toConvert[1]);
-                    board.movePawn(from, to);
-                    PrintBoardBoundary.printBoard(board);
+
+                    manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
