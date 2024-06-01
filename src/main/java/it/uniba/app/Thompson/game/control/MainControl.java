@@ -254,7 +254,7 @@ public final class MainControl {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
 
-                if (match.getBoard().isBoardFull()) {
+                if (match != null && match.getBoard().isBoardFull()) {
                     endMatch();
                 }
             } catch (CommandNotFoundError e) {
