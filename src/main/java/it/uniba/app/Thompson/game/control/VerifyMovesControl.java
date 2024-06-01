@@ -80,4 +80,24 @@ public final class VerifyMovesControl {
         }
         return mask;
     }
+
+    /**
+     * Method MoveType.
+     * @param from The starting coordinate
+     * @param to The ending coordinate
+     * @return type The type of the move
+     */
+    public static boolean moveType(final Coordinate from, final Coordinate to) {
+        boolean type = false;
+        Coordinate diff = Coordinate.abs(from, to);
+        boolean exists = false;
+
+        if (Arrays.asList(AVAILABLE_MOVES[0]).contains(diff)) {
+            type = true;
+        }
+        if (Arrays.asList(AVAILABLE_MOVES[1]).contains(diff)) {
+            type = false;
+        }
+        return type;
+    }
 }

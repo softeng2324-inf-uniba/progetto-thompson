@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
@@ -125,7 +126,7 @@ public final class Board {
 
     /**
      * Method getCoordsOfPawns.
-     * @param turn The color of the pawns to get the coordinates.
+     * @param turn The color of the pawns to get the coordinates
      * @return coordinatesOfPawns The coordinates of the pawns of color turn.
      */
     public Queue<Coordinate> getCoordsOfPawns(final PawnFigure turn) {
@@ -142,8 +143,8 @@ public final class Board {
 
     /**
      * Method isJumpable.
-     * @param coordinate The coordinate.
-     * @param board The board.
+     * @param coordinate The coordinate
+     * @param board The board
      * @return 2 if the tile is not occupied and is in the board, 0 otherwise.
      */
     public static int isJumpable(final Coordinate coordinate, final Board board) {
@@ -152,8 +153,8 @@ public final class Board {
 
     /**
      * Method isGenerable.
-     * @param coordinate The coordinate.
-     * @param board The board.
+     * @param coordinate The coordinate
+     * @param board The board
      * @return 1 if the tile is not occupied and is in the board, 0 otherwise.
      */
     public static int isGenerable(final Coordinate coordinate, final Board board) {
@@ -162,10 +163,25 @@ public final class Board {
 
     /**
      * Method isInBoard.
-     * @param coordinate The coordinate.
+     * @param coordinate The coordinate
      * @return true if the coordinate is in the board, false otherwise.
      */
     public Boolean isInBoard(final Coordinate coordinate) {
         return coordinate.getX() >= 0 && coordinate.getX() < size && coordinate.getY() >= 0 && coordinate.getY() < size;
+    }
+
+    /**
+     * Method movePawn.
+     * @param from The starting coordinate
+     * @param to The ending coordinate
+     */
+    public void movePawn(final Coordinate from, final Coordinate to) {
+        if (VerifyMovesControl.verifyMovesSinglePawn(this, from, to)) {
+            boolean type = VerifyMovesControl.moveType(from, to);
+            Tile fromTile = getTile(from);
+            Tile toTile = getTile(to);
+            toTile.placePawn(fromTile.getPawn().getFigure());
+            fromTile.removePawn();
+        }
     }
 }

@@ -59,6 +59,17 @@ public final class Coordinate {
     }
 
     /**
+     * Method toCoordinate.
+     * @param stringCoordinate The first coordinate in string
+     * @return Returns a new coordinate made of the two characters
+     */
+    public Coordinate toCoordinate(final String stringCoordinate) {
+        int letter = stringCoordinate.charAt(0) - 'a' + 1;
+        int number = Character.getNumericValue(stringCoordinate.charAt(1));
+        return new Coordinate(letter, number);
+    }
+
+    /**
      * Method toString, stringify a coordinate.
      * @return Returns coordinate to string
      */
@@ -96,3 +107,6 @@ public final class Coordinate {
         return x + y;
     }
 }
+
+
+

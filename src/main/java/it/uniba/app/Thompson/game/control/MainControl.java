@@ -150,6 +150,7 @@ public final class MainControl {
     public static void startMainControl(final String[] args) {
         HashMap<String, CommandControl> availableCommands = initCommands();
         CommandStatus status = CommandStatus.SUCCESSFUL;
+        RegexMoveControl matcher = new RegexMoveControl();
 
         WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
         banner.printBanner();
@@ -170,7 +171,6 @@ public final class MainControl {
                 CommunicateErrorsBoundary.printGenericError();
             }
         }
-
         CommunicateInteractionMessagesBoundary.printGoodbye();
     }
 }
