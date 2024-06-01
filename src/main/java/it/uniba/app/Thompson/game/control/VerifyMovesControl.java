@@ -41,11 +41,12 @@ public final class VerifyMovesControl {
         } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
-            exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
-            exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
+            exists |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
+            exists |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
+
             if ((turn != colorFrom)) {
                 exists = false;
-                CommunicateErrorsBoundary.printWrongPlayer(colorFrom);
+                CommunicateErrorsBoundary.printWrongPlayer(turn);
             } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
                 CommunicateErrorsBoundary.printInvalidMove();
                 exists = false;

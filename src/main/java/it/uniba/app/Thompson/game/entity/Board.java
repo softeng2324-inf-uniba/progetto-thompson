@@ -5,6 +5,7 @@ import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTileError;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.VariantMove;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -253,6 +254,7 @@ public final class Board {
             }
             this.setTile(from, fromTile);
             this.setTile(to, toTile);
+            this.attack(to);
             MainControl.switchTurn();
         }
         int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
@@ -269,10 +271,40 @@ public final class Board {
      * Check if coordinate b is adjacent a or is equal to it (max 2 tiles)
      * @param a Fixed coordinate
      * @param b Coordinate to test
-     * @return true if b is adjacent a, false otherwise
+     * @return Returns true if b is adjacent a, false otherwise
      */
     private boolean isAdjacent(final Coordinate a, final Coordinate b) {
         return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
                 && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
+    }
+
+    /**
+     * Method isBoardFull.
+     * @return Returns true if the board is full, false otherwise
+     */
+    public boolean isBoardFull() {
+        for (Tile tile : tiles) {
+            if (!tile.isOccupied()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Method attack, attacks the pawn in the given coordinate.
+     * @param pawn The pawn to attack
+     */
+    private void attack(final Coordinate pawn) {
+
+        Coordinate[][] moves = VariantMove.getStandard();
+        for (int i = 0; i < moves[0].length; i++) {
+            Coordinate enemyPawn = Coordinate.plus(pawn, moves[0][i]);
+            if (isInBoard(enemyPawn) && getTile(Coordinate.plus(pawn, moves[0][i])).isOccupied()) {
+                if (getTile(enemyPawn).getPawn().getFigure() != MainControl.getMatch().getCurrentTurn()) {
+                    getTile(enemyPawn).setFigure(MainControl.getMatch().getCurrentTurn());
+                }
+            }
+        }
     }
 }
