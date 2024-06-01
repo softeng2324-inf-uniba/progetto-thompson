@@ -92,6 +92,12 @@ public final class ErrorMessages {
             Color.RED);
 
     /**
+     * Constant containing the IMPOSSIBLE_MOVE message.
+     */
+    public static final String IMPOSSIBLE_MOVE = FORMATTER_CONTROL.formatText(
+            "La casella su cui vuoi spostare la pedina e' bloccata, riprova", Color.ORANGE);
+
+    /**
      * Constant containing the IMPOSSIBLE_BLOCK message.
      */
     public static final String IMPOSSIBLE_BLOCK = FORMATTER_CONTROL.formatText(
