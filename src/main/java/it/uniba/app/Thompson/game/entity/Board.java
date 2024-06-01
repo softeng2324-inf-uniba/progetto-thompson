@@ -18,6 +18,8 @@ public final class Board {
     private final int size;
     private Tile[] tiles;
     private static final int DEFAULT_SIZE = 7;
+    private static final int MAX_LOCKABLE_TILES = 9;
+    private static final int CONSIDERED_ADJACENT = 3;
 
     /**
      * Default Constructor for the class Board.
@@ -171,11 +173,41 @@ public final class Board {
     }
 
     /**
+     * Method countBlockedTiles.
+     * @return count The number of blocked tiles.
+     */
+    private int countBlockedTiles() {
+        int count = 0;
+        for (Tile tile : tiles) {
+            if (tile.isInvalid()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
      * Method blockTile.
      * @param coordinate The coordinate of the tile to block
      */
-    public void blockTile(final Coordinate coordinate) {
-        getTile(coordinate).setInvalid();
+    public void blockTile(final Coordinate blockedCoordinate) throws ExcessBlockedTileError {
+        if (countBlockedTiles() >= MAX_LOCKABLE_TILES) {
+            throw new ExcessBlockedTileError();
+        }
+
+        Coordinate[] invalidCoordinates = {
+            new Coordinate(1, 1),
+            new Coordinate(1, size),
+            new Coordinate(size, 1),
+            new Coordinate(size, size),
+        };
+
+        if (Arrays.stream(invalidCoordinates).anyMatch(invalidCoordinate -> isAdjacent(invalidCoordinate,
+                blockedCoordinate))) {
+            throw new Error("Adiacente");
+        }
+
+        getTile(blockedCoordinate).setInvalid();
     }
 
     /**
