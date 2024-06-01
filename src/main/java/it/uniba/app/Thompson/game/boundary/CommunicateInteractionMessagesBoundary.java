@@ -63,6 +63,13 @@ public final class CommunicateInteractionMessagesBoundary {
     }
 
     /**
+     * Method printSkipTurn, prints to stdout the skip turn message.
+     */
+    public static void printSkipTurn(final PawnFigure player) {
+        System.out.println(UserInteractionMessages.SKIP_TURN  + (player == PawnFigure.BLACK_PAWN ? "bianco" : "nero"));
+    }
+
+     /**
      * Method printDraw, prints to stdout the draw message.
      */
     public static void printDraw(final int blackPawnCount, final int whitePawnCount) {
