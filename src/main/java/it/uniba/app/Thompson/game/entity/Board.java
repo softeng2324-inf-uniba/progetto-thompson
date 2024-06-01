@@ -7,8 +7,6 @@ import it.uniba.app.Thompson.game.util.Coordinate;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static it.uniba.app.Thompson.game.boundary.PrintBoardBoundary.printBoard;
-
 /**
  * {@literal << Entity >>}
  *  Class representing the board entity.
@@ -125,14 +123,14 @@ public final class Board {
      * @param newTiles The new tiles array
      */
     public void setTiles(final Tile[] newTiles) {
-        Tile[] DefensiveCopy = new Tile[newTiles.length];
+        Tile[] defensiveCopy = new Tile[newTiles.length];
         for (int i = 0; i < newTiles.length; i++) {
-            DefensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
+            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
             if (newTiles[i].isOccupied()) {
-                DefensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
+                defensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
             }
         }
-        tiles = DefensiveCopy;
+        tiles = defensiveCopy;
     }
 
     /**
