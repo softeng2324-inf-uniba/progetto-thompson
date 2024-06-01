@@ -55,7 +55,7 @@ public final class VoidCommandControl extends CommandControl {
 
     /**
      * Method getInstance.
-     * @return INSTANCE The instance of VoidCommandControl.
+     * @return INSTANCE The instance of VoidCommandControl
      */
     public static VoidCommandControl getInstance() {
         return INSTANCE;

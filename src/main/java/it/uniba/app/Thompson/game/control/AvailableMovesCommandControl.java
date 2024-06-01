@@ -5,7 +5,6 @@ import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-import it.uniba.app.Thompson.game.util.PawnFigure;
 
 /**
  * {@literal << Control >>}
@@ -76,7 +75,7 @@ public final class AvailableMovesCommandControl extends CommandControl {
         } else {
             Match match = MainControl.getMatch();
             Board currentBoard = match.getBoard();
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(currentBoard, PawnFigure.WHITE_PAWN);
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(currentBoard, match.getCurrentTurn());
 
             CommunicateInteractionMessagesBoundary.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
             PrintBoardBoundary.printBoard(currentBoard, mask);

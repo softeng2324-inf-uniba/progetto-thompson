@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTileError;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -112,6 +113,30 @@ public final class Board {
     }
 
     /**
+     * Method setTile.
+     * @param coordinate The coordinates of the tile
+     * @param tile The tile to be set
+     */
+    public void setTile(final Coordinate coordinate, final Tile tile) {
+        tiles[coordinate.getX() * size + coordinate.getY()] = tile;
+    }
+
+    /**
+     * Method setTiles.
+     * @param newTiles The new tiles array
+     */
+    public void setTiles(final Tile[] newTiles) {
+        Tile[] defensiveCopy = new Tile[newTiles.length];
+        for (int i = 0; i < newTiles.length; i++) {
+            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
+            if (newTiles[i].isOccupied()) {
+                defensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
+            }
+        }
+        tiles = defensiveCopy;
+    }
+
+    /**
      * Method countPawns.
      * @param pawn The figure of the pawns to count
      * @return count The number of pawns of the given pawn figure.
@@ -222,9 +247,12 @@ public final class Board {
             Tile fromTile = getTile(from);
             Tile toTile = getTile(to);
             toTile.placePawn(fromTile.getPawn().getFigure());
-            if(!type){
+            if (!type) {
                 fromTile.removePawn();
             }
+            this.setTile(from, fromTile);
+            this.setTile(to, toTile);
+            MainControl.switchTurn();
         }
     }
 

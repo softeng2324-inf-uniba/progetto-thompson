@@ -3,11 +3,13 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
 import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
+import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import it.uniba.app.Thompson.game.util.Coordinate;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -61,6 +63,13 @@ public final class MainControl {
     }
 
     /**
+     * Method switchTurn.
+     */
+    public static void switchTurn() {
+        match.switchTurn();
+    }
+
+    /**
      * Method addAliasesCommands.
      * @param commandControl Command linked to the argument
      * @return commands The map of the aliases of the argument
@@ -89,9 +98,17 @@ public final class MainControl {
     public static Match getMatch() {
         Match defensiveCopy = match;
         if (defensiveCopy != null) {
-            defensiveCopy = new Match(match.getBoard(), match.getMoves());
+            defensiveCopy = new Match(match.getBoard(), match.getMoves(), match.getCurrentTurn());
         }
         return defensiveCopy;
+    }
+
+    /**
+     * Method setMatchBoard.
+     * @param board The board to be set
+     */
+    public static void setMatchBoard(final Board board) {
+        match.setBoard(board);
     }
 
     /**
@@ -183,10 +200,19 @@ public final class MainControl {
 
         while (status != CommandStatus.SHUTDOWN) {
             String[] commandStrings = UserInputBoundary.getCommandAndArguments();
-
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                status = findAndExecuteCommand(commandStrings, availableCommands);
+                if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
+                    String[] toConvert = commandStrings[0].split("-");
+                    Coordinate from = Coordinate.toCoordinate(toConvert[0]);
+                    Coordinate to = Coordinate.toCoordinate(toConvert[1]);
+                    Board board = MainControl.getMatch().getBoard();
+                    board.movePawn(from, to);
+                    match.setBoard(board);
+                    PrintBoardBoundary.printBoard(board);
+                } else {
+                    status = findAndExecuteCommand(commandStrings, availableCommands);
+                }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (InvalidArgumentsError e) {

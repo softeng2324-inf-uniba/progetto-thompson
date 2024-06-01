@@ -77,6 +77,27 @@ public final class CommunicateErrorsBoundary {
     }
 
     /**
+     * Method printInvalidMove, prints to stdout the invalid move message.
+     */
+    public static void printInvalidMove() {
+        System.out.println(ErrorMessages.INVALID_MOVE);
+    }
+
+    /**
+     * Method printInvalidStart, prints to stdout the invalid start message.
+     */
+    public static void printInvalidStart() {
+        System.out.println(ErrorMessages.INVALID_START);
+    }
+
+    /**
+     * Method printInvalidBlock, prints to stdout the wrong player message.
+     */
+    public static void printWrongPlayer() {
+        System.out.println(ErrorMessages.WRONG_PLAYER);
+    }
+
+     /**
      * Method printTooManyInvalidTiles, prints to stdout the too many invalid tiles message.
      */
     public static void printTooManyInvalidTiles() {
