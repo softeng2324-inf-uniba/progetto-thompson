@@ -171,6 +171,14 @@ public final class Board {
     }
 
     /**
+     * Method blockTile.
+     * @param coordinate The coordinate of the tile to block
+     */
+    public void blockTile(final Coordinate coordinate) {
+        getTile(coordinate).setInvalid();
+    }
+
+    /**
      * Method movePawn.
      * @param from The starting coordinate
      * @param to The ending coordinate
