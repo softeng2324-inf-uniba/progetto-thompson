@@ -34,13 +34,17 @@ public final class VerifyMovesControl {
     public static boolean verifyMovesSinglePawn(final Board board, final Coordinate from, final Coordinate to) {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
+        PawnFigure turn = MainControl.getMatch().getCurrentTurn();
 
-        exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
-        exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
-        if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
-            exists = false;
+        if (board.getTile(from).isOccupied()) {
+            PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
+
+            exists  |= Arrays.asList(AVAILABLE_MOVES[0]).contains(diff);
+            exists  |= Arrays.asList(AVAILABLE_MOVES[1]).contains(diff);
+            if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2) && turn == colorFrom) {
+                exists = false;
+            }
         }
-
         return exists;
     }
 
