@@ -2,10 +2,8 @@ package it.uniba.app.Thompson.game.boundary;
 import it.uniba.app.Thompson.game.control.FormatterControl;
 import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.util.Color;
-import it.uniba.app.Thompson.game.util.PawnFigure;
-import it.uniba.app.Thompson.game.util.Style;
-import it.uniba.app.Thompson.game.util.UserInteractionMessages;
+import it.uniba.app.Thompson.game.util.*;
+
 import java.util.Iterator;
 import java.util.Queue;
 
@@ -119,5 +117,15 @@ public final class CommunicateInteractionMessagesBoundary {
         System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita è: "
                 + MainControl.getMatch().getFormattedTime(), Color.BLUE));
 
+    }
+
+    /**
+     * Method printBlockedTile, prints to stdout the coordinates of the blocked tile.
+     * @param blockedTile The coordinates of the blocked tile
+     */
+    public static void printBlockedTile(final Coordinate blockedTile) {
+        System.out.println(FORMATTER_CONTROL.formatText("La casella di coordinate "
+                + blockedTile.toString()
+                + " e' stata bloccata", Color.BLUE));
     }
 }
