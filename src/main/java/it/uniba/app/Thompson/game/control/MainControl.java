@@ -10,6 +10,7 @@ import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -209,6 +210,18 @@ public final class MainControl {
                     PrintBoardBoundary.printBoard(board);
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
+                }
+                if (board.isBoardFull()) {
+                    int wp = board.countPawns(PawnFigure.WHITE_PAWN);
+                    int bp = board.countPawns(PawnFigure.BLACK_PAWN);
+                    if (wp == bp) {
+                        CommunicateInteractionMessagesBoundary.printDraw(bp, wp);
+                    } else if (wp > bp) {
+                        CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.WHITE_PAWN, wp, bp);
+                    } else {
+                        CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.BLACK_PAWN, bp, wp);
+                    }
+                    removeMatch();
                 }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();

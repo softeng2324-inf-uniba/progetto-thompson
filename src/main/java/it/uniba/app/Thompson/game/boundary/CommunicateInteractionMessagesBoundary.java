@@ -63,6 +63,16 @@ public final class CommunicateInteractionMessagesBoundary {
     }
 
     /**
+     * Method printDraw, prints to stdout the draw message.
+     */
+    public static void printDraw(final int blackPawnCount, final int whitePawnCount) {
+        System.out.println(FORMATTER_CONTROL.formatText("La partita è finita in pareggio con un punteggio di "
+                + blackPawnCount
+                + " a "
+                + whitePawnCount, Color.BLUE, Style.ITALIC));
+    }
+
+    /**
      * Method printTitle, prints to stdout the title.
      * @param title The title to print
      */

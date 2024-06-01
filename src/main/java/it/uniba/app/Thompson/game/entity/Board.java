@@ -271,6 +271,19 @@ public final class Board {
     }
 
     /**
+     * Method isBoardFull.
+     * @return Returns true if the board is full, false otherwise
+     */
+    public boolean isBoardFull() {
+        for (Tile tile : tiles) {
+            if (!tile.isOccupied()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * Method attack, attacks the pawn in the given coordinate.
      * @param pawn The pawn to attack
      */
