@@ -267,4 +267,17 @@ public final class Board {
         return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
                 && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
     }
+
+    /**
+     * Method isBoardFull.
+     * @return Returns true if the board is full, false otherwise
+     */
+    public boolean isBoardFull() {
+        for (Tile tile : tiles) {
+            if (!tile.isOccupied()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
