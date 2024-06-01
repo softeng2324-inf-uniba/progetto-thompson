@@ -7,6 +7,8 @@ import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -118,7 +120,7 @@ public final class MainControl {
                 throw new InvalidArgumentsError();
             }
 
-            return availableCommands.get(commandStrings[0]).executeCommand();
+            return commandControl.executeCommand(Arrays.copyOfRange(commandStrings, 1, commandStrings.length));
         }
         throw new CommandNotFoundError();
     }
