@@ -10,7 +10,7 @@ public final class BlockCommandControl extends CommandControl {
     /**
      * Attributes of the class BlockCommandControl.
      **/
-    private static final String COMMAND = "/block";
+    private static final String COMMAND = "/blocca";
     private static final String DESCRIPTION = "Prima di iniziare permette di bloccare una casella del tavoliere (max 9)";
     private static final int ARGUMENT_COUNT = 1;
     private static final BlockCommandControl INSTANCE = new BlockCommandControl();
