@@ -202,6 +202,15 @@ public final class MainControl {
             String[] commandStrings = UserInputBoundary.getCommandAndArguments();
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
+                if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
+                    String[] toConvert = commandStrings[0].split("-");
+                    Coordinate from = Coordinate.toCoordinate(toConvert[0]);
+                    Coordinate to = Coordinate.toCoordinate(toConvert[1]);
+                    board.movePawn(from, to);
+                    PrintBoardBoundary.printBoard(board);
+                } else {
+                    status = findAndExecuteCommand(commandStrings, availableCommands);
+                }
                 if (board.isBoardFull()) {
                     int wp = board.countPawns(PawnFigure.WHITE_PAWN);
                     int bp = board.countPawns(PawnFigure.BLACK_PAWN);
@@ -213,15 +222,6 @@ public final class MainControl {
                         CommunicateInteractionMessagesBoundary.printWinner(PawnFigure.BLACK_PAWN, bp, wp);
                     }
                     break;
-                }
-                if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
-                    String[] toConvert = commandStrings[0].split("-");
-                    Coordinate from = Coordinate.toCoordinate(toConvert[0]);
-                    Coordinate to = Coordinate.toCoordinate(toConvert[1]);
-                    board.movePawn(from, to);
-                    PrintBoardBoundary.printBoard(board);
-                } else {
-                    status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
