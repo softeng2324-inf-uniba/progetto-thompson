@@ -122,6 +122,13 @@ public final class CommunicateErrorsBoundary {
     }
 
     /**
+     * Method printImpossibleMove, prints to stdout the impossible move message.
+     */
+    public static void printImpossibleMove() {
+        System.out.println(ErrorMessages.IMPOSSIBLE_MOVE);
+    }
+
+    /**
      * Method printImpossibleBlock, prints to stdout the impossible block message.
      */
     public static void printImpossibleBlock() {
