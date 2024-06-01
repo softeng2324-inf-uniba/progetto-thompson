@@ -88,7 +88,7 @@ public final class MainControl {
      * Method initMatch.
      */
     public static void initMatch() {
-        match = new Match();
+        match = new Match(MainControl.getBoard());
     }
 
     /**
@@ -105,9 +105,8 @@ public final class MainControl {
 
     /**
      * Method setMatchBoard.
-     * @param board The board to be set
      */
-    public static void setMatchBoard(final Board board) {
+    public static void setMatchBoard() {
         match.setBoard(board);
     }
 
@@ -206,9 +205,7 @@ public final class MainControl {
                     String[] toConvert = commandStrings[0].split("-");
                     Coordinate from = Coordinate.toCoordinate(toConvert[0]);
                     Coordinate to = Coordinate.toCoordinate(toConvert[1]);
-                    Board board = MainControl.getMatch().getBoard();
                     board.movePawn(from, to);
-                    match.setBoard(board);
                     PrintBoardBoundary.printBoard(board);
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
