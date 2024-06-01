@@ -40,6 +40,9 @@ public final class PrintBoardBoundary {
                 Tile currentTile = board.getTile(new Coordinate(i, j));
                 if (currentTile.isOccupied()) {
                     System.out.print(" " + UnicodePawn.getPawnUnicode(currentTile.getPawn().getFigure()) + " |");
+                } else if (currentTile.isInvalid()) {
+                    FormatterControl formatter = new FormatterControl();
+                    System.out.print(" " + formatter.formatText("\u2B1B", Color.GREY) + " |");
                 } else {
                     System.out.print("   |");
                 }
