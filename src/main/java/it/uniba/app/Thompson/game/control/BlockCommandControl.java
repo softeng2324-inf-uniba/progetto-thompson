@@ -84,6 +84,10 @@ public final class BlockCommandControl extends CommandControl {
 
         Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
         Board board = MainControl.getBoard();
+        if (!board.isInBoard(blockedCoordinate)) {
+            CommunicateErrorsBoundary.printImpossibleBlock();
+            return CommandStatus.FAILED;
+        }
 
         try {
             board.blockTile(blockedCoordinate);
