@@ -1,8 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
 import it.uniba.app.Thompson.game.util.PawnFigure;
-import it.uniba.app.Thompson.game.util.UserInteractionMessages;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

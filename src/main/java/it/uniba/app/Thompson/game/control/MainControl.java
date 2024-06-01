@@ -184,7 +184,7 @@ public final class MainControl {
         }
     }
 
-    private static void manageMove(Coordinate from, Coordinate to) {
+    private static void manageMove(final Coordinate from, final Coordinate to) {
         Board b = match.getBoard();
         b.movePawn(from, to);
         match.setBoard(b);
