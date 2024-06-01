@@ -255,6 +255,7 @@ public final class Board {
             this.setTile(from, fromTile);
             this.setTile(to, toTile);
             this.attack(to);
+            MainControl.pushMoveQueue(new Move(from, to));
             MainControl.switchTurn();
         }
         int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
@@ -264,6 +265,7 @@ public final class Board {
             CommunicateInteractionMessagesBoundary.printSkipTurn(MainControl.getMatch().getCurrentTurn());
             MainControl.switchTurn();
         }
+
     }
 
     /**

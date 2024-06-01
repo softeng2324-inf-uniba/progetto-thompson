@@ -6,6 +6,7 @@ import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
 import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
 import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.entity.Match;
+import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
@@ -109,6 +110,14 @@ public final class MainControl {
      */
     public static void setMatchBoard() {
         match.setBoard(board);
+    }
+
+    /**
+     * Method pushMove.
+     * @param move The move to be pushed in the queue
+     */
+    public static void pushMoveQueue(final Move move) {
+        match.pushMove(move);
     }
 
     /**
