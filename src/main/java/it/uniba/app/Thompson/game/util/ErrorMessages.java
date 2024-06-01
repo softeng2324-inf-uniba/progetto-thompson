@@ -63,6 +63,20 @@ public final class ErrorMessages {
     public static final String INVALID_ARGUMENTS = FORMATTER_CONTROL.formatText(
                                                                                 "Il numero di argomenti non e' valido",
                                                                                        Color.RED);
+
+    /**
+     * Constant containing the TOO_MANY_INVALID_TILES message.
+     */
+    public static final String TOO_MANY_INVALID_TILES = FORMATTER_CONTROL.formatText(
+            "Hai bloccato troppe caselle, ricorda che puoi bloccarne al massimo 9", Color.RED);
+
+    /**
+     * Constant containing the INVALID_TILE_TO_BLOCK message.
+     */
+    public static final String INVALID_TILE_TO_BLOCK = FORMATTER_CONTROL.formatText(
+            "Non puoi bloccare una casella che in partenza contiene una pedina e nemmeno le adiacenti ad essa",
+            Color.RED);
+
     /**
      * Constructor for the class ErrorMessages.
      */
