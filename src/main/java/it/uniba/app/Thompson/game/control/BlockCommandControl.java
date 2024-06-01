@@ -1,6 +1,7 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
+import it.uniba.app.Thompson.game.entity.Board;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
@@ -80,7 +81,10 @@ public final class BlockCommandControl extends CommandControl {
 
         Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
 
-        MainControl.getBoard().blockTile(blockedCoordinate);
+        Board board = MainControl.getBoard();
+        board.blockTile(blockedCoordinate);
+        MainControl.setBoard(board);
+
         CommunicateInteractionMessagesBoundary.printBlockedTile(blockedCoordinate);
 
         return CommandStatus.SUCCESSFUL;
