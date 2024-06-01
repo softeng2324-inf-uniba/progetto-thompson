@@ -283,6 +283,7 @@ public final class Board {
         return true;
     }
 
+    /**
      * Method attack, attacks the pawn in the given coordinate.
      * @param pawn The pawn to attack
      */
