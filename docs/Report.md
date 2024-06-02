@@ -68,7 +68,7 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 # 3 - Requisiti Specifici
 Di seguito vengono riportati i requisiti funzionali e non funzionali del progetto con stile di descrizione di tipo user story.
 ## 3.1 - Requisiti Sprint 1:
-
+**Obiettivo: piccoli comandi**
 ### 3.1.1 - Funzionali
 
 - **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
@@ -131,6 +131,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     - **MacOS:** terminal (_a seguito della modifica delle impostazioni di encoding_).
 
 ## 3.2 - Requisiti Funzionali Sprint 2
+**Obiettivo: completare il gioco assicurando la qualità del software**
 - **RF1: Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
 
   #### Criteri di accettazione
