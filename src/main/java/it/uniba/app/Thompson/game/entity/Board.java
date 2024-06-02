@@ -257,13 +257,13 @@ public final class Board {
             this.attack(to);
             MainControl.pushMoveQueue(new Move(from, to));
             MainControl.switchTurn();
-        }
-        int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
-                MainControl.getMatch().getCurrentTurn());
-        if (VerifyMovesControl.isMaskEmpty(mask)) {
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
+                    MainControl.getMatch().getCurrentTurn());
+            if (VerifyMovesControl.isMaskEmpty(mask)) {
 
-            CommunicateInteractionMessagesBoundary.printSkipTurn(MainControl.getMatch().getCurrentTurn());
-            MainControl.switchTurn();
+                CommunicateInteractionMessagesBoundary.printSkippingTurn(MainControl.getMatch().getCurrentTurn());
+                MainControl.switchTurn();
+            }
         }
 
     }
