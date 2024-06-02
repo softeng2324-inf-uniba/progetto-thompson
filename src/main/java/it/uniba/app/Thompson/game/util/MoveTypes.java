@@ -7,9 +7,9 @@ package it.uniba.app.Thompson.game.util;
 public enum MoveTypes {
 
         /**
-         * IMPOSSIBLE The impossibility to make a move in a certain tile.
+         * INVALID The  impossibility to make the block move.
          */
-        IMPOSSIBLE,
+        INVALID,
 
         /**
          * Generate The possibility to make the generate move .
@@ -24,5 +24,5 @@ public enum MoveTypes {
         /**
          * BOTH The possibility to make both type of moves.
          */
-        BOTH
+        BOTH,
 }
