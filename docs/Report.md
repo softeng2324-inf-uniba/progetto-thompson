@@ -309,15 +309,19 @@ Questo comando avvierà il gioco Ataxx
 
 - ### Al comando `/blocca`:
     <details open>
-        Permette di bloccare una casella quando non è in corso nessuna partita.
+        Permette di bloccare una casella quando non è in corso nessuna partita fino ad un massimo di 9. Le caselle non devono essere adiacenti (2 caselle) a quelle di partenza.
+        <h4>Scenario 1:</h4>
+        Esempio di esecuzione corretta del comando:
         <p align="center">
           <img src="img/block.jpeg" alt="blocco di una casella"/>
         </p>
-        Non è possibile bloccare delle caselle adiacenti a quelle di partenza.
+        <h4>Scenario 2:</h4>
+        Esempio di esecuzione del comando su caselle adiacenti a quelle di partenza:
         <p align="center">
           <img src="img/block_failed.jpeg" alt="blocco di una casella invalida"/>
         </p> 
-        Non è possibile modificare più di 9 caselle.
+        <h4>Scenario 3:</h4>
+        Esempio di esecuzione del comando dopo aver già bloccato 9 caselle:
         <p align="center">
           <img src="img/block_failed_1.jpeg" height="350" alt="blocco di più di nove caselle"/>
         </p> 
