@@ -47,7 +47,8 @@ public final class VerifyMovesControl {
             if ((turn != colorFrom)) {
                 exists = false;
                 CommunicateErrorsBoundary.printWrongPlayer(turn);
-            } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)) {
+            } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)
+                    || !board.isAdjacent(from, to)) {
                 CommunicateErrorsBoundary.printInvalidMove();
                 exists = false;
             }
