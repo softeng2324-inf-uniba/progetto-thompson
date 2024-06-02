@@ -5,15 +5,17 @@
   -  [**1.2 - Descrizione Progetto**](#descrizione-progetto)
 - ### [**2 - Modello di Dominio**](#2---modello-di-dominio)
 - ### [**3 - Requisiti Specifici**](#3---requisiti-specifici)
-  -  [**3.1 - Requisiti Funzionali**](#31--requisiti-funzionali-)
-  - [**3.2 - Requisiti Non Funzionali**](#32---requisiti-non-funzionali)
+    - [**3.1 - Requisiti Sprint 1**](#31---requisiti-sprint-1)
+      -  [**3.1.1 - Funzionali**](#311---funzionali)
+      - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
+    - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#procedura-preliminare)
 
     <ul>
-    <li><h4><a href="#github"> <u>7.1.1 - Creazione Token Github</u> </a></h4></li>
+    <li><h4><a href="#github"> 7.1.1 - Creazione Token Github </a></h4></li>
     
-    <li><h4><a href="#docker"> <u>7.1.2 - Autenticazione Docker</u> </a></h4></li>
+    <li><h4><a href="#docker"> 7.1.2 - Autenticazione Docker </a></h4></li>
     </ul>
   
   - [**7.2 - Regole di Gioco**](#regole-di-gioco)
@@ -70,7 +72,10 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 
 # 3 - Requisiti Specifici
 Di seguito vengono riportati i requisiti funzionali e non funzionali del progetto con stile di descrizione di tipo user story.
-## 3.1 -Requisiti funzionali 
+## 3.1 - Requisiti Sprint 1:
+**Obiettivo: piccoli comandi**
+### 3.1.1 - Funzionali
+
 - **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
 
     #### Criteri di accettazione
@@ -89,7 +94,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 - **RF3: Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
 
     #### Criteri di accettazione
-    Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (7 per lato) con le righe numerate da 1 a 7 e le colonne numerate da ‘a’ a ‘g’.
+    Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (_7 per lato_) con le righe numerate da 1 a 7 e le colonne numerate da ‘A’ a ‘G’.
     <br></br>
 - **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione** 
 
@@ -114,7 +119,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     
     #### Criteri di accettazione
     Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
-    - se la conferma è positiva, l'app comunica che il Bianco (o Nero) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
+    - se la conferma è positiva, l'app comunica che il Bianco (_o Nero_) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
     - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
     <br></br>
 - **RF7: Come giocatore voglio chiudere il gioco** 
@@ -123,12 +128,73 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     Al comando `/esci` l'applicazione chiede conferma:
     - se la conferma è positiva, l'app si chiude restituendo il controllo al sistema operativo;
     - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
-## 3.2 - Requisiti non funzionali
+
+### 3.1.2 - Non Funzionali
 - **RNF1**: Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16. A seguito un elenco di terminali adeguati divisi per sistema operativo:
     - **Linux:** terminal;
     - **Windows:** Powershell, Git Bash; 
-    - **MacOS:** terminal (a seguito della modifica delle impostazioni di encoding).
+    - **MacOS:** terminal (_a seguito della modifica delle impostazioni di encoding_).
 
+## 3.2 - Requisiti Funzionali Sprint 2
+**Obiettivo: completare il gioco assicurando la qualità del software**
+- **RF1: Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
+
+  #### Criteri di accettazione
+  A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno giochi sul tavoliere una nuova pedina (_bianca o nera_) in una casella adiacente (_in senso ortogonale e diagonale_) ad un'altra in cui vi sia già una propria pedina, utilizzando una notazione algebrica del tipo: `a1-a2`, dove `a1` è la casella di partenza e `a2` è la casella adiacente.
+  <br></br>
+- **RF2: Come giocatore voglio spostare una propria pedina saltando una casella adiacente**
+
+  #### Criteri di accettazione
+  A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno sposti sul tavoliere una propria pedina (_bianca o nera_) con il salto di una casella adiacente, utilizzando una notazione algebrica del tipo: `a1-a3`, dove `a1` è la casella di partenza e `a3` è la casella di arrivo.
+  La casella di arrivo deve essere libera e non deve essere adiacente alla casella originaria.
+  La casella saltata può anche essere occupata da una propria pedina o da una pedina avversaria.
+  <br></br>
+- **RF3: Come giocatore voglio catturare una pedina avversaria come effetto di una mossa**
+
+  #### Criteri di accettazione
+  Se al termine di una mossa vi sono pedine avversarie adiacenti alla casella di arrivo, sia per la mossa di espansione che di spostamento, queste vengono catturate cambiando di colore.
+  <br></br>
+- **RF4: Come giocatore voglio mostrare le mosse giocate**
+
+  #### Criteri di accettazione
+  Al comando `/mosse`, l'app mostra la storia delle mosse con notazione algebrica.
+  Per esempio:
+  - 1 a1-a2 (N); 
+  - 2 g7-g6 (B);
+  <br></br>
+- **RF5: Come giocatore voglio passare il turno per impossibilità di movimento**
+
+  #### Criteri di accettazione
+  Se il giocatore non può muovere nessuna pedina del proprio colore, l’app avvisa che il turno passa all’altro colore.
+  <br></br>
+- **RF6: Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati**
+
+  #### Criteri di accettazione
+  Se nessuna pedina può essere mossa perché le caselle del tavoliere sono state tutte riempite, allora l’app dichiara il vincitore (_bianco o nero_) e riporta i punti del bianco e bero contando le rispettive pedine.
+  <br></br>
+  L'app si predispone a ricevere nuovi comandi.
+  <br></br>
+- **RF7: Come giocatore voglio mostrare il tempo di gioco**
+
+  #### Criteri di accettazione
+
+  Al comando `/tempo`, l'app mostra il tempo trascorso dall’inizio partita nel formato `ore:minuti:secondi`.
+  <br></br>
+  L'app si predispone a ricevere nuovi comandi
+<br></br>
+- **RF8: Come giocatore voglio impostare caselle non accessibili**
+
+  #### Criteri di accettazione
+  A partita non in corso, al comando `/blocca xn`, dove `xn` sono le coordinate di una casella,
+  la casella `xn` non è accessibile per le pedine ed è mostrata sul tavoliere con uno sfondo grigio.
+  <br></br>
+  **Non è possibile bloccare:**
+  
+  - Le caselle di partenza del gioco;
+  - Tutte le caselle adiacenti a una casella di partenza del gioco, rendendo impossibile la mossa di espansione di una pedina a inizio gioco
+  - Tutte le caselle a distanza 2 da una casella di partenza del gioco, rendendo impossibile la mossa di salto di una pedina a inizio gioco
+<br></br>
+    Inoltre non è possibile bloccare più di 9 caselle.
 #### [Ritorna all'Indice](#indice)
 
 # 7 - Manuale Utente 
@@ -144,7 +210,7 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 
 Verificare di utilizzare uno dei terminali supportati riportati in 
 
-- [Requisiti non funzionali](#32---requisiti-non-funzionali)
+- [Requisiti non funzionali](#312---non-funzionali)
 
 Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi descritti di seguito:
 
