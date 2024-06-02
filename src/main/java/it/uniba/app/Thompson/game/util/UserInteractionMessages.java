@@ -38,13 +38,6 @@ public final class UserInteractionMessages {
             Color.BLUE, Style.ITALIC);
 
     /**
-     * Constant containing the SKIP_TURN message.
-     */
-    public static final String SKIP_TURN = FORMATTER_CONTROL.formatText(
-            "Nessuna pedina che possiedi può effettuare una mossa valida, il turno passa al .",
-            Color.BLUE, Style.ITALIC);
-
-    /**
      * Constructor for the class UserInteractionMessages.
      */
     private UserInteractionMessages() { }
