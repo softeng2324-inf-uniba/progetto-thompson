@@ -273,6 +273,8 @@ public final class MainControl {
                 CommunicateErrorsBoundary.printInvalidArguments();
             }  catch (MatchNullError e) {
                 CommunicateErrorsBoundary.printSuggestMatchInit();
+            } catch (InvalidMoveError e) {
+                CommunicateErrorsBoundary.printInvalidMove();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }
