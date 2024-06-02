@@ -128,7 +128,7 @@ public final class CommunicateInteractionMessagesBoundary {
      * @param time The message to print
      */
     public static void printGameTime(final String time) {
-        System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita è: "
+        System.out.println(FORMATTER_CONTROL.formatText("Il tempo trascorso dalla partenza della partita e': "
                 + time, Color.BLUE));
 
     }
@@ -150,7 +150,7 @@ public final class CommunicateInteractionMessagesBoundary {
     public static void printSkippingTurn(final PawnFigure player) {
         System.out.println(FORMATTER_CONTROL.formatText("Il giocatore "
                 + (player == PawnFigure.BLACK_PAWN ? "nero" : "bianco")
-                + " salta il turno. Ora tocca al"
+                + " salta il turno. Ora tocca al "
                 + (player == PawnFigure.BLACK_PAWN ? "bianco" : "nero"), Color.ORANGE));
     }
 }
