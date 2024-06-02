@@ -9,6 +9,7 @@ import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
+import it.uniba.app.Thompson.game.error.MatchNullError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -265,6 +266,8 @@ public final class MainControl {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (InvalidArgumentsError e) {
                 CommunicateErrorsBoundary.printInvalidArguments();
+            }  catch (MatchNullError e) {
+                CommunicateErrorsBoundary.printSuggestMatchInit();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }
