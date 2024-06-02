@@ -197,6 +197,15 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     Inoltre non è possibile bloccare più di 9 caselle.
 #### [Ritorna all'Indice](#indice)
 
+# 4 - System Design
+
+## Diagramma dei Pacchetti
+Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per implementare il progetto, realizzato utilizzando il software [StarUML](https://staruml.io/)
+![Sytem_Design](img/System_Design.png)
+
+#### [Ritorna all'Indice](#indice)
+
+
 # 7 - Manuale Utente 
 
 ## Procedura Preliminare
