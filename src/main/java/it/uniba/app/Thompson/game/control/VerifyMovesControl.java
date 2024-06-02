@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
-import it.uniba.app.Thompson.game.entity.Board;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
+import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.VariantMove;
@@ -32,12 +32,12 @@ public final class VerifyMovesControl {
      * @param to The ending coordinate
      * @return exists The boolean value of the move
      */
-    public static boolean verifyMovesSinglePawn(final Board board, final Coordinate from, final Coordinate to) {
+    public static boolean verifyMovesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
         if (board.getTile(to).isInvalid()) {
-            CommunicateErrorsBoundary.printImpossibleMove();
+            CommunicateErrorsB.printImpossibleMove();
         } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
@@ -46,14 +46,14 @@ public final class VerifyMovesControl {
 
             if ((turn != colorFrom)) {
                 exists = false;
-                CommunicateErrorsBoundary.printWrongPlayer(turn);
-            } else if (!(Board.isGenerable(to, board) == 1 || Board.isJumpable(to, board) == 2)
+                CommunicateErrorsB.printWrongPlayer(turn);
+            } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
-                CommunicateErrorsBoundary.printInvalidMove();
+                CommunicateErrorsB.printInvalidMove();
                 exists = false;
             }
         } else {
-            CommunicateErrorsBoundary.printInvalidStart();
+            CommunicateErrorsB.printInvalidStart();
         }
 
         return exists;
@@ -65,7 +65,7 @@ public final class VerifyMovesControl {
      * @param player The player
      * @return mask The mask of the moves
      */
-    public static int[][] verifyMovesAllPawns(final Board currentBoard, final PawnFigure player) {
+    public static int[][] verifyMovesAllPawns(final BoardE currentBoard, final PawnFigure player) {
         final int dimension = currentBoard.getSize();
 
         int[][] mask = new int[dimension][dimension];
@@ -77,7 +77,7 @@ public final class VerifyMovesControl {
 
             for (int i = 0; i < availableMoves[0].length; i++) {
                 Coordinate newCoordinate = Coordinate.plus(pawnCoordinate, availableMoves[0][i]);
-                int valid = Board.isGenerable(newCoordinate, currentBoard);
+                int valid = BoardE.isGenerable(newCoordinate, currentBoard);
                 if (valid != 0) {
                     mask[newCoordinate.getX()][newCoordinate.getY()] |= valid;
                 }
@@ -85,7 +85,7 @@ public final class VerifyMovesControl {
 
             for (int j = 0; j < availableMoves[1].length; j++) {
                 Coordinate newCoordinate = Coordinate.plus(pawnCoordinate, availableMoves[1][j]);
-                int valid = Board.isJumpable(newCoordinate, currentBoard);
+                int valid = BoardE.isJumpable(newCoordinate, currentBoard);
                 if (valid != 0) {
                     mask[newCoordinate.getX()][newCoordinate.getY()] |= valid;
                 }
