@@ -65,7 +65,8 @@ public final class ErrorMessages {
     /**
      * Constant containing the INVALID_MOVE message.
      */
-    public static final String INVALID_MOVE = FORMATTER_CONTROL.formatText("Mossa non valida, riprova", Color.ORANGE);
+    public static final String INVALID_MOVE = FORMATTER_CONTROL.formatText("La casella su cui vuoi effettuare la "
+                                                                + "mossa e' irraggiungibile ", Color.ORANGE);
 
     /**
      * Constant containing the INVALID_START message.
