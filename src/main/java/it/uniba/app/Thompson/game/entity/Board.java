@@ -273,11 +273,11 @@ public final class Board {
      * Check if coordinate b is adjacent a or is equal to it (max 2 tiles)
      * @param a Fixed coordinate
      * @param b Coordinate to test
-     * @return Returns true if b is adjacent a, false otherwise
+     * @return Returns true if b is adjacent to a, false otherwise
      */
-    private boolean isAdjacent(final Coordinate a, final Coordinate b) {
-        return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
-                && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
+    public boolean isAdjacent(final Coordinate a, final Coordinate b) {
+        return (Math.abs(a.getY() - b.getY()) <= CONSIDERED_ADJACENT)
+                && (Math.abs(a.getX() - b.getX()) <= CONSIDERED_ADJACENT);
     }
 
     /**
