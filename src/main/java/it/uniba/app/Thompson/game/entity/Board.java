@@ -130,7 +130,7 @@ public final class Board {
     public void setTiles(final Tile[] newTiles) {
         Tile[] defensiveCopy = new Tile[newTiles.length];
         for (int i = 0; i < newTiles.length; i++) {
-            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
+            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY(), newTiles[i].isInvalid());
             if (newTiles[i].isOccupied()) {
                 defensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
             }
