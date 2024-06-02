@@ -224,10 +224,10 @@ public final class Board {
         }
 
         Coordinate[] invalidCoordinates = {
-            new Coordinate(1, 1),
-            new Coordinate(1, size),
-            new Coordinate(size, 1),
-            new Coordinate(size, size),
+            new Coordinate(0, 0),
+            new Coordinate(0, size - 1),
+            new Coordinate(size - 1, 0),
+            new Coordinate(size - 1, size - 1),
         };
 
         if (Arrays.stream(invalidCoordinates).anyMatch(invalidCoordinate -> isAdjacent(invalidCoordinate,
