@@ -297,6 +297,23 @@ Questo comando avvierà il gioco Ataxx
         <p align="center"><img src="img/Abbandona_Scelta_Non_Valida.png" alt="abbandona"/></p>
       <summary>Visualizza Dettagli</summary>
     </details>
+  
+- ### Al comando `/blocca`:
+    <details open>
+        Permette di bloccare una casella quando non è in corso nessuna partita.
+        <p align="center">
+          <img src="img/block.jpeg" alt="blocco di una casella"/>
+        </p>
+        Non è possibile bloccare delle caselle adiacenti a quelle di partenza.
+        <p align="center">
+          <img src="img/block_failed.jpeg" alt="blocco di una casella invalida"/>
+        </p> 
+        Non è possibile modificare più di 9 caselle.
+        <p align="center">
+          <img src="img/block_failed_1.jpeg" height="350" alt="blocco di più di nove caselle"/>
+        </p> 
+        <summary>Visualizza Dettagli</summary>
+    </details>
 
 - ### Al comando `/tempo`:
     <details open>
