@@ -16,10 +16,13 @@ public final class HelpBoundary {
      * Method printCommands, prints to stdout the available commands.
      * @param commands The array of commands that will be printed
      */
-    public static void printCommands(final CommandControl[] commands) {
+    public static void printCommands(final String extraCommand, final CommandControl[] commands) {
+
+        System.out.println(" - " + extraCommand);
+
         for (CommandControl command : commands) {
-            System.out.print(
-                " - " + command.getCommand() + " : " + command.getDescription() + "\n"
+            System.out.println(
+                " - " + command.getCommand() + " : " + command.getDescription()
             );
         }
     }
