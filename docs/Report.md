@@ -327,13 +327,16 @@ Questo comando avvierà il gioco Ataxx
 - ### Al comando `/tempo`:
     <details open>
         Mostra all'utente il tempo di gioco qunado è in corso una partita.
+        <h4>Scenario 1:</h4>
+            Esempio di esecuzione corretta del comando 
         <p align="center">
           <img src="img/gameTime.jpeg" alt="tempo di gioco"/>
         </p>
-        Se non è in corso nessuna partita mostra un messaggio di errore.
+        <h4>Scenario 2:</h4>
+            Esempio di esecuzione del comando quando non è in corso nessuna partita:
         <p align="center">
-          <img src="img/gameTimeError.jpeg" alt="errore tempo di gioco"/>
-        </p>   
+          <img src="img/gameTimeError.jpeg" alt="tempo di gioco"/>
+        </p>
         <summary>Visualizza Dettagli</summary>
     </details>
 
