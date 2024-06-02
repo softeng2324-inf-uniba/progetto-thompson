@@ -13,9 +13,9 @@
   - [**7.1 - Procedura Preliminare**](#procedura-preliminare)
 
     <ul>
-    <li><h4><a href="#github"> <u>7.1.1 - Creazione Token Github</u> </a></h4></li>
+    <li><a href="#github"><u><h4> 7.1.1 - Creazione Token Github </h4></u></a></li>
     
-    <li><h4><a href="#docker"> <u>7.1.2 - Autenticazione Docker</u> </a></h4></li>
+    <li><a href="#docker"><u><h4> 7.1.2 - Autenticazione Docker </h4></u></a></li>
     </ul>
   
   - [**7.2 - Regole di Gioco**](#regole-di-gioco)
