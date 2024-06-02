@@ -297,7 +297,16 @@ Questo comando avvierà il gioco Ataxx
         <p align="center"><img src="img/Abbandona_Scelta_Non_Valida.png" alt="abbandona"/></p>
       <summary>Visualizza Dettagli</summary>
     </details>
-  
+
+- ### Al comando `/mosse`:
+    <details open>
+        Permette di mostrare tutte le mosse eseguite durante il corso di una partita.
+        <p align="center">
+          <img src="img/move_list.jpeg" alt="lista delle mosse"/>
+        </p>
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
 - ### Al comando `/blocca`:
     <details open>
         Permette di bloccare una casella quando non è in corso nessuna partita.
