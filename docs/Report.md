@@ -344,6 +344,24 @@ Questo comando avvierà il gioco Ataxx
         <summary>Visualizza Dettagli</summary>
     </details>
 
+- ### Esecuzione di una mossa`:
+    <details open>
+        Una mossa può essere effettuata senza l'utilizzo di un prefisso di un comando attraverso la digitazione della casella di partenza
+        dove è situata una pedina di proprietà e la casella di arrivo, il comando sarà ad esempio a1-a2 per spostare la pedina presente in 
+        a1 sulla casella a2. Una volta spostata avviene l'eventuale cattura delle pedine circostanti
+        <h4>Scenario 1:</h4>
+            Spostamento di una pediana
+        <p align="center">
+          <img src="img/move_example_1.jpeg" alt="esempio di una mossa 1" height="500"/>
+        </p>
+        <h4>Scenario 2:</h4>
+            Spostamento di una pediana seguito da una cattura
+        <p align="center">
+          <img src="img/move_example_2.jpeg" alt="esempio di una mossa 2" height="500"/>
+        </p>
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
 - ### Al comando `/esci`:
     <details open>Chiude il gioco e restituisce il controllo al sistema operativo.<p align="center"><img src="img/Esci.png" alt="esci"/></p>
       <h5>In output un messaggio di arrivederci.</h5>
