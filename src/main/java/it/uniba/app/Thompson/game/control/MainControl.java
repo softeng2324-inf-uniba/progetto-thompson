@@ -250,7 +250,11 @@ public final class MainControl {
             String[] commandStrings = UserInputBoundary.getCommandAndArguments();
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
+                if (matcher.controlInputMovement(commandStrings[0])) {
+                    if (match == null) {
+                        throw new MatchNullError();
+                    }
+
                     String[] toConvert = commandStrings[0].split("-");
 
                     manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
