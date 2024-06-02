@@ -204,6 +204,10 @@ public final class MainControl {
         match.setBoard(b);
 
         PrintBoardBoundary.printBoard(b);
+
+        if (match != null && b.isBoardFull()) {
+            endMatch();
+        }
     }
 
     /**
@@ -252,10 +256,6 @@ public final class MainControl {
                     manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
-                }
-
-                if (match != null && match.getBoard().isBoardFull()) {
-                    endMatch();
                 }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
