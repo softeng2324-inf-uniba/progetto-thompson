@@ -135,8 +135,11 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 - Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
 - Autenticarsi su Docker con github access token tramite CLI come segue:
 
-<h2 id="github"> <img src="img/Github-logo.png" alt="github logo" height="60"> Creazione Token per il Docker login</h2>
 
+<img src="img/Github-logo.png" align="left" width="5%"/>
+<h2 id="docker"> Creazione Token per il Docker login</h2>
+
+<br clear="left"/>
 Verificare di utilizzare uno dei terminali supportati riportati in 
 
 - [Requisiti non funzionali](#32---requisiti-non-funzionali)
@@ -162,7 +165,10 @@ Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu 
 
 A questo punto si è pronti per accedere a Docker tramite Github PAT
 
-<h2 id="docker"> <img src="img/Docker-logo.png" alt="Docker logo" height="55" > Autenticazione Docker ed Avvio </h2>
+<img src="img/Docker-logo.png" align="left" width="10%"/>
+<h2 id="docker"> Docker Login con GitHub Access Token</h2>
+
+<br clear="left"/>
 
 1. **Copia del token su un file `.txt`**:
 
@@ -316,11 +322,16 @@ Questo comando avvierà il gioco Ataxx
           <img src="img/block.jpeg" alt="blocco di una casella"/>
         </p>
         <h4>Scenario 2:</h4>
-        Esempio di esecuzione del comando su caselle adiacenti a quelle di partenza:
+        Esempio di esecuzione del comando su caselle non esistenti all'interno del tavoliere:
         <p align="center">
           <img src="img/block_failed.jpeg" alt="blocco di una casella invalida"/>
         </p> 
         <h4>Scenario 3:</h4>
+        Esempio di esecuzione del comando su caselle adiacenti a quelle di partenza:
+        <p align="center">
+          <img src="img/block_adjacent.png" alt="blocco di una casella invalida" width="80%"/>
+        </p> 
+        <h4>Scenario 4:</h4>
         Esempio di esecuzione del comando dopo aver già bloccato 9 caselle:
         <p align="center">
           <img src="img/block_failed_1.jpeg" height="350" alt="blocco di più di nove caselle"/>
@@ -350,14 +361,24 @@ Questo comando avvierà il gioco Ataxx
         dove è situata una pedina di proprietà e la casella di arrivo, il comando sarà ad esempio a1-a2 per spostare la pedina presente in 
         a1 sulla casella a2. Una volta spostata avviene l'eventuale cattura delle pedine circostanti
         <h4>Scenario 1:</h4>
-            Spostamento di una pediana
+            Spostamento di una pedina
         <p align="center">
           <img src="img/move_example_1.jpeg" alt="esempio di una mossa 1" height="500"/>
         </p>
         <h4>Scenario 2:</h4>
-            Spostamento di una pediana seguito da una cattura
+            Spostamento di una pedina seguito da una cattura
         <p align="center">
           <img src="img/move_example_2.jpeg" alt="esempio di una mossa 2" height="500"/>
+        </p>
+        <h4>Scenario 3:</h4>
+            Spostamento di una pedina da una posizione di partenza errata:
+        <p align="center">
+          <img src="img/move_error_example.png" alt="esempio di una mossa 1" width="70%"/>
+        </p>
+        <h4>Scenario 4:</h4>
+            Spostamento di una pedina su una posizione di arrivo errata o non presente sul tavoliere:
+        <p align="center">
+          <img src="img/move_error_example1.png" alt="esempio di una mossa 1" width="70%"/>
         </p>
         <summary>Visualizza Dettagli</summary>
     </details>
