@@ -81,18 +81,22 @@ public final class HelpCommandControl extends CommandControl {
         CommunicateInteractionMessagesBoundary.printTitle("COMANDI DISPONIBILI");
 
         //inserire tutti i comandi disponibili
-        HelpBoundary.printCommands(new CommandControl[]{
-            HelpCommandControl.getInstance(),
-            VoidCommandControl.getInstance(),
-            BlockCommandControl.getInstance(),
-            PlayCommandControl.getInstance(),
-            AvailableMovesCommandControl.getInstance(),
-            BoardCommandControl.getInstance(),
-            MovesCommandControl.getInstance(),
-            QuitCommandControl.getInstance(),
-            ExitCommandControl.getInstance(),
-            TimeCommandControl.getInstance()
-        });
+        HelpBoundary.printCommands(
+            "Mossa : Per eseguire una mossa scrivi "
+                + "ad esempio a1-a3 (pedina-casella finale)",
+            new CommandControl[]{
+                HelpCommandControl.getInstance(),
+                VoidCommandControl.getInstance(),
+                BlockCommandControl.getInstance(),
+                PlayCommandControl.getInstance(),
+                AvailableMovesCommandControl.getInstance(),
+                BoardCommandControl.getInstance(),
+                MovesCommandControl.getInstance(),
+                QuitCommandControl.getInstance(),
+                ExitCommandControl.getInstance(),
+                TimeCommandControl.getInstance()
+            }
+        );
 
         return CommandStatus.SUCCESSFUL;
     }
