@@ -19,6 +19,12 @@
   - [**7.2 - Regole di Gioco**](#regole-di-gioco)
     - [**7.2.1 - Varianti**](#varianti)
   - [**7.3 - Guida All'Utilizzo**](#guida-allutilizzo)
+- ### [**8 - Processo di sviluppo e organizzazione del lavoro**](#8-processo-di-sviluppo-e-organizzazione-del-lavoro)
+    - [**8.1 - Introduzione al processo di sviluppo**](#81---introduzione-al-processo-di-sviluppo)
+    - [**8.2 - Roadmap degli sprint**](#82---roadmap-degli-sprint)
+    - [**8.3 - Gestione degli Sprint**](#83---gestione-degli-sprint)
+    - [**8.4 - Software utilizzati**](#84---software-utilizzati)
+    - [**8.5 - Comunicazione interna al team**](#85---comunicazione-interna-al-team)
 - ### [**9 - Analisi Retrospettiva**](#9---analisi-retrospettiva)
     - [**9.1 - Sprint 0**](#91---sprint-0)
     - [**9.2 - Sprint 1**](#92---sprint-1)
@@ -33,7 +39,6 @@ Il team di sviluppatori è composta da:
 + **Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))**
 + **Nicolo' Pacucci ([Pascoooo](https://github.com/Pascoooo))**
 + **Fabio Zippo ([IXRyu](https://github.com/IXRyu))**
-
 ## Descrizione progetto
 
 Di seguito viene riportata la documentazione riguardante il progetto di "Ingegneria del Software" anno 2023/24 che implementa il gioco **Ataxx**.
@@ -306,11 +311,207 @@ Questo comando avvierà il gioco Ataxx
 
 #### [Ritorna all'Indice](#indice)
 
+# 8 - Processo di sviluppo e organizzazione del lavoro
+## 8.1 - Introduzione al processo di sviluppo
+Durante l'intero periodo di sviluppo del progetto, il gruppo ha adoperato il metodo dello sviluppo software [
+*Agile*](https://agilemanifesto.org/iso/it/manifesto.html). Lo sviluppo Agile consiste in una fase iniziale di *analisi
+dei requisiti* con progressivi *miglioramenti* e *aggiornamenti* del prodotto software svolti dai membri del team di
+sviluppo.
+
+Seguendo i principi cardine dello sviluppo Agile, il team è stato in grado di pianificare e organizzare i task assegnati
+in maniera efficiente, con l'obbiettivo di ottenere un prodotto software stabile e robusto.
+
+Il processo di sviluppo è stato strutturato seguendo un approccio [*simil-Scrum*](https://www.scrum.org/). La
+metodologia Scrum offre delle iterazioni time-boxed, dette anche **Sprint**. In questo modo si è potuto suddividere
+l'intero sviluppo del progetto in 3 Sprint, ciascuno dei quali avente durata di 2 settimane.
+
+Il professore ha interpretato il ruolo di **Product Owner**. Per ogni Sprint, in aula e via [_Microsoft
+Teams_](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software), ci sono stati comunicati i requisiti,
+sotto forma di *Definition of Done* e *User Story*. Il team ha provveduto a realizzare una Board per ogni Sprint e dallo
+Sprint 1 è stato anche realizzato il Product Backlog, per contenere le User Story degli Sprint successivi.
+
+È stata definita un'organizzazione in stile Kanban per una Board avente 5 sezioni:
+
+- **To Do**: Task da risolvere;
+- **In Progress**: Task prese in carico dall'assignee;
+- **Review**: Task risolte, in fase di revisione;
+- **Ready**: Task risolte e revisionate dai reviewers;
+- **Done**: Task risolte, revisionate dai reviewers e approvate dal *Product Owner*.
+
+La Board è stata gestita utilizzando la sezione Project messa a disposizione da Github. Tale organizzazione, per la
+gestione dei task, è stata imposta per lo Sprint 0 per mostrare al team un modo per dividere il lavoro e tracciare i
+progressi dei vari task.
+È stato concesso al team la libertà di autogestirsi, avendo valutato come
+ottimale questa struttura, è stato deciso di mantenere lo stesso approccio utilizzato nello Sprint 0.
+
+Per la gestione dello sviluppo dei task è stato utilizzato il [_Github
+Flow_](https://docs.github.com/en/get-started/quickstart/github-flow): per ogni issue, identificata progressivamente
+con `#n`, è stato creato un branch, identificato come concordato ad inizio progetto `/[feat | fix | ref][nome_issue]/`, da parte del componente a cui è stata assegnata la
+issue. Una volta che il componente, ha concluso
+il suo lavoro, veniva sottoposto a un minimo di 2 reviewers, attraverso una **Pull Request**, in cui si discutevano
+eventuali problemi e/o migliorie per portare a termine la issue, una volta approvata la Pull Request, il suo
+branch viene unito al branch principale e, una volta unito, il branch della Pull Request viene cancellato.
+
+A ogni Sprint, svolto all'interno del progetto, è stato dedicato una **Milestone** e un **Project** dove, all'interno
+di ogni Project, sono state inserite le issue da svolgere per lo Sprint corrente.
+In questo modo, è stato possibile avere un quadro generale dei task dei progressi fatto dal team, tenendo così traccia
+di quali erano le issue da iniziare, quali in corso, quali in revisione e quali pronte alla revisione del *Product Owner*.
+
+Ogni qualvolta una issue veniva conclusa, i progressi di completamento della Milestone venivano aggiornati e, il suo
+completamento, significava il completamento delle issue assegnate per lo Sprint corrente.
+
+
+## 8.2 - Roadmap degli sprint
+
+| Sprint No. | Descrizione                                                | Data Inizio | Data Fine  | Durata    | Data Feedback |
+|------------|------------------------------------------------------------|-------------|------------|-----------|---------------|
+| 0          | Dimostrare familiarità con GitHub e il processo agile      | 31/03/2024  | 12/04/2024 | 13 giorni | 15-19/04/2024 |
+| 1          | Piccoli comandi                                            | 06/05/2024  | 21/06/2024 | 15 giorni | 30-31/05/2024 |
+| 2          | Completare il gioco, assicurando la qualità del software   | 29/05/2024  | 14/06/2024 | 16 giorni | 13-27/06/2024 | 
+
+## 8.3 - Gestione degli Sprint
+
+Dato l'utilizzo del framework Scrum, gli Sprint si compongono di quattro fasi principali: analisi, progettazione,
+implementazione e testing
+
+Il team fin da subito ha deciso di non puntare tutto sulle capacità individuali, ma di lavorare in sinergia, condividendo 
+le conoscenze e le competenze, per ottenere un prodotto di qualità, per questo motivo, è stato deciso di assegnare 
+gli issue tutti assieme e di ciclare i ruoli di reviewer e assignee per ogni issue, per evitare creazioni di sottogruppi ed aumentare la sinergia complessiva.
+
+Il team è cosciente che ogni persona ha dei punti forti e dei punti deboli, ma proprio per questo abbiamo deciso nel primo meeting di adottare questo approccio,
+per poter migliorare le nostre competenze e conoscenze, e per poter lavorare in un ambiente collaborativo e di crescita continua.
+
+1. ### **Fase di analisi:**
+
+   - Il team si è sempre riunito in un meeting iniziale per discutere e analizzare i requisiti del progetto, in modo da poterli suddividere in issue e assegnarli ai membri del team.
+
+2. ### **Fase di progettazione:**
+
+   - Il team utilizzando il framework Scrum per la gestione degli Sprint, ha potuto dividere il lavoro in maniera equa e trasparente.
+
+3. ### **Fase di implementazione:**
+
+   - Il team lavora in maniera sinergica per risolvere gli issues, condividendo le conoscenze e le competenze, per ottenere un prodotto di qualità.
+
+4. ### **Fase di testing:**
+
+   - Il team svolge un testing per verificare che ad ogni issue risolta, non ci fossero errori e che il codice fosse conforme alle regole di sviluppo imposte dal team.
+
+#### [Ritorna all'Indice](#indice)
+
+## Sprint 0
+
+Lo *Sprint Goal* era quello di mostrare familiarità con [_Git_](https://git-scm.com/), [_Github_](https://github.com/) e
+il processo Agile.
+- Per questo Sprint si sono decise tutte le regole di sviluppo e di condotta da seguire per il progetto, in modo da
+  garantire un ambiente di lavoro sano e collaborativo. Abbiamo scelto una durata di circa 30m-1h per il daily scrum, 
+  in modo da poter discutere i problemi e le soluzioni trovate.
+
+
+- Nella **fase di analisi** si sono risolti i primi issue, in modo da poter prendere confidenza con il processo di
+  sviluppo e con gli strumenti utilizzati.
+
+
+- In questo Sprint, i task riguardavano per lo più documentazione in modo da permettere ai componenti del team di
+    prendere confidenza con gli strumenti e i processi senza aggiungere complicazione dovute all'analisi, alla
+    progettazione e alla stesura di codice. Data quindi la natura delle attività, la **fase di progettazione** non è stata
+    inclusa.
+
+
+- Nella **fase di implementazione** si sono risolti gli issue assegnati, in modo da poter prendere confidenza con il
+  processo di sviluppo e con gli strumenti utilizzati.
+
+
+- Nella **fase di testing** si sono verificati che gli issue risolti non presentassero errori e che il codice fosse
+  conforme alle regole di sviluppo imposte dal team.
+
+## Sprint 1
+
+Lo *Sprint Goal* era quello di preparare il gioco.
+- Questo sprint è stato dedicato alla realizzazione dei primi comandi del gioco, in modo da poter iniziare a sviluppare
+  il gioco vero e proprio.
+
+
+- Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue, cercando di calibrare 
+chi avesse più esperienza a scrive codice e chi avesse più esperienza a scrivere documentazione, in modo da poter equilibrare le coppie. Ci sono stati però issue che sono state assegnate a singoli membri, poichè 
+troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro, quest'ultimi sono stati casi sporadici.
+Il team fin da subito ha voluto puntare sulla massima modularità del codice creando un diagramma di classi con prospettiva concettuale ricco di dettagli.
+Le classi sono state divise in package in modo da poter avere una visione più chiara del codice e per poterlo dividere in maniera più efficiente, risutando in un implementazione più pulita e ordinata.
+
+
+- Nella **fase di progettazione** si sono discusse le soluzioni da adottare per risolvere gli issue assegnati, ogni gruppo da due presentava la propria soluzione e i restanti membri ponevano domande e critiche,
+in modo da poter migliorare la soluzione proposta.
+
+
+- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione, 
+  seguendo le regole di sviluppo imposte dal team.
+
+
+- Nella **fase di testing** si sono verificati che gli issue risolti non presentassero errori e che il codice fosse
+  conforme alle regole di sviluppo imposte dal team.
+
+## Sprint 2
+
+Lo *Sprint Goal* era quello di completare il gioco, assicurando la qualità del software.
+
+- Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue come nello sprint precedente,
+  In particolare. si è scelto di dedicare del tempo alla **manutenzione evolutiva** del codice scritto, 
+  così da ridurre il più possibile _codice ridondante_ però grazie alla visione avuta durante lo sprint precedente queste modifiche sono state ridotte al minimo.
+
+
+- Nella **fase di progettazione** sono stati sviluppati il **diagramma dei package**, relativo al System Design, insieme
+  ai **diagrammi delle classi** e i **diagrammi di sequenza** delle user story principali
+
+
+- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione, 
+  seguendo le regole di sviluppo imposte dal team come negli sprint precedenti, Una volta terminate le user story del codice, il team si è dedicato alla successiva fase di
+  manutenzione evolutiva, richiedendo attivamente feedback agli altri membri del gruppo di lavoro, sfruttando i canali
+  comunicativi interni al gruppo.
+
+
+- Nella **fase di testing** si sono verificati che gli issue risolti non presentassero errori e che il codice fosse
+  conforme alle regole di sviluppo imposte dal team, inoltre si è svolto un testing con [Junit](https://junit.org/junit5/) per verificare che il gioco fosse conforme ai requisiti richiesti.
+
+## 8.4 - Software utilizzati
+
+- **Organizzazione e Review del lavoro**
+  - [*Microsoft Teams*](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software), in cui venivano definiti
+    i compiti per ogni Sprint;
+  - [*Discord*](https://discord.com/), per le riunioni interne al team;
+  - [*Whatsapp*](https://www.whatsapp.com/), per organizzare le riunioni sincrone.
+- **Ambienti di sviluppo**
+  - [*IntelliJ IDEA*](https://www.jetbrains.com/idea/) il team ha concordato di usare un IDE omogeneo per tutti i membri, è stato scelto IntelliJ per la sua versatilità e per la sua facilità d'uso.
+    - *Plugin aggiuntivi*
+      - [*CheckStyle IDEA*](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea), per controllare eventuali
+        problemi di CheckStyle evitando così di eseguire sempre il comando `./gradlew build`;
+      - [*Gradle*](https://gradle.org/), utilizzato per l'esecuzione del programma all'interno d'IntelliJ;
+      - [*Code With Me*](https://www.jetbrains.com/code-with-me/) è un tool d'IntelliJ che permette di lavorare
+        in maniera collaborativa su un progetto, permettendo di
+        condividere il proprio IDE con altri utenti, in modo da poter lavorare in maniera sincrona sullo stesso
+        progetto.
+- **Software per la creazione di diagrammi**
+  - [*StarUML*](https://staruml.io/), dato il precedente utilizzo di alcuni membri del team.
+## 8.5 - Comunicazione interna al team
+
+*Esempio di comunicazione asincrona tramite gruppo Whatsapp.*
+![img.png](img/whatsapp.png)
+
+*In questa foto è possibile vedere come Discord sia stato utile per lo svolgimento del lavoro, grazie all'uso di canali vocali, testuali e la possibilità di condividere il proprio schermo.*
+![img.png](img/discord1.png)
+
+*In questa foto è possibile vedere l'uso della chat testuale di Discord, in cui condividere immagini e file, in particolare i due link sono per sfruttare il Code with me di IntelliJ !*
+![img.png](img/discord2.png)
+
+#### [Ritorna all'Indice](#indice)
+
 # 9 - Analisi Retrospettiva
 - In questa sezione andremo ad analizzare i nostri comportamenti durante lo sviluppo del software
 ed il rispetto delle regole di sviluppo imposte dal team, dal codice di condotta e dal manifesto dello sviluppo agile.
 Si riporteranno i punti forza e debolezza emersi durante lo sviluppo del progetto tramite tabelle ed infine 
 verranno suggeriti i miglioramenti proposti per evitare errori simili in futuro.
+
+
+
 ## 9.1 - Sprint 0
 
 ### Analisi retrospettiva effettuata il 20/04/2024
