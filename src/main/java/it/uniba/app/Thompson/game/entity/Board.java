@@ -257,7 +257,7 @@ public final class Board {
             this.attack(to);
             MainControl.pushMoveQueue(new Move(from, to));
             MainControl.switchTurn();
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(this,
                     MainControl.getMatch().getCurrentTurn());
             if (VerifyMovesControl.isMaskEmpty(mask)) {
 
