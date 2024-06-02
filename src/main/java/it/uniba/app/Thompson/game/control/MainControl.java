@@ -9,6 +9,7 @@ import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
+import it.uniba.app.Thompson.game.error.InvalidMoveError;
 import it.uniba.app.Thompson.game.error.MatchNullError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
@@ -251,12 +252,16 @@ public final class MainControl {
             String[] commandStrings = UserInputBoundary.getCommandAndArguments();
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                if (matcher.controlInputMovement(commandStrings[0])) {
+                if (matcher.isGenericCoordinate(commandStrings[0])) {
                     if (match == null) {
                         throw new MatchNullError();
                     }
 
-                    String[] toConvert = commandStrings[0].split("-");
+                    if (!matcher.controlInputMovement(commandStrings[0])) {
+                        throw new InvalidMoveError();
+                    }
+
+                   String[] toConvert = commandStrings[0].split("-");
 
                     manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                 } else {
