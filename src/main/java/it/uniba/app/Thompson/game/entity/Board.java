@@ -130,7 +130,7 @@ public final class Board {
     public void setTiles(final Tile[] newTiles) {
         Tile[] defensiveCopy = new Tile[newTiles.length];
         for (int i = 0; i < newTiles.length; i++) {
-            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY());
+            defensiveCopy[i] = new Tile(newTiles[i].getX(), newTiles[i].getY(), newTiles[i].isInvalid());
             if (newTiles[i].isOccupied()) {
                 defensiveCopy[i].placePawn(newTiles[i].getPawn().getFigure());
             }
@@ -224,10 +224,10 @@ public final class Board {
         }
 
         Coordinate[] invalidCoordinates = {
-            new Coordinate(1, 1),
-            new Coordinate(1, size),
-            new Coordinate(size, 1),
-            new Coordinate(size, size),
+            new Coordinate(0, 0),
+            new Coordinate(0, size - 1),
+            new Coordinate(size - 1, 0),
+            new Coordinate(size - 1, size - 1),
         };
 
         if (Arrays.stream(invalidCoordinates).anyMatch(invalidCoordinate -> isAdjacent(invalidCoordinate,
@@ -257,13 +257,13 @@ public final class Board {
             this.attack(to);
             MainControl.pushMoveQueue(new Move(from, to));
             MainControl.switchTurn();
-        }
-        int[][] mask = VerifyMovesControl.verifyMovesAllPawns(MainControl.getBoard(),
-                MainControl.getMatch().getCurrentTurn());
-        if (VerifyMovesControl.isMaskEmpty(mask)) {
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(this,
+                    MainControl.getMatch().getCurrentTurn());
+            if (VerifyMovesControl.isMaskEmpty(mask)) {
 
-            CommunicateInteractionMessagesBoundary.printSkipTurn(MainControl.getMatch().getCurrentTurn());
-            MainControl.switchTurn();
+                CommunicateInteractionMessagesBoundary.printSkippingTurn(MainControl.getMatch().getCurrentTurn());
+                MainControl.switchTurn();
+            }
         }
 
     }
@@ -273,11 +273,11 @@ public final class Board {
      * Check if coordinate b is adjacent a or is equal to it (max 2 tiles)
      * @param a Fixed coordinate
      * @param b Coordinate to test
-     * @return Returns true if b is adjacent a, false otherwise
+     * @return Returns true if b is adjacent to a, false otherwise
      */
-    private boolean isAdjacent(final Coordinate a, final Coordinate b) {
-        return (Math.abs(a.getY() - b.getY()) < CONSIDERED_ADJACENT)
-                && (Math.abs(a.getX() - b.getX()) < CONSIDERED_ADJACENT);
+    public boolean isAdjacent(final Coordinate a, final Coordinate b) {
+        return (Math.abs(a.getY() - b.getY()) <= CONSIDERED_ADJACENT)
+                && (Math.abs(a.getX() - b.getX()) <= CONSIDERED_ADJACENT);
     }
 
     /**

@@ -9,6 +9,8 @@ import it.uniba.app.Thompson.game.entity.Match;
 import it.uniba.app.Thompson.game.entity.Move;
 import it.uniba.app.Thompson.game.error.CommandNotFoundError;
 import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
+import it.uniba.app.Thompson.game.error.InvalidMoveError;
+import it.uniba.app.Thompson.game.error.MatchNullError;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -204,6 +206,10 @@ public final class MainControl {
         match.setBoard(b);
 
         PrintBoardBoundary.printBoard(b);
+
+        if (match != null && b.isBoardFull()) {
+            endMatch();
+        }
     }
 
     /**
@@ -246,21 +252,29 @@ public final class MainControl {
             String[] commandStrings = UserInputBoundary.getCommandAndArguments();
             CommunicateInteractionMessagesBoundary.printNewLine();
             try {
-                if (matcher.controlInputMovement(commandStrings[0]) && MainControl.getMatch() != null) {
-                    String[] toConvert = commandStrings[0].split("-");
+                if (matcher.isGenericCoordinate(commandStrings[0])) {
+                    if (match == null) {
+                        throw new MatchNullError();
+                    }
+
+                    if (!matcher.controlInputMovement(commandStrings[0])) {
+                        throw new InvalidMoveError();
+                    }
+
+                   String[] toConvert = commandStrings[0].split("-");
 
                     manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
-
-                if (match.getBoard().isBoardFull()) {
-                    endMatch();
-                }
             } catch (CommandNotFoundError e) {
                 CommunicateErrorsBoundary.printCommandNotFound();
             } catch (InvalidArgumentsError e) {
                 CommunicateErrorsBoundary.printInvalidArguments();
+            }  catch (MatchNullError e) {
+                CommunicateErrorsBoundary.printSuggestMatchInit();
+            } catch (InvalidMoveError e) {
+                CommunicateErrorsBoundary.printInvalidMove();
             } catch (Error e) {
                 CommunicateErrorsBoundary.printGenericError();
             }

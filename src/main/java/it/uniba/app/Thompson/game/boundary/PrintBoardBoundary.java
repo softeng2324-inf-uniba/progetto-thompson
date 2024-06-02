@@ -42,7 +42,7 @@ public final class PrintBoardBoundary {
                     System.out.print(" " + UnicodePawn.getPawnUnicode(currentTile.getPawn().getFigure()) + " |");
                 } else if (currentTile.isInvalid()) {
                     FormatterControl formatter = new FormatterControl();
-                    System.out.print(" " + formatter.formatText("\u2B1B", Color.GREY) + " |");
+                    System.out.print(" " + formatter.formatText("\u2B1B", Color.GREY) + "|");
                 } else {
                     System.out.print("   |");
                 }
@@ -75,7 +75,9 @@ public final class PrintBoardBoundary {
             System.out.print((i + 1) + "  |");
             for (int j = 0; j < size; j++) {
                 Tile currentTile = board.getTile(new Coordinate(j, i));
-                if (currentTile.isOccupied()) {
+                if (currentTile.isInvalid()) {
+                    System.out.print(" " + formatter.formatText("\u2B1B", Color.GREY));
+                } else if (currentTile.isOccupied()) {
                     System.out.print(" " + UnicodePawn.getPawnUnicode(currentTile.getPawn().getFigure()) + " ");
                 } else {
                     MoveTypes moveType = MoveTypes.values()[mask[j][i]];

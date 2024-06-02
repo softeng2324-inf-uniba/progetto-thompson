@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 public class RegexMoveControl {
     private static final String MOVEMENT = "[a-g|A-G][1-7]-[a-g|A-G][1-7]";
     private static final String BLOCK = "[a-g|A-G][1-7]";
-
+    private static final String GENERIC_COORDINATE = "[a-z|A-Z][0-9]-[a-z|A-Z][0-9]";
     /**
      * Constructor for the class RegexMoveControl.
      */
@@ -23,6 +23,17 @@ public class RegexMoveControl {
      */
     public boolean controlInputMovement(final String input) {
         Pattern pattern = Pattern.compile(MOVEMENT);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
+    }
+
+    /**
+     * Method controlInputGenericCoordinate.
+     * @param input The input of the generic coordinate
+     * @return Returns the boolean value of the control on the generic coordinate
+     */
+    public boolean isGenericCoordinate(final String input) {
+        Pattern pattern = Pattern.compile(GENERIC_COORDINATE);
         Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
