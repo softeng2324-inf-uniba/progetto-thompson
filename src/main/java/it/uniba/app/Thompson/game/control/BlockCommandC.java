@@ -4,6 +4,8 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.PawnBlocked;
+import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
@@ -82,6 +84,13 @@ public final class BlockCommandC extends CommandC {
             return CommandStatus.FAILED;
         }
 
+        RegexMoveC regexMoveC = new RegexMoveC();
+
+        if (!regexMoveC.controlInputBlock(args[0])) {
+            CommunicateErrorsB.printCoordinateNotValid();
+            return CommandStatus.FAILED;
+        }
+
         Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
         BoardE board = MainControl.getBoard();
         if (!board.isInBoard(blockedCoordinate)) {
@@ -97,12 +106,16 @@ public final class BlockCommandC extends CommandC {
             PrintBoardB.printBoard(board);
 
             return CommandStatus.SUCCESSFUL;
-        } catch (Error e) {
-            CommunicateErrorsB.printInvalidTileToBlock();
+        } catch (TileAlreadyBlocked e) {
+            CommunicateErrorsB.printTileAlreadyBlocked();
 
             return CommandStatus.FAILED;
         } catch (ExcessBlockedTile e) {
             CommunicateErrorsB.printTooManyInvalidTiles();
+
+            return CommandStatus.FAILED;
+        } catch (PawnBlocked e) {
+            CommunicateErrorsB.printInvalidTileToBlock();
 
             return CommandStatus.FAILED;
         }
