@@ -3,6 +3,8 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.PawnBlocked;
+import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.VariantMove;
@@ -24,6 +26,7 @@ public final class BoardE {
     private static final int DEFAULT_SIZE = 7;
     private static final int MAX_LOCKABLE_TILES = 9;
     private static final int CONSIDERED_ADJACENT = 2;
+    private static final int SURROUNDING_LIMIT = 7;
 
     /**
      * Default Constructor for the class BoardE.
@@ -218,21 +221,41 @@ public final class BoardE {
      * Method blockTile.
      * @param blockedCoordinate The coordinate of the tile to block
      */
-    public void blockTile(final Coordinate blockedCoordinate) throws ExcessBlockedTile {
+    public void blockTile(final Coordinate blockedCoordinate) throws TileAlreadyBlocked,
+            ExcessBlockedTile, PawnBlocked {
+
+        if (getTile(blockedCoordinate).isInvalid()) {
+            throw new TileAlreadyBlocked();
+        }
+
         if (countBlockedTiles() >= MAX_LOCKABLE_TILES) {
             throw new ExcessBlockedTile();
         }
 
         Coordinate[] invalidCoordinates = {
-            new Coordinate(0, 0),
-            new Coordinate(0, size - 1),
-            new Coordinate(size - 1, 0),
-            new Coordinate(size - 1, size - 1),
+                new Coordinate(0, 0),
+                new Coordinate(0, size - 1),
+                new Coordinate(size - 1, 0),
+                new Coordinate(size - 1, size - 1),
         };
 
-        if (Arrays.stream(invalidCoordinates).anyMatch(invalidCoordinate -> isAdjacent(invalidCoordinate,
-                blockedCoordinate))) {
-            throw new Error("Adiacente");
+        Coordinate pawnTile = Arrays.stream(invalidCoordinates)
+            .filter(invalidCoordinate -> isAdjacent(invalidCoordinate, blockedCoordinate))
+            .findFirst()
+            .orElse(null);
+
+        if (pawnTile != null) {
+                int count = 0;
+
+                for (TileE tile : tiles) {
+                    if (isAdjacent(pawnTile, tile.getCoordinate()) && tile.isInvalid()) {
+                        count++;
+                    }
+                }
+
+                if (count >= SURROUNDING_LIMIT) {
+                    throw new PawnBlocked();
+                }
         }
 
         getTile(blockedCoordinate).setInvalid();
