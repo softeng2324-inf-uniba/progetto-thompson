@@ -28,6 +28,7 @@ public class TileE {
      * Constructor for the class TileE.
      * @param coordX The x coordinate of the tile
      * @param coordY The y coordinate of the tile
+     * @param isTileInvalid The boolean value of the invalid property of the tile
      */
     public TileE(final int coordX, final int coordY, final boolean isTileInvalid) {
         coordinate = new Coordinate(coordX, coordY);
