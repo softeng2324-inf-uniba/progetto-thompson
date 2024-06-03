@@ -206,7 +206,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 
 ## 4.1 - Diagramma dei Pacchetti
 Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per implementare il progetto, realizzato utilizzando il software [StarUML](https://staruml.io/)
-![Sytem_Design](img/System_Design.png)
+<p align="center"><img src="img/System_Design.png" alt="System_Design" width="95%"/></p>
 
 ## 4.2 Architettura dell'Applicazione
 
