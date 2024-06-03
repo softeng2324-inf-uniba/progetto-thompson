@@ -380,6 +380,10 @@ Questo comando avvierà il gioco Ataxx
         <p align="center">
           <img src="img/move_error_example1.png" alt="esempio di una mossa 1" width="70%"/>
         </p>
+        <h4>Scenario 5:</h4>
+            Dopo una mossa di un giocatore, se l'avversario non ha mosse disponibili, viene mostrato il seguente messaggio:
+        <p align="center">
+          <img src="img/move_switchturn.png" alt="esempio di una mossa 1" width="70%"/>
         <summary>Visualizza Dettagli</summary>
     </details>
 
