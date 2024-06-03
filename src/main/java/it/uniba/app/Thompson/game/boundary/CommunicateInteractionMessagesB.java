@@ -1,7 +1,10 @@
 package it.uniba.app.Thompson.game.boundary;
 import it.uniba.app.Thompson.game.control.FormatterC;
 import it.uniba.app.Thompson.game.entity.MoveE;
-import it.uniba.app.Thompson.game.util.*;
+import it.uniba.app.Thompson.game.util.Color;
+import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
+import it.uniba.app.Thompson.game.util.Style;
 import it.uniba.app.Thompson.game.util.UserInteractionMessage;
 
 import java.util.Iterator;
