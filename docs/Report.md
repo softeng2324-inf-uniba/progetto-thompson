@@ -9,8 +9,13 @@
       -  [**3.1.1 - Funzionali**](#311---funzionali)
       - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
     - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
+- ### [**4 - System Design**](#4---system-design)
+    - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
+    - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
+    - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
+
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
-  - [**7.1 - Procedura Preliminare**](#procedura-preliminare)
+  - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
     <ul>
     <li><h4><a href="#github"> 7.1.1 - Creazione Token Github </a></h4></li>
@@ -18,10 +23,10 @@
     <li><h4><a href="#docker"> 7.1.2 - Autenticazione Docker </a></h4></li>
     </ul>
   
-  - [**7.2 - Regole di Gioco**](#regole-di-gioco)
-    - [**7.2.1 - Varianti**](#varianti)
-  - [**7.3 - Guida All'Utilizzo**](#guida-allutilizzo)
-- ### [**8 - Processo di sviluppo e organizzazione del lavoro**](#8-processo-di-sviluppo-e-organizzazione-del-lavoro)
+  - [**7.2 - Regole di Gioco**](#72---regole-di-gioco)
+    - [**7.2.1 - Varianti**](#721---varianti)
+  - [**7.3 - Guida All'Utilizzo**](#73---guida-allutilizzo)
+- ### [**8 - Processo di sviluppo e organizzazione del lavoro**](#8---processo-di-sviluppo-e-organizzazione-del-lavoro)
     - [**8.1 - Introduzione al processo di sviluppo**](#81---introduzione-al-processo-di-sviluppo)
     - [**8.2 - Roadmap degli sprint**](#82---roadmap-degli-sprint)
     - [**8.3 - Gestione degli Sprint**](#83---gestione-degli-sprint)
@@ -197,9 +202,125 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     Inoltre non è possibile bloccare più di 9 caselle.
 #### [Ritorna all'Indice](#indice)
 
+# 4 - System Design
+
+## 4.1 - Diagramma dei Pacchetti
+Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per implementare il progetto, realizzato utilizzando il software [StarUML](https://staruml.io/)
+<p align="center"><img src="img/System_Design.png" alt="System_Design" width="95%"/></p>
+
+## 4.2 Architettura dell'Applicazione
+
+Il progetto è stato suddiviso in modo da renderlo il più modulare e scalabile possibile, per raggiungere questo obiettivo 
+è stato utilizzato il pattern architetturale dell'**Entity Control Boundary**
+(ECB) che prevede la classificazione delle classi in tre categorie:
+- **ENTITY:** Classi che rappresentano le entità del dominio del problema. In particolare si occupano di rappresentare le entità del gioco e di gestire le loro interazioni.
+- **CONTROL:** Classi che si occupano della logica del software. In particolare si occupano di gestire le interazioni tra le entità e di indirizzare l'input delle boundary.
+- **BOUNDARY:** Classi che si occupano di interfacciarsi con l'utente e di gestire le logiche di presentazione.
+  In particolare si occupano di ricevere i comandi dell'utente e di mostrare i risultati delle operazioni.
+
+I package del progetto finale sono i seguenti:
+
+- Il package ***it.uniba.app*** contiene la classe *App* che si occupa dell'inizializzazione e avvio del software, come definito dal *workflow* utilizzato.
+
+
+- Il package ***Thompson.game*** contiene tutti i package e le classi create dal team di sviluppo:
+  - **boundary**
+  - **control**
+  - **entity**
+  - **error:** Per la corretta gestione di eccezioni ed errori
+  - **util:** Per la gestione delle costanti di utilità
+
+
+- Il package **boundary** contiene:
+
+  - **CommunicateErrorsB:** Classe che emette i messaggi di errori
+  - **CommunicateInteractionMessagesB:** Classe che emette i messaggi di interazione con l'utente
+  - **HelpB:** Classe che emette il messaggio generato dal comando `/help`
+  - **PrintBoardB:** Classe che si occupa di stampare il tavoliere nelle varie versioni in base al momento di gioco
+  - **UserInputB:** Classe che si occupa di gestire l'interazione dell'utente
+  - **WelcomeBannerB:** Classe che fa visualizzare il banner di benvenuto
+
+
+  - Package **control:** contiene:
+
+    - **MainControl:** Classe che fa da entry point per `app` e si occupa di gestire il flusso principale
+    - **CommandC:** Classe astratta che rappresenta un comando generico
+    - **AvailableMovesCommandC:** Classe che si occupa di gestire il comando `/qualimosse`
+    - **BlockCommandC:** Classe che si occupa di gestire il comando `/blocca`
+    - **BoardCommandC:** Classe che si occupa di gestire il comando `/tavoliere`
+    - **ExitCommandC:** Classe che si occupa di gestire il comando `/esci`
+    - **HelpCommandC:** Classe che si occupa di gestire il comando `/help`
+    - **MovesCommandC:** Classe che si occupa di gestire il comando `/mosse`
+    - **PlayCommandC:** Classe che si occupa di gestire il comando `/gioca`
+    - **QuitCommandC:** Classe che si occupa di gestire il comando `/abbandona`
+    - **TimeCommandC:** Classe che si occupa di gestire il comando `/tempo`
+    - **VerifyMovesC:** Classe che si occupa di verificare che un determinato movimento sia lecito
+    - **VerifyCommandC:** Classe che si occupa di verificare che un determinato comando sia lecito
+
+    
+Questo package contiene dunque tutte le classi di tipo **Control** previste dallo standard ECB, per questo presentano il suffisso **C**.
+
+  - Package **entity**:
+
+    - **BoardE:** Classe che rappresenta il tavoliere di gioco
+    - **MatchE:** Classe che rappresenta la partita
+    - **MoveE:** Classe che rappresenta la singola mossa
+    - **PawnE:** Classe che rappresenta la pedina
+    - **PlayerE:** Classe che rappresenta il giocatore
+    - **TileE:** Classe che rappresenta la casella del tavoliere
+
+Questo package contiene dunque tutte le classi di tipo **Entity** previste dallo standard ECB, per questo presentano il suffisso **E**.
+
+- Package ***error*** contiene:
+  
+  - **CommandNotFound:** Classe che rappresenta l'eccezione lanciata quando il comando non è valido
+  - **ExcessBlockedTile:** Classe che rappresenta l'eccezione lanciata quando si tenta di bloccare più di 9 caselle
+  - **InvalidArguments:** Classe che rappresenta l'eccezione lanciata quando gli argomenti passati al comando non sono validi
+  - **InvalidMove:** Classe che rappresenta l'eccezione lanciata quando il movimento non è valido
+  - **MatchNull:** Classe che rappresenta l'eccezione lanciata quando si prova a fare un comando 
+legato al gioco senza una partita in corso 
+
+
+Questo package contiene dunque tutte le classi che servono a gestire le eccezioni ed errori.
+
+
+- Package ***util*** contiene:
+  
+  - **Color:** Classe che rappresenta i colori delle pedine
+  - **CommandStatus:** Classe che rappresenta lo stato dei comandi
+  - **Coordinate:** Classe che rappresenta le coordinate di una casella
+  - **ErrorMessage:** Classe che contiene i messaggi di errore
+  - **GameType:** Classe che rappresenta le varianti di gioco
+  - **MoveType:** Classe che rappresenta i tipi di movimento
+  - **PawnFigure:** Classe che rappresenta le pedine dei due giocatori
+  - **Style:** Classe che rappresenta i font di stampa di messaggi
+  - **UnicodeColor:** Classe che associa l'enumerativo dei colori al codice unicode utilizzato per rappresentarli
+  - **UnicodePawn:** Classe che associa l'enumerativo delle pedine al codice unicode utilizzato per rappresentarle
+  - **UnicodeStyle:** Classe che associa l'enumerativo deli font al codice unicode utilizzato per rappresentarli
+  - **UserInteractionMessage:** Classe che contiene i messaggi di interazione con l'utente
+  - **VariantMove:** Classe che rappresenta i tipi di movimento disponibili per le varianti di gioco
+
+
+  
+Questo package contiene tutte le classi contenenti le costanti di utilità, suddivise per categorie.
+
+## 4.3 Commenti sulle decisioni
+
+Il team di sviluppo ha deciso di utilizzare il pattern architetturale ECB per la sua efficienza nonostante la sua semplicità.
+
+In particolare, il pattern ECB è stato scelto per la sua capacità di separare le classi in base alle loro
+responsabilità, prendendoci però la libertà di aggiungere due categorie per facilitare la gestione di oggetti 
+esterni alla rappresentazione principale del funzionamento dell'applicazione quali **util** e **error**.
+
+Inoltre rende possibile rispettare gli **OO Design**, e rende il codice scalabile, manutenibile e modulare in caso di futuri sviluppi.
+
+
+#### [Ritorna all'Indice](#indice)
+
+
 # 7 - Manuale Utente 
 
-## Procedura Preliminare
+## 7.1 - Procedura Preliminare
 Prima di poter avviare il gioco bisogna essere sicuri di trovarsi in un ambiente che permette la
 sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi preparatori:
 
@@ -269,7 +390,7 @@ Questo comando avvierà il gioco Ataxx
 
 #### [Ritorna all'Indice](#indice)
 
-## Regole di Gioco
+## 7.2 - Regole di Gioco
 #### **Regole Base(Default)**
 - Il gioco è composto da un tavoliere di 49 caselle quadrat e da 49 pedine bicolori
 - Le pedine si posizionano nelle caselle
@@ -283,7 +404,7 @@ Questo comando avvierà il gioco Ataxx
 - Vince il giocatore che ha più pedine del proprio colore al termine della partita
 - Il punteggio di una vittoria è dato dalla differenza delle pedine
 - Per trascrivere una partita si utilizzano le lettere per le colonne e i numeri per le righe, indicando le caselle di partenza e di arrivo delle pedine.
-## **Varianti**
+## **7.2.1 - Varianti**
 - Esistono inoltre varianti che modificano elementi del gioco base, offrendo diverse strategie e novità ai giocatori:
 #### **Variante A Perdere**:
   - In questa variante, vince il giocatore che al termine della partita ha meno pedine del proprio colore, mantenendo le regole base del gioco.
@@ -296,7 +417,7 @@ Questo comando avvierà il gioco Ataxx
   - 
 #### [Ritorna all'Indice](#indice)
 
-## Guida All'Utilizzo
+## 7.3 - Guida All'Utilizzo
 
 - ### All'avvio:
     <details open>Visualizzazione banner di benvenuto 
