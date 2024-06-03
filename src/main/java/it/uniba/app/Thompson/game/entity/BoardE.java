@@ -3,6 +3,7 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -191,7 +192,8 @@ public final class BoardE {
      * @return 1 if the tile is not occupied and is in the board, 0 otherwise.
      */
     public static int isGenerable(final Coordinate coordinate, final BoardE board) {
-        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()  ? 1 : 0;
+        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()
+                && !board.getTile(coordinate).isInvalid()  ? 1 : 0;
     }
 
     /**
@@ -245,17 +247,17 @@ public final class BoardE {
             .orElse(null);
 
         if (pawnTile != null) {
-                int count = 0;
+            int count = 0;
 
-                for (TileE tile : tiles) {
-                    if (isAdjacent(pawnTile, tile.getCoordinate()) && tile.isInvalid()) {
-                        count++;
-                    }
+            for (TileE tile : tiles) {
+                if (isAdjacent(pawnTile, tile.getCoordinate()) && tile.isInvalid()) {
+                    count++;
                 }
+            }
 
-                if (count >= SURROUNDING_LIMIT) {
-                    throw new PawnBlocked();
-                }
+            if (count >= SURROUNDING_LIMIT) {
+                throw new PawnBlocked();
+            }
         }
 
         getTile(blockedCoordinate).setInvalid();
@@ -266,29 +268,22 @@ public final class BoardE {
      * @param from The starting coordinate
      * @param to The ending coordinate
      */
-    public void movePawn(final Coordinate from, final Coordinate to) {
-        if (VerifyMovesControl.verifyMovesSinglePawn(this, from, to)) {
-            boolean type = VerifyMovesControl.moveType(from, to);
-            TileE fromTile = getTile(from);
-            TileE toTile = getTile(to);
-            toTile.placePawn(fromTile.getPawn().getFigure());
-            if (!type) {
-                fromTile.removePawn();
-            }
-            this.setTile(from, fromTile);
-            this.setTile(to, toTile);
-            this.attack(to);
-            MainControl.pushMoveQueue(new MoveE(from, to));
-            MainControl.switchTurn();
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(this,
-                    MainControl.getMatch().getCurrentTurn());
-            if (VerifyMovesControl.isMaskEmpty(mask)) {
-
-                CommunicateInteractionMessagesB.printSkippingTurn(MainControl.getMatch().getCurrentTurn());
-                MainControl.switchTurn();
-            }
+    public void movePawn(final Coordinate from, final Coordinate to) throws InvalidMove {
+        if (!VerifyMovesControl.verifyMovesSinglePawn(this, from, to)) {
+            throw new InvalidMove();
         }
 
+        boolean type = VerifyMovesControl.moveType(from, to);
+        TileE fromTile = getTile(from);
+        TileE toTile = getTile(to);
+        toTile.placePawn(fromTile.getPawn().getFigure());
+        if (!type) {
+            fromTile.removePawn();
+            this.attack(to);
+        }
+        this.setTile(from, fromTile);
+        this.setTile(to, toTile);
+        this.attack(to);
     }
 
     /**
