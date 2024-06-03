@@ -202,13 +202,28 @@ public final class MainControl {
      */
     private static void manageMove(final Coordinate from, final Coordinate to) {
         BoardE b = match.getBoard();
-        b.movePawn(from, to);
-        match.setBoard(b);
 
-        PrintBoardB.printBoard(b);
+        try {
+            b.movePawn(from, to);
 
-        if (match != null && b.isBoardFull()) {
-            endMatch();
+            pushMoveQueue(new MoveE(from, to));
+            switchTurn();
+
+            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(b, match.getCurrentTurn());
+            if (VerifyMovesControl.isMaskEmpty(mask)) {
+                CommunicateInteractionMessagesB.printSkippingTurn(match.getCurrentTurn());
+                switchTurn();
+            }
+
+            match.setBoard(b);
+
+            PrintBoardB.printBoard(b);
+            if (match != null && b.isBoardFull()) {
+                endMatch();
+            }
+
+        } catch (InvalidMove e) {
+            CommunicateErrorsB.printInvalidMove();
         }
     }
 
