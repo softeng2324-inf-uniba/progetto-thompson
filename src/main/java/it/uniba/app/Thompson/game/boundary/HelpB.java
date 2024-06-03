@@ -14,6 +14,7 @@ public final class HelpB {
 
     /**
      * Method printCommands, prints to stdout the available commands.
+     * @param extraCommand The extra command that will be printed
      * @param commands The array of commands that will be printed
      */
     public static void printCommands(final String extraCommand, final CommandC[] commands) {
