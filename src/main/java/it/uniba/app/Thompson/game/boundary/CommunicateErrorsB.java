@@ -101,6 +101,7 @@ public final class CommunicateErrorsB {
 
     /**
      * Method printInvalidBlock, prints to stdout the wrong player message.
+     * @param player The player that should make a move
      */
     public static void printWrongPlayer(final PawnFigure player) {
         System.out.println(FORMATTER_CONTROL.formatText(ErrorMessage.WRONG_PLAYER
@@ -133,5 +134,19 @@ public final class CommunicateErrorsB {
      */
     public static void printImpossibleBlock() {
         System.out.println(ErrorMessage.IMPOSSIBLE_BLOCK);
+    }
+
+    /**
+     * Method printTileAlreadyBlocked, prints to stdout the tile already blocked message.
+     */
+    public static void printTileAlreadyBlocked() {
+        System.out.println(ErrorMessage.TILE_ALREADY_BLOCKED);
+    }
+
+    /**
+     * Method printCoordinateNotValid, prints to stdout the coordinate not valid message.
+     */
+    public static void printCoordinateNotValid() {
+        System.out.println(ErrorMessage.COORDINATE_NOT_VALID);
     }
 }
