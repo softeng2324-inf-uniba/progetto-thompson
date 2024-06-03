@@ -24,6 +24,7 @@ public class MatchE {
 
     /**
      * Constructor for the class MatchE.
+     * @param blockBoard The board with the blocked tiles
      */
     public MatchE(final BoardE blockBoard) {
         board = new BoardE(blockBoard);
@@ -34,6 +35,7 @@ public class MatchE {
      * Defensive copy Constructor for the class MatchE.
      * @param newBoard The original board
      * @param newMoves The original moves
+     * @param newTurn The original turn
      */
     public MatchE(final BoardE newBoard, final Queue<MoveE> newMoves, final PawnFigure newTurn) {
         turn = newTurn;
