@@ -89,8 +89,7 @@ public final class ErrorMessage {
      * Constant containing the INVALID_TILE_TO_BLOCK message.
      */
     public static final String INVALID_TILE_TO_BLOCK = FORMATTER_CONTROL.formatText(
-            "Non puoi bloccare una casella che in partenza contiene una pedina e nemmeno le adiacenti ad essa",
-            Color.RED);
+            "Non puoi bloccare completamente i movimenti di una singola pedina", Color.RED);
 
     /**
      * Constant containing the IMPOSSIBLE_MOVE message.
@@ -103,6 +102,19 @@ public final class ErrorMessage {
      */
     public static final String IMPOSSIBLE_BLOCK = FORMATTER_CONTROL.formatText(
             "Impossibile bloccare la casella selezionata, riprova", Color.RED);
+
+    /**
+     * Constant containing the TILE_ALREADY_BLOCKED message.
+     */
+    public static final String TILE_ALREADY_BLOCKED = FORMATTER_CONTROL.formatText(
+            "Non puoi bloccare una casella gia' bloccata", Color.RED);
+
+    /**
+     * Constant containing the COORDINATE_NOT_VALID message.
+     */
+    public static final String COORDINATE_NOT_VALID = FORMATTER_CONTROL.formatText(
+            "Coordinate non valide, riprova", Color.RED);
+
     /**
      * Constructor for the class ErrorMessage.
      */
