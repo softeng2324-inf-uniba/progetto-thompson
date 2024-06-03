@@ -1,5 +1,4 @@
 package it.uniba.app.Thompson.game.entity;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
@@ -182,7 +181,8 @@ public final class BoardE {
      * @return 2 if the tile is not occupied and is in the board, 0 otherwise.
      */
     public static int isJumpable(final Coordinate coordinate, final BoardE board) {
-        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()  ? 2 : 0;
+        return board.isInBoard(coordinate) && !board.getTile(coordinate).isOccupied()
+                && !board.getTile(coordinate).isInvalid()  ? 2 : 0;
     }
 
     /**
