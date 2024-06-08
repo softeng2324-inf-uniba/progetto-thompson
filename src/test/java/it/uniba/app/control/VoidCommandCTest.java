@@ -16,4 +16,13 @@ class VoidCommandCTest {
         Assertions.assertEquals(voidCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "VoidCommandCTest");
     }
 
+    @Test
+    @DisplayName("VoidCommandCInvalidArgumentsTest")
+    void voidCommandCInvalidArgumentsTest() {
+        CommandC voidCommandC = VoidCommandC.getInstance();
+        String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
+
+        Assertions.assertThrows(InvalidArguments.class, () -> voidCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+    }
+
 }
