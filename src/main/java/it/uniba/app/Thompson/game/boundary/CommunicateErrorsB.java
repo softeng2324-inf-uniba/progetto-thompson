@@ -149,4 +149,11 @@ public final class CommunicateErrorsB {
     public static void printCoordinateNotValid() {
         System.out.println(ErrorMessage.COORDINATE_NOT_VALID);
     }
+
+    /**
+     * Method printNegativeTime, prints to stdout the negative time message.
+     */
+    public static void printNegativeTime() {
+        System.out.println(ErrorMessage.NEGATIVE_TIME);
+    }
 }
