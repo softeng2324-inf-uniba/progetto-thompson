@@ -20,7 +20,7 @@ public class TimeCommandCTest {
     }
 
     @Test
-    @DisplayName("TimeCommandCTest")
+    @DisplayName("TimeCommandCTest: test current time in a match")
     void timeCommandCTest() throws InterruptedException, InvalidArguments {
         System.out.println("Starting TimeCommandCTest");
         CommandC timeCommandC = TimeCommandC.getInstance();
@@ -29,7 +29,7 @@ public class TimeCommandCTest {
     }
 
     @Test
-    @DisplayName("TimeCommandCInvalidArgumentsTest")
+    @DisplayName("TimeCommandCInvalidArgumentsTest: invalid number of arguments")
     void timeCommandCInvalidArgumentsTest() {
         CommandC timeCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
