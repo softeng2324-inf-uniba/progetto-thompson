@@ -174,13 +174,7 @@ class BoardETest {
             callPrivateMethod.setAccessible(true);
             int actuallyBlocked = (int) callPrivateMethod.invoke(board);
             Assertions.assertEquals(expected, actuallyBlocked, "It counts correctly");
-        } catch (IllegalAccessException e) {
-            System.out.println("Errore nella chiamata reflection del metodo privato in board");
-        } catch (InvocationTargetException e) {
-            System.out.println("Errore nella chiamata reflection del metodo privato in board");
-        } catch (SecurityException e) {
-            System.out.println("Errore nella chiamata reflection del metodo privato in board");
-        } catch (NoSuchMethodException e) {
+        } catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException | SecurityException e) {
             System.out.println("Errore nella chiamata reflection del metodo privato in board");
         }
     }
