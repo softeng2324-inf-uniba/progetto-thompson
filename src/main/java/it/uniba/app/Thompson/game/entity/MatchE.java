@@ -1,5 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.error.NegativeTime;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -108,7 +109,7 @@ public class MatchE {
      * Method getFormattedTime.
      * @return elapsedTime The formatted time
     */
-    public static String getFormattedTime() {
+    public static String getFormattedTime() throws NegativeTime {
         elapsedTime = formatMillis(System.currentTimeMillis() - startTime);
         return elapsedTime;
     }
@@ -118,12 +119,15 @@ public class MatchE {
      * @param millis The milliseconds
      * @return Returns the formatted time
      */
-    public static String formatMillis(final long millis) {
+    public static String formatMillis(final long millis) throws NegativeTime {
+        if (millis < 0) throw new NegativeTime();
+
         long totalSeconds = millis / MILLIS;
         long seconds = totalSeconds % SECONDS;
         long totalMinutes = totalSeconds / SECONDS;
         long minutes = totalMinutes % SECONDS;
         long hours = totalMinutes / SECONDS;
+
         return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 }
