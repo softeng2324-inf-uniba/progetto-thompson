@@ -120,7 +120,9 @@ public class MatchE {
      * @return Returns the formatted time
      */
     public static String formatMillis(final long millis) throws NegativeTime {
-        if (millis < 0) throw new NegativeTime();
+        if (millis < 0) {
+            throw new NegativeTime();
+        }
 
         long totalSeconds = millis / MILLIS;
         long seconds = totalSeconds % SECONDS;
