@@ -165,10 +165,6 @@ public final class MainControl {
         if (availableCommands.containsKey(commandStrings[0])) {
             CommandC commandControl = availableCommands.get(commandStrings[0]);
 
-            if (commandControl.getArgumentCount() != commandStrings.length - 1) {
-                throw new InvalidArguments();
-            }
-
             return commandControl.executeCommand(Arrays.copyOfRange(commandStrings, 1, commandStrings.length));
         }
         throw new CommandNotFound();
