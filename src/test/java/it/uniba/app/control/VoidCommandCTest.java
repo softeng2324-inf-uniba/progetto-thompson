@@ -10,14 +10,14 @@ import org.junit.jupiter.api.Test;
 class VoidCommandCTest {
 
     @Test
-    @DisplayName("VoidCommandCTest")
+    @DisplayName("VoidCommandCTest : check if the command print an empty board")
     void voidCommandCTest() throws InvalidArguments {
         CommandC voidCommandC = VoidCommandC.getInstance();
         Assertions.assertEquals(voidCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "VoidCommandCTest");
     }
 
     @Test
-    @DisplayName("VoidCommandCInvalidArgumentsTest")
+    @DisplayName("VoidCommandCInvalidArgumentsTest : invalid number of arguments")
     void voidCommandCInvalidArgumentsTest() {
         CommandC voidCommandC = VoidCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
