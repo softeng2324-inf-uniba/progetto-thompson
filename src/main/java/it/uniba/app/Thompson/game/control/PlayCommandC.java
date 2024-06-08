@@ -67,7 +67,7 @@ public final class PlayCommandC extends CommandC {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             MainControl.initMatch();
             CommunicateInteractionMessagesB.printTitle("TAVOLIERE INIZIALE");
