@@ -82,10 +82,12 @@ public final class Coordinate {
     }
 
     /**
-     * Method toString, stringify a coordinate.
+     * Method toBoardString, stringify a coordinate.
      * @return Returns coordinate to string
      */
-    public String toString() {
+    public String toBoardString() throws InvalidCoordinate {
+        if (x < 0 || y < 0 || x > 25 || y > 8) throw new InvalidCoordinate();
+
         final int asciiCharValue = 65;
         char xChar = (char) (x + asciiCharValue);
 
@@ -119,6 +121,3 @@ public final class Coordinate {
         return x + y;
     }
 }
-
-
-
