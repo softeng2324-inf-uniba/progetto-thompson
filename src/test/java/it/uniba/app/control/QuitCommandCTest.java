@@ -18,8 +18,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest : bianco abbandona la partita")
-    void quitCommandCTestbs() throws InvalidArguments {
+    @DisplayName("QuitCommandCWhiteAcceptedTest : White player wants to quit, then he accepts to quit")
+    void quitCommandCWhiteAcceptedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("b\ns\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -27,8 +27,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest: nero abbandona la partita")
-    void quitCommandCTestns() throws InvalidArguments {
+    @DisplayName("QuitCommandCBlackAcceptedTest : Black player wants to quit, then he accepts to quit")
+    void quitCommandCBlackAcceptedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("n\ns\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -36,8 +36,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest : nero non abbandona la partita")
-    void quitCommandCTestnnn() throws InvalidArguments {
+    @DisplayName("QuitCommandCBlackRejectedTest : Black player wants to quit, then he refuses to quit")
+    void quitCommandCBlackRejectedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("n\nn\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -45,8 +45,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest : bianco non abbandona la partita")
-    void quitCommandCTestbbn() throws InvalidArguments {
+    @DisplayName("QuitCommandCTest : White player wants to quit, then he refuses to quit")
+    void quitCommandCWhiteRejectedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("b\nn\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -54,8 +54,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest : scelta non valida b/n")
-    void quitCommandCTestinvalid() throws InvalidArguments {
+    @DisplayName("QuitCommandCPlayerInvalidTest : the choice of player is invalid")
+    void quitCommandCChoicePlayerInTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("c\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -63,8 +63,8 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCTest : scelta non valida n/s")
-    void quitCommandCTestinvalid2() throws InvalidArguments {
+    @DisplayName("QuitCommandCConfirmInvalidTest : the choice to confirm is invalid")
+    void quitCommandCConfirmInvalidTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("n\nb\n".getBytes()));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -72,7 +72,7 @@ class QuitCommandCTest {
     }
 
     @Test
-    @DisplayName("QuitCommandCInvalidArgumentsTest")
+    @DisplayName("QuitCommandCInvalidArgumentsTest : invalid number of arguments")
     void quitCommandCInvalidArgumentsTest() {
         CommandC quitCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
