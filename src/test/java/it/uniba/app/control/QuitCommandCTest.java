@@ -1,6 +1,7 @@
 package it.uniba.app.control;
 import it.uniba.app.Thompson.game.boundary.UserInputB;
 import it.uniba.app.Thompson.game.control.CommandC;
+import it.uniba.app.Thompson.game.control.ExitCommandC;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.QuitCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
@@ -68,5 +69,14 @@ class QuitCommandCTest {
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
+    }
+
+    @Test
+    @DisplayName("QuitCommandCInvalidArgumentsTest")
+    void quitCommandCInvalidArgumentsTest() {
+        CommandC quitCommandC = ExitCommandC.getInstance();
+        String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
+
+        Assertions.assertThrows(InvalidArguments.class, () -> quitCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
     }
 }
