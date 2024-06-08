@@ -5,17 +5,13 @@ import it.uniba.app.Thompson.game.error.*;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import static it.uniba.app.Thompson.game.boundary.PrintBoardB.printBoard;
 import static org.junit.jupiter.api.Assertions.*;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 
