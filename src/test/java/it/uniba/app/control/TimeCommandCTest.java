@@ -1,5 +1,6 @@
 package it.uniba.app.control;
 import it.uniba.app.Thompson.game.control.CommandC;
+import it.uniba.app.Thompson.game.control.ExitCommandC;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.TimeCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
@@ -25,6 +26,15 @@ public class TimeCommandCTest {
         CommandC timeCommandC = TimeCommandC.getInstance();
         Thread.sleep(5000);
         Assertions.assertEquals(timeCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
+    }
+
+    @Test
+    @DisplayName("TimeCommandCInvalidArgumentsTest")
+    void timeCommandCInvalidArgumentsTest() {
+        CommandC timeCommandC = ExitCommandC.getInstance();
+        String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
+
+        Assertions.assertThrows(InvalidArguments.class, () -> timeCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
     }
 
 }
