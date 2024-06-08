@@ -4,6 +4,7 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.util.CommandStatus;
@@ -91,7 +92,14 @@ public final class BlockCommandC extends CommandC {
             return CommandStatus.FAILED;
         }
 
-        Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
+        Coordinate blockedCoordinate;
+        try {
+            blockedCoordinate = Coordinate.toCoordinate(args[0]);
+        } catch (InvalidCoordinate e) {
+            CommunicateErrorsB.printCoordinateNotValid();
+            return CommandStatus.FAILED;
+        }
+
         BoardE board = MainControl.getBoard();
         if (!board.isInBoard(blockedCoordinate)) {
             CommunicateErrorsB.printImpossibleBlock();
