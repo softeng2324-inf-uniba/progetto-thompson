@@ -5,6 +5,7 @@ import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
+import it.uniba.app.Thompson.game.error.TileIsOccupied;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.VariantMove;
@@ -224,7 +225,12 @@ public final class BoardE {
      * @param blockedCoordinate The coordinate of the tile to block
      */
     public void blockTile(final Coordinate blockedCoordinate) throws TileAlreadyBlocked,
-            ExcessBlockedTile, PawnBlocked {
+            ExcessBlockedTile, PawnBlocked, TileIsOccupied {
+
+        BoardE board = MainControl.getBoard();
+        if (board.getTile(blockedCoordinate).isOccupied()) {
+            throw new TileIsOccupied();
+        }
 
         if (getTile(blockedCoordinate).isInvalid()) {
             throw new TileAlreadyBlocked();
