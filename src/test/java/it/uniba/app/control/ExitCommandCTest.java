@@ -18,14 +18,14 @@ public class ExitCommandCTest {
     }
 
     @Test
-    @DisplayName("ExitCommandCTest")
+    @DisplayName("ExitCommandCTest : check the execution of /exit command")
     void exitCommandCTest() throws InvalidArguments {
         CommandC exitCommandC = ExitCommandC.getInstance();
         Assertions.assertEquals(exitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "ExitCommandCTest");
     }
 
     @Test
-    @DisplayName("ExitCommandCInvalidArgumentsTest")
+    @DisplayName("ExitCommandCInvalidArgumentsTest : invalid number of arguments")
     void exitCommandCInvalidArgumentsTest() {
         CommandC exitCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
