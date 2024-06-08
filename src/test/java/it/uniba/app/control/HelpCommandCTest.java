@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
 class HelpCommandCTest {
 
     @Test
-    @DisplayName("HelpCommandCTest")
+    @DisplayName("HelpCommandCTest: test the print of all commands")
     void helpCommandCTest() throws InvalidArguments {
         CommandC helpCommandC = HelpCommandC.getInstance();
         Assertions.assertEquals(helpCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "HelpCommandCTest");
     }
 
     @Test
-    @DisplayName("HelpCommandCInvalidArgumentsTest")
+    @DisplayName("HelpCommandCInvalidArgumentsTest: invalid number of arguments")
     void helpCommandCInvalidArgumentsTest() {
         CommandC helpCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
