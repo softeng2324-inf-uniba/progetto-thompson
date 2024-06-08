@@ -110,7 +110,7 @@ public final class BlockCommandC extends CommandC {
             board.blockTile(blockedCoordinate);
             MainControl.setBoard(board);
 
-            CommunicateInteractionMessagesB.printBlockedTile(blockedCoordinate);
+            CommunicateInteractionMessagesB.printBlockedTile(blockedCoordinate.toBoardString());
             PrintBoardB.printBoard(board);
 
             return CommandStatus.SUCCESSFUL;
@@ -124,6 +124,10 @@ public final class BlockCommandC extends CommandC {
             return CommandStatus.FAILED;
         } catch (PawnBlocked e) {
             CommunicateErrorsB.printInvalidTileToBlock();
+
+            return CommandStatus.FAILED;
+        } catch (InvalidCoordinate e) {
+            CommunicateErrorsB.printCoordinateNotValid();
 
             return CommandStatus.FAILED;
         }
