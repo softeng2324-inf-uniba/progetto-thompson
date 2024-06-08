@@ -101,25 +101,17 @@ public final class CommunicateInteractionMessagesB {
      * Method printMoves, print a queue of moves.
      * @param moves The queue containing all the moves of the game
      */
-    public static void printMoves(final Queue<MoveE> moves) {
-        if (moves.isEmpty()) {
+    public static void printMoves(final String[] moves) {
+        if (moves.length == 0) {
             System.out.println(FORMATTER_CONTROL.formatText(
                     "Non sono state ancora effettuate delle mosse",
                     Color.ORANGE)
             );
         } else {
 
-            Iterator<MoveE> movesIterator = moves.iterator();
-            int moveCount = 1;
-
-            // Iterating Queue
-            while (movesIterator.hasNext()) {
-                MoveE move = movesIterator.next();
-                String stringMove = moveCount + " -> " + move.toString() + " " + (moveCount % 2 == 0 ? "(B)" : "(N)");
-
+            for (int i = 0; i < moves.length; i++) {
+                String stringMove = (i + 1) + " -> " + moves[i] + " " + ((i + 1) % 2 == 0 ? "(B)" : "(N)");
                 System.out.println(FORMATTER_CONTROL.formatText(stringMove, Color.BLUE));
-
-                moveCount++;
             }
         }
     }
@@ -138,9 +130,9 @@ public final class CommunicateInteractionMessagesB {
      * Method printBlockedTile, prints to stdout the coordinates of the blocked tile.
      * @param blockedTile The coordinates of the blocked tile
      */
-    public static void printBlockedTile(final Coordinate blockedTile) {
+    public static void printBlockedTile(final String blockedTile) {
         System.out.println(FORMATTER_CONTROL.formatText("La casella di coordinate "
-                + blockedTile.toString()
+                + blockedTile
                 + " e' stata bloccata", Color.BLUE));
     }
 
