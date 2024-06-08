@@ -1,6 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,19 +11,15 @@ import java.util.Queue;
 import static org.junit.jupiter.api.Assertions.*;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 
-
-public class BoardETest {
-    private static BoardE board;
+class BoardETest {
+    private BoardE board;
     private static final int size = 7;
 
-    @BeforeAll
-    static void setupAll() {
-        board = new BoardE(true);
-    }
     @BeforeEach
     void setupEach() {
         board = new BoardE(true);
     }
+
     @Test
     @DisplayName("movePawn: Tests if the method correctly generates the new pawn")
     void testMovePawnGenerate() {
@@ -92,54 +87,50 @@ public class BoardETest {
         assertEquals(PawnFigure.BLACK_PAWN, testingBoard.getTile(attacked).getPawn().getFigure(), "The method attack correctly attacked the pawn");
     }
 
-//    @Test
-//    @DisplayName("movePawn: Tests if the method doesn't attack the pawn if the pawn is not in the right position")
-//    void testMovePawnAttackFail() {
-//        MainControl.initMatch();
-//        BoardE testingBoard = MainControl.getMatch().getBoard();
-//        Coordinate start = new Coordinate(3,3);
-//        Coordinate end = new Coordinate(3,1);
-//
-//        Queue<Coordinate> oldWhitePawns = testingBoard.getCoordsOfPawns(PawnFigure.WHITE_PAWN);
-//        Queue<Coordinate> oldBlackPawns = testingBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
-//
-//        testingBoard.getTile(start).placePawn(PawnFigure.BLACK_PAWN);
-//
-//        try {            testingBoard.movePawn(start, end);
-//        } catch (InvalidMove e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        Queue<Coordinate> newWhitePawns = testingBoard.getCoordsOfPawns(PawnFigure.WHITE_PAWN);
-//        Queue<Coordinate> newBlackPawns = testingBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
-//
-//        for (Coordinate c : oldWhitePawns) {
-//            newWhitePawns.remove(c);
-//        }
-//
-//        for (Coordinate c : oldBlackPawns) {
-//            newBlackPawns.remove(c);
-//        }
-//
-//        newWhitePawns.remove(end);
-//
-//        for (Coordinate c : newWhitePawns) {
-//            try {
-//                System.out.println(c.toBoardString());
-//            } catch (InvalidCoordinate e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//
-//        for (Coordinate c : newBlackPawns) {
-//            try {
-//                System.out.println(c.toBoardString());
-//            } catch (InvalidCoordinate e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//        assertTrue(newWhitePawns.isEmpty() && newBlackPawns.isEmpty(), "No pawn has been attacked");
-//    }
+    @Test
+    @DisplayName("movePawn: Tests if the method doesn't attack the pawn if the pawn is not in the right position")
+    void testMovePawnAttackFail() {
+        MainControl.initMatch();
+        BoardE testingBoard = MainControl.getMatch().getBoard();
+        Coordinate start = new Coordinate(3,3);
+        Coordinate end = new Coordinate(3,1);
+
+        Queue<Coordinate> oldWhitePawns = testingBoard.getCoordsOfPawns(PawnFigure.WHITE_PAWN);
+        Queue<Coordinate> oldBlackPawns = testingBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
+
+        testingBoard.getTile(start).placePawn(PawnFigure.BLACK_PAWN);
+
+        try {            testingBoard.movePawn(start, end);
+        } catch (InvalidMove e) {
+            System.out.println(e.getMessage());
+        }
+
+        Queue<Coordinate> newWhitePawns = testingBoard.getCoordsOfPawns(PawnFigure.WHITE_PAWN);
+        Queue<Coordinate> newBlackPawns = testingBoard.getCoordsOfPawns(PawnFigure.BLACK_PAWN);
+
+        for (Coordinate c : oldWhitePawns) {
+            newWhitePawns.remove(c);
+        }
+
+        for (Coordinate c : oldBlackPawns) {
+            newBlackPawns.remove(c);
+        }
+
+        newBlackPawns.removeIf(c -> c.equals(end));
+
+        assertTrue(newWhitePawns.isEmpty() && newBlackPawns.isEmpty(), "No pawn has been attacked");
+    }
+
+    @Test
+    @DisplayName("movePawn: Tests if the method throws an InvalidMove exception when the move is invalid")
+    void testMovePawnInvalidMove() {
+        MainControl.initMatch();
+        BoardE testingBoard = MainControl.getMatch().getBoard();
+        Coordinate start = new Coordinate(0,0);
+        Coordinate end = new Coordinate(3,3);
+
+        assertThrows(InvalidMove.class, () -> testingBoard.movePawn(start, end), "The move is invalid");
+    }
 
     @Test
     @DisplayName("isAdjacent: Tests if the method returns true when the two coordinates are adjacent and attached")
