@@ -304,7 +304,7 @@ public final class BoardE {
      */
     public boolean isBoardFull() {
         for (TileE tile : tiles) {
-            if (!tile.isOccupied()) {
+            if (!tile.isOccupied() && !tile.isInvalid()) {
                 return false;
             }
         }
