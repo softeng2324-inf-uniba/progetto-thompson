@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class HelpCommandCTest {
 
     @Test
-    @DisplayName("HelpCommandTest")
+    @DisplayName("HelpCommandCTest")
     void helpCommandCTest() throws InvalidArguments {
         CommandC helpCommandC = HelpCommandC.getInstance();
         Assertions.assertEquals(helpCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "HelpCommandCTest");
