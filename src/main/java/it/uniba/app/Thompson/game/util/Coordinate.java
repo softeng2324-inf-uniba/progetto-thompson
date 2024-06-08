@@ -15,7 +15,8 @@ public final class Coordinate {
     private final int x;
     private final int y;
     private static final String BLOCK = "[a-z|A-Z][1-9]";
-
+    private static final int UPPERBOUNDLETTERS = 25;
+    private static final int UPPERBOUNDNUMBERS = 8;
     /**
      * Constructor for the class Coordinate.
      * @param initX The x coordinate
@@ -86,7 +87,9 @@ public final class Coordinate {
      * @return Returns coordinate to string
      */
     public String toBoardString() throws InvalidCoordinate {
-        if (x < 0 || y < 0 || x > 25 || y > 8) throw new InvalidCoordinate();
+        if (x < 0 || y < 0 || x > UPPERBOUNDLETTERS || y > UPPERBOUNDNUMBERS) {
+            throw new InvalidCoordinate();
+        }
 
         final int asciiCharValue = 65;
         char xChar = (char) (x + asciiCharValue);
