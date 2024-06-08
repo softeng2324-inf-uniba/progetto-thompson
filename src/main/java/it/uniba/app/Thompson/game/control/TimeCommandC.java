@@ -1,6 +1,7 @@
 package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -66,7 +67,11 @@ public final class TimeCommandC extends CommandC {
      * @return Returns the status of the command
      */
     @Override
-    public CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) throws InvalidArguments {
+        if (getArgumentCount() != args.length) {
+            throw new InvalidArguments();
+        }
+
         if (MainControl.getMatch() == null) {
             CommunicateErrorsB.printSuggestMatchInit();
             return CommandStatus.SUCCESSFUL;

@@ -4,6 +4,7 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.util.CommandStatus;
@@ -73,7 +74,11 @@ public final class BlockCommandC extends CommandC {
      * @return Returns the status of the command
      */
     @Override
-    public CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) throws InvalidArguments {
+        if (getArgumentCount() != args.length) {
+            throw new InvalidArguments();
+        }
+
         if (MainControl.getMatch() != null) {
             CommunicateErrorsB.printMatchNotNull();
             return CommandStatus.FAILED;
