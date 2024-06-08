@@ -1,4 +1,7 @@
 package it.uniba.app.Thompson.game.util;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * {@literal << Util >>}
@@ -11,6 +14,7 @@ public final class Coordinate {
      */
     private final int x;
     private final int y;
+    private static final String BLOCK = "[a-z|A-Z][1-9]";
 
     /**
      * Constructor for the class Coordinate.
@@ -63,9 +67,17 @@ public final class Coordinate {
      * @param stringCoordinate The first coordinate in string
      * @return Returns a new coordinate made of the two characters
      */
-    public static Coordinate toCoordinate(final String stringCoordinate) {
+    public static Coordinate toCoordinate(final String stringCoordinate) throws InvalidCoordinate {
+        Pattern pattern = Pattern.compile(BLOCK);
+        Matcher matcher = pattern.matcher(stringCoordinate);
+
+        if (!matcher.matches()) {
+            throw new InvalidCoordinate();
+        }
+
         int letter = stringCoordinate.charAt(0) - 'a';
         int number = Character.getNumericValue(stringCoordinate.charAt(1)) - 1;
+
         return new Coordinate(letter, number);
     }
 
