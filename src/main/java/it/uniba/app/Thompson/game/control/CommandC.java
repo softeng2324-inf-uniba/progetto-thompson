@@ -51,7 +51,7 @@ public abstract class CommandC {
      * Method executeCommand.
      * @return Returns the status of the command
      */
-    CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) {
         return CommandStatus.SUCCESSFUL;
     }
 }

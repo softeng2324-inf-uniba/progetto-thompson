@@ -65,7 +65,7 @@ public final class ExitCommandC extends CommandC {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) {
         UserInputB.closeScanner();
         return CommandStatus.SHUTDOWN;
     }

@@ -69,7 +69,7 @@ public final class AvailableMovesCommandC extends CommandC {
      * @return Returns the status of the command execution
      */
     @Override
-    CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             CommunicateErrorsB.printSuggestMatchInit();
         } else {
