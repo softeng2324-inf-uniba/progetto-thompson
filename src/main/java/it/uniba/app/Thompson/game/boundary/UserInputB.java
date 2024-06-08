@@ -12,12 +12,20 @@ public final class UserInputB {
     /**
      * Attributes of the class UserInputB.
      */
-    private static final Scanner SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
+    private static Scanner SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
 
     /**
      * Constructor for the class UserInputB.
      */
     private UserInputB() { }
+
+    /**
+     * Method resetStdin.
+     * @return Returns the input from the user
+     */
+    public static void resetStdin() {
+        SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
+    }
 
     /**
      * Method getInput.
