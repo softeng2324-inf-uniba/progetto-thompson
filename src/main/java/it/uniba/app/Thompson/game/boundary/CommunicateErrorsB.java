@@ -149,4 +149,11 @@ public final class CommunicateErrorsB {
     public static void printCoordinateNotValid() {
         System.out.println(ErrorMessage.COORDINATE_NOT_VALID);
     }
+
+    /**
+     * Method printInvalidPawn, prints to stdout the invalid pawn message.
+     */
+    public static void printTileOccupied() {
+        System.out.println(ErrorMessage.TILE_OCCUPIED);
+    }
 }
