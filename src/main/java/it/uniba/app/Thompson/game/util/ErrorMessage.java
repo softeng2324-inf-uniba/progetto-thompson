@@ -116,6 +116,12 @@ public final class ErrorMessage {
             "Coordinate non valide, riprova", Color.RED);
 
     /**
+     * Constant containing the NEGATIVE_TIME message.
+     */
+    public static final String NEGATIVE_TIME = FORMATTER_CONTROL.formatText("( \u00B7 \u275B \u058A \u275B) "
+            + "Qualcosa e' andato storto, il tempo è negativo", Color.RED);
+
+    /**
      * Constructor for the class ErrorMessage.
      */
     private ErrorMessage() { }
