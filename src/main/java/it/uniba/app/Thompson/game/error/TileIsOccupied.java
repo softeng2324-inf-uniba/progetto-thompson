@@ -13,4 +13,3 @@ public class TileIsOccupied extends Exception {
         super("TILE_IS_OCCUPIED");
     }
 }
-

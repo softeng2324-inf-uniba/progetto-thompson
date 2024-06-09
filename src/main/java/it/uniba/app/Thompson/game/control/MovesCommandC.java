@@ -3,7 +3,10 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.entity.MatchE;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.util.CommandStatus;
+import it.uniba.app.Thompson.game.entity.MoveE;
+import java.util.Queue;
 
 /**
  * {@literal << Control >>}
@@ -77,8 +80,21 @@ public final class MovesCommandC extends CommandC {
             CommunicateErrorsB.printSuggestMatchInit();
         } else {
             MatchE match = MainControl.getMatch();
+            Queue<MoveE> moves = match.getMoves();
+            String[] movesString = new String[moves.size()];
 
-            CommunicateInteractionMessagesB.printMoves(match.getMoves());
+            int i = 0;
+            for (MoveE move : moves) {
+                try {
+                    movesString[i] = move.toBoardString();
+                } catch (InvalidCoordinate e) {
+                    CommunicateErrorsB.printCoordinateNotValid();
+                    return CommandStatus.FAILED;
+                }
+                i++;
+            }
+
+            CommunicateInteractionMessagesB.printMoves(movesString);
         }
 
         return CommandStatus.SUCCESSFUL;

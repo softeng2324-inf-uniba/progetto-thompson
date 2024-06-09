@@ -7,10 +7,11 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MatchE;
 import it.uniba.app.Thompson.game.entity.MoveE;
-import it.uniba.app.Thompson.game.error.CommandNotFound;
-import it.uniba.app.Thompson.game.error.InvalidArguments;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.MatchNull;
+import it.uniba.app.Thompson.game.error.CommandNotFound;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -277,7 +278,12 @@ public final class MainControl {
 
                    String[] toConvert = commandStrings[0].split("-");
 
-                    manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
+                    try {
+                        manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
+                    } catch (InvalidCoordinate e) {
+                        CommunicateErrorsB.printCoordinateNotValid();
+                    }
+
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }

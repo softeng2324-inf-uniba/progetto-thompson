@@ -1,4 +1,7 @@
 package it.uniba.app.Thompson.game.util;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * {@literal << Util >>}
@@ -11,7 +14,9 @@ public final class Coordinate {
      */
     private final int x;
     private final int y;
-
+    private static final String BLOCK = "[a-z|A-Z][1-9]";
+    private static final int UPPERBOUNDLETTERS = 25;
+    private static final int UPPERBOUNDNUMBERS = 8;
     /**
      * Constructor for the class Coordinate.
      * @param initX The x coordinate
@@ -63,17 +68,29 @@ public final class Coordinate {
      * @param stringCoordinate The first coordinate in string
      * @return Returns a new coordinate made of the two characters
      */
-    public static Coordinate toCoordinate(final String stringCoordinate) {
+    public static Coordinate toCoordinate(final String stringCoordinate) throws InvalidCoordinate {
+        Pattern pattern = Pattern.compile(BLOCK);
+        Matcher matcher = pattern.matcher(stringCoordinate);
+
+        if (!matcher.matches()) {
+            throw new InvalidCoordinate();
+        }
+
         int letter = stringCoordinate.charAt(0) - 'a';
         int number = Character.getNumericValue(stringCoordinate.charAt(1)) - 1;
+
         return new Coordinate(letter, number);
     }
 
     /**
-     * Method toString, stringify a coordinate.
+     * Method toBoardString, stringify a coordinate.
      * @return Returns coordinate to string
      */
-    public String toString() {
+    public String toBoardString() throws InvalidCoordinate {
+        if (x < 0 || y < 0 || x > UPPERBOUNDLETTERS || y > UPPERBOUNDNUMBERS) {
+            throw new InvalidCoordinate();
+        }
+
         final int asciiCharValue = 65;
         char xChar = (char) (x + asciiCharValue);
 
@@ -107,6 +124,3 @@ public final class Coordinate {
         return x + y;
     }
 }
-
-
-

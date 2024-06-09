@@ -6,6 +6,7 @@ import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.error.TileIsOccupied;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.VariantMove;
@@ -310,7 +311,7 @@ public final class BoardE {
      */
     public boolean isBoardFull() {
         for (TileE tile : tiles) {
-            if (!tile.isOccupied()) {
+            if (!tile.isOccupied() && !tile.isInvalid()) {
                 return false;
             }
         }

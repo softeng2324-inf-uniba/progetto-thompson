@@ -151,6 +151,13 @@ public final class CommunicateErrorsB {
     }
 
     /**
+     * Method printNegativeTime, prints to stdout the negative time message.
+     */
+    public static void printNegativeTime() {
+        System.out.println(ErrorMessage.NEGATIVE_TIME);
+    }
+
+    /**
      * Method printInvalidPawn, prints to stdout the invalid pawn message.
      */
     public static void printTileOccupied() {

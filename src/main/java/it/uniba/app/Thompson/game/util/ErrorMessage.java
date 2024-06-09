@@ -114,6 +114,17 @@ public final class ErrorMessage {
      */
     public static final String COORDINATE_NOT_VALID = FORMATTER_CONTROL.formatText(
             "Coordinate non valide, riprova", Color.RED);
+    /**
+     * Constant containing the TILE_OCCUPIED message.
+     */
+    public static final String TILE_OCCUPIED = FORMATTER_CONTROL.formatText(
+            "Non puoi bloccare una casella con una pedina sopra", Color.RED);
+
+    /**
+     * Constant containing the NEGATIVE_TIME message.
+     */
+    public static final String NEGATIVE_TIME = FORMATTER_CONTROL.formatText("( \u00B7 \u275B \u058A \u275B) "
+            + "Qualcosa e' andato storto, il tempo è negativo", Color.RED);
 
     /**
      * Constant containing the TILE_OCCUPIED message.
