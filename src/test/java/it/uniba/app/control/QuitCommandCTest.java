@@ -7,7 +7,6 @@ import it.uniba.app.Thompson.game.control.QuitCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.*;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
 
@@ -20,7 +19,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCWhiteAcceptedTest : White player wants to quit, then he accepts to quit")
-    void quitCommandCWhiteAcceptedTest() throws InvalidArguments, UnsupportedEncodingException {
+    void quitCommandCWhiteAcceptedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("b\ns\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -30,7 +29,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCBlackAcceptedTest : Black player wants to quit, then he accepts to quit")
-    void quitCommandCBlackAcceptedTest() throws InvalidArguments, UnsupportedEncodingException {
+    void quitCommandCBlackAcceptedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("n\ns\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -40,7 +39,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCBlackRejectedTest : Black player wants to quit, then he refuses to quit")
-    void quitCommandCBlackRejectedTest() throws InvalidArguments, UnsupportedEncodingException{
+    void quitCommandCBlackRejectedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream(("n\nn\n").getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -50,7 +49,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCTest : White player wants to quit, then he refuses to quit")
-    void quitCommandCWhiteRejectedTest() throws InvalidArguments, UnsupportedEncodingException{
+    void quitCommandCWhiteRejectedTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("b\nn\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -60,7 +59,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCPlayerInvalidTest : the choice of player is invalid")
-    void quitCommandCChoicePlayerInTest() throws InvalidArguments, UnsupportedEncodingException {
+    void quitCommandCChoicePlayerInTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("c\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
@@ -70,7 +69,7 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCConfirmInvalidTest : the choice to confirm is invalid")
-    void quitCommandCConfirmInvalidTest() throws InvalidArguments, UnsupportedEncodingException {
+    void quitCommandCConfirmInvalidTest() throws InvalidArguments {
         System.setIn(new java.io.ByteArrayInputStream("n\nb\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
