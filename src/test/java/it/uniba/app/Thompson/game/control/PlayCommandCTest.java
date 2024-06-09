@@ -1,7 +1,4 @@
-package it.uniba.app.control;
-import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.control.PlayCommandC;
+package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.Assertions;
@@ -30,10 +27,11 @@ class PlayCommandCTest {
 
     @Test
     @DisplayName("PlayCommandCTest: invalid number of arguments")
-    void PlayCommandCInvalidArgumentsTest() {
+    void playCommandCInvalidArgumentsTest() {
         CommandC playCommandC = PlayCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
 
-        Assertions.assertThrows(InvalidArguments.class, () -> playCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+        Assertions.assertThrows(InvalidArguments.class, () -> playCommandC.executeCommand(dummyArgs),
+                    "Invalid number of arguments");
     }
 }
