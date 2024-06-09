@@ -10,11 +10,19 @@ class MainControlTest {
 
     @Test
     @DisplayName("MainControlTest : change turn of the main match")
-    void switchTurnTest() throws InvalidArguments {
+    void switchTurnTest() {
         MainControl.initMatch();
         MainControl.switchTurn();
 
-        Assertions.assertEquals(MainControl.getMatch().getCurrentTurn(), PawnFigure.WHITE_PAWN, "SwitchTurnTest");
+        Assertions.assertEquals(MainControl.getMatch().getCurrentTurn(), PawnFigure.WHITE_PAWN, "MainControlTest");
+    }
+
+    @Test
+    @DisplayName("MainControlTest : init a match")
+    void initMatchTest() {
+        MainControl.initMatch();
+
+        Assertions.assertNotEquals(MainControl.getMatch(), null, "MainControlTest");
     }
 
 
