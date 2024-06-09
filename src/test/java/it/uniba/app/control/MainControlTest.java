@@ -98,4 +98,29 @@ class MainControlTest {
         Assertions.assertNull(MainControl.getMatch());
     }
 
+    @Test
+    @DisplayName("MainControlTest : draw")
+    void drawTest() throws TileAlreadyBlocked, ExcessBlockedTile, PawnBlocked, TileIsOccupied {
+        BoardE blockedBoard = new BoardE(true);
+        blockedBoard.blockTile(new Coordinate(3,3));
+
+        MainControl.setBoard(blockedBoard);
+        MainControl.initMatch();
+        BoardE board = MainControl.getMatch().getBoard();
+
+        for (int i = 0; i < board.getSize(); i++) {
+            for (int j = 0; j < board.getSize(); j++){
+                Coordinate coord = new Coordinate(i,j);
+                TileE tile = new TileE(i,j);
+                if (!(i == 3 && j ==3)) {
+                    tile.placePawn((i * board.getSize() + j > 24) ? PawnFigure.BLACK_PAWN : PawnFigure.WHITE_PAWN);
+                    board.setTile(coord, tile);
+                }
+            }
+        }
+        MainControl.setMatchBoard(board);
+        PrintBoardB.printBoard(MainControl.getMatch().getBoard());
+        MainControl.endMatch();
+        Assertions.assertNull(MainControl.getMatch());
+    }
 }
