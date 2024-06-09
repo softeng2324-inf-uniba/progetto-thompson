@@ -327,7 +327,7 @@ In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza
 
 - **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
   - **Diagramma delle Classi**
-    IMMAGINE CLASSE GIOCA
+  <p align="center"><img src="img/Play_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
   - **Diagramma di Sequenza**
@@ -336,7 +336,7 @@ In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza
 
 - **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
   - **Diagramma delle Classi**
-   IMMAGINE CLASSE QUALIMOSSE
+  <p align="center"><img src="img/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
     <br></br>
 
   - **Diagramma di Sequenza**
