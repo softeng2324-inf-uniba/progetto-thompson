@@ -10,7 +10,7 @@ import it.uniba.app.Thompson.game.control.CommandC;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.*;
 
-public class AvailableMovesCommandCTest {
+class AvailableMovesCommandCTest {
 
     @Test
     @DisplayName("AvailableMovesCommandCTest : check the execution of /qualimosse if the game has started")
