@@ -2,6 +2,7 @@ package it.uniba.app.control;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MoveE;
+import it.uniba.app.Thompson.game.entity.TileE;
 import it.uniba.app.Thompson.game.error.CommandNotFound;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.Coordinate;
@@ -50,6 +51,25 @@ class MainControlTest {
         Assertions.assertThrows(InvalidArguments.class, () -> MainControl.findAndExecuteCommand(new String[]{"/vuoto", "dummy"}, MainControl.getCommands()), "MainControlTest");
     }
 
+    @Test
+    @DisplayName("MainControlTest : valid move")
+    void mainManageMoveValidTest() {
+        MainControl.initMatch();
+        MainControl.manageMove(new Coordinate(0,0),new Coordinate(1,1));
+        BoardE board = MainControl.getMatch().getBoard();
+        Assertions.assertTrue(board.getTile(new Coordinate(1,1)).isOccupied());
+        MainControl.removeMatch();
+    }
+
+    @Test
+    @DisplayName("MainControlTest : invalid move")
+    void mainManageMoveInvalidTest() {
+        MainControl.initMatch();
+        MainControl.manageMove(new Coordinate(0,0),new Coordinate(2,4));
+        BoardE board = MainControl.getMatch().getBoard();
+        Assertions.assertFalse(board.getTile(new Coordinate(1,1)).isOccupied());
+        MainControl.removeMatch();
+    }
 
 //
 //    @Test
