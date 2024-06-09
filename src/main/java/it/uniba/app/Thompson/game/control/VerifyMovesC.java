@@ -11,7 +11,7 @@ import java.util.Queue;
  * {@literal << Control >>}
  * Class to manage the verification of the moves.
  */
-public final class VerifyMovesControl {
+public final class VerifyMovesC {
 
     /**
      * Attributes of the class VerifyMovesControl.
@@ -21,7 +21,7 @@ public final class VerifyMovesControl {
     /**
      * Constructor for the class VerifyMovesControl.
      */
-    private VerifyMovesControl() {
+    private VerifyMovesC() {
 
     }
 
