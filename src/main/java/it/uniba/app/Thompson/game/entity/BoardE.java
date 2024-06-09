@@ -275,7 +275,7 @@ public final class BoardE {
      * @param to The ending coordinate
      */
     public void movePawn(final Coordinate from, final Coordinate to) throws InvalidMove {
-        if (!VerifyMovesC.verifyMovesSinglePawn(this, from, to)) {
+        if (!VerifyMovesC.movesSinglePawn(this, from, to)) {
             throw new InvalidMove();
         }
 
