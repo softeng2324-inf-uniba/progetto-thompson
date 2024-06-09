@@ -337,6 +337,68 @@ riportando l'esempio di un singolo comando per comodità di rappresentazione:
 #### [Ritorna all'Indice](#indice)
 
 
+# 6 - Riepilogo dei Test
+
+
+## 6.1 Strumenti di analisi/testing del codice utilizzati
+
+
+- [JUnit 5](https://junit.org/junit5/)
+
+
+- [Checkstyle](https://checkstyle.sourceforge.io/)
+
+
+- [Spotbugs](https://spotbugs.github.io/)
+
+
+- [PMD](https://pmd.github.io/)
+
+
+## 6.2 Presentazione esiti dei test e considerazioni
+
+Nello Sprint 2, il gruppo "Thompson" si è adoperato per effettuare l'attività di Verification&Validation (V&V) che si
+suddivide in un processo statico (finalizzato all'analisi del codice con Checkstyle, Spotbugs e PMD) e un processo
+dinamico (finalizzato alla creazione di casi di test con JUnit 5 e verifica del funzionamento dei metodi).
+
+Di seguito vengono presentati gli esiti delle fasi di test.
+
+Sono stati implementati un totale di **108** casi di test per verificare il corretto funzionamento dei metodi delle classi del package **control** , **entity** e **util**.
+
+Le classi testate sono le seguenti:
+
+![Casi di test](img/RiepilogoDeiTest.png)
+
+- **Esito CheckStyle: Main**
+
+![CheckStyle main](img/Riepilogo%20del%20Test/checkStyleMainReport.png)
+
+- **Esito CheckStyle: Test**
+
+![CheckStyle test](img/Riepilogo%20del%20Test/checkStyleTestReport.png)
+
+- **Esito SpotBugs: Main**
+
+![SpotBugs main](img/Riepilogo%20del%20Test/spotBugsMainReport.png)
+
+- **Esito SpotBugs: Test**
+
+![SpotBugs test](img/Riepilogo%20del%20Test/spotBugsTestReport.png)
+
+- **Esito PMD: Main**
+
+![PMD Main](img/Riepilogo%20del%20Test/PMDMainReport.png)
+
+- **Esito PMD: Test**
+
+![PMD Test](img/PMDMainReport.png)
+
+- **Esito Build (GitHub Actions)**
+
+![Build](img/Riepilogo%20del%20Test/buildSuccessful.png)
+#### [Ritorna all'Indice](#indice)
+
+
 
 # 7 - Manuale Utente 
 
