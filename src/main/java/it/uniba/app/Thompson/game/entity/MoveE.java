@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
 /**
@@ -40,10 +41,10 @@ public final class MoveE {
     }
 
     /**
-     * Method toString, stringify a move.
+     * Method toBoardString, stringify a move.
      * @return Returns move to string
      */
-    public String toString() {
-        return from.toString() + "-" + to.toString();
+    public String toBoardString() throws InvalidCoordinate {
+        return from.toBoardString() + "-" + to.toBoardString();
     }
 }

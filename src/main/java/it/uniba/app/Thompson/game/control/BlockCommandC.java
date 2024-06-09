@@ -4,8 +4,10 @@ import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
 import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
+import it.uniba.app.Thompson.game.error.TileIsOccupied;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
@@ -91,18 +93,22 @@ public final class BlockCommandC extends CommandC {
             return CommandStatus.FAILED;
         }
 
-        Coordinate blockedCoordinate = Coordinate.toCoordinate(args[0]);
-        BoardE board = MainControl.getBoard();
-        if (!board.isInBoard(blockedCoordinate)) {
-            CommunicateErrorsB.printImpossibleBlock();
+        Coordinate blockedCoordinate;
+        try {
+            blockedCoordinate = Coordinate.toCoordinate(args[0]);
+
+        } catch (InvalidCoordinate e) {
+            CommunicateErrorsB.printCoordinateNotValid();
             return CommandStatus.FAILED;
         }
+
+        BoardE board = MainControl.getBoard();
 
         try {
             board.blockTile(blockedCoordinate);
             MainControl.setBoard(board);
 
-            CommunicateInteractionMessagesB.printBlockedTile(blockedCoordinate);
+            CommunicateInteractionMessagesB.printBlockedTile(blockedCoordinate.toBoardString());
             PrintBoardB.printBoard(board);
 
             return CommandStatus.SUCCESSFUL;
@@ -116,6 +122,14 @@ public final class BlockCommandC extends CommandC {
             return CommandStatus.FAILED;
         } catch (PawnBlocked e) {
             CommunicateErrorsB.printInvalidTileToBlock();
+
+            return CommandStatus.FAILED;
+        } catch (TileIsOccupied e) {
+            CommunicateErrorsB.printTileOccupied();
+
+            return CommandStatus.FAILED;
+        } catch (InvalidCoordinate e) {
+            CommunicateErrorsB.printCoordinateNotValid();
 
             return CommandStatus.FAILED;
         }
