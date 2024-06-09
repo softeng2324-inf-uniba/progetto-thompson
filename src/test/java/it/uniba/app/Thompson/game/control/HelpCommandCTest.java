@@ -1,7 +1,4 @@
-package it.uniba.app.control;
-import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.ExitCommandC;
-import it.uniba.app.Thompson.game.control.HelpCommandC;
+package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +21,8 @@ class HelpCommandCTest {
         CommandC helpCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
 
-        Assertions.assertThrows(InvalidArguments.class, () -> helpCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+        Assertions.assertThrows(InvalidArguments.class, () -> helpCommandC.executeCommand(dummyArgs),
+                "Invalid number of arguments");
     }
 
 }
