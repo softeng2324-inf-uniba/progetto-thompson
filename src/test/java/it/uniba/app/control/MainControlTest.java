@@ -1,6 +1,9 @@
 package it.uniba.app.control;
 import it.uniba.app.Thompson.game.control.MainControl;
+import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MoveE;
+import it.uniba.app.Thompson.game.error.CommandNotFound;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import org.junit.jupiter.api.Assertions;
@@ -39,6 +42,12 @@ class MainControlTest {
     @DisplayName("MainControlTest : try to execute a not available command")
     void executeCommandNotFoundTest() {
         Assertions.assertThrows(CommandNotFound.class, () -> MainControl.findAndExecuteCommand(new String[]{"dummy"}, MainControl.getCommands()), "MainControlTest");
+    }
+
+    @Test
+    @DisplayName("MainControlTest : try to execute a not available command")
+    void executeCommandInvalidArgumentsTest() {
+        Assertions.assertThrows(InvalidArguments.class, () -> MainControl.findAndExecuteCommand(new String[]{"/vuoto", "dummy"}, MainControl.getCommands()), "MainControlTest");
     }
 
 
