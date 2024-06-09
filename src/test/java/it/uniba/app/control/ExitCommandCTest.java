@@ -21,7 +21,7 @@ public class ExitCommandCTest {
     @DisplayName("ExitCommandCTest : check the execution of /exit command")
     void exitCommandCTest() throws InvalidArguments {
         CommandC exitCommandC = ExitCommandC.getInstance();
-        Assertions.assertEquals(exitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "ExitCommandCTest");
+        Assertions.assertEquals(exitCommandC.executeCommand(), CommandStatus.SHUTDOWN, "ExitCommandCTest");
     }
 
     @Test
