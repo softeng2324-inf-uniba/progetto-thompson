@@ -3,7 +3,6 @@ package it.uniba.app.control;
 import it.uniba.app.Thompson.game.control.BoardCommandC;
 import it.uniba.app.Thompson.game.control.CommandC;
 import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.control.PlayCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.Assertions;
