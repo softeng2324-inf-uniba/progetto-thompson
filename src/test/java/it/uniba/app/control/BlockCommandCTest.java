@@ -7,7 +7,7 @@ import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.*;
 
-public class BlockCommandCTest {
+class BlockCommandCTest {
 
     @BeforeEach
     void setUp() {
