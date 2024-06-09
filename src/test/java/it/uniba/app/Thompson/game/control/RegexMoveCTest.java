@@ -1,6 +1,4 @@
-package it.uniba.app.control;
-
-import it.uniba.app.Thompson.game.control.RegexMoveC;
+package it.uniba.app.Thompson.game.control;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
