@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class BoardCommandCTest {
+class BoardCommandCTest {
 
     @Test
     @DisplayName("BoardCommandCTest: print board when the game hasn't started yet")
