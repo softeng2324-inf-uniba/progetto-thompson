@@ -1,9 +1,13 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.VerifyMovesControl;
-import it.uniba.app.Thompson.game.error.*;
-import it.uniba.app.Thompson.game.util.PawnFigure;
+import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidMove;
+import it.uniba.app.Thompson.game.error.PawnBlocked;
+import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
+import it.uniba.app.Thompson.game.error.TileIsOccupied;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.VariantMove;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -222,7 +226,7 @@ public final class BoardE {
      */
     public void blockTile(final Coordinate blockedCoordinate) throws TileAlreadyBlocked,
             ExcessBlockedTile, PawnBlocked, TileIsOccupied {
-        BoardE board= MainControl.getBoard();
+        BoardE board = MainControl.getBoard();
 
         if (board.getTile(blockedCoordinate).isOccupied()) {
             throw new TileIsOccupied();
