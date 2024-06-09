@@ -81,7 +81,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 **Obiettivo: piccoli comandi**
 ### 3.1.1 - Funzionali
 
-- **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
+- **[RF1](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/19): Come giocatore voglio mostrare l'help con elenco comandi**
 
   #### Criteri di accettazione
 
@@ -90,18 +90,18 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
   - esci
   - ...
     <br></br>
-- **RF2: Come giocatore voglio iniziare una nuova partita**
+- **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25): Come giocatore voglio iniziare una nuova partita**
 
   #### Criteri di accettazione
 
   Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
   <br></br>
-- **RF3: Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
+- **[RF3](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/20): Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
 
   #### Criteri di accettazione
   Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (_7 per lato_) con le righe numerate da 1 a 7 e le colonne numerate da ‘A’ a ‘G’.
   <br></br>
-- **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione**
+- **[RF4](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/21): Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione**
 
   #### Criteri di accettazione
   Al comando `/tavoliere`:
@@ -109,7 +109,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
   - se il gioco è iniziato l'app mostra la posizione di tutte   
     le pedine sul tavoliere. Le pedine sono mostrate in formato Unicode https://en.wikipedia.org/wiki/English_draughts#Unicode.
     <br></br>
-- **RF5: Come giocatore voglio visualizzare le mosse possibili di una pedina**
+- **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22): Come giocatore voglio visualizzare le mosse possibili di una pedina**
 
   #### Criteri di accettazione
   Al comando `/qualimosse`:
@@ -120,14 +120,14 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
     - in arancione le caselle raggiungibili con mosse che consentono un salto;
     - in rosa le caselle raggiungibili con mosse di entrambi i tipi precedenti.
       <br></br>
-- **RF6: Come giocatore voglio abbandonare la partita**
+- **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23): Come giocatore voglio abbandonare la partita**
 
   #### Criteri di accettazione
   Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
   - se la conferma è positiva, l'app comunica che il Bianco (_o Nero_) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
   - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
     <br></br>
-- **RF7: Come giocatore voglio chiudere il gioco**
+- **[RF7](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/24): Come giocatore voglio chiudere il gioco**
 
   #### Criteri di accettazione
   Al comando `/esci` l'applicazione chiede conferma:
@@ -142,24 +142,24 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 
 ## 3.2 - Requisiti Funzionali Sprint 2
 **Obiettivo: completare il gioco assicurando la qualità del software**
-- **RF1: Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
+- **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62): Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
 
   #### Criteri di accettazione
   A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno giochi sul tavoliere una nuova pedina (_bianca o nera_) in una casella adiacente (_in senso ortogonale e diagonale_) ad un'altra in cui vi sia già una propria pedina, utilizzando una notazione algebrica del tipo: `a1-a2`, dove `a1` è la casella di partenza e `a2` è la casella adiacente.
   <br></br>
-- **RF2: Come giocatore voglio spostare una propria pedina saltando una casella adiacente**
+- **[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63): Come giocatore voglio spostare una propria pedina saltando una casella adiacente**
 
   #### Criteri di accettazione
   A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno sposti sul tavoliere una propria pedina (_bianca o nera_) con il salto di una casella adiacente, utilizzando una notazione algebrica del tipo: `a1-a3`, dove `a1` è la casella di partenza e `a3` è la casella di arrivo.
   La casella di arrivo deve essere libera e non deve essere adiacente alla casella originaria.
   La casella saltata può anche essere occupata da una propria pedina o da una pedina avversaria.
   <br></br>
-- **RF3: Come giocatore voglio catturare una pedina avversaria come effetto di una mossa**
+- **[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64): Come giocatore voglio catturare una pedina avversaria come effetto di una mossa**
 
   #### Criteri di accettazione
   Se al termine di una mossa vi sono pedine avversarie adiacenti alla casella di arrivo, sia per la mossa di espansione che di spostamento, queste vengono catturate cambiando di colore.
   <br></br>
-- **RF4: Come giocatore voglio mostrare le mosse giocate**
+- **[RF11](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/59): Come giocatore voglio mostrare le mosse giocate**
 
   #### Criteri di accettazione
   Al comando `/mosse`, l'app mostra la storia delle mosse con notazione algebrica.
@@ -167,19 +167,19 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
   - 1 a1-a2 (N);
   - 2 g7-g6 (B);
     <br></br>
-- **RF5: Come giocatore voglio passare il turno per impossibilità di movimento**
+- **[RF12](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/65): Come giocatore voglio passare il turno per impossibilità di movimento**
 
   #### Criteri di accettazione
   Se il giocatore non può muovere nessuna pedina del proprio colore, l’app avvisa che il turno passa all’altro colore.
   <br></br>
-- **RF6: Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati**
+- **[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66): Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati**
 
   #### Criteri di accettazione
   Se nessuna pedina può essere mossa perché le caselle del tavoliere sono state tutte riempite, allora l’app dichiara il vincitore (_bianco o nero_) e riporta i punti del bianco e bero contando le rispettive pedine.
   <br></br>
   L'app si predispone a ricevere nuovi comandi.
   <br></br>
-- **RF7: Come giocatore voglio mostrare il tempo di gioco**
+- **[RF14](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/60): Come giocatore voglio mostrare il tempo di gioco**
 
   #### Criteri di accettazione
 
@@ -187,7 +187,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
   <br></br>
   L'app si predispone a ricevere nuovi comandi
   <br></br>
-- **RF8: Come giocatore voglio impostare caselle non accessibili**
+- **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61): Come giocatore voglio impostare caselle non accessibili**
 
   #### Criteri di accettazione
   A partita non in corso, al comando `/blocca xn`, dove `xn` sono le coordinate di una casella,
@@ -317,7 +317,67 @@ esterni alla rappresentazione principale del funzionamento dell'applicazione qua
 
 Inoltre rende possibile rispettare gli **OO Design**, e rende il codice scalabile, manutenibile e modulare in caso di futuri sviluppi.
 
+#### [Ritorna all'Indice](#indice)
 
+# 5 - Object Oriented Design
+
+## 5.1 - Diagrammi di Classi e Sequenza
+
+In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza relativi alle ***User Story*** più significative
+
+- **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
+  - **Diagramma delle Classi**
+    IMMAGINE CLASSE GIOCA
+  <br></br>
+
+  - **Diagramma di Sequenza**
+    IMMAGINE SEQUENZA GIOCA
+    <br></br>
+
+- **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
+  - **Diagramma delle Classi**
+   IMMAGINE CLASSE QUALIMOSSE
+    <br></br>
+
+  - **Diagramma di Sequenza**
+    IMMAGINE SEQUENZA QUALIMOSSE
+    <br></br>
+
+- **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23):** Come giocatore voglio abbandonare la partita
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+  
+  - **Diagramma di Sequenza**
+    IMMAGINE SEQUENZA QUIT COMMAND
+    <br></br>
+
+- **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62)-[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63)-[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64)-[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66):** 
+  - Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina
+  - Come giocatore voglio spostare una propria pedina saltando una casella adiacente
+  - Come giocatore voglio catturare una pedina avversaria come effetto di una mossa
+  - Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati
+  <br></br>
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/ActionsClass_Design.png" alt="" width="95%"/></p>
+  <br></br>
+  
+- **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61):** Come giocatore voglio impostare caselle non accessibili
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+  
+  - **Diagramma di Sequenza**
+    IMMAGINE SEQUENZA BLOCK COMMAND
+
+### Spiegazione Scelta RF8-9-10-13
+Abbiamo ritenuto consono inglobare le user story legate alla generazione, spostamento, attacco e fine partita in un unico
+diagramma poiché il flusso del programma è esattamente lo stesso, con piccole differenze sulle diramazioni 
+nelle condizioni che portano ad azioni diverse. Abbiamo pensato appropriato quindi, rappresentarle
+tutte poiché centrali nell'applicazione, ma allo stesso tempo preservare la chiarezza del paragrafo
+evitando ripetizioni che potrebbero risultare confusionarie per il lettore.
+
+## 5.2 - Design Pattern
 #### [Ritorna all'Indice](#indice)
 
 
