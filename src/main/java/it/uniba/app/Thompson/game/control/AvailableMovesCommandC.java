@@ -80,7 +80,7 @@ public final class AvailableMovesCommandC extends CommandC {
         } else {
             MatchE match = MainControl.getMatch();
             BoardE currentBoard = match.getBoard();
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(currentBoard, match.getCurrentTurn());
+            int[][] mask = VerifyMovesC.verifyMovesAllPawns(currentBoard, match.getCurrentTurn());
 
             CommunicateInteractionMessagesB.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
             PrintBoardB.printBoard(currentBoard, mask);
