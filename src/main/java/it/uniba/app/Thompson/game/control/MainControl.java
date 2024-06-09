@@ -38,7 +38,7 @@ public final class MainControl {
      * Method initCommands.
      * @return commands The map of the available commands
      */
-    private static HashMap<String, CommandC> initCommands() {
+    public static HashMap<String, CommandC> getCommands() {
         HashMap<String, CommandC> commands = new HashMap<>();
 
         commands.put(HelpCommandC.getInstance().getCommand(), HelpCommandC.getInstance());
@@ -157,7 +157,7 @@ public final class MainControl {
      * @throws CommandNotFound If the command is not found
      * @throws InvalidArguments The command is followed by invalid number of arguments
      */
-    private static CommandStatus findAndExecuteCommand(
+    public static CommandStatus findAndExecuteCommand(
         final String[] commandStrings,
         final HashMap<String, CommandC> availableCommands
     ) throws CommandNotFound, InvalidArguments {
@@ -250,7 +250,7 @@ public final class MainControl {
      * @param args Array of all the arguments
      */
     public static void startMainControl(final String[] args) {
-        HashMap<String, CommandC> availableCommands = initCommands();
+        HashMap<String, CommandC> availableCommands = getCommands();
         CommandStatus status = CommandStatus.SUCCESSFUL;
         RegexMoveC matcher = new RegexMoveC();
 

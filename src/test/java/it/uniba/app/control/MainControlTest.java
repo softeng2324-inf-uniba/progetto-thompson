@@ -35,6 +35,12 @@ class MainControlTest {
         Assertions.assertEquals(MainControl.getMatch().getMoves().toArray().length, 1, "MainControlTest");
     }
 
+    @Test
+    @DisplayName("MainControlTest : try to execute a not available command")
+    void executeCommandNotFoundTest() {
+        Assertions.assertThrows(CommandNotFound.class, () -> MainControl.findAndExecuteCommand(new String[]{"dummy"}, MainControl.getCommands()), "MainControlTest");
+    }
+
 
 //
 //    @Test
