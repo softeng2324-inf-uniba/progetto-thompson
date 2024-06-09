@@ -110,8 +110,8 @@ public final class MainControl {
     /**
      * Method setMatchBoard.
      */
-    public static void setMatchBoard() {
-        match.setBoard(board);
+    public static void setMatchBoard(final BoardE defensiveCopy) {
+        match.setBoard(defensiveCopy);
     }
 
     /**
