@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MatchE;
@@ -71,13 +71,13 @@ public final class AvailableMovesCommandC extends CommandC {
     @Override
     CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
-            CommunicateErrorsB.printSuggestMatchInit();
+            CommunicateErrorB.printSuggestMatchInit();
         } else {
             MatchE match = MainControl.getMatch();
             BoardE currentBoard = match.getBoard();
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(currentBoard, match.getCurrentTurn());
+            int[][] mask = VerifyMovesC.verifyMovesAllPawns(currentBoard, match.getCurrentTurn());
 
-            CommunicateInteractionMessagesB.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
+            CommunicateInteractionMessageB.printTitle("MOSSE DISPONIBILI PER IL GIOCATORE 1");
             PrintBoardB.printBoard(currentBoard, mask);
         }
         return CommandStatus.SUCCESSFUL;

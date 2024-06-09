@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.HelpB;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
@@ -78,7 +78,7 @@ public final class HelpCommandC extends CommandC {
      */
     @Override
     CommandStatus executeCommand(final String... args) {
-        CommunicateInteractionMessagesB.printTitle("COMANDI DISPONIBILI");
+        CommunicateInteractionMessageB.printTitle("COMANDI DISPONIBILI");
 
         //inserire tutti i comandi disponibili
         HelpB.printCommands(

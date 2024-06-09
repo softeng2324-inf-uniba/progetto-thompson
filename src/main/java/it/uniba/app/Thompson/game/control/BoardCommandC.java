@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
@@ -69,9 +69,9 @@ public final class BoardCommandC extends CommandC {
     @Override
     CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
-            CommunicateErrorsB.printSuggestMatchInit();
+            CommunicateErrorB.printSuggestMatchInit();
         } else {
-            CommunicateInteractionMessagesB.printTitle("TAVOLIERE ATTUALE");
+            CommunicateInteractionMessageB.printTitle("TAVOLIERE ATTUALE");
 
             PrintBoardB.printBoard(MainControl.getMatch().getBoard());
         }

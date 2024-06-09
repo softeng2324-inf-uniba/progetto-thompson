@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.error.NegativeTime;
 
@@ -69,14 +69,14 @@ public final class TimeCommandC extends CommandC {
     @Override
     CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
-            CommunicateErrorsB.printSuggestMatchInit();
+            CommunicateErrorB.printSuggestMatchInit();
             return CommandStatus.SUCCESSFUL;
         }
-        CommunicateInteractionMessagesB.printTitle("TEMPO TRASCORSO");
+        CommunicateInteractionMessageB.printTitle("TEMPO TRASCORSO");
         try {
-            CommunicateInteractionMessagesB.printGameTime(MainControl.getMatch().getFormattedTime());
+            CommunicateInteractionMessageB.printGameTime(MainControl.getMatch().getFormattedTime());
         } catch (NegativeTime e) {
-            CommunicateErrorsB.printNegativeTime();
+            CommunicateErrorB.printNegativeTime();
             return CommandStatus.FAILED;
         }
         return CommandStatus.SUCCESSFUL;

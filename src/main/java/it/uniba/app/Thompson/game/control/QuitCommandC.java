@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.UserInputB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.util.CommandStatus;
@@ -70,7 +70,7 @@ public final class QuitCommandC extends CommandC {
     @Override
     public CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
-            CommunicateErrorsB.printMatchNull();
+            CommunicateErrorB.printMatchNull();
         } else {
             this.askToQuitGame();
         }
@@ -81,14 +81,14 @@ public final class QuitCommandC extends CommandC {
      * Method askToQuitGame, asks which player wants to quit the game.
      */
     private void askToQuitGame() {
-        CommunicateInteractionMessagesB.printQuittingPlayer();
+        CommunicateInteractionMessageB.printQuittingPlayer();
         String whichPlayer = UserInputB.getInput().trim().toLowerCase();
         String[] acceptableResponse = new String[] {"n", "b"};
 
-        CommunicateInteractionMessagesB.printNewLine();
+        CommunicateInteractionMessageB.printNewLine();
 
         if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(whichPlayer))) {
-            CommunicateErrorsB.printInvalidPlayer();
+            CommunicateErrorB.printInvalidPlayer();
             return;
         }
 
@@ -100,14 +100,14 @@ public final class QuitCommandC extends CommandC {
      * @param player The player who wants to quit the game
      */
     private void askConfirmation(final String player) {
-        CommunicateInteractionMessagesB.printSureToQuit();
+        CommunicateInteractionMessageB.printSureToQuit();
         String confirmation = UserInputB.getInput().trim().toLowerCase();
         String[] acceptableResponse = new String[] {"n", "s" };
 
-        CommunicateInteractionMessagesB.printNewLine();
+        CommunicateInteractionMessageB.printNewLine();
 
         if (Arrays.stream(acceptableResponse).noneMatch(a -> a.equals(confirmation))) {
-            CommunicateErrorsB.printInvalidChoice();
+            CommunicateErrorB.printInvalidChoice();
 
             return;
         }
@@ -115,7 +115,7 @@ public final class QuitCommandC extends CommandC {
         if (confirmation.equals("s")) {
             this.quitMatch(player.equals("b") ? PawnFigure.BLACK_PAWN : PawnFigure.WHITE_PAWN);
         } else {
-            CommunicateInteractionMessagesB.printAbortedQuit();
+            CommunicateInteractionMessageB.printAbortedQuit();
         }
     }
 
@@ -124,7 +124,7 @@ public final class QuitCommandC extends CommandC {
      * @param winnerPawn The pawn figure of the winner
      */
     private void quitMatch(final PawnFigure winnerPawn) {
-        CommunicateInteractionMessagesB.printWinner(
+        CommunicateInteractionMessageB.printWinner(
                 winnerPawn,
                 MainControl.getMatch().getBoard().countPawns(winnerPawn),
                 0

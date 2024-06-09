@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.error.NegativeTime;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import java.util.LinkedList;
@@ -100,7 +100,7 @@ public class MatchE {
      */
     public void switchTurn() {
         PawnFigure newTurn = this.turn == PawnFigure.BLACK_PAWN ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN;
-        CommunicateInteractionMessagesB.printTitle("ORA TOCCA AL "
+        CommunicateInteractionMessageB.printTitle("ORA TOCCA AL "
                 + (newTurn == PawnFigure.BLACK_PAWN ? "NERO" : "BIANCO"));
         this.turn = newTurn;
     }

@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -11,17 +11,17 @@ import java.util.Queue;
  * {@literal << Control >>}
  * Class to manage the verification of the moves.
  */
-public final class VerifyMovesControl {
+public final class VerifyMovesC {
 
     /**
-     * Attributes of the class VerifyMovesControl.
+     * Attributes of the class VerifyMovesC.
      */
     private static final Coordinate[][] AVAILABLE_MOVES = VariantMove.getStandard();
 
     /**
-     * Constructor for the class VerifyMovesControl.
+     * Constructor for the class VerifyMovesC.
      */
-    private VerifyMovesControl() {
+    private VerifyMovesC() {
 
     }
 
@@ -37,7 +37,7 @@ public final class VerifyMovesControl {
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
         if (board.getTile(to).isInvalid()) {
-            CommunicateErrorsB.printImpossibleMove();
+            CommunicateErrorB.printImpossibleMove();
         } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
@@ -46,14 +46,14 @@ public final class VerifyMovesControl {
 
             if ((turn != colorFrom)) {
                 exists = false;
-                CommunicateErrorsB.printWrongPlayer(turn);
+                CommunicateErrorB.printWrongPlayer(turn);
             } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
-                CommunicateErrorsB.printInvalidMove();
+                CommunicateErrorB.printInvalidMove();
                 exists = false;
             }
         } else {
-            CommunicateErrorsB.printInvalidStart();
+            CommunicateErrorB.printInvalidStart();
         }
 
         return exists;

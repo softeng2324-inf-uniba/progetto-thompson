@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
@@ -77,19 +77,19 @@ public final class BlockCommandC extends CommandC {
     @Override
     CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() != null) {
-            CommunicateErrorsB.printMatchNotNull();
+            CommunicateErrorB.printMatchNotNull();
             return CommandStatus.FAILED;
         }
 
         if (args.length != 1) {
-            CommunicateErrorsB.printInvalidArguments();
+            CommunicateErrorB.printInvalidArguments();
             return CommandStatus.FAILED;
         }
 
         RegexMoveC regexMoveC = new RegexMoveC();
 
         if (!regexMoveC.controlInputBlock(args[0])) {
-            CommunicateErrorsB.printCoordinateNotValid();
+            CommunicateErrorB.printCoordinateNotValid();
             return CommandStatus.FAILED;
         }
 
@@ -98,7 +98,7 @@ public final class BlockCommandC extends CommandC {
             blockedCoordinate = Coordinate.toCoordinate(args[0]);
 
         } catch (InvalidCoordinate e) {
-            CommunicateErrorsB.printCoordinateNotValid();
+            CommunicateErrorB.printCoordinateNotValid();
             return CommandStatus.FAILED;
         }
 
@@ -108,28 +108,28 @@ public final class BlockCommandC extends CommandC {
             board.blockTile(blockedCoordinate);
             MainControl.setBoard(board);
 
-            CommunicateInteractionMessagesB.printBlockedTile(blockedCoordinate.toBoardString());
+            CommunicateInteractionMessageB.printBlockedTile(blockedCoordinate.toBoardString());
             PrintBoardB.printBoard(board);
 
             return CommandStatus.SUCCESSFUL;
         } catch (TileAlreadyBlocked e) {
-            CommunicateErrorsB.printTileAlreadyBlocked();
+            CommunicateErrorB.printTileAlreadyBlocked();
 
             return CommandStatus.FAILED;
         } catch (ExcessBlockedTile e) {
-            CommunicateErrorsB.printTooManyInvalidTiles();
+            CommunicateErrorB.printTooManyInvalidTiles();
 
             return CommandStatus.FAILED;
         } catch (PawnBlocked e) {
-            CommunicateErrorsB.printInvalidTileToBlock();
+            CommunicateErrorB.printInvalidTileToBlock();
 
             return CommandStatus.FAILED;
         } catch (TileIsOccupied e) {
-            CommunicateErrorsB.printTileOccupied();
+            CommunicateErrorB.printTileOccupied();
 
             return CommandStatus.FAILED;
         } catch (InvalidCoordinate e) {
-            CommunicateErrorsB.printCoordinateNotValid();
+            CommunicateErrorB.printCoordinateNotValid();
 
             return CommandStatus.FAILED;
         }

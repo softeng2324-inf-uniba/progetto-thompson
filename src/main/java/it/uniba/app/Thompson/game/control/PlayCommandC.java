@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
@@ -70,10 +70,10 @@ public final class PlayCommandC extends CommandC {
     CommandStatus executeCommand(final String... args) {
         if (MainControl.getMatch() == null) {
             MainControl.initMatch();
-            CommunicateInteractionMessagesB.printTitle("TAVOLIERE INIZIALE");
+            CommunicateInteractionMessageB.printTitle("TAVOLIERE INIZIALE");
             PrintBoardB.printBoard(MainControl.getMatch().getBoard());
         } else {
-            CommunicateErrorsB.printMatchNotNull();
+            CommunicateErrorB.printMatchNotNull();
         }
 
         return CommandStatus.SUCCESSFUL;

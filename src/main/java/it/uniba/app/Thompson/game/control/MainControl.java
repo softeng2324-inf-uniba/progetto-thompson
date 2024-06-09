@@ -1,9 +1,6 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.PrintBoardB;
-import it.uniba.app.Thompson.game.boundary.UserInputB;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
-import it.uniba.app.Thompson.game.boundary.WelcomeBannerB;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
+import it.uniba.app.Thompson.game.boundary.*;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MatchE;
 import it.uniba.app.Thompson.game.entity.MoveE;
@@ -183,15 +180,15 @@ public final class MainControl {
     private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
         for (String arg : args) {
             try {
-                CommunicateInteractionMessagesB.printNewLine();
+                CommunicateInteractionMessageB.printNewLine();
                 findAndExecuteCommand(new String[]{arg}, commands);
-                CommunicateInteractionMessagesB.printNewLine();
+                CommunicateInteractionMessageB.printNewLine();
             } catch (CommandNotFound e) {
-                CommunicateErrorsB.printArgumentNotFound(arg);
+                CommunicateErrorB.printArgumentNotFound(arg);
             } catch (InvalidArguments e) {
-                CommunicateErrorsB.printInvalidArguments();
+                CommunicateErrorB.printInvalidArguments();
             } catch (Error e) {
-                CommunicateErrorsB.printGenericError();
+                CommunicateErrorB.printGenericError();
             }
         }
     }
@@ -210,9 +207,9 @@ public final class MainControl {
             pushMoveQueue(new MoveE(from, to));
             switchTurn();
 
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(b, match.getCurrentTurn());
-            if (VerifyMovesControl.isMaskEmpty(mask)) {
-                CommunicateInteractionMessagesB.printSkippingTurn(match.getCurrentTurn());
+            int[][] mask = VerifyMovesC.verifyMovesAllPawns(b, match.getCurrentTurn());
+            if (VerifyMovesC.isMaskEmpty(mask)) {
+                CommunicateInteractionMessageB.printSkippingTurn(match.getCurrentTurn());
                 switchTurn();
             }
 
@@ -224,7 +221,7 @@ public final class MainControl {
             }
 
         } catch (InvalidMove e) {
-            CommunicateErrorsB.printInvalidMove();
+            CommunicateErrorB.printInvalidMove();
         }
     }
 
@@ -237,9 +234,9 @@ public final class MainControl {
         int blackPawnCount = b.countPawns(PawnFigure.BLACK_PAWN);
 
         if (whitePawnCount == blackPawnCount) {
-            CommunicateInteractionMessagesB.printDraw(blackPawnCount, whitePawnCount);
+            CommunicateInteractionMessageB.printDraw(blackPawnCount, whitePawnCount);
         } else {
-            CommunicateInteractionMessagesB.printWinner(
+            CommunicateInteractionMessageB.printWinner(
                 whitePawnCount > blackPawnCount ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN,
                 Math.max(whitePawnCount, blackPawnCount),
                 Math.min(whitePawnCount, blackPawnCount)
@@ -266,7 +263,7 @@ public final class MainControl {
 
         while (status != CommandStatus.SHUTDOWN) {
             String[] commandStrings = UserInputB.getCommandAndArguments();
-            CommunicateInteractionMessagesB.printNewLine();
+            CommunicateInteractionMessageB.printNewLine();
             try {
                 if (commandStrings.length == 0) {
                     throw new CommandNotFound();
@@ -285,24 +282,24 @@ public final class MainControl {
                     try {
                         manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
                     } catch (InvalidCoordinate e) {
-                        CommunicateErrorsB.printCoordinateNotValid();
+                        CommunicateErrorB.printCoordinateNotValid();
                     }
 
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
             } catch (CommandNotFound e) {
-                CommunicateErrorsB.printCommandNotFound();
+                CommunicateErrorB.printCommandNotFound();
             } catch (InvalidArguments e) {
-                CommunicateErrorsB.printInvalidArguments();
+                CommunicateErrorB.printInvalidArguments();
             }  catch (MatchNull e) {
-                CommunicateErrorsB.printSuggestMatchInit();
+                CommunicateErrorB.printSuggestMatchInit();
             } catch (InvalidMove e) {
-                CommunicateErrorsB.printInvalidMove();
+                CommunicateErrorB.printInvalidMove();
             } catch (Error e) {
-                CommunicateErrorsB.printGenericError();
+                CommunicateErrorB.printGenericError();
             }
         }
-        CommunicateInteractionMessagesB.printGoodbye();
+        CommunicateInteractionMessageB.printGoodbye();
     }
 }
