@@ -205,8 +205,8 @@ public final class MainControl {
             pushMoveQueue(new MoveE(from, to));
             switchTurn();
 
-            int[][] mask = VerifyMovesControl.verifyMovesAllPawns(b, match.getCurrentTurn());
-            if (VerifyMovesControl.isMaskEmpty(mask)) {
+            int[][] mask = VerifyMovesC.verifyMovesAllPawns(b, match.getCurrentTurn());
+            if (VerifyMovesC.isMaskEmpty(mask)) {
                 CommunicateInteractionMessagesB.printSkippingTurn(match.getCurrentTurn());
                 switchTurn();
             }
