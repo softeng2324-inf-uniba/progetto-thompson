@@ -19,8 +19,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCWhiteAcceptedTest : White player wants to quit, then he accepts to quit")
-    void quitCommandCWhiteAcceptedTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("b\ns\n".getBytes()));
+    void quitCommandCWhiteAcceptedTest() throws InvalidArguments, UnsupportedEncodingException {
+        System.setIn(new java.io.ByteArrayInputStream("b\ns\n".getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
@@ -28,8 +28,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCBlackAcceptedTest : Black player wants to quit, then he accepts to quit")
-    void quitCommandCBlackAcceptedTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("n\ns\n".getBytes()));
+    void quitCommandCBlackAcceptedTest() throws InvalidArguments, UnsupportedEncodingException {
+        System.setIn(new java.io.ByteArrayInputStream("n\ns\n".getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
@@ -37,8 +37,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCBlackRejectedTest : Black player wants to quit, then he refuses to quit")
-    void quitCommandCBlackRejectedTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("n\nn\n".getBytes()));
+    void quitCommandCBlackRejectedTest() throws InvalidArguments, UnsupportedEncodingException{
+        System.setIn(new java.io.ByteArrayInputStream(("n\nn\n").getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
@@ -46,8 +46,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCTest : White player wants to quit, then he refuses to quit")
-    void quitCommandCWhiteRejectedTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("b\nn\n".getBytes()));
+    void quitCommandCWhiteRejectedTest() throws InvalidArguments, UnsupportedEncodingException{
+        System.setIn(new java.io.ByteArrayInputStream("b\nn\n".getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
@@ -55,8 +55,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCPlayerInvalidTest : the choice of player is invalid")
-    void quitCommandCChoicePlayerInTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("c\n".getBytes()));
+    void quitCommandCChoicePlayerInTest() throws InvalidArguments, UnsupportedEncodingException {
+        System.setIn(new java.io.ByteArrayInputStream("c\n".getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
@@ -64,8 +64,8 @@ class QuitCommandCTest {
 
     @Test
     @DisplayName("QuitCommandCConfirmInvalidTest : the choice to confirm is invalid")
-    void quitCommandCConfirmInvalidTest() throws InvalidArguments {
-        System.setIn(new java.io.ByteArrayInputStream("n\nb\n".getBytes()));
+    void quitCommandCConfirmInvalidTest() throws InvalidArguments, UnsupportedEncodingException {
+        System.setIn(new java.io.ByteArrayInputStream("n\nb\n".getBytes("UTF-8")));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
