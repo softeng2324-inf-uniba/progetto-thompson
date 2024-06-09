@@ -127,12 +127,6 @@ public final class ErrorMessage {
             + "Qualcosa e' andato storto, il tempo è negativo", Color.RED);
 
     /**
-     * Constant containing the TILE_OCCUPIED message.
-     */
-    public static final String TILE_OCCUPIED = FORMATTER_CONTROL.formatText(
-            "Non puoi bloccare una casella con una pedina sopra", Color.RED);
-
-    /**
      * Constructor for the class ErrorMessage.
      */
     private ErrorMessage() { }
