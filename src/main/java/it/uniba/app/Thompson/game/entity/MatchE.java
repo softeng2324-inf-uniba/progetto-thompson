@@ -17,7 +17,6 @@ public class MatchE {
     private PawnFigure turn;
     private final Queue<MoveE> moves = new LinkedList<>();
     private final BoardE board;
-    private static final boolean IS_GAME_BOARD = true;
     private static long startTime = setStartTime();
     private static String elapsedTime;
     private static final int SECONDS = 60;
