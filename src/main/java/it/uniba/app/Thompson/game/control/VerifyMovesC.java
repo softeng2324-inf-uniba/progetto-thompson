@@ -32,7 +32,7 @@ public final class VerifyMovesC {
      * @param to The ending coordinate
      * @return exists The boolean value of the move
      */
-    public static boolean verifyMovesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
+    public static boolean movesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
