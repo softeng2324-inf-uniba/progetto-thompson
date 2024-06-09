@@ -42,14 +42,14 @@ public class AvailableMovesCommandCTest {
     @DisplayName("AvailableMovesCommandCTest : check the execution of /qualimosse if there are purple tiles")
     void availableMovesCommandCTestPurpleTiles() throws InvalidArguments {
         MainControl.initMatch();
-        MainControl.setMatchBoard();
-        CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
-        BoardE aux = MainControl.getMatch().getBoard();
-        TileE tile = aux.getTile(new Coordinate(1, 1));
-        tile.placePawn(PawnFigure.BLACK_PAWN);
-        aux.setTile(new Coordinate(1, 1),tile);
+        BoardE b = MainControl.getMatch().getBoard();
 
-        MainControl.setBoard(aux);
+        TileE t = new TileE(1,0);
+        t.placePawn(PawnFigure.BLACK_PAWN);
+        b.setTile(new Coordinate(1,0), t);
+        MainControl.setMatchBoard(b);
+
+        CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
         Assertions.assertEquals(availableMovesCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "AvailableMovesCommandCTest");
         MainControl.removeMatch();
     }
