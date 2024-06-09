@@ -49,7 +49,6 @@ public final class VerifyMovesC {
                 CommunicateErrorsB.printWrongPlayer(turn);
             } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
-                CommunicateErrorsB.printInvalidMove();
                 exists = false;
             }
         } else {
