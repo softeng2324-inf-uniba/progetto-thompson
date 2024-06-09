@@ -11,7 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.lang.Thread;
 
-public class TimeCommandCTest {
+class TimeCommandCTest {
 
     @BeforeAll
     static void setUp() {
