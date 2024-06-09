@@ -133,6 +133,10 @@ public final class BlockCommandC extends CommandC {
             CommunicateErrorsB.printTileOccupied();
 
             return CommandStatus.FAILED;
+        } catch (InvalidCoordinate e) {
+            CommunicateErrorsB.printCoordinateNotValid();
+
+            return CommandStatus.FAILED;
         }
     }
 }
