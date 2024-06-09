@@ -8,6 +8,8 @@ import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.*;
 
+import java.io.UnsupportedEncodingException;
+
 
 class QuitCommandCTest {
 
