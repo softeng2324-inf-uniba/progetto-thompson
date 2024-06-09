@@ -2,6 +2,7 @@ package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.entity.MatchE;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.error.InvalidCoordinate;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.entity.MoveE;
@@ -70,7 +71,11 @@ public final class MovesCommandC extends CommandC {
      * @return Returns the status of the command.
      */
     @Override
-    CommandStatus executeCommand(final String... args) {
+    public CommandStatus executeCommand(final String... args) throws InvalidArguments {
+        if (getArgumentCount() != args.length) {
+            throw new InvalidArguments();
+        }
+
         if (MainControl.getMatch() == null) {
             CommunicateErrorsB.printSuggestMatchInit();
         } else {

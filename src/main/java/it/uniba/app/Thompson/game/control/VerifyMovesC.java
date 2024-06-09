@@ -11,7 +11,7 @@ import java.util.Queue;
  * {@literal << Control >>}
  * Class to manage the verification of the moves.
  */
-public final class VerifyMovesControl {
+public final class VerifyMovesC {
 
     /**
      * Attributes of the class VerifyMovesControl.
@@ -21,7 +21,7 @@ public final class VerifyMovesControl {
     /**
      * Constructor for the class VerifyMovesControl.
      */
-    private VerifyMovesControl() {
+    private VerifyMovesC() {
 
     }
 
@@ -32,7 +32,7 @@ public final class VerifyMovesControl {
      * @param to The ending coordinate
      * @return exists The boolean value of the move
      */
-    public static boolean verifyMovesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
+    public static boolean movesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
@@ -49,7 +49,6 @@ public final class VerifyMovesControl {
                 CommunicateErrorsB.printWrongPlayer(turn);
             } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
-                CommunicateErrorsB.printInvalidMove();
                 exists = false;
             }
         } else {

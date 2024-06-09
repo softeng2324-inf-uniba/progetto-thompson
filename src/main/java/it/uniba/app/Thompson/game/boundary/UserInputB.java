@@ -12,7 +12,7 @@ public final class UserInputB {
     /**
      * Attributes of the class UserInputB.
      */
-    private static final Scanner SCANNER = new Scanner(System.in, StandardCharsets.UTF_8);
+    private static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
     /**
      * Constructor for the class UserInputB.
@@ -20,12 +20,19 @@ public final class UserInputB {
     private UserInputB() { }
 
     /**
+     * Method resetStdin.
+     */
+    public static void resetStdin() {
+        scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+    }
+
+    /**
      * Method getInput.
      * @return Returns the input from the user
      */
     public static String getInput() {
         System.out.print("\n>");
-        return SCANNER.nextLine().trim().toLowerCase();
+        return scanner.nextLine().trim().toLowerCase();
     }
 
     /**
@@ -35,7 +42,7 @@ public final class UserInputB {
     public static String[] getCommandAndArguments() {
         System.out.print("\n>");
 
-        return Arrays.stream(SCANNER.nextLine().toLowerCase().split(" "))
+        return Arrays.stream(scanner.nextLine().toLowerCase().split(" "))
                 .filter(s -> !s.isEmpty())
                 .toList()
                 .toArray(new String[0]);
@@ -45,6 +52,6 @@ public final class UserInputB {
      * Method closeScanner.
      */
     public static void closeScanner() {
-        SCANNER.close();
+        scanner.close();
     }
 }

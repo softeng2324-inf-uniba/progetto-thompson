@@ -1,6 +1,6 @@
 package it.uniba.app.Thompson.game.entity;
 import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.control.VerifyMovesControl;
+import it.uniba.app.Thompson.game.control.VerifyMovesC;
 import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
@@ -8,6 +8,7 @@ import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
 import it.uniba.app.Thompson.game.error.TileIsOccupied;
 import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.Coordinate;
+import it.uniba.app.Thompson.game.util.PawnFigure;
 import it.uniba.app.Thompson.game.util.VariantMove;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -226,8 +227,8 @@ public final class BoardE {
      */
     public void blockTile(final Coordinate blockedCoordinate) throws TileAlreadyBlocked,
             ExcessBlockedTile, PawnBlocked, TileIsOccupied {
-
         BoardE board = MainControl.getBoard();
+
         if (board.getTile(blockedCoordinate).isOccupied()) {
             throw new TileIsOccupied();
         }
@@ -275,11 +276,11 @@ public final class BoardE {
      * @param to The ending coordinate
      */
     public void movePawn(final Coordinate from, final Coordinate to) throws InvalidMove {
-        if (!VerifyMovesControl.verifyMovesSinglePawn(this, from, to)) {
+        if (!VerifyMovesC.movesSinglePawn(this, from, to)) {
             throw new InvalidMove();
         }
 
-        boolean type = VerifyMovesControl.moveType(from, to);
+        boolean type = VerifyMovesC.moveType(from, to);
         TileE fromTile = getTile(from);
         TileE toTile = getTile(to);
         toTile.placePawn(fromTile.getPawn().getFigure());
