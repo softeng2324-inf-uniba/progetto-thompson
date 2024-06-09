@@ -334,9 +334,6 @@ riportando l'esempio di un singolo comando per comodità di rappresentazione:
 ![Design pattern](img/Diagrammi/Design_Pattern.png)
 
 
-#### [Ritorna all'Indice](#indice)
-
-
 ### 5.3.1 Principi SOLID
 
 I principi SOLID sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
@@ -357,6 +354,8 @@ richiedono la stampa di una mole di testo importante,
 motivo per cui inizialmente si era pensato all'utilizzo di file di testo.
 
 La configurazione del workflow però non permette di portare file di testo esterni al jar all'interno del container Docker, che viene creato dalla build di Gradle, pertanto il team si è attenuto al workflow e ha ripiegato sull'utilizzo di classiche stampe e suddivisione in sottometodi di stampe molto corpose.
+
+#### [Ritorna all'Indice](#indice)
 
 
 # 6 - Riepilogo dei Test
