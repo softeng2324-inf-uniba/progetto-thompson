@@ -25,6 +25,7 @@ public class TimeCommandCTest {
         System.out.println("Starting TimeCommandCTest");
         CommandC timeCommandC = TimeCommandC.getInstance();
         Thread.sleep(5000);
+
         Assertions.assertEquals(timeCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 

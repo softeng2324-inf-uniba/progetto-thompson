@@ -1,5 +1,4 @@
 package it.uniba.app.control;
-
 import it.uniba.app.Thompson.game.control.*;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.TileE;
@@ -19,6 +18,7 @@ public class AvailableMovesCommandCTest {
         MainControl.initMatch();
         CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
         Assertions.assertEquals(availableMovesCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "AvailableMovesCommandCTest");
+
         MainControl.removeMatch();
     }
 
@@ -26,6 +26,7 @@ public class AvailableMovesCommandCTest {
     @DisplayName("AvailableMovesCommandCTest : check the execution of /qualimosse if the game hasn't started")
     void availableMovesCommandCTestNotGoing() throws InvalidArguments {
         CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
+
         Assertions.assertEquals(availableMovesCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "AvailableMovesCommandCTest");
     }
 
@@ -42,14 +43,15 @@ public class AvailableMovesCommandCTest {
     @DisplayName("AvailableMovesCommandCTest : check the execution of /qualimosse if there are purple tiles")
     void availableMovesCommandCTestPurpleTiles() throws InvalidArguments {
         MainControl.initMatch();
-        BoardE b = MainControl.getMatch().getBoard();
 
+        CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
+        BoardE b = MainControl.getMatch().getBoard();
         TileE t = new TileE(1,0);
+
         t.placePawn(PawnFigure.BLACK_PAWN);
         b.setTile(new Coordinate(1,0), t);
         MainControl.setMatchBoard(b);
 
-        CommandC availableMovesCommandC = AvailableMovesCommandC.getInstance();
         Assertions.assertEquals(availableMovesCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "AvailableMovesCommandCTest");
         MainControl.removeMatch();
     }

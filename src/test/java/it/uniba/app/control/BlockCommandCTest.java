@@ -20,6 +20,7 @@ public class BlockCommandCTest {
     @DisplayName("BlockCommandCTest: block a tile with the block command")
     void blockCommandCTestBlock() throws InvalidArguments {
         BlockCommandC blockCommandC = BlockCommandC.getInstance();
+
         Assertions.assertEquals(blockCommandC.executeCommand("d1"), CommandStatus.SUCCESSFUL, "BlockCommandCTest");
     }
 
@@ -28,6 +29,7 @@ public class BlockCommandCTest {
     void blockCommandCTestBlockTwoTimes() throws InvalidArguments {
         BlockCommandC blockCommandC = BlockCommandC.getInstance();
         blockCommandC.executeCommand("d2");
+
         Assertions.assertEquals(blockCommandC.executeCommand("d2"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 
@@ -35,6 +37,7 @@ public class BlockCommandCTest {
     @DisplayName("BlockCommandCTest: block an impossible tile with the block command")
     void blockCommandCTestBlockImpossibleTile() throws InvalidArguments {
         BlockCommandC blockCommandC = BlockCommandC.getInstance();
+
         Assertions.assertEquals(blockCommandC.executeCommand("d9"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 
@@ -42,6 +45,7 @@ public class BlockCommandCTest {
     @DisplayName("BlockCommandCTest: block a tile occupied by a pawn with the block command")
     void blockCommandCTestBlockOccupiedTile() throws InvalidArguments {
         BlockCommandC blockCommandC = BlockCommandC.getInstance();
+
         Assertions.assertEquals(blockCommandC.executeCommand("a1"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 
@@ -56,6 +60,7 @@ public class BlockCommandCTest {
         blockCommandC.executeCommand("b3");
         blockCommandC.executeCommand("c1");
         blockCommandC.executeCommand("c2");
+
         Assertions.assertEquals(blockCommandC.executeCommand("c3"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 
@@ -72,6 +77,7 @@ public class BlockCommandCTest {
         blockCommandC.executeCommand("d4");
         blockCommandC.executeCommand("d5");
         blockCommandC.executeCommand("d6");
+
         Assertions.assertEquals(blockCommandC.executeCommand("d7"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 
@@ -80,6 +86,7 @@ public class BlockCommandCTest {
     void blockCommandCTestMatchOngoing() throws InvalidArguments {
         MainControl.initMatch();
         BlockCommandC blockCommandC = BlockCommandC.getInstance();
+
         Assertions.assertEquals(blockCommandC.executeCommand("a1"), CommandStatus.FAILED, "BlockCommandCTest");
     }
 

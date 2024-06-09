@@ -7,13 +7,11 @@ import it.uniba.app.Thompson.game.control.QuitCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.*;
-
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
 
 class QuitCommandCTest {
-
 
     @BeforeEach
      void setUp() {
@@ -26,6 +24,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream("b\ns\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 
@@ -35,6 +34,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream("n\ns\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 
@@ -44,6 +44,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream(("n\nn\n").getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 
@@ -53,6 +54,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream("b\nn\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 
@@ -62,6 +64,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream("c\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 
@@ -71,6 +74,7 @@ class QuitCommandCTest {
         System.setIn(new java.io.ByteArrayInputStream("n\nb\n".getBytes(StandardCharsets.UTF_8)));
         UserInputB.resetStdin();
         CommandC quitCommandC = QuitCommandC.getInstance();
+
         Assertions.assertEquals(quitCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "TimeCommandCTest");
     }
 

@@ -1,6 +1,5 @@
 package it.uniba.app.control;
 import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.ExitCommandC;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.control.PlayCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
@@ -16,6 +15,7 @@ class PlayCommandCTest {
     void playCommandCTestOnGoing() throws InvalidArguments {
         MainControl.initMatch();
         CommandC playCommandC = PlayCommandC.getInstance();
+
         Assertions.assertEquals(playCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "PlayCommandCTest");
     }
 
@@ -24,6 +24,7 @@ class PlayCommandCTest {
     void playCommandCTestNotGoing() throws InvalidArguments {
         MainControl.removeMatch();
         CommandC playCommandC = PlayCommandC.getInstance();
+
         Assertions.assertEquals(playCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "PlayCommandCTest");
     }
 

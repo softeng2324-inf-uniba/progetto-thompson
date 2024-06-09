@@ -1,5 +1,4 @@
 package it.uniba.app.control;
-
 import it.uniba.app.Thompson.game.control.BoardCommandC;
 import it.uniba.app.Thompson.game.control.CommandC;
 import it.uniba.app.Thompson.game.control.MainControl;
@@ -15,6 +14,7 @@ public class BoardCommandCTest {
     @DisplayName("BoardCommandCTest: print board when the game hasn't started yet")
     void boardCommandCTest() throws InvalidArguments {
         BoardCommandC boardCommandC = BoardCommandC.getInstance();
+
         Assertions.assertEquals(boardCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "BoardCommandCTest");
     }
 
@@ -23,6 +23,7 @@ public class BoardCommandCTest {
     void boardCommandCTestOnGoing() throws InvalidArguments {
         MainControl.initMatch();
         BoardCommandC boardCommandC = BoardCommandC.getInstance();
+
         Assertions.assertEquals(boardCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "BoardCommandCTest");
     }
 

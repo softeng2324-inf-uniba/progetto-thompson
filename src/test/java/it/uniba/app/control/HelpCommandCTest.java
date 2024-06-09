@@ -14,6 +14,7 @@ class HelpCommandCTest {
     @DisplayName("HelpCommandCTest: test the print of all commands")
     void helpCommandCTest() throws InvalidArguments {
         CommandC helpCommandC = HelpCommandC.getInstance();
+
         Assertions.assertEquals(helpCommandC.executeCommand(), CommandStatus.SUCCESSFUL, "HelpCommandCTest");
     }
 
