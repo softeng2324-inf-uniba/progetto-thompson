@@ -78,9 +78,24 @@ class MainControlTest {
         MainControl.removeMatch();
     }
 
-//
-//    @Test
-//    @DisplayName("MainControlTest : vince il bianco e perde il ner")
-//
+    @Test
+    @DisplayName("MainControlTest : black win white lose")
+    void blackWinTest() {
+        MainControl.initMatch();
+        BoardE board = MainControl.getMatch().getBoard();
+
+        for (int i = 0; i < board.getSize(); i++) {
+            for (int j = 0; j < board.getSize(); j++){
+                Coordinate coord = new Coordinate(i,j);
+                TileE tile = new TileE(i,j);
+                tile.placePawn(PawnFigure.BLACK_PAWN);
+                board.setTile(coord,tile);
+            }
+        }
+        MainControl.setMatchBoard(board);
+        PrintBoardB.printBoard(MainControl.getMatch().getBoard());
+        MainControl.endMatch();
+        Assertions.assertNull(MainControl.getMatch());
+    }
 
 }
