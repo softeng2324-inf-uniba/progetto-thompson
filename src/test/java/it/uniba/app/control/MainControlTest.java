@@ -1,10 +1,10 @@
 package it.uniba.app.control;
+import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.entity.MoveE;
 import it.uniba.app.Thompson.game.entity.TileE;
-import it.uniba.app.Thompson.game.error.CommandNotFound;
-import it.uniba.app.Thompson.game.error.InvalidArguments;
+import it.uniba.app.Thompson.game.error.*;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -64,7 +64,7 @@ class MainControlTest {
         MainControl.initMatch();
         MainControl.manageMove(new Coordinate(0,0),new Coordinate(1,1));
         BoardE board = MainControl.getMatch().getBoard();
-        Assertions.assertTrue(board.getTile(new Coordinate(1,1)).isOccupied());
+        Assertions.assertTrue(board.getTile(new Coordinate(1,1)).isOccupied(), "MainControlTest");
         MainControl.removeMatch();
     }
 
@@ -74,7 +74,7 @@ class MainControlTest {
         MainControl.initMatch();
         MainControl.manageMove(new Coordinate(0,0),new Coordinate(2,4));
         BoardE board = MainControl.getMatch().getBoard();
-        Assertions.assertFalse(board.getTile(new Coordinate(1,1)).isOccupied());
+        Assertions.assertFalse(board.getTile(new Coordinate(1,1)).isOccupied(), "MainControlTest");
         MainControl.removeMatch();
     }
 
@@ -95,7 +95,7 @@ class MainControlTest {
         MainControl.setMatchBoard(board);
         PrintBoardB.printBoard(MainControl.getMatch().getBoard());
         MainControl.endMatch();
-        Assertions.assertNull(MainControl.getMatch());
+        Assertions.assertNull(MainControl.getMatch(), "MainControlTest");
     }
 
     @Test
@@ -118,9 +118,10 @@ class MainControlTest {
                 }
             }
         }
+
         MainControl.setMatchBoard(board);
         PrintBoardB.printBoard(MainControl.getMatch().getBoard());
         MainControl.endMatch();
-        Assertions.assertNull(MainControl.getMatch());
+        Assertions.assertNull(MainControl.getMatch(), "MainControlTest");
     }
 }
