@@ -175,7 +175,7 @@ public final class MainControl {
      * @param args Array of all the arguments
      * @param commands Map of all the valid arguments
      */
-    private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
+    public static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
         for (String arg : args) {
             try {
                 CommunicateInteractionMessagesB.printNewLine();
@@ -196,7 +196,7 @@ public final class MainControl {
      * @param from Coordinate from of the move
      * @param to Coordinate to of the move
      */
-    private static void manageMove(final Coordinate from, final Coordinate to) {
+    public static void manageMove(final Coordinate from, final Coordinate to) {
         BoardE b = match.getBoard();
 
         try {
@@ -226,7 +226,7 @@ public final class MainControl {
     /**
      * Method endMatch.
      */
-    private static void endMatch() {
+    public static void endMatch() {
         BoardE b = match.getBoard();
         int whitePawnCount = b.countPawns(PawnFigure.WHITE_PAWN);
         int blackPawnCount = b.countPawns(PawnFigure.BLACK_PAWN);
