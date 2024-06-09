@@ -43,5 +43,5 @@ public abstract class CommandC {
      * Method executeCommand.
      * @return Returns the status of the command
      */
-    public abstract CommandStatus executeCommand(final String... args) throws InvalidArguments;
+    public abstract CommandStatus executeCommand(String... args) throws InvalidArguments;
 }
