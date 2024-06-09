@@ -337,6 +337,28 @@ riportando l'esempio di un singolo comando per comodità di rappresentazione:
 #### [Ritorna all'Indice](#indice)
 
 
+### 5.3.1 Principi SOLID
+
+I principi SOLID sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
+
+- **Single Responsibility**: ogni classe ha una sola responsabilità
+- **Open-Closed**: le classi sono aperte all'estensione e chiuse alle modifiche mediante i modificatori di accesso giusti
+  e alla modularità fornita dall'architettura
+- **Liskov Substitution**: le classi che implementano dei comandi sono le uniche che estendono un'altra classe, e vengono utilizzate al posto del padre correttamente, essendo vitali per il funzionamento dell'intera applicazione
+- **Interface Segregation**: non sono state utilizzate interfacce
+- **Dependency Inversion**: le classi che implementano dei comandi dipendono esclusivamente dalla classe astratta *Command*
+
+## 5.4 Commenti sulle decisioni prese
+
+**Considerazioni in merito alla decisione di non utilizzare file di testo**
+
+Alcune classi, come la *CommunicateInteractionMessagesB* e la *CommunicateErrorsB*,
+richiedono la stampa di una mole di testo importante,
+motivo per cui inizialmente si era pensato all'utilizzo di file di testo.
+
+La configurazione del workflow però non permette di portare file di testo esterni al jar all'interno del container Docker, che viene creato dalla build di Gradle, pertanto il team si è attenuto al workflow e ha ripiegato sull'utilizzo di classiche stampe e suddivisione in sottometodi di stampe molto corpose.
+
+
 # 6 - Riepilogo dei Test
 
 
