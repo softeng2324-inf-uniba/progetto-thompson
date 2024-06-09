@@ -13,7 +13,11 @@
   - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
   - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
   - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
-
+- ### [**5 - Object Oriented Design**](#5---object-oriented-design)
+  - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
+  - [**5.2 - Design Pattern**](#52---design-pattern)
+  - [**5.3 - Principi di OO Design**](#53-principi-di-oo-design)
+    - [**5.3.1 - Principi SOLID**](#531-principi-solid)
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
@@ -324,14 +328,18 @@ Inoltre rende possibile rispettare gli **OO Design**, e rende il codice scalabil
 ## 5.1 - Diagrammi di Classi e Sequenza
 
 In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza relativi alle ***User Story*** più significative
-
+### NOTA IMPORTANTE: 
+Ciò che viene rappresentato nei seguenti diagrammi non è la mappatura 1:1 delle classi nel codice, infatti le classi
+potrebbero risultare incoerenti le loro versioni in diagrammi diversi, questo perché in ogni diagramma vengono riportati
+gli attributi e metodi rilevanti al fine della user story protagonista del diagramma, per rendere il tutto il più
+leggibile e comprensibile possibile.
 - **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
   - **Diagramma delle Classi**
   <p align="center"><img src="img/Play_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
   - **Diagramma di Sequenza**
-    IMMAGINE SEQUENZA GIOCA
+  <p align="center"><img src="img/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
     <br></br>
 
 - **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
@@ -359,8 +367,12 @@ In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza
   - Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati
   <br></br>
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/ActionsClass_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="img/Actions_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
+
+    - **Diagramma di Sequenza**
+    <p align="center"><img src="img/Actions_Sequence_Design.png" alt="" width="95%"/></p>
+        <br></br>
   
 - **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61):** Come giocatore voglio impostare caselle non accessibili
   - **Diagramma delle Classi**
@@ -368,7 +380,8 @@ In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza
   <br></br>
   
   - **Diagramma di Sequenza**
-    IMMAGINE SEQUENZA BLOCK COMMAND
+  <p align="center"><img src="img/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
 
 ### Spiegazione Scelta RF8-9-10-13
 Abbiamo ritenuto consono inglobare le user story legate alla generazione, spostamento, attacco e fine partita in un unico
@@ -377,7 +390,63 @@ nelle condizioni che portano ad azioni diverse. Abbiamo pensato appropriato quin
 tutte poiché centrali nell'applicazione, ma allo stesso tempo preservare la chiarezza del paragrafo
 evitando ripetizioni che potrebbero risultare confusionarie per il lettore.
 
+#### [Ritorna all'Indice](#indice)
+
 ## 5.2 - Design Pattern
+Tutte le classi ***Control*** che gestiscono i comandi dell'applicazione sono state implementate utilizzando il design pattern [**Singleton**](https://refactoring.guru/design-patterns/singleton),
+un pattern della categoria dei ***Creational design pattern*** che assicura che una classe abbia una sola istanza, mettendo a disposizione un punto globale di accesso a tale istanza della classe.
+
+Inoltre, le classi ***Control*** sono state modellate secondo il design pattern [**Command**](https://refactoring.guru/design-patterns/command),
+che sposa il ***principio di presentazione separata*** e permette di demandare la gestione e l'esecuzione dei comandi a una classe apposita
+che si occupa di invocare il metodo corretto della classe destinataria del comando. Questo design pattern permette di rendere il codice
+più flessibile e manutenibile, in quanto è possibile aggiungere nuovi comandi senza dover modificare il codice già esistente, ma soltanto
+creando una nuova classe che estende la classe astratta ***Command***, implementando il metodo ***executeCommand()***.
+
+Di seguito viene riportato un diagramma che spiega nel dettaglio come i design pattern sopra citati sono stati implementati nel progetto,
+riportando l'esempio di un singolo comando per comodità di rappresentazione:
+
+<p align="center"><img src="img/Design_Pattern.png" alt="" width="95%"/></p>
+  <br></br>
+
+
+## 5.3 Principi di OO Design
+
+Data la realizzazione del progetto in Java, un linguaggio inerentemente ***Object-Oriented***, l'architettura dell'applicazione doveva attenersi ai seguenti principi:
+
+- **Information Hiding**
+
+  Gli attributi di tutte le classi sono privati e sono stati messi a disposizione dei getters/setters per potervi accedere in maniera controllata e corretta.
+  Laddove un metodo utilizzasse un altro metodo di servizio, questo è stato reso privato.
+
+
+- **Alta coesione**
+
+  Le classi hanno una ben definita responsabilità, grazie alla tassonomia ECB e ai design pattern utilizzati
+
+
+- **Basso accoppiamento**
+
+  Poichè il progetto rispetta il principio dell'*information hiding*, non ci sono forti dipendenze tra componenti,
+  questo permette di non propagare i cambiamenti.
+
+
+- **Presentazione separata**
+
+  Dato l'utilizzo della tassonomia ECB, le classi *Boundary* si occupano esclusivamente della logica di presentazione
+  e di interfacciarsi con l'utente, mentre le classi *Control* implementano la logica di dominio
+
+### 5.3.1 Principi SOLID
+
+I principi **SOLID** sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
+
+- **Single Responsibility**: ogni classe ha una sola responsabilità
+- **Open-Closed**: le classi sono aperte all'estensione e chiuse alle modifiche mediante i modificatori di accesso giusti
+  e alla modularità fornita dall'architettura
+- **Liskov Substitution**: le classi che implementano dei comandi sono le uniche che estendono un'altra classe, e vengono utilizzate al posto del padre correttamente, essendo vitali per il funzionamento dell'intera applicazione
+- **Interface Segregation**: non sono state utilizzate interfacce
+- **Dependency Inversion**: le classi che implementano dei comandi dipendono esclusivamente dalla classe astratta ***Command***
+
+
 #### [Ritorna all'Indice](#indice)
 
 
