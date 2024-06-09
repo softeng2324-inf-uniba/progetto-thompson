@@ -1,12 +1,11 @@
-package it.uniba.app.control;
+package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.UserInputB;
-import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.ExitCommandC;
-import it.uniba.app.Thompson.game.control.MainControl;
-import it.uniba.app.Thompson.game.control.QuitCommandC;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import java.nio.charset.StandardCharsets;
 
 
@@ -83,6 +82,7 @@ class QuitCommandCTest {
         CommandC quitCommandC = ExitCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
 
-        Assertions.assertThrows(InvalidArguments.class, () -> quitCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+        Assertions.assertThrows(InvalidArguments.class, () -> quitCommandC.executeCommand(dummyArgs),
+        "Invalid number of arguments");
     }
 }
