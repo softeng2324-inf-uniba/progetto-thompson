@@ -348,8 +348,8 @@ leggibile e comprensibile possibile.
     <br></br>
 
   - **Diagramma di Sequenza**
-    IMMAGINE SEQUENZA QUALIMOSSE
-    <br></br>
+  <p align="center"><img src="img/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
 
 - **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23):** Come giocatore voglio abbandonare la partita
   - **Diagramma delle Classi**
@@ -357,8 +357,8 @@ leggibile e comprensibile possibile.
   <br></br>
   
   - **Diagramma di Sequenza**
-    IMMAGINE SEQUENZA QUIT COMMAND
-    <br></br>
+  <p align="center"><img src="img/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
 
 - **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62)-[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63)-[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64)-[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66):** 
   - Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina
