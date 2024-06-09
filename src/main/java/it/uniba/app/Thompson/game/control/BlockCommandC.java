@@ -3,7 +3,11 @@ import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
-import it.uniba.app.Thompson.game.error.*;
+import it.uniba.app.Thompson.game.error.ExcessBlockedTile;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
+import it.uniba.app.Thompson.game.error.PawnBlocked;
+import it.uniba.app.Thompson.game.error.TileAlreadyBlocked;
+import it.uniba.app.Thompson.game.error.TileIsOccupied;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 
