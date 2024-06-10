@@ -17,7 +17,6 @@
   - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
   - [**5.2 - Design Pattern**](#52---design-pattern)
   - [**5.3 - Principi di OO Design**](#53-principi-di-oo-design)
-    - [**5.3.1 - Principi SOLID**](#531-principi-solid)
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
@@ -237,8 +236,8 @@ I package del progetto finale sono i seguenti:
 
 - Il package **boundary** contiene:
 
-  - **CommunicateErrorsB:** Classe che emette i messaggi di errori
-  - **CommunicateInteractionMessagesB:** Classe che emette i messaggi di interazione con l'utente
+  - **CommunicateErrorB:** Classe che emette i messaggi di errori
+  - **CommunicateInteractionMessageB:** Classe che emette i messaggi di interazione con l'utente
   - **HelpB:** Classe che emette il messaggio generato dal comando `/help`
   - **PrintBoardB:** Classe che si occupa di stampare il tavoliere nelle varie versioni in base al momento di gioco
   - **UserInputB:** Classe che si occupa di gestire l'interazione dell'utente
@@ -435,7 +434,7 @@ Data la realizzazione del progetto in Java, un linguaggio inerentemente ***Objec
   Dato l'utilizzo della tassonomia ECB, le classi *Boundary* si occupano esclusivamente della logica di presentazione
   e di interfacciarsi con l'utente, mentre le classi *Control* implementano la logica di dominio
 
-### 5.3.1 Principi SOLID
+### Principi SOLID
 
 I principi **SOLID** sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
 
