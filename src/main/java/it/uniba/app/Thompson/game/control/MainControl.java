@@ -39,7 +39,7 @@ public final class MainControl {
      * Method initCommands.
      * @return commands The map of the available commands
      */
-    private static HashMap<String, CommandC> initCommands() {
+    public static HashMap<String, CommandC> getCommands() {
         HashMap<String, CommandC> commands = new HashMap<>();
 
         commands.put(HelpCommandC.getInstance().getCommand(), HelpCommandC.getInstance());
@@ -111,8 +111,8 @@ public final class MainControl {
     /**
      * Method setMatchBoard.
      */
-    public static void setMatchBoard() {
-        match.setBoard(board);
+    public static void setMatchBoard(final BoardE defensiveCopy) {
+        match.setBoard(defensiveCopy);
     }
 
     /**
@@ -158,17 +158,13 @@ public final class MainControl {
      * @throws CommandNotFound If the command is not found
      * @throws InvalidArguments The command is followed by invalid number of arguments
      */
-    private static CommandStatus findAndExecuteCommand(
+    public static CommandStatus findAndExecuteCommand(
         final String[] commandStrings,
         final HashMap<String, CommandC> availableCommands
     ) throws CommandNotFound, InvalidArguments {
         //First element of commandsStrings must be recognized command
         if (availableCommands.containsKey(commandStrings[0])) {
             CommandC commandControl = availableCommands.get(commandStrings[0]);
-
-            if (commandControl.getArgumentCount() != commandStrings.length - 1) {
-                throw new InvalidArguments();
-            }
 
             return commandControl.executeCommand(Arrays.copyOfRange(commandStrings, 1, commandStrings.length));
         }
@@ -180,7 +176,7 @@ public final class MainControl {
      * @param args Array of all the arguments
      * @param commands Map of all the valid arguments
      */
-    private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
+    public static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
         for (String arg : args) {
             try {
                 CommunicateInteractionMessageB.printNewLine();
@@ -201,7 +197,7 @@ public final class MainControl {
      * @param from Coordinate from of the move
      * @param to Coordinate to of the move
      */
-    private static void manageMove(final Coordinate from, final Coordinate to) {
+    public static void manageMove(final Coordinate from, final Coordinate to) {
         BoardE b = match.getBoard();
 
         try {
@@ -212,7 +208,7 @@ public final class MainControl {
 
             int[][] mask = VerifyMovesC.verifyMovesAllPawns(b, match.getCurrentTurn());
             if (VerifyMovesC.isMaskEmpty(mask)) {
-                CommunicateInteractionMessageB.printSkippingTurn(match.getCurrentTurn());
+                CommunicateInteractionMessagesB.printSkippingTurn(match.getCurrentTurn());
                 switchTurn();
             }
 
@@ -231,7 +227,7 @@ public final class MainControl {
     /**
      * Method endMatch.
      */
-    private static void endMatch() {
+    public static void endMatch() {
         BoardE b = match.getBoard();
         int whitePawnCount = b.countPawns(PawnFigure.WHITE_PAWN);
         int blackPawnCount = b.countPawns(PawnFigure.BLACK_PAWN);
@@ -255,7 +251,7 @@ public final class MainControl {
      * @param args Array of all the arguments
      */
     public static void startMainControl(final String[] args) {
-        HashMap<String, CommandC> availableCommands = initCommands();
+        HashMap<String, CommandC> availableCommands = getCommands();
         CommandStatus status = CommandStatus.SUCCESSFUL;
         RegexMoveC matcher = new RegexMoveC();
 

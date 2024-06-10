@@ -2,6 +2,7 @@ package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
 import it.uniba.app.Thompson.game.boundary.PrintBoardB;
 import it.uniba.app.Thompson.game.entity.BoardE;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -67,8 +68,12 @@ public final class VoidCommandC extends CommandC {
      * @return Returns the status of the command
      */
     @Override
-    CommandStatus executeCommand(final String... args) {
-        CommunicateInteractionMessageB.printTitle("TAVOLIERE VUOTO");
+    public CommandStatus executeCommand(final String... args) throws InvalidArguments {
+        if (getArgumentCount() != args.length) {
+            throw new InvalidArguments();
+        }
+
+        CommunicateInteractionMessagesB.printTitle("TAVOLIERE VUOTO");
 
         BoardE board = new BoardE(false);
         PrintBoardB.printBoard(board);

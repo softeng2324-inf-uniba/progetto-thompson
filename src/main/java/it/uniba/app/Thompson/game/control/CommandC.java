@@ -1,4 +1,5 @@
 package it.uniba.app.Thompson.game.control;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 
 /**
@@ -10,24 +11,19 @@ public abstract class CommandC {
     /**
      * Attributes of the class CommandC.
      */
-    private static final String COMMAND = "";
     private static final String[] ALIASES = {};
-    private static final String DESCRIPTION = "";
-    private static final int ARGUMENT_COUNT = 0;
 
     /**
      * Method getCommand.
      * @return COMMAND The command
      */
-    public String getCommand() {
-        return COMMAND;
-    }
+    public abstract String getCommand();
 
     /**
      * Method getAliases.
      * @return ALIASES The aliases of the command
      */
-    String[] getAliases() {
+    public String[] getAliases() {
         return ALIASES;
     }
 
@@ -35,23 +31,17 @@ public abstract class CommandC {
      * Method getDescription.
      * @return DESCRIPTION The description of the command
      */
-    public String getDescription() {
-        return DESCRIPTION;
-    }
+    public abstract String getDescription();
 
     /**
      * Method getArgumentCount.
      * @return ARGUMENT_COUNT The number of arguments of the command
      */
-    int getArgumentCount() {
-        return ARGUMENT_COUNT;
-    }
+    public abstract int getArgumentCount();
 
     /**
      * Method executeCommand.
      * @return Returns the status of the command
      */
-    CommandStatus executeCommand(final String... args) {
-        return CommandStatus.SUCCESSFUL;
-    }
+    public abstract CommandStatus executeCommand(String... args) throws InvalidArguments;
 }
