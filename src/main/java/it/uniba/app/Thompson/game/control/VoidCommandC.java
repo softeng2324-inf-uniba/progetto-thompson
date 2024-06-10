@@ -73,7 +73,7 @@ public final class VoidCommandC extends CommandC {
             throw new InvalidArguments();
         }
 
-        CommunicateInteractionMessagesB.printTitle("TAVOLIERE VUOTO");
+        CommunicateInteractionMessageB.printTitle("TAVOLIERE VUOTO");
 
         BoardE board = new BoardE(false);
         PrintBoardB.printBoard(board);
