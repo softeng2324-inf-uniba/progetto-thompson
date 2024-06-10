@@ -97,7 +97,7 @@ public final class BlockCommandC extends CommandC {
             CommunicateErrorB.printCoordinateNotValid();
             return CommandStatus.FAILED;
         }
-      
+
         Coordinate blockedCoordinate;
         try {
             blockedCoordinate = Coordinate.toCoordinate(args[0]);
