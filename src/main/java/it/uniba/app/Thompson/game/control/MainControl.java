@@ -208,7 +208,7 @@ public final class MainControl {
 
             int[][] mask = VerifyMovesC.verifyMovesAllPawns(b, match.getCurrentTurn());
             if (VerifyMovesC.isMaskEmpty(mask)) {
-                CommunicateInteractionMessagesB.printSkippingTurn(match.getCurrentTurn());
+                CommunicateInteractionMessageB.printSkippingTurn(match.getCurrentTurn());
                 switchTurn();
             }
 
