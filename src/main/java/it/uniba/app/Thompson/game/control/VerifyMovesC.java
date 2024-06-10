@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -37,7 +37,7 @@ public final class VerifyMovesC {
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
         if (board.getTile(to).isInvalid()) {
-            CommunicateErrorsB.printImpossibleMove();
+            CommunicateErrorB.printImpossibleMove();
         } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
@@ -46,13 +46,13 @@ public final class VerifyMovesC {
 
             if ((turn != colorFrom)) {
                 exists = false;
-                CommunicateErrorsB.printWrongPlayer(turn);
+                CommunicateErrorB.printWrongPlayer(turn);
             } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
                 exists = false;
             }
         } else {
-            CommunicateErrorsB.printInvalidStart();
+            CommunicateErrorB.printInvalidStart();
         }
 
         return exists;
