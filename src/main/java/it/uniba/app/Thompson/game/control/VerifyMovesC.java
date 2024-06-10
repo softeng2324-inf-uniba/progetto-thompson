@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -32,12 +32,12 @@ public final class VerifyMovesC {
      * @param to The ending coordinate
      * @return exists The boolean value of the move
      */
-    public static boolean verifyMovesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
+    public static boolean movesSinglePawn(final BoardE board, final Coordinate from, final Coordinate to) {
         Coordinate diff = Coordinate.abs(from, to);
         boolean exists = false;
         PawnFigure turn = MainControl.getMatch().getCurrentTurn();
         if (board.getTile(to).isInvalid()) {
-            CommunicateErrorB.printImpossibleMove();
+            CommunicateErrorsB.printImpossibleMove();
         } else if (board.getTile(from).isOccupied()) {
             PawnFigure colorFrom = board.getTile(from).getPawn().getFigure();
 
@@ -46,14 +46,13 @@ public final class VerifyMovesC {
 
             if ((turn != colorFrom)) {
                 exists = false;
-                CommunicateErrorB.printWrongPlayer(turn);
+                CommunicateErrorsB.printWrongPlayer(turn);
             } else if (!(BoardE.isGenerable(to, board) == 1 || BoardE.isJumpable(to, board) == 2)
                     || !board.isAdjacent(from, to)) {
-                CommunicateErrorB.printInvalidMove();
                 exists = false;
             }
         } else {
-            CommunicateErrorB.printInvalidStart();
+            CommunicateErrorsB.printInvalidStart();
         }
 
         return exists;
