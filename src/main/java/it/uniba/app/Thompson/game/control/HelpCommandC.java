@@ -83,7 +83,7 @@ public final class HelpCommandC extends CommandC {
             throw new InvalidArguments();
         }
 
-        CommunicateInteractionMessagesB.printTitle("COMANDI DISPONIBILI");
+        CommunicateInteractionMessageB.printTitle("COMANDI DISPONIBILI");
 
         //inserire tutti i comandi disponibili
         HelpB.printCommands(
