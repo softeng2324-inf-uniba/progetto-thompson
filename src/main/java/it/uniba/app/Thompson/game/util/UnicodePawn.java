@@ -13,7 +13,7 @@ public final class UnicodePawn {
 
     /**
      * Method getPawnUnicode.
-     * @param pawn Pawn figure of the returning unicode
+     * @param pawn PawnE figure of the returning unicode
      * @return Returns unicode pawn figure based off pawn parameter
      */
     public static String getPawnUnicode(final PawnFigure pawn) {

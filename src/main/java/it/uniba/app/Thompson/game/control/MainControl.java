@@ -1,16 +1,17 @@
 package it.uniba.app.Thompson.game.control;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsBoundary;
-import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessagesBoundary;
-import it.uniba.app.Thompson.game.boundary.UserInputBoundary;
-import it.uniba.app.Thompson.game.boundary.WelcomeBannerBoundary;
-import it.uniba.app.Thompson.game.boundary.PrintBoardBoundary;
-import it.uniba.app.Thompson.game.entity.Board;
-import it.uniba.app.Thompson.game.entity.Match;
-import it.uniba.app.Thompson.game.entity.Move;
-import it.uniba.app.Thompson.game.error.CommandNotFoundError;
-import it.uniba.app.Thompson.game.error.InvalidArgumentsError;
-import it.uniba.app.Thompson.game.error.InvalidMoveError;
-import it.uniba.app.Thompson.game.error.MatchNullError;
+import it.uniba.app.Thompson.game.boundary.CommunicateInteractionMessageB;
+import it.uniba.app.Thompson.game.boundary.PrintBoardB;
+import it.uniba.app.Thompson.game.boundary.UserInputB;
+import it.uniba.app.Thompson.game.boundary.WelcomeBannerB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
+import it.uniba.app.Thompson.game.entity.BoardE;
+import it.uniba.app.Thompson.game.entity.MatchE;
+import it.uniba.app.Thompson.game.entity.MoveE;
+import it.uniba.app.Thompson.game.error.InvalidCoordinate;
+import it.uniba.app.Thompson.game.error.InvalidMove;
+import it.uniba.app.Thompson.game.error.MatchNull;
+import it.uniba.app.Thompson.game.error.CommandNotFound;
+import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import it.uniba.app.Thompson.game.util.Coordinate;
 import it.uniba.app.Thompson.game.util.PawnFigure;
@@ -26,8 +27,8 @@ public final class MainControl {
     /**
      * Attributes of the class MainControl.
      */
-    private static Match match;
-    private static Board board = new Board(true);
+    private static MatchE match;
+    private static BoardE board = new BoardE(true);
 
     /**
      * Constructor for the class MainControl.
@@ -38,20 +39,20 @@ public final class MainControl {
      * Method initCommands.
      * @return commands The map of the available commands
      */
-    private static HashMap<String, CommandControl> initCommands() {
-        HashMap<String, CommandControl> commands = new HashMap<>();
+    public static HashMap<String, CommandC> getCommands() {
+        HashMap<String, CommandC> commands = new HashMap<>();
 
-        commands.put(HelpCommandControl.getInstance().getCommand(), HelpCommandControl.getInstance());
-        commands.put(ExitCommandControl.getInstance().getCommand(), ExitCommandControl.getInstance());
-        commands.put(PlayCommandControl.getInstance().getCommand(), PlayCommandControl.getInstance());
-        commands.put(QuitCommandControl.getInstance().getCommand(), QuitCommandControl.getInstance());
-        commands.put(VoidCommandControl.getInstance().getCommand(), VoidCommandControl.getInstance());
-        commands.put(BoardCommandControl.getInstance().getCommand(), BoardCommandControl.getInstance());
-        commands.put(AvailableMovesCommandControl.getInstance().getCommand(),
-                     AvailableMovesCommandControl.getInstance());
-        commands.put(MovesCommandControl.getInstance().getCommand(), MovesCommandControl.getInstance());
-        commands.put(BlockCommandControl.getInstance().getCommand(), BlockCommandControl.getInstance());
-        commands.put(TimeCommandControl.getInstance().getCommand(), TimeCommandControl.getInstance());
+        commands.put(HelpCommandC.getInstance().getCommand(), HelpCommandC.getInstance());
+        commands.put(ExitCommandC.getInstance().getCommand(), ExitCommandC.getInstance());
+        commands.put(PlayCommandC.getInstance().getCommand(), PlayCommandC.getInstance());
+        commands.put(QuitCommandC.getInstance().getCommand(), QuitCommandC.getInstance());
+        commands.put(VoidCommandC.getInstance().getCommand(), VoidCommandC.getInstance());
+        commands.put(BoardCommandC.getInstance().getCommand(), BoardCommandC.getInstance());
+        commands.put(AvailableMovesCommandC.getInstance().getCommand(),
+                     AvailableMovesCommandC.getInstance());
+        commands.put(MovesCommandC.getInstance().getCommand(), MovesCommandC.getInstance());
+        commands.put(BlockCommandC.getInstance().getCommand(), BlockCommandC.getInstance());
+        commands.put(TimeCommandC.getInstance().getCommand(), TimeCommandC.getInstance());
         return commands;
     }
 
@@ -59,9 +60,9 @@ public final class MainControl {
      * Method initArgumentCommands.
      * @return commands The map of the valid arguments
      */
-    private static HashMap<String, CommandControl> initArgumentCommands() {
-        HashMap<String, CommandControl> commands = new HashMap<>();
-        commands.putAll(addAliasesCommands(HelpCommandControl.getInstance()));
+    private static HashMap<String, CommandC> initArgumentCommands() {
+        HashMap<String, CommandC> commands = new HashMap<>();
+        commands.putAll(addAliasesCommands(HelpCommandC.getInstance()));
 
         return commands;
     }
@@ -78,8 +79,8 @@ public final class MainControl {
      * @param commandControl Command linked to the argument
      * @return commands The map of the aliases of the argument
      */
-    private static HashMap<String, CommandControl> addAliasesCommands(final CommandControl commandControl) {
-        HashMap<String, CommandControl> commands =  new HashMap<>();
+    private static HashMap<String, CommandC> addAliasesCommands(final CommandC commandControl) {
+        HashMap<String, CommandC> commands =  new HashMap<>();
 
         for (String a: commandControl.getAliases()) {
             commands.put(a, commandControl);
@@ -92,17 +93,17 @@ public final class MainControl {
      * Method initMatch.
      */
     public static void initMatch() {
-        match = new Match(MainControl.getBoard());
+        match = new MatchE(MainControl.getBoard());
     }
 
     /**
      * Method getMatch.
      * @return match The current match.
      */
-    public static Match getMatch() {
-        Match defensiveCopy = match;
+    public static MatchE getMatch() {
+        MatchE defensiveCopy = match;
         if (defensiveCopy != null) {
-            defensiveCopy = new Match(match.getBoard(), match.getMoves(), match.getCurrentTurn());
+            defensiveCopy = new MatchE(match.getBoard(), match.getMoves(), match.getCurrentTurn());
         }
         return defensiveCopy;
     }
@@ -110,15 +111,15 @@ public final class MainControl {
     /**
      * Method setMatchBoard.
      */
-    public static void setMatchBoard() {
-        match.setBoard(board);
+    public static void setMatchBoard(final BoardE defensiveCopy) {
+        match.setBoard(defensiveCopy);
     }
 
     /**
      * Method pushMove.
      * @param move The move to be pushed in the queue
      */
-    public static void pushMoveQueue(final Move move) {
+    public static void pushMoveQueue(final MoveE move) {
         match.pushMove(move);
     }
 
@@ -133,10 +134,10 @@ public final class MainControl {
      * Method getBoard.
      * @return board The board of the match
      */
-    public static Board getBoard() {
-        Board defensiveCopy = board;
+    public static BoardE getBoard() {
+        BoardE defensiveCopy = board;
         if (defensiveCopy != null) {
-            defensiveCopy = new Board(board);
+            defensiveCopy = new BoardE(board);
         }
         return defensiveCopy;
     }
@@ -145,8 +146,8 @@ public final class MainControl {
      * Method setBoard.
      * @param newBoard The new board of the match
      */
-    public static void setBoard(final Board newBoard) {
-        board = new Board(newBoard);
+    public static void setBoard(final BoardE newBoard) {
+        board = new BoardE(newBoard);
     }
 
     /**
@@ -154,24 +155,20 @@ public final class MainControl {
      * @param commandStrings Array that contains command and other arguments
      * @param availableCommands The map of the available commands
      * @return Returns The status of the command
-     * @throws CommandNotFoundError If the command is not found
-     * @throws InvalidArgumentsError The command is followed by invalid number of arguments
+     * @throws CommandNotFound If the command is not found
+     * @throws InvalidArguments The command is followed by invalid number of arguments
      */
-    private static CommandStatus findAndExecuteCommand(
+    public static CommandStatus findAndExecuteCommand(
         final String[] commandStrings,
-        final HashMap<String, CommandControl> availableCommands
-    ) throws CommandNotFoundError, InvalidArgumentsError {
+        final HashMap<String, CommandC> availableCommands
+    ) throws CommandNotFound, InvalidArguments {
         //First element of commandsStrings must be recognized command
         if (availableCommands.containsKey(commandStrings[0])) {
-            CommandControl commandControl = availableCommands.get(commandStrings[0]);
-
-            if (commandControl.getArgumentCount() != commandStrings.length - 1) {
-                throw new InvalidArgumentsError();
-            }
+            CommandC commandControl = availableCommands.get(commandStrings[0]);
 
             return commandControl.executeCommand(Arrays.copyOfRange(commandStrings, 1, commandStrings.length));
         }
-        throw new CommandNotFoundError();
+        throw new CommandNotFound();
     }
 
     /**
@@ -179,18 +176,18 @@ public final class MainControl {
      * @param args Array of all the arguments
      * @param commands Map of all the valid arguments
      */
-    private static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandControl> commands) {
+    public static void executeArgumentsCommands(final String[] args, final HashMap<String, CommandC> commands) {
         for (String arg : args) {
             try {
-                CommunicateInteractionMessagesBoundary.printNewLine();
+                CommunicateInteractionMessageB.printNewLine();
                 findAndExecuteCommand(new String[]{arg}, commands);
-                CommunicateInteractionMessagesBoundary.printNewLine();
-            } catch (CommandNotFoundError e) {
-                CommunicateErrorsBoundary.printArgumentNotFound(arg);
-            } catch (InvalidArgumentsError e) {
-                CommunicateErrorsBoundary.printInvalidArguments();
+                CommunicateInteractionMessageB.printNewLine();
+            } catch (CommandNotFound e) {
+                CommunicateErrorB.printArgumentNotFound(arg);
+            } catch (InvalidArguments e) {
+                CommunicateErrorB.printInvalidArguments();
             } catch (Error e) {
-                CommunicateErrorsBoundary.printGenericError();
+                CommunicateErrorB.printGenericError();
             }
         }
     }
@@ -200,30 +197,45 @@ public final class MainControl {
      * @param from Coordinate from of the move
      * @param to Coordinate to of the move
      */
-    private static void manageMove(final Coordinate from, final Coordinate to) {
-        Board b = match.getBoard();
-        b.movePawn(from, to);
-        match.setBoard(b);
+    public static void manageMove(final Coordinate from, final Coordinate to) {
+        BoardE b = match.getBoard();
 
-        PrintBoardBoundary.printBoard(b);
+        try {
+            b.movePawn(from, to);
 
-        if (match != null && b.isBoardFull()) {
-            endMatch();
+            pushMoveQueue(new MoveE(from, to));
+            switchTurn();
+
+            int[][] mask = VerifyMovesC.verifyMovesAllPawns(b, match.getCurrentTurn());
+            if (VerifyMovesC.isMaskEmpty(mask)) {
+                CommunicateInteractionMessageB.printSkippingTurn(match.getCurrentTurn());
+                switchTurn();
+            }
+
+            match.setBoard(b);
+
+            PrintBoardB.printBoard(b);
+            if (match != null && b.isBoardFull()) {
+                endMatch();
+            }
+
+        } catch (InvalidMove e) {
+            CommunicateErrorB.printInvalidMove();
         }
     }
 
     /**
      * Method endMatch.
      */
-    private static void endMatch() {
-        Board b = match.getBoard();
+    public static void endMatch() {
+        BoardE b = match.getBoard();
         int whitePawnCount = b.countPawns(PawnFigure.WHITE_PAWN);
         int blackPawnCount = b.countPawns(PawnFigure.BLACK_PAWN);
 
         if (whitePawnCount == blackPawnCount) {
-            CommunicateInteractionMessagesBoundary.printDraw(blackPawnCount, whitePawnCount);
+            CommunicateInteractionMessageB.printDraw(blackPawnCount, whitePawnCount);
         } else {
-            CommunicateInteractionMessagesBoundary.printWinner(
+            CommunicateInteractionMessageB.printWinner(
                 whitePawnCount > blackPawnCount ? PawnFigure.WHITE_PAWN : PawnFigure.BLACK_PAWN,
                 Math.max(whitePawnCount, blackPawnCount),
                 Math.min(whitePawnCount, blackPawnCount)
@@ -231,7 +243,7 @@ public final class MainControl {
         }
 
         removeMatch();
-        setBoard(new Board(true));
+        setBoard(new BoardE(true));
     }
 
     /**
@@ -239,46 +251,54 @@ public final class MainControl {
      * @param args Array of all the arguments
      */
     public static void startMainControl(final String[] args) {
-        HashMap<String, CommandControl> availableCommands = initCommands();
+        HashMap<String, CommandC> availableCommands = getCommands();
         CommandStatus status = CommandStatus.SUCCESSFUL;
-        RegexMoveControl matcher = new RegexMoveControl();
+        RegexMoveC matcher = new RegexMoveC();
 
-        WelcomeBannerBoundary banner = new WelcomeBannerBoundary();
+        WelcomeBannerB banner = new WelcomeBannerB();
         banner.printBanner();
 
         executeArgumentsCommands(args, initArgumentCommands());
 
         while (status != CommandStatus.SHUTDOWN) {
-            String[] commandStrings = UserInputBoundary.getCommandAndArguments();
-            CommunicateInteractionMessagesBoundary.printNewLine();
+            String[] commandStrings = UserInputB.getCommandAndArguments();
+            CommunicateInteractionMessageB.printNewLine();
             try {
+                if (commandStrings.length == 0) {
+                    throw new CommandNotFound();
+                }
                 if (matcher.isGenericCoordinate(commandStrings[0])) {
                     if (match == null) {
-                        throw new MatchNullError();
+                        throw new MatchNull();
                     }
 
                     if (!matcher.controlInputMovement(commandStrings[0])) {
-                        throw new InvalidMoveError();
+                        throw new InvalidMove();
                     }
 
                    String[] toConvert = commandStrings[0].split("-");
 
-                    manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
+                    try {
+                        manageMove(Coordinate.toCoordinate(toConvert[0]), Coordinate.toCoordinate(toConvert[1]));
+                    } catch (InvalidCoordinate e) {
+                        CommunicateErrorB.printCoordinateNotValid();
+                    }
+
                 } else {
                     status = findAndExecuteCommand(commandStrings, availableCommands);
                 }
-            } catch (CommandNotFoundError e) {
-                CommunicateErrorsBoundary.printCommandNotFound();
-            } catch (InvalidArgumentsError e) {
-                CommunicateErrorsBoundary.printInvalidArguments();
-            }  catch (MatchNullError e) {
-                CommunicateErrorsBoundary.printSuggestMatchInit();
-            } catch (InvalidMoveError e) {
-                CommunicateErrorsBoundary.printInvalidMove();
+            } catch (CommandNotFound e) {
+                CommunicateErrorB.printCommandNotFound();
+            } catch (InvalidArguments e) {
+                CommunicateErrorB.printInvalidArguments();
+            }  catch (MatchNull e) {
+                CommunicateErrorB.printSuggestMatchInit();
+            } catch (InvalidMove e) {
+                CommunicateErrorB.printInvalidMove();
             } catch (Error e) {
-                CommunicateErrorsBoundary.printGenericError();
+                CommunicateErrorB.printGenericError();
             }
         }
-        CommunicateInteractionMessagesBoundary.printGoodbye();
+        CommunicateInteractionMessageB.printGoodbye();
     }
 }
