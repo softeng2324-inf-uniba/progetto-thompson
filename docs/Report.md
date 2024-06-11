@@ -327,9 +327,9 @@ Questo comando avvierà il gioco Ataxx
           <img src="img/block_failed.jpeg" alt="blocco di una casella invalida"/>
         </p> 
         <h4>Scenario 3:</h4>
-        Esempio di esecuzione del comando su caselle adiacenti a quelle di partenza:
+        Esempio di esecuzione del comando quando si prova a bloccare tutte le mosse possibili di una pedina iniziale:
         <p align="center">
-          <img src="img/block_adjacent.png" alt="blocco di una casella invalida" width="80%"/>
+          <img src="img/block_adjacent.png" alt="blocco di una casella invalida" width="95%"/>
         </p> 
         <h4>Scenario 4:</h4>
         Esempio di esecuzione del comando dopo aver già bloccato 9 caselle:
