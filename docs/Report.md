@@ -1,27 +1,27 @@
 # Report
 # Indice
-- ### [**1 - Introduzione**](#1---introduzione)
-  -  [**1.1 - Sviluppatori**](#partecipanti-al-progetto)
-  -  [**1.2 - Descrizione Progetto**](#descrizione-progetto)
-- ### [**2 - Modello di Dominio**](#2---modello-di-dominio)
-- ### [**3 - Requisiti Specifici**](#3---requisiti-specifici)
+
+- ### [# 1 - Introduzione](#1---introduzione)
+  - [**Partecipanti al progetto**](#partecipanti-al-progetto)
+  - [**Descrizione progetto**](#descrizione-progetto)
+- ### [# 2 - Modello di Dominio](#2---modello-di-dominio)
+- ### [# 3 - Requisiti Specifici](#3---requisiti-specifici)
   - [**3.1 - Requisiti Sprint 1**](#31---requisiti-sprint-1)
-    -  [**3.1.1 - Funzionali**](#311---funzionali)
+    - [**3.1.1 - Funzionali**](#311---funzionali)
     - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
-  - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
-- ### [**4 - System Design**](#4---system-design)
-    - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
-    - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
-    - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
-- ### [**5 - Object Oriented Design**](#5---object-oriented-design)
+  - [**3.2 - Requisiti Funzionali Sprint 2**](#32---requisiti-funzionali-sprint-2)
+- ### [# 4 - System Design](#4---system-design)
+  - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
+  - [**4.2 Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
+  - [**4.3 Commenti sulle decisioni**](#43-commenti-sulle-decisioni)
+- ### [# 5 - Object Oriented Design](#5---object-oriented-design)
   - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
   - [**5.2 - Design Pattern**](#52---design-pattern)
-  - [**5.3 - Principi di OO Design**](#53-principi-di-oo-design)
-- ### [**6 - Riepilogo dei Test**](#6---riepilogo-dei-test)
+- ### [# 6 - Riepilogo dei Test](#6---riepilogo-dei-test)
     - [**6.1 - Strumenti di analisi/testing del codice utilizzati**](#61-strumenti-di-analisitesting-del-codice-utilizzati)
     - [**6.2 - Presentazione esiti dei test e considerazioni**](#62-presentazione-esiti-dei-test-e-considerazioni)
     - [**6.3 - Descrizione dei test effettuati**](#63-descrizione-dei-test-effettuati)
-- ### [**7 - Manuale Utente**](#7---manuale-utente)
+- ### [# 7 - Manuale Utente](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
     <ul>
@@ -33,13 +33,13 @@
   - [**7.2 - Regole di Gioco**](#72---regole-di-gioco)
     - [**7.2.1 - Varianti**](#721---varianti)
   - [**7.3 - Guida All'Utilizzo**](#73---guida-allutilizzo)
-- ### [**8 - Processo di sviluppo e organizzazione del lavoro**](#8---processo-di-sviluppo-e-organizzazione-del-lavoro)
+- ### [# 8 - Processo di sviluppo e organizzazione del lavoro](#8---processo-di-sviluppo-e-organizzazione-del-lavoro)
   - [**8.1 - Introduzione al processo di sviluppo**](#81---introduzione-al-processo-di-sviluppo)
   - [**8.2 - Roadmap degli sprint**](#82---roadmap-degli-sprint)
   - [**8.3 - Gestione degli Sprint**](#83---gestione-degli-sprint)
   - [**8.4 - Software utilizzati**](#84---software-utilizzati)
   - [**8.5 - Comunicazione interna al team**](#85---comunicazione-interna-al-team)
-- ### [**9 - Analisi Retrospettiva**](#9---analisi-retrospettiva)
+- ### [# 9 - Analisi Retrospettiva](#9---analisi-retrospettiva)
   - [**9.1 - Sprint 0**](#91---sprint-0)
   - [**9.2 - Sprint 1**](#92---sprint-1)
 
@@ -205,8 +205,8 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
   - Le caselle di partenza del gioco;
   - Tutte le caselle adiacenti a una casella di partenza del gioco, rendendo impossibile la mossa di espansione di una pedina a inizio gioco
   - Tutte le caselle a distanza 2 da una casella di partenza del gioco, rendendo impossibile la mossa di salto di una pedina a inizio gioco
-    <br></br>
-    Inoltre non è possibile bloccare più di 9 caselle.
+    <br>
+  - Inoltre non è possibile bloccare più di 9 caselle oppure bloccare completamente i movimenti di una pedina.
 #### [Ritorna all'Indice](#indice)
 
 # 4 - System Design
@@ -622,7 +622,6 @@ docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
 Questo comando avvierà il gioco Ataxx
 
-#### [Ritorna all'Indice](#indice)
 
 ## 7.2 - Regole di Gioco
 #### **Regole Base(Default)**
@@ -649,7 +648,7 @@ Questo comando avvierà il gioco Ataxx
   - In questa variante, gli spostamenti possono essere effettuati solo in maniera ortogonale o diagonale, escludendo i salti a "L".
   - Le regole base del gioco restano invariate.
   -
-#### [Ritorna all'Indice](#indice)
+
 
 ## 7.3 - Guida All'Utilizzo
 
@@ -825,7 +824,7 @@ Questo comando avvierà il gioco Ataxx
 
 #### [Ritorna all'Indice](#indice)
 
-# 8 - Processo di sviluppo e organizzazione del lavoro
+# 8 - Processo di Sviluppo e Organizzazione del lavoro
 ## 8.1 - Introduzione al processo di sviluppo
 Durante l'intero periodo di sviluppo del progetto, il gruppo ha adoperato il metodo dello sviluppo software [
 ***Agile***](https://agilemanifesto.org/iso/it/manifesto.html). Lo sviluppo Agile consiste in una fase iniziale di *analisi
@@ -911,7 +910,6 @@ per poter migliorare le nostre competenze e conoscenze, e per poter lavorare in 
 
   - Il team svolge un testing per verificare che ad ogni issue risolta, non ci fossero errori e che il codice fosse conforme alle regole di sviluppo imposte dal team.
 
-#### [Ritorna all'Indice](#indice)
 
 ## Sprint 0
 
@@ -1070,7 +1068,6 @@ Dopo aver analizzato le problematiche il team ha sancito i seguenti suggerimenti
 ## Conclusioni
 In generale conveniamo nell'avere una responsabilità individuale oltre a quella di team, ognuno si impegnerà a svolgere correttamente il proprio lavoro evitando errori dovuti a distrazione o fretta.
 
-#### [Ritorna all'Indice](#indice)
 
 ## 9.2 - Sprint 1
 
