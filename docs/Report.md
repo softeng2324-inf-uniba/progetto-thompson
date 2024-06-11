@@ -881,7 +881,7 @@ completamento, significava il completamento delle issue assegnate per lo Sprint 
 |------------|------------------------------------------------------------|-------------|------------|-----------|---------------|
 | 0          | Dimostrare familiarità con GitHub e il processo agile      | 31/03/2024  | 12/04/2024 | 13 giorni | 15-19/04/2024 |
 | 1          | Piccoli comandi                                            | 06/05/2024  | 21/06/2024 | 15 giorni | 30-31/05/2024 |
-| 2          | Completare il gioco, assicurando la qualità del software   | 29/05/2024  | 14/06/2024 | 16 giorni | 13-27/06/2024 | 
+| 2          | Completare il gioco, assicurando la qualità del software   | 29/05/2024  | 12/06/2024 | 15 giorni | 13-27/06/2024 | 
 
 ## 8.3 - Gestione degli Sprint
 
@@ -948,7 +948,7 @@ Lo *Sprint Goal* era quello di preparare il gioco.
 
 - Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue, cercando di calibrare
   chi avesse più esperienza a scrive codice e chi avesse più esperienza a scrivere documentazione, in modo da poter equilibrare le coppie. Ci sono stati però issue che sono state assegnate a singoli membri, poichè
-  troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro, quest'ultimi sono stati casi sporadici.
+  troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro.
   Il team fin da subito ha voluto puntare sulla massima modularità del codice creando un diagramma di classi con prospettiva concettuale ricco di dettagli.
   Le classi sono state divise in package in modo da poter avere una visione più chiara del codice e per poterlo dividere in maniera più efficiente, risutando in un implementazione più pulita e ordinata.
 
