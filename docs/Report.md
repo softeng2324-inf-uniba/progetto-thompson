@@ -355,7 +355,7 @@ Questo comando avvierà il gioco Ataxx
         <summary>Visualizza Dettagli</summary>
     </details>
 
-- ### Esecuzione di una mossa`:
+- ### Esecuzione di una mossa:
     <details open>
         Una mossa può essere effettuata senza l'utilizzo di un prefisso di un comando attraverso la digitazione della casella di partenza
         dove è situata una pedina di proprietà e la casella di arrivo, il comando sarà ad esempio a1-a2 per spostare la pedina presente in 
