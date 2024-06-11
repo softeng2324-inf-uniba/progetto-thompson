@@ -13,7 +13,6 @@
     - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
     - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
     - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
-
 - ### [**5 - Object Oriented Design**](#5---object-oriented-design)
   - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
   - [**5.2 - Design Pattern**](#52---design-pattern)
@@ -79,7 +78,7 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
-  ![img_Modello_di_dominio](img/Modello_di_dominio.png)
+  ![img_Modello_di_dominio](../drawings/Modello_di_dominio.png)
 
 #### [Ritorna all'Indice](#indice)
 
@@ -214,7 +213,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 
 ## 4.1 - Diagramma dei Pacchetti
 Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per implementare il progetto, realizzato utilizzando il software [StarUML](https://staruml.io/)
-<p align="center"><img src="img/System_Design.png" alt="System_Design" width="95%"/></p>
+<p align="center"><img src="../drawings/System_Design.png" alt="System_Design" width="95%"/></p>
 
 ## 4.2 Architettura dell'Applicazione
 
@@ -339,29 +338,29 @@ gli attributi e metodi rilevanti al fine della user story protagonista del diagr
 leggibile e comprensibile possibile.
 - **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/Play_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/Play_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
     <br></br>
 
 - **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
     <br></br>
 
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 - **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23):** Come giocatore voglio abbandonare la partita
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
   
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 - **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62)-[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63)-[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64)-[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66):** 
@@ -371,20 +370,20 @@ leggibile e comprensibile possibile.
   - Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati
   <br></br>
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/Actions_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/Actions_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
     - **Diagramma di Sequenza**
-    <p align="center"><img src="img/Actions_Sequence_Design.png" alt="" width="95%"/></p>
+    <p align="center"><img src="../drawings/Actions_Sequence_Design.png" alt="" width="95%"/></p>
         <br></br>
   
 - **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61):** Come giocatore voglio impostare caselle non accessibili
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
   
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 ### Spiegazione Scelta RF8-9-10-13
@@ -411,7 +410,7 @@ Di seguito viene riportato un diagramma che spiega nel dettaglio come i design p
 riportando l'esempio di un singolo comando per comodità di rappresentazione:
 
 
-<p align="center"><img src="img/Design_Pattern.png" alt="" width="95%"/></p>
+<p align="center"><img src="../drawings/Design_Pattern.png" alt="" width="95%"/></p>
   <br></br>
 
 
@@ -511,7 +510,7 @@ Le classi testate sono le seguenti:
 
 - **Esito Build (GitHub Actions)**
 
-![Build](img/Riepilogo%20del%20Test/buildSuccessful.png)
+![Build](img/Gradle_build.png)
 
 
 ## 6.3 Descrizione dei test effettuati
@@ -540,9 +539,6 @@ Alcuni test sono stati ripetuti più volte con parametri od oggetti diversi, in 
 Come criterio di terminazione del testing è stato adottato il criterio di copertura delle classi di equivalenza, ovvero
 si è deciso di terminare il testing quando tutti i casi di test relativi a tutte le classi di equivalenza sono stati
 eseguiti.
-
-
-#### [Ritorna all'Indice](#indice)
 
 
 #### [Ritorna all'Indice](#indice)
