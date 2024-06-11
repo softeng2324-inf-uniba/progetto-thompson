@@ -1,5 +1,5 @@
 package it.uniba.app.Thompson.game.entity;
-import it.uniba.app.Thompson.game.boundary.CommunicateErrorsB;
+import it.uniba.app.Thompson.game.boundary.CommunicateErrorB;
 import it.uniba.app.Thompson.game.control.MainControl;
 import it.uniba.app.Thompson.game.error.InvalidMove;
 import it.uniba.app.Thompson.game.error.PawnBlocked;
@@ -206,13 +206,13 @@ class BoardETest {
             Assertions.assertTrue(board.getTile(lockable).isInvalid(),
                     "The tile is correctly blocked");
         } catch (TileAlreadyBlocked e) {
-            CommunicateErrorsB.printTileAlreadyBlocked();
+            CommunicateErrorB.printTileAlreadyBlocked();
         } catch (ExcessBlockedTile e) {
-            CommunicateErrorsB.printTooManyInvalidTiles();
+            CommunicateErrorB.printTooManyInvalidTiles();
         } catch (PawnBlocked e) {
-            CommunicateErrorsB.printImpossibleBlock();
+            CommunicateErrorB.printImpossibleBlock();
         } catch (TileIsOccupied e) {
-            CommunicateErrorsB.printTileOccupied();
+            CommunicateErrorB.printTileOccupied();
         }
     }
 

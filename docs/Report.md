@@ -5,14 +5,19 @@
   -  [**1.2 - Descrizione Progetto**](#descrizione-progetto)
 - ### [**2 - Modello di Dominio**](#2---modello-di-dominio)
 - ### [**3 - Requisiti Specifici**](#3---requisiti-specifici)
-    - [**3.1 - Requisiti Sprint 1**](#31---requisiti-sprint-1)
-      -  [**3.1.1 - Funzionali**](#311---funzionali)
-      - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
-    - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
+  - [**3.1 - Requisiti Sprint 1**](#31---requisiti-sprint-1)
+    -  [**3.1.1 - Funzionali**](#311---funzionali)
+    - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
+  - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
 - ### [**4 - System Design**](#4---system-design)
     - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
     - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
     - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
+
+- ### [**5 - Object Oriented Design**](#5---object-oriented-design)
+  - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
+  - [**5.2 - Design Pattern**](#52---design-pattern)
+  - [**5.3 - Principi di OO Design**](#53-principi-di-oo-design)
 - ### [**6 - Riepilogo dei Test**](#6---riepilogo-dei-test)
     - [**6.1 - Strumenti di analisi/testing del codice utilizzati**](#61-strumenti-di-analisitesting-del-codice-utilizzati)
     - [**6.2 - Presentazione esiti dei test e considerazioni**](#62-presentazione-esiti-dei-test-e-considerazioni)
@@ -22,22 +27,22 @@
 
     <ul>
     <li><h4><a href="#github"> 7.1.1 - Creazione Token Github </a></h4></li>
-    
+
     <li><h4><a href="#docker"> 7.1.2 - Autenticazione Docker </a></h4></li>
     </ul>
-  
+
   - [**7.2 - Regole di Gioco**](#72---regole-di-gioco)
     - [**7.2.1 - Varianti**](#721---varianti)
   - [**7.3 - Guida All'Utilizzo**](#73---guida-allutilizzo)
 - ### [**8 - Processo di sviluppo e organizzazione del lavoro**](#8---processo-di-sviluppo-e-organizzazione-del-lavoro)
-    - [**8.1 - Introduzione al processo di sviluppo**](#81---introduzione-al-processo-di-sviluppo)
-    - [**8.2 - Roadmap degli sprint**](#82---roadmap-degli-sprint)
-    - [**8.3 - Gestione degli Sprint**](#83---gestione-degli-sprint)
-    - [**8.4 - Software utilizzati**](#84---software-utilizzati)
-    - [**8.5 - Comunicazione interna al team**](#85---comunicazione-interna-al-team)
+  - [**8.1 - Introduzione al processo di sviluppo**](#81---introduzione-al-processo-di-sviluppo)
+  - [**8.2 - Roadmap degli sprint**](#82---roadmap-degli-sprint)
+  - [**8.3 - Gestione degli Sprint**](#83---gestione-degli-sprint)
+  - [**8.4 - Software utilizzati**](#84---software-utilizzati)
+  - [**8.5 - Comunicazione interna al team**](#85---comunicazione-interna-al-team)
 - ### [**9 - Analisi Retrospettiva**](#9---analisi-retrospettiva)
-    - [**9.1 - Sprint 0**](#91---sprint-0)
-    - [**9.2 - Sprint 1**](#92---sprint-1)
+  - [**9.1 - Sprint 0**](#91---sprint-0)
+  - [**9.2 - Sprint 1**](#92---sprint-1)
 
 # 1 - Introduzione
 
@@ -74,7 +79,7 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
-![img_Modello_di_dominio](img/Modello_di_dominio.png)
+  ![img_Modello_di_dominio](img/Modello_di_dominio.png)
 
 #### [Ritorna all'Indice](#indice)
 
@@ -84,124 +89,124 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 **Obiettivo: piccoli comandi**
 ### 3.1.1 - Funzionali
 
-- **RF1: Come giocatore voglio mostrare l'help con elenco comandi**
+- **[RF1](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/19): Come giocatore voglio mostrare l'help con elenco comandi**
 
-    #### Criteri di accettazione
+  #### Criteri di accettazione
 
-    Al comando `/help` o invocando l'app con flag `--help` o `-h` il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
-    - gioca
-    - esci
-    - ...
+  Al comando `/help` o invocando l'app con flag `--help` o `-h` il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
+  - gioca
+  - esci
+  - ...
     <br></br>
-- **RF2: Come giocatore voglio iniziare una nuova partita**
- 
-    #### Criteri di accettazione
-    
-    Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
-    <br></br>
-- **RF3: Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
+- **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25): Come giocatore voglio iniziare una nuova partita**
 
-    #### Criteri di accettazione
-    Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (_7 per lato_) con le righe numerate da 1 a 7 e le colonne numerate da ‘A’ a ‘G’.
-    <br></br>
-- **RF4: Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione** 
+  #### Criteri di accettazione
 
-    #### Criteri di accettazione
-    Al comando `/tavoliere`:
-    - se il gioco non è iniziato l'app suggerisce il comando `/gioca`;
-    - se il gioco è iniziato l'app mostra la posizione di tutte   
-      le pedine sul tavoliere. Le pedine sono mostrate in formato Unicode https://en.wikipedia.org/wiki/English_draughts#Unicode.
-    <br></br>
-- **RF5: Come giocatore voglio visualizzare le mosse possibili di una pedina** 
+  Al comando `/gioca` se nessuna partita è in corso l'app mostra il tavoliere con le pedine in posizione iniziale e si predispone a ricevere la prima mossa di gioco dal giocatore con le pedine nere o altri comandi.
+  <br></br>
+- **[RF3](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/20): Come giocatore voglio mostrare il tavoliere vuoto con la numerazione**
 
-    #### Criteri di accettazione
-    Al comando `/qualimosse`:
-    - se il gioco non è iniziato l'app suggerisce il comando gioca;
-    - se il gioco è iniziato l'app mostra quali mosse sono disponibili per il giocatore di turno, evidenziando:
-        - in giallo le caselle raggiungibili con mosse che 
-        generano una nuova pedina;
-        - in arancione le caselle raggiungibili con mosse che consentono un salto;
-        - in rosa le caselle raggiungibili con mosse di entrambi i tipi precedenti.
-        <br></br>
-- **RF6: Come giocatore voglio abbandonare la partita** 
-    
-    #### Criteri di accettazione
-    Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
-    - se la conferma è positiva, l'app comunica che il Bianco (_o Nero_) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
-    - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
-    <br></br>
-- **RF7: Come giocatore voglio chiudere il gioco** 
+  #### Criteri di accettazione
+  Al comando `/vuoto` l'app mostra il tavoliere vuoto di 49 caselle quadrate (_7 per lato_) con le righe numerate da 1 a 7 e le colonne numerate da ‘A’ a ‘G’.
+  <br></br>
+- **[RF4](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/21): Come giocatore voglio mostrare il tavoliere con le pedine e la numerazione**
 
-    #### Criteri di accettazione
-    Al comando `/esci` l'applicazione chiede conferma:
-    - se la conferma è positiva, l'app si chiude restituendo il controllo al sistema operativo;
-    - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
+  #### Criteri di accettazione
+  Al comando `/tavoliere`:
+  - se il gioco non è iniziato l'app suggerisce il comando `/gioca`;
+  - se il gioco è iniziato l'app mostra la posizione di tutte   
+    le pedine sul tavoliere. Le pedine sono mostrate in formato Unicode https://en.wikipedia.org/wiki/English_draughts#Unicode.
+    <br></br>
+- **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22): Come giocatore voglio visualizzare le mosse possibili di una pedina**
+
+  #### Criteri di accettazione
+  Al comando `/qualimosse`:
+  - se il gioco non è iniziato l'app suggerisce il comando gioca;
+  - se il gioco è iniziato l'app mostra quali mosse sono disponibili per il giocatore di turno, evidenziando:
+    - in giallo le caselle raggiungibili con mosse che
+      generano una nuova pedina;
+    - in arancione le caselle raggiungibili con mosse che consentono un salto;
+    - in rosa le caselle raggiungibili con mosse di entrambi i tipi precedenti.
+      <br></br>
+- **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23): Come giocatore voglio abbandonare la partita**
+
+  #### Criteri di accettazione
+  Al comando `/abbandona` l'applicazione chiede conferma dell'azione:
+  - se la conferma è positiva, l'app comunica che il Bianco (_o Nero_) ha vinto per abbandono e dichiara come vincitore l’avversario per x a 0 dove x è il numero di pedine rimaste dell’avversario;
+  - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
+    <br></br>
+- **[RF7](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/24): Come giocatore voglio chiudere il gioco**
+
+  #### Criteri di accettazione
+  Al comando `/esci` l'applicazione chiede conferma:
+  - se la conferma è positiva, l'app si chiude restituendo il controllo al sistema operativo;
+  - se la conferma è negativa, l'app si predispone a ricevere nuovi tentativi o comandi.
 
 ### 3.1.2 - Non Funzionali
 - **RNF1**: Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16. A seguito un elenco di terminali adeguati divisi per sistema operativo:
-    - **Linux:** terminal;
-    - **Windows:** Powershell, Git Bash; 
-    - **MacOS:** terminal (_a seguito della modifica delle impostazioni di encoding_).
+  - **Linux:** terminal;
+  - **Windows:** Powershell, Git Bash;
+  - **MacOS:** terminal (_a seguito della modifica delle impostazioni di encoding_).
 
 ## 3.2 - Requisiti Funzionali Sprint 2
 **Obiettivo: completare il gioco assicurando la qualità del software**
-- **RF1: Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
+- **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62): Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina**
 
   #### Criteri di accettazione
   A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno giochi sul tavoliere una nuova pedina (_bianca o nera_) in una casella adiacente (_in senso ortogonale e diagonale_) ad un'altra in cui vi sia già una propria pedina, utilizzando una notazione algebrica del tipo: `a1-a2`, dove `a1` è la casella di partenza e `a2` è la casella adiacente.
   <br></br>
-- **RF2: Come giocatore voglio spostare una propria pedina saltando una casella adiacente**
+- **[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63): Come giocatore voglio spostare una propria pedina saltando una casella adiacente**
 
   #### Criteri di accettazione
   A partita in corso di gioco, l'applicazione deve accettare che il giocatore di turno sposti sul tavoliere una propria pedina (_bianca o nera_) con il salto di una casella adiacente, utilizzando una notazione algebrica del tipo: `a1-a3`, dove `a1` è la casella di partenza e `a3` è la casella di arrivo.
   La casella di arrivo deve essere libera e non deve essere adiacente alla casella originaria.
   La casella saltata può anche essere occupata da una propria pedina o da una pedina avversaria.
   <br></br>
-- **RF3: Come giocatore voglio catturare una pedina avversaria come effetto di una mossa**
+- **[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64): Come giocatore voglio catturare una pedina avversaria come effetto di una mossa**
 
   #### Criteri di accettazione
   Se al termine di una mossa vi sono pedine avversarie adiacenti alla casella di arrivo, sia per la mossa di espansione che di spostamento, queste vengono catturate cambiando di colore.
   <br></br>
-- **RF4: Come giocatore voglio mostrare le mosse giocate**
+- **[RF11](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/59): Come giocatore voglio mostrare le mosse giocate**
 
   #### Criteri di accettazione
   Al comando `/mosse`, l'app mostra la storia delle mosse con notazione algebrica.
   Per esempio:
-  - 1 a1-a2 (N); 
+  - 1 a1-a2 (N);
   - 2 g7-g6 (B);
-  <br></br>
-- **RF5: Come giocatore voglio passare il turno per impossibilità di movimento**
+    <br></br>
+- **[RF12](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/65): Come giocatore voglio passare il turno per impossibilità di movimento**
 
   #### Criteri di accettazione
   Se il giocatore non può muovere nessuna pedina del proprio colore, l’app avvisa che il turno passa all’altro colore.
   <br></br>
-- **RF6: Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati**
+- **[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66): Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati**
 
   #### Criteri di accettazione
   Se nessuna pedina può essere mossa perché le caselle del tavoliere sono state tutte riempite, allora l’app dichiara il vincitore (_bianco o nero_) e riporta i punti del bianco e bero contando le rispettive pedine.
   <br></br>
   L'app si predispone a ricevere nuovi comandi.
   <br></br>
-- **RF7: Come giocatore voglio mostrare il tempo di gioco**
+- **[RF14](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/60): Come giocatore voglio mostrare il tempo di gioco**
 
   #### Criteri di accettazione
 
   Al comando `/tempo`, l'app mostra il tempo trascorso dall’inizio partita nel formato `ore:minuti:secondi`.
   <br></br>
   L'app si predispone a ricevere nuovi comandi
-<br></br>
-- **RF8: Come giocatore voglio impostare caselle non accessibili**
+  <br></br>
+- **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61): Come giocatore voglio impostare caselle non accessibili**
 
   #### Criteri di accettazione
   A partita non in corso, al comando `/blocca xn`, dove `xn` sono le coordinate di una casella,
   la casella `xn` non è accessibile per le pedine ed è mostrata sul tavoliere con uno sfondo grigio.
   <br></br>
   **Non è possibile bloccare:**
-  
+
   - Le caselle di partenza del gioco;
   - Tutte le caselle adiacenti a una casella di partenza del gioco, rendendo impossibile la mossa di espansione di una pedina a inizio gioco
   - Tutte le caselle a distanza 2 da una casella di partenza del gioco, rendendo impossibile la mossa di salto di una pedina a inizio gioco
-<br></br>
+    <br></br>
     Inoltre non è possibile bloccare più di 9 caselle.
 #### [Ritorna all'Indice](#indice)
 
@@ -213,7 +218,7 @@ Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per impl
 
 ## 4.2 Architettura dell'Applicazione
 
-Il progetto è stato suddiviso in modo da renderlo il più modulare e scalabile possibile, per raggiungere questo obiettivo 
+Il progetto è stato suddiviso in modo da renderlo il più modulare e scalabile possibile, per raggiungere questo obiettivo
 è stato utilizzato il pattern architetturale dell'**Entity Control Boundary**
 (ECB) che prevede la classificazione delle classi in tre categorie:
 - **ENTITY:** Classi che rappresentano le entità del dominio del problema. In particolare si occupano di rappresentare le entità del gioco e di gestire le loro interazioni.
@@ -236,59 +241,62 @@ I package del progetto finale sono i seguenti:
 
 - Il package **boundary** contiene:
 
-  - **CommunicateErrorsB:** Classe che emette i messaggi di errori
-  - **CommunicateInteractionMessagesB:** Classe che emette i messaggi di interazione con l'utente
+  - **CommunicateErrorB:** Classe che emette i messaggi di errori
+  - **CommunicateInteractionMessageB:** Classe che emette i messaggi di interazione con l'utente
   - **HelpB:** Classe che emette il messaggio generato dal comando `/help`
   - **PrintBoardB:** Classe che si occupa di stampare il tavoliere nelle varie versioni in base al momento di gioco
   - **UserInputB:** Classe che si occupa di gestire l'interazione dell'utente
   - **WelcomeBannerB:** Classe che fa visualizzare il banner di benvenuto
 
 
-  - Package **control:** contiene:
+- Package **control:** contiene:
 
-    - **MainControl:** Classe che fa da entry point per `app` e si occupa di gestire il flusso principale
-    - **CommandC:** Classe astratta che rappresenta un comando generico
-    - **AvailableMovesCommandC:** Classe che si occupa di gestire il comando `/qualimosse`
-    - **BlockCommandC:** Classe che si occupa di gestire il comando `/blocca`
-    - **BoardCommandC:** Classe che si occupa di gestire il comando `/tavoliere`
-    - **ExitCommandC:** Classe che si occupa di gestire il comando `/esci`
-    - **HelpCommandC:** Classe che si occupa di gestire il comando `/help`
-    - **MovesCommandC:** Classe che si occupa di gestire il comando `/mosse`
-    - **PlayCommandC:** Classe che si occupa di gestire il comando `/gioca`
-    - **QuitCommandC:** Classe che si occupa di gestire il comando `/abbandona`
-    - **TimeCommandC:** Classe che si occupa di gestire il comando `/tempo`
-    - **VerifyMovesC:** Classe che si occupa di verificare che un determinato movimento sia lecito
-    - **VerifyCommandC:** Classe che si occupa di verificare che un determinato comando sia lecito
+  - **MainControl:** Classe che fa da entry point per `app` e si occupa di gestire il flusso principale
+  - **CommandC:** Classe astratta che rappresenta un comando generico
+  - **AvailableMovesCommandC:** Classe che si occupa di gestire il comando `/qualimosse`
+  - **BlockCommandC:** Classe che si occupa di gestire il comando `/blocca`
+  - **BoardCommandC:** Classe che si occupa di gestire il comando `/tavoliere`
+  - **ExitCommandC:** Classe che si occupa di gestire il comando `/esci`
+  - **HelpCommandC:** Classe che si occupa di gestire il comando `/help`
+  - **MovesCommandC:** Classe che si occupa di gestire il comando `/mosse`
+  - **PlayCommandC:** Classe che si occupa di gestire il comando `/gioca`
+  - **QuitCommandC:** Classe che si occupa di gestire il comando `/abbandona`
+  - **TimeCommandC:** Classe che si occupa di gestire il comando `/tempo`
+  - **VerifyMovesC:** Classe che si occupa di verificare che un determinato movimento sia lecito
+  - **VerifyCommandC:** Classe che si occupa di verificare che un determinato comando sia lecito
 
-    
+
 Questo package contiene dunque tutte le classi di tipo **Control** previste dallo standard ECB, per questo presentano il suffisso **C**.
 
-  - Package **entity**:
+- Package **entity**:
 
-    - **BoardE:** Classe che rappresenta il tavoliere di gioco
-    - **MatchE:** Classe che rappresenta la partita
-    - **MoveE:** Classe che rappresenta la singola mossa
-    - **PawnE:** Classe che rappresenta la pedina
-    - **PlayerE:** Classe che rappresenta il giocatore
-    - **TileE:** Classe che rappresenta la casella del tavoliere
+  - **BoardE:** Classe che rappresenta il tavoliere di gioco
+  - **MatchE:** Classe che rappresenta la partita
+  - **MoveE:** Classe che rappresenta la singola mossa
+  - **PawnE:** Classe che rappresenta la pedina
+  - **PlayerE:** Classe che rappresenta il giocatore
+  - **TileE:** Classe che rappresenta la casella del tavoliere
 
 Questo package contiene dunque tutte le classi di tipo **Entity** previste dallo standard ECB, per questo presentano il suffisso **E**.
 
 - Package ***error*** contiene:
-  
+
   - **CommandNotFound:** Classe che rappresenta l'eccezione lanciata quando il comando non è valido
   - **ExcessBlockedTile:** Classe che rappresenta l'eccezione lanciata quando si tenta di bloccare più di 9 caselle
   - **InvalidArguments:** Classe che rappresenta l'eccezione lanciata quando gli argomenti passati al comando non sono validi
   - **InvalidMove:** Classe che rappresenta l'eccezione lanciata quando il movimento non è valido
-  - **MatchNull:** Classe che rappresenta l'eccezione lanciata quando si prova a fare un comando 
-legato al gioco senza una partita in corso 
-
+  - **MatchNull:** Classe che rappresenta l'eccezione lanciata quando si prova a fare un comando
+    legato al gioco senza una partita in corso
+  - **TileAlreadyBlocked:** Classe che rappresenta l'eccezione lanciata quando si tenta di bloccare una casella già bloccata
+  - **PawnBlocked:** Classe che rappresenta l'eccezione lanciata quando si tenta di bloccare una casella che impedirebbe il movimento di una pedina
+  - **NegativeTime:** Classe che rappresenta l'eccezione lanciata quando il tempo passato al metodo format-millis è negativo(si tratta di casi forzati)
+  - **TileIsOccupied:** Classe che rappresenta l'eccezione lanciata quando si tenta di bloccare una casella occupata da una pedina
 
 Questo package contiene dunque tutte le classi che servono a gestire le eccezioni ed errori.
 
 
 - Package ***util*** contiene:
-  
+
   - **Color:** Classe che rappresenta i colori delle pedine
   - **CommandStatus:** Classe che rappresenta lo stato dei comandi
   - **Coordinate:** Classe che rappresenta le coordinate di una casella
@@ -304,7 +312,7 @@ Questo package contiene dunque tutte le classi che servono a gestire le eccezion
   - **VariantMove:** Classe che rappresenta i tipi di movimento disponibili per le varianti di gioco
 
 
-  
+
 Questo package contiene tutte le classi contenenti le costanti di utilità, suddivise per categorie.
 
 ## 4.3 Commenti sulle decisioni
@@ -312,51 +320,138 @@ Questo package contiene tutte le classi contenenti le costanti di utilità, sudd
 Il team di sviluppo ha deciso di utilizzare il pattern architetturale ECB per la sua efficienza nonostante la sua semplicità.
 
 In particolare, il pattern ECB è stato scelto per la sua capacità di separare le classi in base alle loro
-responsabilità, prendendoci però la libertà di aggiungere due categorie per facilitare la gestione di oggetti 
+responsabilità, prendendoci però la libertà di aggiungere due categorie per facilitare la gestione di oggetti
 esterni alla rappresentazione principale del funzionamento dell'applicazione quali **util** e **error**.
 
 Inoltre rende possibile rispettare gli **OO Design**, e rende il codice scalabile, manutenibile e modulare in caso di futuri sviluppi.
 
+#### [Ritorna all'Indice](#indice)
+
+# 5 - Object Oriented Design
+
+## 5.1 - Diagrammi di Classi e Sequenza
+
+In questo paragrafo vengono riportati i diagrammi UML delle classi e di sequenza relativi alle ***User Story*** più significative
+### NOTA IMPORTANTE: 
+Ciò che viene rappresentato nei seguenti diagrammi non è la mappatura 1:1 delle classi nel codice, infatti le classi
+potrebbero risultare incoerenti le loro versioni in diagrammi diversi, questo perché in ogni diagramma vengono riportati
+gli attributi e metodi rilevanti al fine della user story protagonista del diagramma, per rendere il tutto il più
+leggibile e comprensibile possibile.
+- **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/Play_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+
+  - **Diagramma di Sequenza**
+  <p align="center"><img src="img/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
+    <br></br>
+
+- **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
+    <br></br>
+
+  - **Diagramma di Sequenza**
+  <p align="center"><img src="img/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
+
+- **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23):** Come giocatore voglio abbandonare la partita
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+  
+  - **Diagramma di Sequenza**
+  <p align="center"><img src="img/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
+
+- **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62)-[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63)-[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64)-[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66):** 
+  - Come giocatore voglio giocare una nuova pedina in una casella adiacente a una propria pedina
+  - Come giocatore voglio spostare una propria pedina saltando una casella adiacente
+  - Come giocatore voglio catturare una pedina avversaria come effetto di una mossa
+  - Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati
+  <br></br>
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/Actions_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+
+    - **Diagramma di Sequenza**
+    <p align="center"><img src="img/Actions_Sequence_Design.png" alt="" width="95%"/></p>
+        <br></br>
+  
+- **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61):** Come giocatore voglio impostare caselle non accessibili
+  - **Diagramma delle Classi**
+  <p align="center"><img src="img/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
+  <br></br>
+  
+  - **Diagramma di Sequenza**
+  <p align="center"><img src="img/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <br></br>
+
+### Spiegazione Scelta RF8-9-10-13
+Abbiamo ritenuto consono inglobare le user story legate alla generazione, spostamento, attacco e fine partita in un unico
+diagramma poiché il flusso del programma è esattamente lo stesso, con piccole differenze sulle diramazioni 
+nelle condizioni che portano ad azioni diverse. Abbiamo pensato appropriato quindi, rappresentarle
+tutte poiché centrali nell'applicazione, ma allo stesso tempo preservare la chiarezza del paragrafo
+evitando ripetizioni che potrebbero risultare confusionarie per il lettore.
 
 #### [Ritorna all'Indice](#indice)
 
-## 5.2 Design Pattern
 
-Tutte le classi *Control* che gestiscono i comandi dell'applicazione sono state implementate utilizzando il design pattern [*Singleton*](https://refactoring.guru/design-patterns/singleton),
-un pattern della categoria dei *Creational design pattern* che assicura che una classe abbia una sola istanza, mettendo a disposizione un punto globale di accesso a tale istanza della classe.
+## 5.2 - Design Pattern
+Tutte le classi ***Control*** che gestiscono i comandi dell'applicazione sono state implementate utilizzando il design pattern [**Singleton**](https://refactoring.guru/design-patterns/singleton),
+un pattern della categoria dei ***Creational design pattern*** che assicura che una classe abbia una sola istanza, mettendo a disposizione un punto globale di accesso a tale istanza della classe.
 
-Inoltre, le classi *Control* sono state modellate secondo il design pattern [*Command*](https://refactoring.guru/design-patterns/command),
-che sposa il *principio di presentazione separata* e permette di demandare la gestione e l'esecuzione dei comandi a una classe apposita
+Inoltre, le classi ***Control*** sono state modellate secondo il design pattern [**Command**](https://refactoring.guru/design-patterns/command),
+che sposa il ***principio di presentazione separata*** e permette di demandare la gestione e l'esecuzione dei comandi a una classe apposita
 che si occupa di invocare il metodo corretto della classe destinataria del comando. Questo design pattern permette di rendere il codice
 più flessibile e manutenibile, in quanto è possibile aggiungere nuovi comandi senza dover modificare il codice già esistente, ma soltanto
-creando una nuova classe che estende la classe astratta *Command*, implementando il metodo *executeCommand()*.
+creando una nuova classe che estende la classe astratta ***Command***, implementando il metodo ***executeCommand()***.
 
 Di seguito viene riportato un diagramma che spiega nel dettaglio come i design pattern sopra citati sono stati implementati nel progetto,
 riportando l'esempio di un singolo comando per comodità di rappresentazione:
 
-![Design pattern](img/Diagrammi/Design_Pattern.png)
+
+<p align="center"><img src="img/Design_Pattern.png" alt="" width="95%"/></p>
+  <br></br>
 
 
-### 5.3.1 Principi SOLID
+## 5.3 Principi di OO Design
 
-I principi SOLID sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
+Data la realizzazione del progetto in Java, un linguaggio inerentemente ***Object-Oriented***, l'architettura dell'applicazione doveva attenersi ai seguenti principi:
+
+- **Information Hiding**
+
+  Gli attributi di tutte le classi sono privati e sono stati messi a disposizione dei getters/setters per potervi accedere in maniera controllata e corretta.
+  Laddove un metodo utilizzasse un altro metodo di servizio, questo è stato reso privato.
+
+
+- **Alta coesione**
+
+  Le classi hanno una ben definita responsabilità, grazie alla tassonomia ECB e ai design pattern utilizzati
+
+
+- **Basso accoppiamento**
+
+  Poichè il progetto rispetta il principio dell'*information hiding*, non ci sono forti dipendenze tra componenti,
+  questo permette di non propagare i cambiamenti.
+
+
+- **Presentazione separata**
+
+  Dato l'utilizzo della tassonomia ECB, le classi *Boundary* si occupano esclusivamente della logica di presentazione
+  e di interfacciarsi con l'utente, mentre le classi *Control* implementano la logica di dominio
+
+### Principi SOLID
+
+I principi **SOLID** sono intesi come linee guida per lo sviluppo di software leggibile, estendibile e manutenibile:
 
 - **Single Responsibility**: ogni classe ha una sola responsabilità
 - **Open-Closed**: le classi sono aperte all'estensione e chiuse alle modifiche mediante i modificatori di accesso giusti
   e alla modularità fornita dall'architettura
 - **Liskov Substitution**: le classi che implementano dei comandi sono le uniche che estendono un'altra classe, e vengono utilizzate al posto del padre correttamente, essendo vitali per il funzionamento dell'intera applicazione
 - **Interface Segregation**: non sono state utilizzate interfacce
-- **Dependency Inversion**: le classi che implementano dei comandi dipendono esclusivamente dalla classe astratta *Command*
+- **Dependency Inversion**: le classi che implementano dei comandi dipendono esclusivamente dalla classe astratta ***Command***
 
-## 5.4 Commenti sulle decisioni prese
-
-**Considerazioni in merito alla decisione di non utilizzare file di testo**
-
-Alcune classi, come la *CommunicateInteractionMessagesB* e la *CommunicateErrorsB*,
-richiedono la stampa di una mole di testo importante,
-motivo per cui inizialmente si era pensato all'utilizzo di file di testo.
-
-La configurazione del workflow però non permette di portare file di testo esterni al jar all'interno del container Docker, che viene creato dalla build di Gradle, pertanto il team si è attenuto al workflow e ha ripiegato sull'utilizzo di classiche stampe e suddivisione in sottometodi di stampe molto corpose.
 
 #### [Ritorna all'Indice](#indice)
 
@@ -450,7 +545,10 @@ eseguiti.
 #### [Ritorna all'Indice](#indice)
 
 
-# 7 - Manuale Utente 
+#### [Ritorna all'Indice](#indice)
+
+
+# 7 - Manuale Utente
 
 ## 7.1 - Procedura Preliminare
 Prima di poter avviare il gioco bisogna essere sicuri di trovarsi in un ambiente che permette la
@@ -461,7 +559,7 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 
 <h2 id="github"> <img src="img/Github-logo.png" alt="github logo" height="60"> Creazione Token per il Docker login</h2>
 
-Verificare di utilizzare uno dei terminali supportati riportati in 
+Verificare di utilizzare uno dei terminali supportati riportati in
 
 - [Requisiti non funzionali](#312---non-funzionali)
 
@@ -473,7 +571,7 @@ Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi des
 
 
 3. **Generazione del token**: Una volta effettuato l'accesso, vai alle impostazioni del tuo account. Puoi accedervi cliccando sulla tua immagine del profilo e selezionando `Settings`.
-Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu a sinistra.
+   Nella sezione `Developer settings`, seleziona `Personal access tokens` dal menu a sinistra.
 
 
 4. **Generazione**: Fai clic sul pulsante `Generate new token`
@@ -490,17 +588,17 @@ A questo punto si è pronti per accedere a Docker tramite Github PAT
 
 1. **Copia del token su un file `.txt`**:
 
-    Copia il token generato in precedenza in un file di testo, ad esempio, `token.txt`
+   Copia il token generato in precedenza in un file di testo, ad esempio, `token.txt`
 
 
 2. **Ottenere il percorso del file**:
 
-    Dopo aver creato il file, copia il percorso completo
+   Dopo aver creato il file, copia il percorso completo
 
 
 3. **Login a GitHub Container Registry (GHCR) tramite Docker**:
 
-    Apri il terminale come amministratore ed esegui il seguente comando, sostituendo `PATH_DEL_TOKEN` con il percorso copiato e `USERNAME` con il tuo nome utente GitHub:
+   Apri il terminale come amministratore ed esegui il seguente comando, sostituendo `PATH_DEL_TOKEN` con il percorso copiato e `USERNAME` con il tuo nome utente GitHub:
 
 ```bash
 cat "PATH_DEL_TOKEN/token.txt" | docker login ghcr.io -u "USERNAME" --password-stdin
@@ -513,8 +611,8 @@ cat "PATH_DEL_TOKEN/token.txt" | docker login ghcr.io -u "USERNAME" --password-s
 docker pull ghcr.io/softeng2223-inf-uniba/battleship-thompson:latest
 ```
 5. **Esecuzione del container Docker**:
-   Una volta eseguito l'accesso e scaricata l'immagine con successo, puoi eseguire l'immagine Docker desiderata con 
-   il seguente comando: 
+   Una volta eseguito l'accesso e scaricata l'immagine con successo, puoi eseguire l'immagine Docker desiderata con
+   il seguente comando:
 ```shell
 docker run --rm -it ghcr.io/softeng2324-inf-uniba/ataxx-thompson:latest
 ```
@@ -539,14 +637,14 @@ Questo comando avvierà il gioco Ataxx
 ## **7.2.1 - Varianti**
 - Esistono inoltre varianti che modificano elementi del gioco base, offrendo diverse strategie e novità ai giocatori:
 #### **Variante A Perdere**:
-  - In questa variante, vince il giocatore che al termine della partita ha meno pedine del proprio colore, mantenendo le regole base del gioco.
+- In questa variante, vince il giocatore che al termine della partita ha meno pedine del proprio colore, mantenendo le regole base del gioco.
 #### **Variante Thomas (o Nutsy Ataxx)**:
-  - In questa variante ideata da Louis K. Thomas, il posizionamento di una nuova pedina, il salto e la cattura avvengono solo in senso ortogonale. Le altre regole rimangono le stesse.
+- In questa variante ideata da Louis K. Thomas, il posizionamento di una nuova pedina, il salto e la cattura avvengono solo in senso ortogonale. Le altre regole rimangono le stesse.
 
 - **Variante Assimilation (o Infection)**:
   - In questa variante, gli spostamenti possono essere effettuati solo in maniera ortogonale o diagonale, escludendo i salti a "L".
   - Le regole base del gioco restano invariate.
-  - 
+  -
 #### [Ritorna all'Indice](#indice)
 
 ## 7.3 - Guida All'Utilizzo
@@ -601,7 +699,7 @@ Questo comando avvierà il gioco Ataxx
           <p align="center"><img src="img/QualiMosse_Error.png" alt="qualimosse"/></p>
       <summary>Visualizza Dettagli</summary>
     </details>
-  
+
 - ### Al comando `/abbandona`:
     <details open> Chiede conferma per l'abbandono della partita, se confermato dichiara il vincitore per x a 0 dove x è il numero di pedine rimaste dell'avversario.
       <h4>Scenario 1:</h4>
@@ -633,20 +731,20 @@ Questo comando avvierà il gioco Ataxx
 # 8 - Processo di sviluppo e organizzazione del lavoro
 ## 8.1 - Introduzione al processo di sviluppo
 Durante l'intero periodo di sviluppo del progetto, il gruppo ha adoperato il metodo dello sviluppo software [
-*Agile*](https://agilemanifesto.org/iso/it/manifesto.html). Lo sviluppo Agile consiste in una fase iniziale di *analisi
+***Agile***](https://agilemanifesto.org/iso/it/manifesto.html). Lo sviluppo Agile consiste in una fase iniziale di *analisi
 dei requisiti* con progressivi *miglioramenti* e *aggiornamenti* del prodotto software svolti dai membri del team di
 sviluppo.
 
 Seguendo i principi cardine dello sviluppo Agile, il team è stato in grado di pianificare e organizzare i task assegnati
 in maniera efficiente, con l'obbiettivo di ottenere un prodotto software stabile e robusto.
 
-Il processo di sviluppo è stato strutturato seguendo un approccio [*simil-Scrum*](https://www.scrum.org/). La
+Il processo di sviluppo è stato strutturato seguendo un approccio [***simil-Scrum***](https://www.scrum.org/). La
 metodologia Scrum offre delle iterazioni time-boxed, dette anche **Sprint**. In questo modo si è potuto suddividere
 l'intero sviluppo del progetto in 3 Sprint, ciascuno dei quali avente durata di 2 settimane.
 
-Il professore ha interpretato il ruolo di **Product Owner**. Per ogni Sprint, in aula e via [_Microsoft
+Il professore ha interpretato il ruolo di ***Product Owner***. Per ogni Sprint, in aula e via [_Microsoft
 Teams_](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software), ci sono stati comunicati i requisiti,
-sotto forma di *Definition of Done* e *User Story*. Il team ha provveduto a realizzare una Board per ogni Sprint e dallo
+sotto forma di ***Definition of Done*** e ***User Story***. Il team ha provveduto a realizzare una Board per ogni Sprint e dallo
 Sprint 1 è stato anche realizzato il Product Backlog, per contenere le User Story degli Sprint successivi.
 
 È stata definita un'organizzazione in stile Kanban per una Board avente 5 sezioni:
@@ -693,8 +791,8 @@ completamento, significava il completamento delle issue assegnate per lo Sprint 
 Dato l'utilizzo del framework Scrum, gli Sprint si compongono di quattro fasi principali: analisi, progettazione,
 implementazione e testing
 
-Il team fin da subito ha deciso di non puntare tutto sulle capacità individuali, ma di lavorare in sinergia, condividendo 
-le conoscenze e le competenze, per ottenere un prodotto di qualità, per questo motivo, è stato deciso di assegnare 
+Il team fin da subito ha deciso di non puntare tutto sulle capacità individuali, ma di lavorare in sinergia, condividendo
+le conoscenze e le competenze, per ottenere un prodotto di qualità, per questo motivo, è stato deciso di assegnare
 gli issue tutti assieme e di ciclare i ruoli di reviewer e assignee per ogni issue, per evitare creazioni di sottogruppi ed aumentare la sinergia complessiva.
 
 Il team è cosciente che ogni persona ha dei punti forti e dei punti deboli, ma proprio per questo abbiamo deciso nel primo meeting di adottare questo approccio,
@@ -702,19 +800,19 @@ per poter migliorare le nostre competenze e conoscenze, e per poter lavorare in 
 
 1. ### **Fase di analisi:**
 
-   - Il team si è sempre riunito in un meeting iniziale per discutere e analizzare i requisiti del progetto, in modo da poterli suddividere in issue e assegnarli ai membri del team.
+  - Il team si è sempre riunito in un meeting iniziale per discutere e analizzare i requisiti del progetto, in modo da poterli suddividere in issue e assegnarli ai membri del team.
 
 2. ### **Fase di progettazione:**
 
-   - Il team utilizzando il framework Scrum per la gestione degli Sprint, ha potuto dividere il lavoro in maniera equa e trasparente.
+  - Il team utilizzando il framework Scrum per la gestione degli Sprint, ha potuto dividere il lavoro in maniera equa e trasparente.
 
 3. ### **Fase di implementazione:**
 
-   - Il team lavora in maniera sinergica per risolvere gli issues, condividendo le conoscenze e le competenze, per ottenere un prodotto di qualità.
+  - Il team lavora in maniera sinergica per risolvere gli issues, condividendo le conoscenze e le competenze, per ottenere un prodotto di qualità.
 
 4. ### **Fase di testing:**
 
-   - Il team svolge un testing per verificare che ad ogni issue risolta, non ci fossero errori e che il codice fosse conforme alle regole di sviluppo imposte dal team.
+  - Il team svolge un testing per verificare che ad ogni issue risolta, non ci fossero errori e che il codice fosse conforme alle regole di sviluppo imposte dal team.
 
 #### [Ritorna all'Indice](#indice)
 
@@ -723,7 +821,7 @@ per poter migliorare le nostre competenze e conoscenze, e per poter lavorare in 
 Lo *Sprint Goal* era quello di mostrare familiarità con [_Git_](https://git-scm.com/), [_Github_](https://github.com/) e
 il processo Agile.
 - Per questo Sprint si sono decise tutte le regole di sviluppo e di condotta da seguire per il progetto, in modo da
-  garantire un ambiente di lavoro sano e collaborativo. Abbiamo scelto una durata di circa 30m-1h per il daily scrum, 
+  garantire un ambiente di lavoro sano e collaborativo. Abbiamo scelto una durata di circa 30m-1h per il daily scrum,
   in modo da poter discutere i problemi e le soluzioni trovate.
 
 
@@ -732,9 +830,9 @@ il processo Agile.
 
 
 - In questo Sprint, i task riguardavano per lo più documentazione in modo da permettere ai componenti del team di
-    prendere confidenza con gli strumenti e i processi senza aggiungere complicazione dovute all'analisi, alla
-    progettazione e alla stesura di codice. Data quindi la natura delle attività, la **fase di progettazione** non è stata
-    inclusa.
+  prendere confidenza con gli strumenti e i processi senza aggiungere complicazione dovute all'analisi, alla
+  progettazione e alla stesura di codice. Data quindi la natura delle attività, la **fase di progettazione** non è stata
+  inclusa.
 
 
 - Nella **fase di implementazione** si sono risolti gli issue assegnati, in modo da poter prendere confidenza con il
@@ -751,18 +849,18 @@ Lo *Sprint Goal* era quello di preparare il gioco.
   il gioco vero e proprio.
 
 
-- Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue, cercando di calibrare 
-chi avesse più esperienza a scrive codice e chi avesse più esperienza a scrivere documentazione, in modo da poter equilibrare le coppie. Ci sono stati però issue che sono state assegnate a singoli membri, poichè 
-troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro, quest'ultimi sono stati casi sporadici.
-Il team fin da subito ha voluto puntare sulla massima modularità del codice creando un diagramma di classi con prospettiva concettuale ricco di dettagli.
-Le classi sono state divise in package in modo da poter avere una visione più chiara del codice e per poterlo dividere in maniera più efficiente, risutando in un implementazione più pulita e ordinata.
+- Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue, cercando di calibrare
+  chi avesse più esperienza a scrive codice e chi avesse più esperienza a scrivere documentazione, in modo da poter equilibrare le coppie. Ci sono stati però issue che sono state assegnate a singoli membri, poichè
+  troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro, quest'ultimi sono stati casi sporadici.
+  Il team fin da subito ha voluto puntare sulla massima modularità del codice creando un diagramma di classi con prospettiva concettuale ricco di dettagli.
+  Le classi sono state divise in package in modo da poter avere una visione più chiara del codice e per poterlo dividere in maniera più efficiente, risutando in un implementazione più pulita e ordinata.
 
 
 - Nella **fase di progettazione** si sono discusse le soluzioni da adottare per risolvere gli issue assegnati, ogni gruppo da due presentava la propria soluzione e i restanti membri ponevano domande e critiche,
-in modo da poter migliorare la soluzione proposta.
+  in modo da poter migliorare la soluzione proposta.
 
 
-- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione, 
+- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione,
   seguendo le regole di sviluppo imposte dal team.
 
 
@@ -774,7 +872,7 @@ in modo da poter migliorare la soluzione proposta.
 Lo *Sprint Goal* era quello di completare il gioco, assicurando la qualità del software.
 
 - Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue come nello sprint precedente,
-  In particolare. si è scelto di dedicare del tempo alla **manutenzione evolutiva** del codice scritto, 
+  In particolare. si è scelto di dedicare del tempo alla **manutenzione evolutiva** del codice scritto,
   così da ridurre il più possibile _codice ridondante_ però grazie alla visione avuta durante lo sprint precedente queste modifiche sono state ridotte al minimo.
 
 
@@ -782,7 +880,7 @@ Lo *Sprint Goal* era quello di completare il gioco, assicurando la qualità del 
   ai **diagrammi delle classi** e i **diagrammi di sequenza** delle user story principali
 
 
-- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione, 
+- Nella **fase di implementazione** si sono risolti gli issue assegnati come descritto nella fase di progettazione,
   seguendo le regole di sviluppo imposte dal team come negli sprint precedenti, Una volta terminate le user story del codice, il team si è dedicato alla successiva fase di
   manutenzione evolutiva, richiedendo attivamente feedback agli altri membri del gruppo di lavoro, sfruttando i canali
   comunicativi interni al gruppo.
@@ -825,9 +923,9 @@ Lo *Sprint Goal* era quello di completare il gioco, assicurando la qualità del 
 
 # 9 - Analisi Retrospettiva
 - In questa sezione andremo ad analizzare i nostri comportamenti durante lo sviluppo del software
-ed il rispetto delle regole di sviluppo imposte dal team, dal codice di condotta e dal manifesto dello sviluppo agile.
-Si riporteranno i punti forza e debolezza emersi durante lo sviluppo del progetto tramite tabelle ed infine 
-verranno suggeriti i miglioramenti proposti per evitare errori simili in futuro.
+  ed il rispetto delle regole di sviluppo imposte dal team, dal codice di condotta e dal manifesto dello sviluppo agile.
+  Si riporteranno i punti forza e debolezza emersi durante lo sviluppo del progetto tramite tabelle ed infine
+  verranno suggeriti i miglioramenti proposti per evitare errori simili in futuro.
 
 
 
@@ -836,7 +934,7 @@ verranno suggeriti i miglioramenti proposti per evitare errori simili in futuro.
 ### Analisi retrospettiva effettuata il 20/04/2024
 
 L'analisi retrospettiva è iniziata con la creazione di una lavagna Mad-Glad-Sad per raccogliere le sensazioni e le emozioni del team
-dopo  aver chiuso lo Sprint 0. 
+dopo  aver chiuso lo Sprint 0.
 
 Di seguito riportiamo la tabella creata:
 
@@ -881,7 +979,7 @@ In generale conveniamo nell'avere una responsabilità individuale oltre a quella
 
 ### Analisi retrospettiva effettuata il 30/05/2024
 
-L'analisi retrospettiva è partita discutendo insieme del lavoro svolto nello sprint 1 riflettendo su punti di forza e 
+L'analisi retrospettiva è partita discutendo insieme del lavoro svolto nello sprint 1 riflettendo su punti di forza e
 debolezza davanti ad una tabella Mad-Sad-Glad
 
 Di seguito riportiamo la tabella creata:
@@ -928,7 +1026,7 @@ Dopo aver analizzato i punti riportati nella tabella, il team ha deciso di:
 - Parallelizzare di più il lavoro, pur continuando a revisionare il lavoro a vicenda
 
 ## Conclusioni
-Il team conviene nel dire che il lavoro è stato svolto in maniera corretta ma che ci sia sempre un margine di miglioramento, 
+Il team conviene nel dire che il lavoro è stato svolto in maniera corretta ma che ci sia sempre un margine di miglioramento,
 infatti, per esempio, sicuramente programmando prima dell'esecuzione e parallelizzando di più il lavoro si può svolgere il tutto in maniera molto più efficiente.
 
 #### [Ritorna all'Indice](#indice)

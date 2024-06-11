@@ -9,17 +9,17 @@ import it.uniba.app.Thompson.game.util.PawnFigure;
  * {@literal << Boundary >>}
  * Class to communicate errors.
  */
-public final class CommunicateErrorsB {
+public final class CommunicateErrorB {
 
     /**
-     * Attributes of the class CommunicateErrorsB.
+     * Attributes of the class CommunicateErrorB.
      */
     private static final FormatterC FORMATTER_CONTROL = new FormatterC();
 
     /**
      * Constructor for the class CommunicateErrors.
      */
-    private CommunicateErrorsB() { }
+    private CommunicateErrorB() { }
 
     /**
      * Method printMatchNotNull, prints to stdout the match not null message.

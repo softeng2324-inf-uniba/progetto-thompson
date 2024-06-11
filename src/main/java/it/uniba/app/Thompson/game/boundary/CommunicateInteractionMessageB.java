@@ -9,17 +9,17 @@ import it.uniba.app.Thompson.game.util.UserInteractionMessage;
  * {@literal << Boundary >>}
  * Class to communicate interaction messages.
  */
-public final class CommunicateInteractionMessagesB {
+public final class CommunicateInteractionMessageB {
 
     /**
-     * Attributes of the class CommunicateInteractionMessagesB.
+     * Attributes of the class CommunicateInteractionMessageB.
      */
     private static final FormatterC FORMATTER_CONTROL = new FormatterC();
 
     /**
      * Constructor for the class CommunicateInteractionMessages.
      */
-    private CommunicateInteractionMessagesB() { }
+    private CommunicateInteractionMessageB() { }
 
     /**
      * Method printQuittingPlayer, prints to stdout the quitting player message.
