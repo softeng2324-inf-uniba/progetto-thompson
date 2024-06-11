@@ -13,7 +13,10 @@
     - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
     - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
     - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
-
+- ### [**6 - Riepilogo dei Test**](#6---riepilogo-dei-test)
+    - [**6.1 - Strumenti di analisi/testing del codice utilizzati**](#61-strumenti-di-analisitesting-del-codice-utilizzati)
+    - [**6.2 - Presentazione esiti dei test e considerazioni**](#62-presentazione-esiti-dei-test-e-considerazioni)
+    - [**6.3 - Descrizione dei test effettuati**](#63-descrizione-dei-test-effettuati)
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
@@ -40,7 +43,7 @@
 
 ## Partecipanti al progetto
 
-Il team di sviluppatori è composta da:
+Il team di sviluppatori è composto da:
 + **Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))**
 + **Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))**
 + **Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))**
@@ -390,35 +393,61 @@ Le classi testate sono le seguenti:
 
 ![Casi di test](img/RiepilogoDeiTest.png)
 
-- **Esito CheckStyle: Main**
+- **Esito CheckStyle: Generale**
 
-![CheckStyle main](img/Riepilogo%20del%20Test/checkStyleMainReport.png)
+![CheckStyle main](img/CheckStyle.png)
 
-- **Esito CheckStyle: Test**
-
-![CheckStyle test](img/Riepilogo%20del%20Test/checkStyleTestReport.png)
 
 - **Esito SpotBugs: Main**
 
-![SpotBugs main](img/Riepilogo%20del%20Test/spotBugsMainReport.png)
+![SpotBugs main](img/SpostBugs_Main.png)
 
 - **Esito SpotBugs: Test**
 
-![SpotBugs test](img/Riepilogo%20del%20Test/spotBugsTestReport.png)
+![SpotBugs test](img/SpotBugs_Tests.png)
 
 - **Esito PMD: Main**
 
-![PMD Main](img/Riepilogo%20del%20Test/PMDMainReport.png)
+![PMD Main](img/PMD_Main.png)
 
 - **Esito PMD: Test**
 
-![PMD Test](img/PMDMainReport.png)
+![PMD Test](img/PMD_Test.png)
 
 - **Esito Build (GitHub Actions)**
 
 ![Build](img/Riepilogo%20del%20Test/buildSuccessful.png)
-#### [Ritorna all'Indice](#indice)
 
+
+## 6.3 Descrizione dei test effettuati
+
+
+Seguendo l'organizzazione canonica della test suite è stata redatta una classe di test per ogni classe del software a
+eccezione delle classi Boundary, in quanto è stato applicato il principio di presentazione separata, e Error, in
+quanto non presentano metodi da testare.
+Tutte le classi di test sono state raggruppate in un unica directory denominata "test" separata dal resto del codice e la
+struttura delle classi in essa contenuta rispecchia la struttura delle classi nella directory principale.
+Inoltre tutte le classi di test presentano il suffisso "Test" per facilitare la loro individuazione.
+
+I test sono stati effettuati utilizzando dei criteri **black-box** (o funzionali), ovvero selezionando i casi di test
+esclusivamente a partire dalle specifiche e senza conoscere la struttura interna del software.
+I criteri adottati sono:
+
+- **Suddivisione in classi di equivalenza**: i casi di test sono stati selezionati in modo da coprire tutti i possibili
+  casi d'input, raggruppando i valori in classi di equivalenza.
+- **State-based testing**: i casi di test sono stati selezionati in modo da coprire tutti i possibili stati in cui può
+  trovarsi il sistema (prima e dopo l'esecuzione del test).
+
+
+Alcuni test sono stati ripetuti più volte con parametri od oggetti diversi, in modo da coprire tutti i casi possibili.
+
+
+Come criterio di terminazione del testing è stato adottato il criterio di copertura delle classi di equivalenza, ovvero
+si è deciso di terminare il testing quando tutti i casi di test relativi a tutte le classi di equivalenza sono stati
+eseguiti.
+
+
+#### [Ritorna all'Indice](#indice)
 
 
 # 7 - Manuale Utente 
