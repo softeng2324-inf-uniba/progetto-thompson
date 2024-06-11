@@ -385,6 +385,16 @@ Questo comando avvierà il gioco Ataxx
         <p align="center">
           <img src="img/move_switchturn.png" alt="esempio di una mossa 1" width="70%"/>
         <summary>Visualizza Dettagli</summary>
+        <h4>Scenario 6:</h4>
+        Pareggio di una partita dopo una mossa:
+        <p align="center">
+          <img src="img/draw.png" alt="esempio di una mossa 1" width="95%"/>
+        <summary>Visualizza Dettagli</summary>
+        <h4>Scenario 7:</h4>
+        Vittoria di una partita dopo una mossa:
+        <p align="center">
+          <img src="img/win.png" alt="esempio di una mossa 1" width="95%"/>
+        <summary>Visualizza Dettagli</summary>
     </details>
 
 - ### Al comando `/esci`:
