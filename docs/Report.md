@@ -553,9 +553,14 @@ sua esecuzione, per questo lasciamo una guida completa di tutti i passaggi prepa
 - Come prima cosa bisogna installare l'applicazione [Docker Desktop](https://www.docker.com/products/docker-desktop/) e verificarne la corretta installazione
 - Autenticarsi su Docker con github access token tramite CLI come segue:
 
-<h2 id="github"> <img src="img/Github-logo.png" alt="github logo" height="60"> Creazione Token per il Docker login</h2>
 
-Verificare di utilizzare uno dei terminali supportati riportati in
+
+<img src="img/Github-logo.png" align="left" width="5%"/>
+<h2 id="docker"> Creazione Token per il Docker login</h2>
+
+<br clear="left"/>
+Verificare di utilizzare uno dei terminali supportati riportati in 
+
 
 - [Requisiti non funzionali](#312---non-funzionali)
 
@@ -580,7 +585,10 @@ Per ottenere un token per l'accesso alle risorse di GitHub, segui i passaggi des
 
 A questo punto si è pronti per accedere a Docker tramite Github PAT
 
-<h2 id="docker"> <img src="img/Docker-logo.png" alt="Docker logo" height="55" > Autenticazione Docker ed Avvio </h2>
+<img src="img/Docker-logo.png" align="left" width="10%"/>
+<h2 id="docker"> Docker Login con GitHub Access Token</h2>
+
+<br clear="left"/>
 
 1. **Copia del token su un file `.txt`**:
 
@@ -716,6 +724,99 @@ Questo comando avvierà il gioco Ataxx
       <summary>Visualizza Dettagli</summary>
     </details>
 
+- ### Al comando `/mosse`:
+    <details open>
+        Permette di mostrare tutte le mosse eseguite durante il corso di una partita.
+        <p align="center">
+          <img src="img/move_list.jpeg" alt="lista delle mosse"/>
+        </p>
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al comando `/blocca`:
+    <details open>
+        Permette di bloccare fino ad un massimo di 9 caselle, non è possibile bloccare ogni mossa possibile di una delle 4 pedine iniziali. 
+        <h4>Scenario 1:</h4>
+        Esempio di esecuzione corretta del comando:
+        <p align="center">
+          <img src="img/block.jpeg" alt="blocco di una casella"/>
+        </p>
+        <h4>Scenario 2:</h4>
+        Esempio di esecuzione del comando su caselle non esistenti all'interno del tavoliere:
+        <p align="center">
+          <img src="img/block_failed.jpeg" alt="blocco di una casella invalida"/>
+        </p> 
+        <h4>Scenario 3:</h4>
+        Esempio di esecuzione del comando quando si prova a bloccare tutte le mosse possibili di una pedina iniziale:
+        <p align="center">
+          <img src="img/block_adjacent.png" alt="blocco di una casella invalida" width="95%"/>
+        </p> 
+        <h4>Scenario 4:</h4>
+        Esempio di esecuzione del comando dopo aver già bloccato 9 caselle:
+        <p align="center">
+          <img src="img/block_failed_1.jpeg" height="350" alt="blocco di più di nove caselle"/>
+        </p> 
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Al comando `/tempo`:
+    <details open>
+        Mostra all'utente il tempo di gioco qunado è in corso una partita.
+        <h4>Scenario 1:</h4>
+            Esempio di esecuzione corretta del comando 
+        <p align="center">
+          <img src="img/gameTime.jpeg" alt="tempo di gioco"/>
+        </p>
+        <h4>Scenario 2:</h4>
+            Esempio di esecuzione del comando quando non è in corso nessuna partita:
+        <p align="center">
+          <img src="img/gameTimeError.jpeg" alt="tempo di gioco"/>
+        </p>
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
+- ### Esecuzione di una mossa:
+    <details open>
+        Una mossa può essere effettuata senza l'utilizzo di un prefisso di un comando attraverso la digitazione della casella di partenza
+        dove è situata una pedina di proprietà e la casella di arrivo, il comando sarà ad esempio a1-a2 per spostare la pedina presente in 
+        a1 sulla casella a2. Una volta spostata avviene l'eventuale cattura delle pedine circostanti
+        <h4>Scenario 1:</h4>
+            Spostamento di una pedina
+        <p align="center">
+          <img src="img/move_example_1.jpeg" alt="esempio di una mossa 1" height="500"/>
+        </p>
+        <h4>Scenario 2:</h4>
+            Spostamento di una pedina seguito da una cattura
+        <p align="center">
+          <img src="img/move_example_2.jpeg" alt="esempio di una mossa 2" height="500"/>
+        </p>
+        <h4>Scenario 3:</h4>
+            Spostamento di una pedina da una posizione di partenza errata:
+        <p align="center">
+          <img src="img/move_error_example.png" alt="esempio di una mossa 1" width="70%"/>
+        </p>
+        <h4>Scenario 4:</h4>
+            Spostamento di una pedina su una posizione di arrivo errata o non presente sul tavoliere:
+        <p align="center">
+          <img src="img/move_error_example1.png" alt="esempio di una mossa 1" width="70%"/>
+        </p>
+        <h4>Scenario 5:</h4>
+            Dopo una mossa di un giocatore, se l'avversario non ha mosse disponibili, viene mostrato il seguente messaggio:
+        <p align="center">
+          <img src="img/move_switchturn.png" alt="esempio di una mossa 1" width="70%"/>
+        <summary>Visualizza Dettagli</summary>
+        <h4>Scenario 6:</h4>
+        Pareggio di una partita dopo una mossa:
+        <p align="center">
+          <img src="img/draw.png" alt="esempio di una mossa 1" width="95%"/>
+        <summary>Visualizza Dettagli</summary>
+        <h4>Scenario 7:</h4>
+        Vittoria di una partita dopo una mossa:
+        <p align="center">
+          <img src="img/win.png" alt="esempio di una mossa 1" width="95%"/>
+        <summary>Visualizza Dettagli</summary>
+    </details>
+
 - ### Al comando `/esci`:
     <details open>Chiude il gioco e restituisce il controllo al sistema operativo.<p align="center"><img src="img/Esci.png" alt="esci"/></p>
       <h5>In output un messaggio di arrivederci.</h5>
@@ -780,7 +881,7 @@ completamento, significava il completamento delle issue assegnate per lo Sprint 
 |------------|------------------------------------------------------------|-------------|------------|-----------|---------------|
 | 0          | Dimostrare familiarità con GitHub e il processo agile      | 31/03/2024  | 12/04/2024 | 13 giorni | 15-19/04/2024 |
 | 1          | Piccoli comandi                                            | 06/05/2024  | 21/06/2024 | 15 giorni | 30-31/05/2024 |
-| 2          | Completare il gioco, assicurando la qualità del software   | 29/05/2024  | 14/06/2024 | 16 giorni | 13-27/06/2024 | 
+| 2          | Completare il gioco, assicurando la qualità del software   | 29/05/2024  | 12/06/2024 | 15 giorni | 13-27/06/2024 | 
 
 ## 8.3 - Gestione degli Sprint
 
@@ -847,7 +948,7 @@ Lo *Sprint Goal* era quello di preparare il gioco.
 
 - Nella **fase di analisi** abbiamo deciso di assegnare a ciascuna coppia del team un issue, cercando di calibrare
   chi avesse più esperienza a scrive codice e chi avesse più esperienza a scrivere documentazione, in modo da poter equilibrare le coppie. Ci sono stati però issue che sono state assegnate a singoli membri, poichè
-  troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro, quest'ultimi sono stati casi sporadici.
+  troppo semplici e quindi non abbiamo avuto bisogno di dividere il lavoro.
   Il team fin da subito ha voluto puntare sulla massima modularità del codice creando un diagramma di classi con prospettiva concettuale ricco di dettagli.
   Le classi sono state divise in package in modo da poter avere una visione più chiara del codice e per poterlo dividere in maniera più efficiente, risutando in un implementazione più pulita e ordinata.
 
