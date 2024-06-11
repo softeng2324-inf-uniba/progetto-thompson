@@ -7,14 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CoordinateTest {
+    private static final int CONSTANT_SIX = 6;
+    private static final int CONSTANT_FOUR = 4;
+    private static final int CONSTANT_THREE = 3;
 
     @Test
     @DisplayName("plus: tests if the addition of two coordinates is correct")
     void testPlus() {
         Coordinate x = new Coordinate(1, 2);
-        Coordinate y = new Coordinate(3, 4);
+        Coordinate y = new Coordinate(CONSTANT_THREE, CONSTANT_FOUR);
         Coordinate result = Coordinate.plus(x, y);
-        Coordinate expected = new Coordinate(4, 6);
+        Coordinate expected = new Coordinate(CONSTANT_FOUR, CONSTANT_SIX);
         assertEquals(expected, result, "Coordinates are correctly calculated");
     }
 
@@ -22,7 +25,7 @@ class CoordinateTest {
     @DisplayName("abs: tests if the absolute difference between two coordinates is correct")
     void testAbs() {
         Coordinate x = new Coordinate(1, 2);
-        Coordinate y = new Coordinate(3, 4);
+        Coordinate y = new Coordinate(CONSTANT_THREE, CONSTANT_FOUR);
         Coordinate result = Coordinate.abs(x, y);
         Coordinate expected = new Coordinate(2, 2);
 
@@ -64,7 +67,7 @@ class CoordinateTest {
     @DisplayName("equal: tests if the comparison between two different coordinates is false")
     void testEqualsFalse() {
         Coordinate x = new Coordinate(1, 2);
-        Coordinate y = new Coordinate(3, 4);
+        Coordinate y = new Coordinate(CONSTANT_THREE, CONSTANT_FOUR);
         Assertions.assertNotEquals(x, y, "Coordinates are not equal");
     }
 
@@ -89,7 +92,8 @@ class CoordinateTest {
     }
 
     @Test
-    @DisplayName("toBoardString: tests if the conversion of a coordinate with an invalid x value to a string throws an exception")
+    @DisplayName("toBoardString: tests if the conversion "
+            + "of a coordinate with an invalid x value to a string throws an exception")
     void testToBoardStringInvalidFirst() {
         Coordinate coordinate = new Coordinate(1, -1);
         assertThrows(InvalidCoordinate.class, coordinate::toBoardString,
@@ -97,7 +101,8 @@ class CoordinateTest {
     }
 
     @Test
-    @DisplayName("toBoardString: tests if the conversion of a coordinate with an invalid y value to a string throws an exception")
+    @DisplayName("toBoardString: tests if the conversion "
+             + "of a coordinate with an invalid y value to a string throws an exception")
     void testToBoardStringInvalidSecond() {
         Coordinate coordinate = new Coordinate(-1, 1);
         assertThrows(InvalidCoordinate.class, coordinate::toBoardString,

@@ -10,13 +10,17 @@
     - [**3.1.2 - Non Funzionali**](#312---non-funzionali)
   - [**3.2 - Requisiti Sprint 2**](#32---requisiti-funzionali-sprint-2)
 - ### [**4 - System Design**](#4---system-design)
-  - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
-  - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
-  - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
+    - [**4.1 - Diagramma dei Pacchetti**](#41---diagramma-dei-pacchetti)
+    - [**4.2 - Architettura dell'Applicazione**](#42-architettura-dellapplicazione)
+    - [**4.3 - Commenti sulle decisioni prese**](#43-commenti-sulle-decisioni)
 - ### [**5 - Object Oriented Design**](#5---object-oriented-design)
   - [**5.1 - Diagrammi di Classi e Sequenza**](#51---diagrammi-di-classi-e-sequenza)
   - [**5.2 - Design Pattern**](#52---design-pattern)
   - [**5.3 - Principi di OO Design**](#53-principi-di-oo-design)
+- ### [**6 - Riepilogo dei Test**](#6---riepilogo-dei-test)
+    - [**6.1 - Strumenti di analisi/testing del codice utilizzati**](#61-strumenti-di-analisitesting-del-codice-utilizzati)
+    - [**6.2 - Presentazione esiti dei test e considerazioni**](#62-presentazione-esiti-dei-test-e-considerazioni)
+    - [**6.3 - Descrizione dei test effettuati**](#63-descrizione-dei-test-effettuati)
 - ### [**7 - Manuale Utente**](#7---manuale-utente)
   - [**7.1 - Procedura Preliminare**](#71---procedura-preliminare)
 
@@ -43,7 +47,7 @@
 
 ## Partecipanti al progetto
 
-Il team di sviluppatori è composta da:
+Il team di sviluppatori è composto da:
 + **Michele Pontrelli ([MikiMik88](https://github.com/MikiMik88))**
 + **Francesco Sgaramella ([FraSga03](https://github.com/FraSga03))**
 + **Andrea Porcelli ([f1r3k3rn](https://github.com/f1r3k3rn))**
@@ -74,7 +78,7 @@ Il giocatore può modificare la dimensione della griglia partendo da una 4x4, co
 
 # 2 - Modello di Dominio
 - Il seguente diagramma rappresenta il modello di dominio dell'applicazione Ataxx, realizzata utilizzando il web software [Lucidchart](https://www.lucidchart.com/)
-  ![img_Modello_di_dominio](img/Modello_di_dominio.png)
+  ![img_Modello_di_dominio](../drawings/Modello_di_dominio.png)
 
 #### [Ritorna all'Indice](#indice)
 
@@ -209,7 +213,7 @@ Di seguito vengono riportati i requisiti funzionali e non funzionali del progett
 
 ## 4.1 - Diagramma dei Pacchetti
 Il seguente diagramma rappresenta la struttura dei pacchetti utilizzati per implementare il progetto, realizzato utilizzando il software [StarUML](https://staruml.io/)
-<p align="center"><img src="img/System_Design.png" alt="System_Design" width="95%"/></p>
+<p align="center"><img src="../drawings/System_Design.png" alt="System_Design" width="95%"/></p>
 
 ## 4.2 Architettura dell'Applicazione
 
@@ -334,29 +338,29 @@ gli attributi e metodi rilevanti al fine della user story protagonista del diagr
 leggibile e comprensibile possibile.
 - **[RF2](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/25):** Come giocatore voglio iniziare una nuova partita
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/Play_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/Play_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/PlayCommand_Sequence_Design.png" alt="" width="95%"/></p>
     <br></br>
 
 - **[RF5](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/22):** Come giocatore voglio visualizzare le mosse possibili di una pedina
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/AvailableMoves_Class_Design.png" alt="" width="95%"/></p>
     <br></br>
 
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/AvailableMovesCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 - **[RF6](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/23):** Come giocatore voglio abbandonare la partita
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/QuitCommand_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
   
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/QuitCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 - **[RF8](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/62)-[RF9](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/63)-[RF10](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/64)-[RF13](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/66):** 
@@ -366,20 +370,20 @@ leggibile e comprensibile possibile.
   - Come giocatore voglio visualizzare il fine partita con il vincitore e i punti segnati
   <br></br>
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/Actions_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/Actions_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
 
     - **Diagramma di Sequenza**
-    <p align="center"><img src="img/Actions_Sequence_Design.png" alt="" width="95%"/></p>
+    <p align="center"><img src="../drawings/Actions_Sequence_Design.png" alt="" width="95%"/></p>
         <br></br>
   
 - **[RF15](https://github.com/softeng2324-inf-uniba/progetto-thompson/issues/61):** Come giocatore voglio impostare caselle non accessibili
   - **Diagramma delle Classi**
-  <p align="center"><img src="img/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/BlockCommand_Class_Design.png" alt="" width="95%"/></p>
   <br></br>
   
   - **Diagramma di Sequenza**
-  <p align="center"><img src="img/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
+  <p align="center"><img src="../drawings/BlockCommand_Sequence_Design.png" alt="" width="95%"/></p>
   <br></br>
 
 ### Spiegazione Scelta RF8-9-10-13
@@ -390,6 +394,7 @@ tutte poiché centrali nell'applicazione, ma allo stesso tempo preservare la chi
 evitando ripetizioni che potrebbero risultare confusionarie per il lettore.
 
 #### [Ritorna all'Indice](#indice)
+
 
 ## 5.2 - Design Pattern
 Tutte le classi ***Control*** che gestiscono i comandi dell'applicazione sono state implementate utilizzando il design pattern [**Singleton**](https://refactoring.guru/design-patterns/singleton),
@@ -404,7 +409,8 @@ creando una nuova classe che estende la classe astratta ***Command***, implement
 Di seguito viene riportato un diagramma che spiega nel dettaglio come i design pattern sopra citati sono stati implementati nel progetto,
 riportando l'esempio di un singolo comando per comodità di rappresentazione:
 
-<p align="center"><img src="img/Design_Pattern.png" alt="" width="95%"/></p>
+
+<p align="center"><img src="../drawings/Design_Pattern.png" alt="" width="95%"/></p>
   <br></br>
 
 
@@ -444,6 +450,95 @@ I principi **SOLID** sono intesi come linee guida per lo sviluppo di software le
 - **Liskov Substitution**: le classi che implementano dei comandi sono le uniche che estendono un'altra classe, e vengono utilizzate al posto del padre correttamente, essendo vitali per il funzionamento dell'intera applicazione
 - **Interface Segregation**: non sono state utilizzate interfacce
 - **Dependency Inversion**: le classi che implementano dei comandi dipendono esclusivamente dalla classe astratta ***Command***
+
+
+#### [Ritorna all'Indice](#indice)
+
+
+# 6 - Riepilogo dei Test
+
+
+## 6.1 Strumenti di analisi/testing del codice utilizzati
+
+
+- [JUnit 5](https://junit.org/junit5/)
+
+
+- [Checkstyle](https://checkstyle.sourceforge.io/)
+
+
+- [Spotbugs](https://spotbugs.github.io/)
+
+
+- [PMD](https://pmd.github.io/)
+
+
+## 6.2 Presentazione esiti dei test e considerazioni
+
+Nello Sprint 2, il gruppo "Thompson" si è adoperato per effettuare l'attività di Verification&Validation (V&V) che si
+suddivide in un processo statico (finalizzato all'analisi del codice con Checkstyle, Spotbugs e PMD) e un processo
+dinamico (finalizzato alla creazione di casi di test con JUnit 5 e verifica del funzionamento dei metodi).
+
+Di seguito vengono presentati gli esiti delle fasi di test.
+
+Sono stati implementati un totale di **108** casi di test per verificare il corretto funzionamento dei metodi delle classi del package **control** , **entity** e **util**.
+
+Le classi testate sono le seguenti:
+
+![Casi di test](img/RiepilogoDeiTest.png)
+
+- **Esito CheckStyle: Generale**
+
+![CheckStyle main](img/CheckStyle.png)
+
+
+- **Esito SpotBugs: Main**
+
+![SpotBugs main](img/SpostBugs_Main.png)
+
+- **Esito SpotBugs: Test**
+
+![SpotBugs test](img/SpotBugs_Tests.png)
+
+- **Esito PMD: Main**
+
+![PMD Main](img/PMD_Main.png)
+
+- **Esito PMD: Test**
+
+![PMD Test](img/PMD_Test.png)
+
+- **Esito Build (GitHub Actions)**
+
+![Build](img/Gradle_build.png)
+
+
+## 6.3 Descrizione dei test effettuati
+
+
+Seguendo l'organizzazione canonica della test suite è stata redatta una classe di test per ogni classe del software a
+eccezione delle classi Boundary, in quanto è stato applicato il principio di presentazione separata, e Error, in
+quanto non presentano metodi da testare.
+Tutte le classi di test sono state raggruppate in un unica directory denominata "test" separata dal resto del codice e la
+struttura delle classi in essa contenuta rispecchia la struttura delle classi nella directory principale.
+Inoltre tutte le classi di test presentano il suffisso "Test" per facilitare la loro individuazione.
+
+I test sono stati effettuati utilizzando dei criteri **black-box** (o funzionali), ovvero selezionando i casi di test
+esclusivamente a partire dalle specifiche e senza conoscere la struttura interna del software.
+I criteri adottati sono:
+
+- **Suddivisione in classi di equivalenza**: i casi di test sono stati selezionati in modo da coprire tutti i possibili
+  casi d'input, raggruppando i valori in classi di equivalenza.
+- **State-based testing**: i casi di test sono stati selezionati in modo da coprire tutti i possibili stati in cui può
+  trovarsi il sistema (prima e dopo l'esecuzione del test).
+
+
+Alcuni test sono stati ripetuti più volte con parametri od oggetti diversi, in modo da coprire tutti i casi possibili.
+
+
+Come criterio di terminazione del testing è stato adottato il criterio di copertura delle classi di equivalenza, ovvero
+si è deciso di terminare il testing quando tutti i casi di test relativi a tutte le classi di equivalenza sono stati
+eseguiti.
 
 
 #### [Ritorna all'Indice](#indice)

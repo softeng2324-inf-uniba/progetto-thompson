@@ -4,12 +4,17 @@ import it.uniba.app.Thompson.game.util.Coordinate;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import it.uniba.app.Thompson.game.error.NegativeTime;
 import java.util.Queue;
 
 class MatchETest {
-    static MatchE match;
+    private static MatchE match;
+    public static final int MILLIS = 6000;
+    public static final int NEGATIVE_MILLIS = -6000;
 
     @BeforeAll
     static void setUp() {
@@ -28,7 +33,7 @@ class MatchETest {
     @DisplayName("formatMillis: tests if the milliseconds are correctly formatted in case of a positive number")
     void testFormatMillis() {
         try {
-            assertEquals("00:00:06", MatchE.formatMillis(6000), "Millis are correctly formatted");
+            assertEquals("00:00:06", MatchE.formatMillis(MILLIS), "Millis are correctly formatted");
         } catch (NegativeTime e) {
             System.out.println("Something went wrong with the time formatting");
         }
@@ -37,7 +42,7 @@ class MatchETest {
     @Test
     @DisplayName("formatMillis: tests if the method throws an exception in case of a negative number")
     void testFormatMillisNegative() {
-        assertThrows(NegativeTime.class, () -> MatchE.formatMillis(-6000),
+        assertThrows(NegativeTime.class, () -> MatchE.formatMillis(NEGATIVE_MILLIS),
                 "Negative millis throw negative time exception");
     }
 
@@ -52,7 +57,8 @@ class MatchETest {
     }
 
     @Test
-    @DisplayName("formatMillis: tests if the milliseconds are correctly formatted in case of the upper limit of long type")
+    @DisplayName("formatMillis: tests if the milliseconds are correctly"
+            + " formatted in case of the upper limit of long type")
     void testFormatMillisUpperLimit() {
         try {
             assertNotNull(MatchE.formatMillis(Long.MAX_VALUE), "Long upper limit millis are formatted");
@@ -62,9 +68,11 @@ class MatchETest {
     }
 
     @Test
-    @DisplayName("formatMillis: tests if the method throws an exception in case of a the under the limit of the long type")
+    @DisplayName("formatMillis: tests if the method throws"
+           + " an exception in case of a the under the limit of the long type")
     void testFormatMillisUnderLimit() {
-        assertThrows(NegativeTime.class, () -> MatchE.formatMillis(Long.MIN_VALUE), "Long under limit millis throws negative time exception");
+        assertThrows(NegativeTime.class, () -> MatchE.formatMillis(Long.MIN_VALUE),
+                "Long under limit millis throws negative time exception");
     }
 
     @Test
@@ -111,7 +119,7 @@ class MatchETest {
         assertTrue(flag, "MatchE copy constructor works correctly");
     }
 
-    private boolean boardEquals(BoardE board1, BoardE board2) {
+    private boolean boardEquals(final BoardE board1, final BoardE board2) {
         int i = 0;
         boolean isEqual = true;
         TileE[] tiles1 = board1.getTiles();

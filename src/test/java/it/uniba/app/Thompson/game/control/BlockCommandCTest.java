@@ -1,11 +1,11 @@
-package it.uniba.app.control;
-import it.uniba.app.Thompson.game.control.BlockCommandC;
-import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.MainControl;
+package it.uniba.app.Thompson.game.control;;
 import it.uniba.app.Thompson.game.entity.BoardE;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class BlockCommandCTest {
 
@@ -92,10 +92,11 @@ class BlockCommandCTest {
 
     @Test
     @DisplayName("BlockCommandCTest: invalid number of arguments")
-    void PlayCommandCInvalidArgumentsTest() {
+    void playCommandCInvalidArgumentsTest() {
         CommandC blockCommandC = BlockCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
 
-        Assertions.assertThrows(InvalidArguments.class, () -> blockCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+        Assertions.assertThrows(InvalidArguments.class, () -> blockCommandC.executeCommand(dummyArgs),
+        "Invalid number of arguments");
     }
 }

@@ -23,7 +23,7 @@ public final class BlockCommandC extends CommandC {
      **/
     private static final String COMMAND = "/blocca";
     private static final String DESCRIPTION = "Prima di iniziare permette di bloccare una casella del tavoliere"
-        + "(max 9)";
+            + "(max 9)";
     private static final int ARGUMENT_COUNT = 1;
     private static final BlockCommandC INSTANCE = new BlockCommandC();
 

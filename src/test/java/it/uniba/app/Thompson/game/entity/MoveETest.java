@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MoveETest {
+    private static final int INVALID_COORDINATE = -2;
+    private static final int VALID_COORDINATE = 2;
+
     @Test
     @DisplayName("toBoardString: tests if the conversion of a valid move to a string is correct")
     void testToBoardStringValid() {
@@ -21,10 +24,11 @@ class MoveETest {
     }
 
     @Test
-    @DisplayName("toBoardString: tests if the conversion of a move with an invalid start coordinate throws an exception")
+    @DisplayName("toBoardString: tests if the conversion "
+            + "of a move with an invalid start coordinate throws an exception")
     void testToBoardStringInvalidStart() {
         Coordinate start = new Coordinate(-1, -1);
-        Coordinate end = new Coordinate(2, 2);
+        Coordinate end = new Coordinate(VALID_COORDINATE, VALID_COORDINATE);
         MoveE move = new MoveE(start, end);
         assertThrows(InvalidCoordinate.class, move::toBoardString,
                 "Invalid coordinate to convert");
@@ -34,7 +38,7 @@ class MoveETest {
     @DisplayName("toBoardString: tests if the conversion of a move with an invalid end coordinate throws an exception")
     void testToBoardStringInvalidEnd() {
         Coordinate start = new Coordinate(0, 0);
-        Coordinate end = new Coordinate(-2, -2);
+        Coordinate end = new Coordinate(INVALID_COORDINATE, INVALID_COORDINATE);
         MoveE move = new MoveE(start, end);
         assertThrows(InvalidCoordinate.class, move::toBoardString,
                 "Invalid coordinate to convert");
@@ -44,7 +48,8 @@ class MoveETest {
     @DisplayName("toBoardString: tests if the conversion of a move with both invalid coordinates throws an exception")
     void testToBoardStringInvalidBoth() {
         Coordinate start = new Coordinate(-1, -1);
-        Coordinate end = new Coordinate(-2, -2);
+
+        Coordinate end = new Coordinate(INVALID_COORDINATE, INVALID_COORDINATE);
         MoveE move = new MoveE(start, end);
         assertThrows(InvalidCoordinate.class, move::toBoardString,
                 "Invalid coordinate to convert");

@@ -1,6 +1,4 @@
-package it.uniba.app.control;
-import it.uniba.app.Thompson.game.control.CommandC;
-import it.uniba.app.Thompson.game.control.VoidCommandC;
+package it.uniba.app.Thompson.game.control;
 import it.uniba.app.Thompson.game.error.InvalidArguments;
 import it.uniba.app.Thompson.game.util.CommandStatus;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +20,8 @@ class VoidCommandCTest {
         CommandC voidCommandC = VoidCommandC.getInstance();
         String[] dummyArgs = {"dummy1", "dummy2", "dummy3"};
 
-        Assertions.assertThrows(InvalidArguments.class, () -> voidCommandC.executeCommand(dummyArgs), "Invalid number of arguments");
+        Assertions.assertThrows(InvalidArguments.class, () -> voidCommandC.executeCommand(dummyArgs), "Invalid"
+                                + " number of arguments");
     }
 
 }
